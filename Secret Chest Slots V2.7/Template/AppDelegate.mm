@@ -89,7 +89,7 @@
 	
     //lots of your initialization code
     
-    if (shoudlStartPushWoosh == @YES) {
+    if ([shoudlStartPushWoosh  isEqual: @YES]) {
         NSLog(@"STARTING PUSHWOOSH!");
         //-----------PUSHWOOSH PART-----------
         // set custom delegate for push handling, in our case - view controller
