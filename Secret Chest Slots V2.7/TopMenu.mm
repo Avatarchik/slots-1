@@ -305,7 +305,7 @@
 {
     CCLabelTTF *winL = [CCLabelBMFont labelWithString:@"Win:" fntFile:kFONT_MENU];
     winL.anchorPoint  = ccp(0.5f, 0.5f);
-    winL.position     = ccp((winBg.position.x - winBg.boundingBox.size.width*0.55) + winL.boundingBox.size.width, menu_line.position.y);
+    winL.position     = ccp((winBg.position.x - winBg.boundingBox.size.width*0.55) + winL.boundingBox.size.width, menu_line.position.y  - 280);
     winL.color        = ccWHITE;
     if (iPhone3) { winL.scale = 0.65f;  winL.position = ccp((winBg.position.x - winBg.boundingBox.size.width*0.60f) + winL.boundingBox.size.width, menu_line.position.y);}
     if (IS_STANDARD_IPHONE_6_PLUS) {
