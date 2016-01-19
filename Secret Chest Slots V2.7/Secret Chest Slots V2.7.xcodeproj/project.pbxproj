@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
+		229588691C4DB3D600014B8F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588631C4DB3D500014B8F /* GameScene.m */; };
+		2295886A1C4DB3D600014B8F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 229588641C4DB3D500014B8F /* GameScene.sks */; };
+		2295886B1C4DB3D600014B8F /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588661C4DB3D500014B8F /* GameViewController.m */; };
+		2295886C1C4DB3D600014B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229588671C4DB3D500014B8F /* Main.storyboard */; };
+		2295886D1C4DB3D600014B8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229588681C4DB3D500014B8F /* LaunchScreen.storyboard */; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
 		846A30E11828E35D00C32146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A30E01828E35D00C32146 /* Images.xcassets */; };
@@ -695,6 +700,13 @@
 
 /* Begin PBXFileReference section */
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		229588621C4DB3D500014B8F /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		229588631C4DB3D500014B8F /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		229588641C4DB3D500014B8F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		229588651C4DB3D500014B8F /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		229588661C4DB3D500014B8F /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		229588671C4DB3D500014B8F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		229588681C4DB3D500014B8F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -2468,6 +2480,13 @@
 			children = (
 				2227073F1C431488005383CF /* ReadMe */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
+				229588621C4DB3D500014B8F /* GameScene.h */,
+				229588631C4DB3D500014B8F /* GameScene.m */,
+				229588641C4DB3D500014B8F /* GameScene.sks */,
+				229588651C4DB3D500014B8F /* GameViewController.h */,
+				229588661C4DB3D500014B8F /* GameViewController.m */,
+				229588671C4DB3D500014B8F /* Main.storyboard */,
+				229588681C4DB3D500014B8F /* LaunchScreen.storyboard */,
 				C9DBED101B7D2DED00EA53BD /* IDSTOREPLACE.h */,
 				C98A3BCF1B94F68E004208A9 /* Images */,
 				FA640CCE18278517002472B7 /* Sound */,
@@ -3830,6 +3849,7 @@
 				F55D646F17D602BC00F3B2C6 /* 128.png in Resources */,
 				FAC02672180FCB6C00979301 /* sp_wheel.pvr.ccz in Resources */,
 				C9D047441B8DC64900DA2D3E /* rateapp.png in Resources */,
+				2295886D1C4DB3D600014B8F /* LaunchScreen.storyboard in Resources */,
 				F55D647017D602BC00F3B2C6 /* 256.fnt in Resources */,
 				FA548172181FFB9A00EC88DD /* wheel1-hd.png in Resources */,
 				C90DC8BB1B9B687600BDCBDA /* bg1_1-ipad.plist in Resources */,
@@ -3860,6 +3880,7 @@
 				FA548144181F8DF400EC88DD /* coins_fly_iPhone.pvr.ccz in Resources */,
 				FA1628C918166D4B002F580A /* sp_bottom_menu-ipad.plist in Resources */,
 				FA1628CA18166D4B002F580A /* sp_bottom_menu-ipad.pvr.ccz in Resources */,
+				2295886C1C4DB3D600014B8F /* Main.storyboard in Resources */,
 				FA640D2E1827D785002472B7 /* 30_S.fnt in Resources */,
 				FA69F2221818F1BE00F4970E /* coming_soon.png in Resources */,
 				FA0C9DEB17F954A9003F2285 /* 32.fnt in Resources */,
@@ -4081,6 +4102,7 @@
 				FA69F2601818F68900F4970E /* lock-ipadhd.png in Resources */,
 				FA640D281827D785002472B7 /* 16_S.fnt in Resources */,
 				C90DC8CD1B9B688500BDCBDA /* bg0_1-ipadhd.plist in Resources */,
+				2295886A1C4DB3D600014B8F /* GameScene.sks in Resources */,
 				FA69F26E1818F6F700F4970E /* sp_popup-ipadhd.plist in Resources */,
 				FA822D38182140EF0096DF01 /* card_background-ipad.png in Resources */,
 				FA640CFF1827853F002472B7 /* s_10.wav in Resources */,
@@ -4282,6 +4304,7 @@
 				FA589A3F17BEDAEA00E38432 /* b2ChainAndPolygonContact.cpp in Sources */,
 				FA589A4217BEDAEA00E38432 /* b2CircleContact.cpp in Sources */,
 				FA589A4517BEDAEA00E38432 /* b2Contact.cpp in Sources */,
+				229588691C4DB3D600014B8F /* GameScene.m in Sources */,
 				FA589A4817BEDAEA00E38432 /* b2ContactSolver.cpp in Sources */,
 				FA589A4B17BEDAEA00E38432 /* b2EdgeAndCircleContact.cpp in Sources */,
 				FA589A4E17BEDAEA00E38432 /* b2EdgeAndPolygonContact.cpp in Sources */,
@@ -4393,6 +4416,7 @@
 				FA589C3017BF8F2100E38432 /* GHSkeletalAnimationCache.mm in Sources */,
 				FA589C3117BF8F2100E38432 /* GHSkeleton.mm in Sources */,
 				FA589C3217BF8F2100E38432 /* GHSprite.mm in Sources */,
+				2295886B1C4DB3D600014B8F /* GameViewController.m in Sources */,
 				FA589C3317BF8F2100E38432 /* GHSpriteBatchNode.mm in Sources */,
 				F532D3C617C354470035456B /* Menu.mm in Sources */,
 				F532D3CC17C390C40035456B /* CCScrollLayer.mm in Sources */,
