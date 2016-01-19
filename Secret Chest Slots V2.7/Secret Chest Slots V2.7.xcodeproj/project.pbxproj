@@ -484,7 +484,6 @@
 		FA589A8017BEDAEB00E38432 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA589A7F17BEDAEB00E38432 /* main.m */; };
 		FA589A8317BEDAEB00E38432 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8217BEDAEB00E38432 /* AppDelegate.mm */; };
 		FA589A8617BEDAEB00E38432 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */; };
-		FA589A8917BEDAEB00E38432 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8817BEDAEB00E38432 /* IntroLayer.mm */; };
 		FA589A8C17BEDAEB00E38432 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */; };
 		FA589A8E17BEDAEC00E38432 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = FA589A8D17BEDAEC00E38432 /* blocks.png */; };
 		FA589ACD17BEDC3200E38432 /* LHMouseJointExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A9A17BEDC3200E38432 /* LHMouseJointExt.mm */; };
@@ -1437,8 +1436,6 @@
 		FA589A8217BEDAEB00E38432 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Template/AppDelegate.mm; sourceTree = "<group>"; };
 		FA589A8417BEDAEB00E38432 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = Template/HelloWorldLayer.h; sourceTree = "<group>"; };
 		FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = HelloWorldLayer.mm; path = Template/HelloWorldLayer.mm; sourceTree = "<group>"; };
-		FA589A8717BEDAEB00E38432 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = Template/IntroLayer.h; sourceTree = "<group>"; };
-		FA589A8817BEDAEB00E38432 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IntroLayer.mm; path = Template/IntroLayer.mm; sourceTree = "<group>"; };
 		FA589A8A17BEDAEB00E38432 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Template/GLES-Render.h"; sourceTree = "<group>"; };
 		FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "GLES-Render.mm"; path = "Template/GLES-Render.mm"; sourceTree = "<group>"; };
 		FA589A8D17BEDAEC00E38432 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
@@ -3445,8 +3442,6 @@
 				FA589A8217BEDAEB00E38432 /* AppDelegate.mm */,
 				FA589A8417BEDAEB00E38432 /* HelloWorldLayer.h */,
 				FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */,
-				FA589A8717BEDAEB00E38432 /* IntroLayer.h */,
-				FA589A8817BEDAEB00E38432 /* IntroLayer.mm */,
 				FA589A8A17BEDAEB00E38432 /* GLES-Render.h */,
 				FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */,
 			);
@@ -4329,7 +4324,6 @@
 				FA589A8017BEDAEB00E38432 /* main.m in Sources */,
 				FA589A8317BEDAEB00E38432 /* AppDelegate.mm in Sources */,
 				FA589A8617BEDAEB00E38432 /* HelloWorldLayer.mm in Sources */,
-				FA589A8917BEDAEB00E38432 /* IntroLayer.mm in Sources */,
 				FA589A8C17BEDAEB00E38432 /* GLES-Render.mm in Sources */,
 				FA589ACD17BEDC3200E38432 /* LHMouseJointExt.mm in Sources */,
 				FA589ACE17BEDC3200E38432 /* NSData+LHAES256.m in Sources */,
