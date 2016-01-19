@@ -674,7 +674,8 @@
             }
              [AUDIO playEffect:s_click1];
            // [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
-            [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];//node]];
+#warning EF
+//            [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];//node]];
 
             }], nil]];
 
