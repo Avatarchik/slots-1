@@ -699,6 +699,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2214557C1C4EE8290052B029 /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		229588621C4DB3D500014B8F /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		229588631C4DB3D500014B8F /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
@@ -3295,6 +3296,7 @@
 				FA589B2217BEDE6D00E38432 /* Singelton.h */,
 				FA589B2317BEDE6D00E38432 /* Singelton.m */,
 				FA589B2417BEDE6D00E38432 /* Strings.h */,
+				2214557C1C4EE8290052B029 /* NodeNames.h */,
 			);
 			path = cfg;
 			sourceTree = "<group>";
@@ -4448,6 +4450,7 @@
 		FA589A8F17BEDAEC00E38432 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -4483,6 +4486,7 @@
 		FA589A9017BEDAEC00E38432 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
