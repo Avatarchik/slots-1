@@ -3,7 +3,7 @@
 
 #define k_APPORIENTATION_PORTRAIT NO
 
-#define ScreenSize [CCDirector sharedDirector].winSize
+#define ScreenSize [UIScreen mainScreen].bounds.size
 
 #define IS_IPHONE   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IPAD     (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
