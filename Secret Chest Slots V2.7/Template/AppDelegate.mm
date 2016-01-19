@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "HelloWorldLayer.h"
+#import "Lobby.h"
 #import "Menu.h"
 #import "BBXBeeblex.h"
 #import "ALSdk.h"
@@ -221,13 +221,13 @@
 
 -(BOOL)inMenu{
     
-#warning EF write - bool is HelloWorldLayer is currently on screen.
+#warning EF write - bool is Lobby is currently on screen.
     return YES;
 //    CCScene *scene = [director_ runningScene];
 //    
 //    for (CCNode *n in scene.children)
 //    {
-//        if (n.tag == 999 && [n isKindOfClass:[HelloWorldLayer class]]){
+//        if (n.tag == 999 && [n isKindOfClass:[Lobby class]]){
 //            return YES;
 //        }
 //    }
@@ -258,14 +258,14 @@
   //  NSLog(@"running scene is %@. children %@",[director_ runningScene],[[director_ runningScene]children]);
 
     
-#warning EF - rewrite, if the scene's HelloWorldLayer is a child, then UPdate SB
+#warning EF - rewrite, if the scene's Lobby is a child, then UPdate SB
 //    
 //    CCScene *scene = [director_ runningScene];
 //    
 //    for (CCNode *n in scene.children)
 //    {
-//        if (n.tag == 999 && [n isKindOfClass:[HelloWorldLayer class]]){
-//            //[(HelloWorldLayer*)n UPDATE_SPECIAL_BONUS];
+//        if (n.tag == 999 && [n isKindOfClass:[Lobby class]]){
+//            //[(Lobby*)n UPDATE_SPECIAL_BONUS];
 //            [self.SB UPDATE_ME];
 //            //[SB updateBonusLabel];
 //        }

@@ -9,7 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "Constants.h"
-#import "HelloWorldLayer.h"
+#import "Lobby.h"
 
 @implementation GameViewController
 
@@ -25,7 +25,7 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    SKScene* lobbyScene = [HelloWorldLayer scene];
+    SKScene* lobbyScene = [Lobby scene];
     lobbyScene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

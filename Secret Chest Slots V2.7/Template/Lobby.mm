@@ -1,5 +1,5 @@
 //
-//  HelloWorldLayer.mm
+//  Lobby.mm
 //  Template
 //
 //  Created by Slavian on 2013-08-17.
@@ -7,7 +7,7 @@
 //
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "Lobby.h"
 
 // Not included in "cocos2d.h"
 #import "CCPhysicsSprite.h"
@@ -32,13 +32,13 @@ enum {
 };
 
 
-#pragma mark - HelloWorldLayer
+#pragma mark - Lobby
 
-@interface HelloWorldLayer()
+@interface Lobby()
 @property (nonatomic, strong) Menu* runMenu;
 @end
 
-@implementation HelloWorldLayer
+@implementation Lobby
 
 
 
@@ -50,7 +50,7 @@ enum {
     CGRect window = [[UIScreen mainScreen] bounds];
     SKScene* scene = [SKScene sceneWithSize:window.size];
     
-	HelloWorldLayer *lobbyNode = [HelloWorldLayer node];
+	Lobby *lobbyNode = [Lobby node];
     [scene addChild:lobbyNode];
     
 	return scene;

@@ -483,7 +483,7 @@
 		FA589A7A17BEDAEB00E38432 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA589A7917BEDAEB00E38432 /* b2Rope.cpp */; };
 		FA589A8017BEDAEB00E38432 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA589A7F17BEDAEB00E38432 /* main.m */; };
 		FA589A8317BEDAEB00E38432 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8217BEDAEB00E38432 /* AppDelegate.mm */; };
-		FA589A8617BEDAEB00E38432 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */; };
+		FA589A8617BEDAEB00E38432 /* Lobby.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8517BEDAEB00E38432 /* Lobby.mm */; };
 		FA589A8C17BEDAEB00E38432 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */; };
 		FA589A8E17BEDAEC00E38432 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = FA589A8D17BEDAEC00E38432 /* blocks.png */; };
 		FA589ACD17BEDC3200E38432 /* LHMouseJointExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A9A17BEDC3200E38432 /* LHMouseJointExt.mm */; };
@@ -1434,8 +1434,8 @@
 		FA589A7F17BEDAEB00E38432 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA589A8117BEDAEB00E38432 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Template/AppDelegate.h; sourceTree = "<group>"; };
 		FA589A8217BEDAEB00E38432 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Template/AppDelegate.mm; sourceTree = "<group>"; };
-		FA589A8417BEDAEB00E38432 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = Template/HelloWorldLayer.h; sourceTree = "<group>"; };
-		FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = HelloWorldLayer.mm; path = Template/HelloWorldLayer.mm; sourceTree = "<group>"; };
+		FA589A8417BEDAEB00E38432 /* Lobby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Lobby.h; path = Template/Lobby.h; sourceTree = "<group>"; };
+		FA589A8517BEDAEB00E38432 /* Lobby.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = Lobby.mm; path = Template/Lobby.mm; sourceTree = "<group>"; };
 		FA589A8A17BEDAEB00E38432 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Template/GLES-Render.h"; sourceTree = "<group>"; };
 		FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "GLES-Render.mm"; path = "Template/GLES-Render.mm"; sourceTree = "<group>"; };
 		FA589A8D17BEDAEC00E38432 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
@@ -3440,8 +3440,8 @@
 			children = (
 				FA589A8117BEDAEB00E38432 /* AppDelegate.h */,
 				FA589A8217BEDAEB00E38432 /* AppDelegate.mm */,
-				FA589A8417BEDAEB00E38432 /* HelloWorldLayer.h */,
-				FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */,
+				FA589A8417BEDAEB00E38432 /* Lobby.h */,
+				FA589A8517BEDAEB00E38432 /* Lobby.mm */,
 				FA589A8A17BEDAEB00E38432 /* GLES-Render.h */,
 				FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */,
 			);
@@ -4323,7 +4323,7 @@
 				FA589A7A17BEDAEB00E38432 /* b2Rope.cpp in Sources */,
 				FA589A8017BEDAEB00E38432 /* main.m in Sources */,
 				FA589A8317BEDAEB00E38432 /* AppDelegate.mm in Sources */,
-				FA589A8617BEDAEB00E38432 /* HelloWorldLayer.mm in Sources */,
+				FA589A8617BEDAEB00E38432 /* Lobby.mm in Sources */,
 				FA589A8C17BEDAEB00E38432 /* GLES-Render.mm in Sources */,
 				FA589ACD17BEDC3200E38432 /* LHMouseJointExt.mm in Sources */,
 				FA589ACE17BEDC3200E38432 /* NSData+LHAES256.m in Sources */,

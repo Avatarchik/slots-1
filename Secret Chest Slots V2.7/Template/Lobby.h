@@ -1,5 +1,5 @@
 //
-//  HelloWorldLayer.h
+//  Lobby.h
 //  Template
 //
 //  Created by Slavian on 2013-08-17.
@@ -23,8 +23,8 @@
 //to define the ratio so that your most common object type is 1x1 metre.
 #define PTM_RATIO 32
 
-// HelloWorldLayer
-@interface HelloWorldLayer : SKNode
+// Lobby
+@interface Lobby : SKNode
 {
 	CCTexture2D *spriteTexture_;	// weak ref
 	b2World* world;					// strong ref
@@ -36,7 +36,7 @@
     CCSpriteBatchNode *BG_;
 }
 
-// returns a SKScene that contains the HelloWorldLayer as the only child
+// returns a SKScene that contains the Lobby as the only child
 +(SKScene *) scene;
 
 //-(void)closeTopMenu1;

@@ -4,7 +4,7 @@
 #import "TopMenu.h"
 #import "BottomMenu.h"
 #import "ClippingNode.h"
-#import "HelloWorldLayer.h"
+#import "Lobby.h"
 #import "SimpleAudioEngine.h"
 #import "SlotMachine.h"
 #import "SCombinations.h"

@@ -3,7 +3,7 @@
 #import "Constants.h"
 #import "Menu.h"
 #import "SCombinations.h"
-#import "HelloWorldLayer.h"
+#import "Lobby.h"
 
 #import "SimpleAudioEngine.h"
 #import "Exp.h"
@@ -675,7 +675,7 @@
              [AUDIO playEffect:s_click1];
            // [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
 #warning EF
-//            [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];//node]];
+//            [[CCDirector sharedDirector] replaceScene:[Lobby scene]];//node]];
 
             }], nil]];
 
@@ -754,7 +754,7 @@
 //            [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
 //        }
 //        
-//        [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer node]];
+//        [[CCDirector sharedDirector] replaceScene:[Lobby node]];
         
     }
     
