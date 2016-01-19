@@ -17,7 +17,6 @@
 #import "LevelHelperLoader.h"
 #import "SpecialBonus.h"
 
-
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
 //Box2D is optimized for objects of 1x1 metre therefore it makes sense
@@ -25,7 +24,7 @@
 #define PTM_RATIO 32
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer 
+@interface HelloWorldLayer : SKNode
 {
 	CCTexture2D *spriteTexture_;	// weak ref
 	b2World* world;					// strong ref
@@ -37,8 +36,8 @@
     CCSpriteBatchNode *BG_;
 }
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
-+(CCScene *) scene;
+// returns a SKScene that contains the HelloWorldLayer as the only child
++(SKScene *) scene;
 
 //-(void)closeTopMenu1;
 
