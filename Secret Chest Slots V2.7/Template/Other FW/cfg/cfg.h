@@ -12,6 +12,8 @@
 #import "Exp.h"
 #import "SoundManager.h"
 #import "SimpleAudioEngine.h"
+#import "NodeNames.h"
+
 
 #define delegater        (AppDelegate *)[[UIApplication sharedApplication] delegate]
 
