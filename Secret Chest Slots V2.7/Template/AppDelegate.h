@@ -12,7 +12,7 @@
 #import <Chartboost/Chartboost.h>
 #import <Pushwoosh/PushNotificationManager.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ChartboostDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ChartboostDelegate, PushNotificationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SpecialBonus *SB;
 
