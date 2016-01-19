@@ -34,16 +34,13 @@ enum {
 #pragma mark - HelloWorldLayer
 
 @interface HelloWorldLayer()
--(void) initPhysics;
--(void) addNewSpriteAtPosition:(CGPoint)p;
--(void) createMenu;
+//-(void) initPhysics;
+//-(void) addNewSpriteAtPosition:(CGPoint)p;
+//-(void) createMenu;
+@property (nonatomic, strong) Menu* runMenu;
 @end
 
-@implementation HelloWorldLayer{
-    
-    Menu *runMenu;
-    
-}
+@implementation HelloWorldLayer
 
 +(CCScene *) scene
 {
@@ -57,9 +54,12 @@ enum {
 {
 	if( (self=[super init]))
     {
+        
+        /// Create a loading view
         UIView *view__ = [[[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_MACHINE]autorelease];
         view__.tag = kLOADINGTAG;
         
+        /// present that loading view if one isnt already on screen.
         if (![[[CCDirector sharedDirector] openGLView]viewWithTag:kLOADINGTAG]) {
             [[[CCDirector sharedDirector] openGLView]addSubview:view__];
         }
@@ -73,14 +73,12 @@ enum {
 //        [self addChild:BG_];
         
         
- 
+        /// Add a background Layer
         CCSprite *background = [CCSprite spriteWithFile:[NSString stringWithFormat:@"sp_background.png"]];
         background.position  = ccp(kWidthScreen / 2, kHeightScreen / 2);
         [self addChild:background];
         
-       
-        
-        [self runMenu];
+        [self showRunMenu];
     }
 	return self;
 }
@@ -88,23 +86,17 @@ enum {
 
 
 -(void)UPDATE_SPECIAL_BONUS{
-    
-    SpecialBonus *SB = [runMenu GET_SPECIAL_BONUS];
-    
+    SpecialBonus *SB = [self.runMenu GET_SPECIAL_BONUS];
     [SB UPDATE_ME];
-    
 }
 
--(void)runMenu
+-(void)showRunMenu
 {
-    runMenu = [[[Menu alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen) type:1 level:kLEVEL] autorelease];
-    
-    runMenu.anchorPoint = ccp(0, 0);
-    runMenu.position    = ccp(0, 0);
-    [self addChild:runMenu];
-    
-   
-    
+    /// Create Menu and display.
+    self.runMenu = [[[Menu alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen) type:1 level:kLEVEL] autorelease];
+    self.runMenu.anchorPoint = ccp(0, 0);
+    self.runMenu.position    = ccp(0, 0);
+    [self addChild:self.runMenu];
 }
 
 
@@ -197,17 +189,17 @@ enum {
         }
 	}
 }
-
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-}
-
-
-- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
-{
-    
-}
+//
+//- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    
+//}
+//
+//
+//- (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
+//{
+//    
+//}
 
 
 //-(void) tick: (ccTime) dt

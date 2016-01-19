@@ -40,7 +40,7 @@
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
--(void)closeTopMenu1;
+//-(void)closeTopMenu1;
 
 //custom
 
