@@ -103,7 +103,7 @@ enum {
     #warning EF
     return;
     /// Create Menu and display.
-    self.runMenu = [[[Menu alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen) type:1 level:kLEVEL] autorelease];
+    self.runMenu = [[Menu alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen) type:1 level:kLEVEL] ;
     self.runMenu.anchorPoint = ccp(0, 0);
     self.runMenu.position    = ccp(0, 0);
 //    [self addChild:self.runMenu];
@@ -132,17 +132,6 @@ enum {
 //    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 //    [super onEnter];
 //}
-
--(void) dealloc
-{
-	delete world;
-	world = NULL;
-	
-	delete m_debugDraw;
-	m_debugDraw = NULL;
-	
-	[super dealloc];
-}
 
 
 @end

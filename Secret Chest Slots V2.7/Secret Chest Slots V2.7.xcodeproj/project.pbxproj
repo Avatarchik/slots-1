@@ -483,7 +483,7 @@
 		FA589A7A17BEDAEB00E38432 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA589A7917BEDAEB00E38432 /* b2Rope.cpp */; };
 		FA589A8017BEDAEB00E38432 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA589A7F17BEDAEB00E38432 /* main.m */; };
 		FA589A8317BEDAEB00E38432 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8217BEDAEB00E38432 /* AppDelegate.mm */; };
-		FA589A8617BEDAEB00E38432 /* Lobby.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8517BEDAEB00E38432 /* Lobby.mm */; };
+		FA589A8617BEDAEB00E38432 /* Lobby.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8517BEDAEB00E38432 /* Lobby.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		FA589A8C17BEDAEB00E38432 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A8B17BEDAEB00E38432 /* GLES-Render.mm */; };
 		FA589A8E17BEDAEC00E38432 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = FA589A8D17BEDAEC00E38432 /* blocks.png */; };
 		FA589ACD17BEDC3200E38432 /* LHMouseJointExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA589A9A17BEDC3200E38432 /* LHMouseJointExt.mm */; };
