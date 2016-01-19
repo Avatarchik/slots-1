@@ -100,11 +100,12 @@ enum {
 
 -(void)showRunMenu
 {
+    #warning EF
+    return;
     /// Create Menu and display.
     self.runMenu = [[[Menu alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen) type:1 level:kLEVEL] autorelease];
     self.runMenu.anchorPoint = ccp(0, 0);
     self.runMenu.position    = ccp(0, 0);
-    #warning EF
 //    [self addChild:self.runMenu];
 }
 
