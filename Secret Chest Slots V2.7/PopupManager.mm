@@ -1,7 +1,6 @@
 #import "PopupManager.h"
 #import "cfg.h"
 #import "Constants.h"
-
 #import "SettingsWindows.h"
 #import "PayTableWindow.h"
 #import "BuyCoinsWindow.h"
@@ -185,7 +184,7 @@
         BonusMenu.position      = ccp(BonusMenu.position.x, kHeightScreen - kHeightScreen*1.3f);
         [self addChild:BonusMenu z:14 tag:kSpeWindowTAG];
         
-        [(AppController *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
+        [(AppDelegate *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
         
          
         //[BonusMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:ccp(BonusMenu.position.x, 0)] rate:1]];
