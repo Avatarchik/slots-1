@@ -579,7 +579,7 @@
         }
         else if (![Combinations checkNSDEFAULTS_Bool_ForKey:sound_music]) {
             [onLabel setString:@"ON"];
-            if ( [(AppController *)[[UIApplication sharedApplication] delegate]inMenu]) {
+            if ( [(AppDelegate *)[[UIApplication sharedApplication] delegate]inMenu]) {
                  AUDIO.backgroundMusicVolume = 0.5f;
             }
             else AUDIO.backgroundMusicVolume = 0.35f;
