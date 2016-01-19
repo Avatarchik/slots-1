@@ -23,13 +23,20 @@
 #define kLockTag        1111
 #define kCoomTag        2222
 
-@implementation Menu{
-    CCSprite* RateApp;
-    CCSprite* FreeApp;
-    CCSprite* MoreGames;
-    CCSprite* PlayTables;
-    TopMenu *TMenu;
-}
+
+
+@interface Menu()
+
+@property (nonatomic, strong) CCSprite* rateApp;
+@property (nonatomic, strong) CCSprite* freeApp;
+@property (nonatomic, strong) CCSprite* moreGames;
+@property (nonatomic, strong) CCSprite* playTables;
+@property (nonatomic, strong) TopMenu*  tMenu;
+
+@end
+
+
+@implementation Menu
 
 //-(NSString*)prefix
 //{
@@ -118,35 +125,35 @@
     }
     
 
-    RateApp = [CCSprite spriteWithFile:@"rateapp.png"];
-    FreeApp = [CCSprite spriteWithFile:@"freegames.png"];
-    MoreGames = [CCSprite spriteWithFile:@"moregames.png"];
-    PlayTables = [CCSprite spriteWithFile:@"paytables.png"];
+    self.rateApp = [CCSprite spriteWithFile:@"rateapp.png"];
+    self.freeApp = [CCSprite spriteWithFile:@"freegames.png"];
+    self.moreGames = [CCSprite spriteWithFile:@"moregames.png"];
+    self.playTables = [CCSprite spriteWithFile:@"paytables.png"];
     
     
     if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9)
     {
-            RateApp = [CCSprite spriteWithFile:@"rateappipad.png"];
-            FreeApp = [CCSprite spriteWithFile:@"freegamesipad.png"];
-            MoreGames = [CCSprite spriteWithFile:@"moregamesipad.png"];
-            PlayTables = [CCSprite spriteWithFile:@"paytablesipad.png"];
+            self.rateApp = [CCSprite spriteWithFile:@"rateappipad.png"];
+            self.freeApp = [CCSprite spriteWithFile:@"freegamesipad.png"];
+            self.moreGames = [CCSprite spriteWithFile:@"moregamesipad.png"];
+            self.playTables = [CCSprite spriteWithFile:@"paytablesipad.png"];
     }
-    RateApp.position = CGPointMake(self.boundingBox.size.width/8*1,self.boundingBox.size.height/3);
-    [RateApp setScale:0.6];
-    RateApp.tag = 1901;
-    FreeApp.position = CGPointMake(self.boundingBox.size.width/8*3,self.boundingBox.size.height/3);
-    [FreeApp setScale:0.6];
-    FreeApp.tag = 1902;
-    MoreGames.position = CGPointMake(self.boundingBox.size.width/8*5,self.boundingBox.size.height/3);
-    [MoreGames setScale:0.6];
-    MoreGames.tag = 1903;
-    PlayTables.position = CGPointMake(self.boundingBox.size.width/8*7,self.boundingBox.size.height/3);
-    [PlayTables setScale:0.6];
-    PlayTables.tag = 1904;
-     [self addChild:RateApp];
-     [self addChild:FreeApp];
-     [self addChild:MoreGames];
-     [self addChild:PlayTables];
+    self.rateApp.position = CGPointMake(self.boundingBox.size.width/8*1,self.boundingBox.size.height/3);
+    [self.rateApp setScale:0.6];
+    self.rateApp.tag = 1901;
+    self.freeApp.position = CGPointMake(self.boundingBox.size.width/8*3,self.boundingBox.size.height/3);
+    [self.freeApp setScale:0.6];
+    self.freeApp.tag = 1902;
+    self.moreGames.position = CGPointMake(self.boundingBox.size.width/8*5,self.boundingBox.size.height/3);
+    [self.moreGames setScale:0.6];
+    self.moreGames.tag = 1903;
+    self.playTables.position = CGPointMake(self.boundingBox.size.width/8*7,self.boundingBox.size.height/3);
+    [self.playTables setScale:0.6];
+    self.playTables.tag = 1904;
+     [self addChild:self.rateApp];
+     [self addChild:self.freeApp];
+     [self addChild:self.moreGames];
+     [self addChild:self.playTables];
     
     return self;
 }
@@ -540,7 +547,7 @@
     }
     else if (CGRectContainsPoint([self getChildByTag:1902].boundingBox,      touchPos))
     {
-        [TMenu openBuyWindow_withNR:@1];
+        [self.tMenu openBuyWindow_withNR:@1];
     }
     else if (CGRectContainsPoint([self getChildByTag:1903].boundingBox,      touchPos))
     {
@@ -739,13 +746,13 @@
         
         int exp_    = [DB_ getValueBy:d_Exp table:d_DB_Table];
         
-        TMenu = [[[TopMenu alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.8f, kWidthScreen, kHeightScreen * 0.2f) type:menuType experience:exp_ coins:coins_] autorelease];
+        self.tMenu = [[[TopMenu alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.8f, kWidthScreen, kHeightScreen * 0.2f) type:menuType experience:exp_ coins:coins_] autorelease];
         
-        TMenu.anchorPoint = ccp(0,0);
-        TMenu.position = ccp(TMenu.position.x, kHeightScreen);
-        [self addChild:TMenu z:11 tag:kTopMenuTAG];
+        self.tMenu.anchorPoint = ccp(0,0);
+        self.tMenu.position = ccp(self.tMenu.position.x, kHeightScreen);
+        [self addChild:self.tMenu z:11 tag:kTopMenuTAG];
         
-        [TMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.0f position:ccp(0, 0)] rate:1]];
+        [self.tMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.0f position:ccp(0, 0)] rate:1]];
     }
 }
 
