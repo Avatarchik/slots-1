@@ -8,6 +8,8 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "Constants.h"
+#import "HelloWorldLayer.h"
 
 @implementation GameViewController
 
@@ -23,11 +25,11 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene nodeWithFileNamed:@"GameScene"];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    SKScene* lobbyScene = [HelloWorldLayer scene];
+    lobbyScene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:lobbyScene];
 }
 
 - (BOOL)shouldAutorotate
