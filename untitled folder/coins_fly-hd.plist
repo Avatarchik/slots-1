@@ -4,18 +4,18 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>sp_arrow-ipadhd.pvr.ccz</key>
+            <key>coins_fly-hd.pvr.ccz</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{65,128}</string>
+                <string>{128,128}</string>
                 <key>spriteSourceSize</key>
-                <string>{67,130}</string>
+                <string>{128,128}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{65,128}}</string>
+                <string>{{1,1},{128,128}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -25,13 +25,13 @@
             <key>format</key>
             <integer>3</integer>
             <key>realTextureFileName</key>
-            <string>sp_arrow-ipadhd.png</string>
+            <string>coins_fly-hd.png</string>
             <key>size</key>
-            <string>{67,130}</string>
+            <string>{130,130}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8bf0f33d6dd644096e9723027a1ede1f:e9299f4f0158810f4ebd643ab56c1eb1:5223576b3e013722d0b98676189e1653$</string>
+            <string>$TexturePacker:SmartUpdate:eb9539f9bde39b74e7777bf6b199215d:f377ad518b8f84ce3831ffec2ff07226:1cb26ebdad815c609eb405e0b0861007$</string>
             <key>textureFileName</key>
-            <string>sp_arrow-ipadhd.png</string>
+            <string>coins_fly-hd.png</string>
         </dict>
     </dict>
 </plist>

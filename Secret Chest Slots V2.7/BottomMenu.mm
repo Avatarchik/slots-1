@@ -655,20 +655,16 @@
 
 -(void)boostButtonsActv:(CCSprite *)node_ frame:(CCSpriteFrame *)frame_ int_:(int)int__
 {
-
     [(Reels *)[_parent getChildByTag:kReelsTag_] allBoostDeactivate];
     
     if (int__ == numberOfBoost) {
-            
         [boost2xBtn setDisplayFrame:x2Btn_notActive];
         [boost3xBtn setDisplayFrame:x3Btn_notActive];
         [boost4xBtn setDisplayFrame:x4Btn_notActive];
         [boost5xBtn setDisplayFrame:x5Btn_notActive];
         
         [self hideBoostsIndicator];
-        
         numberOfBoost = 0;
-    
         return;
     }
     

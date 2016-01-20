@@ -4,32 +4,34 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>arrow.png</key>
+            <key>sp_arrow-hd.pvr.ccz</key>
             <dict>
-                <key>frame</key>
-                <string>{{2,2},{30,59}}</string>
-                <key>offset</key>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
                 <string>{0,0}</string>
-                <key>rotated</key>
+                <key>spriteSize</key>
+                <string>{32,61}</string>
+                <key>spriteSourceSize</key>
+                <string>{34,63}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{32,61}}</string>
+                <key>textureRotated</key>
                 <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{30,59}}</string>
-                <key>sourceSize</key>
-                <string>{30,59}</string>
             </dict>
         </dict>
         <key>metadata</key>
         <dict>
             <key>format</key>
-            <integer>2</integer>
+            <integer>3</integer>
             <key>realTextureFileName</key>
-            <string>sp_arrow-hd.pvr.ccz</string>
+            <string>sp_arrow-hd.png</string>
             <key>size</key>
             <string>{34,63}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:981b41cf632742bdbd0ba50af2802191$</string>
+            <string>$TexturePacker:SmartUpdate:3f850d6792347641eded9b4108fc0bdb:7bd41fec99aae2a219340c46a5d1c1cc:abd9be64baa5cddc33c62b54270b8c37$</string>
             <key>textureFileName</key>
-            <string>sp_arrow-hd.pvr.ccz</string>
+            <string>sp_arrow-hd.png</string>
         </dict>
     </dict>
 </plist>

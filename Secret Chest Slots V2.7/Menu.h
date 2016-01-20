@@ -7,9 +7,10 @@
 #import "PopupManager.h"
 #import "SpecialBonus.h"
 #import "coinsFA.h"
+#import <SpriteKit/SpriteKit.h>
 
 
-@interface Menu : CCSprite <CCScrollLayerDelegate, CCTouchOneByOneDelegate>
+@interface Menu : SKSpriteNode <CCScrollLayerDelegate, CCTouchOneByOneDelegate>
 {
     CCSpriteBatchNode *MENU_;
     
@@ -59,7 +60,7 @@
 
 }
 
--(void)closeTopMenu;
+//-(void)closeTopMenu;
 -(void)closeBottomMenu;
 
 

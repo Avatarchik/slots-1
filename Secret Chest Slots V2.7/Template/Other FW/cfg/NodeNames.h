@@ -7,6 +7,8 @@
 //
 
 #define kNodeLobby @"kNodeLobby";
+#define kNodeTopMenu @"kNodeTopMenu";
+
 //#define kNodeLobby @"kNodeLobby";
 //#define kNodeLobby @"kNodeLobby";
 //#define kNodeLobby @"kNodeLobby";

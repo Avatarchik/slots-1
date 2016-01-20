@@ -76,7 +76,30 @@
         
     }
     
-    
+    CCDirectorIOS* director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
+	CCGLView *glView = [CCGLView viewWithFrame:[[UIScreen mainScreen] bounds]
+								   pixelFormat:kEAGLColorFormatRGB565
+								   depthFormat:0
+							preserveBackbuffer:NO
+									sharegroup:nil
+								 multiSampling:NO
+							   numberOfSamples:0];
+
+	// Enable multiple touches
+	[glView setMultipleTouchEnabled:NO];
+
+	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
+
+	director_.wantsFullScreenLayout = YES;
+
+	// Display FSP and SPF
+	[director_ setDisplayStats:NO];
+
+	// set FPS at 60
+	[director_ setAnimationInterval:1.0/60];
+	
+	// attach the openglView to the director
+	[director_ setView:glView];
     return YES;
     
     

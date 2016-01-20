@@ -4,18 +4,18 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>sp_arrow-ipadhd.pvr.ccz</key>
+            <key>bg0_1-ipadhd.pvr.ccz</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{65,128}</string>
+                <string>{1418,866}</string>
                 <key>spriteSourceSize</key>
-                <string>{67,130}</string>
+                <string>{1420,868}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{65,128}}</string>
+                <string>{{1,1},{1418,866}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -25,13 +25,13 @@
             <key>format</key>
             <integer>3</integer>
             <key>realTextureFileName</key>
-            <string>sp_arrow-ipadhd.png</string>
+            <string>bg0_1-ipadhd.png</string>
             <key>size</key>
-            <string>{67,130}</string>
+            <string>{1420,868}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:8bf0f33d6dd644096e9723027a1ede1f:e9299f4f0158810f4ebd643ab56c1eb1:5223576b3e013722d0b98676189e1653$</string>
+            <string>$TexturePacker:SmartUpdate:dc20019d36a3b977d5220f3158f6c585:83d341828b4fde2414886a1bf07fdff5:5728dbb8ca4265d598f5e455767db831$</string>
             <key>textureFileName</key>
-            <string>sp_arrow-ipadhd.png</string>
+            <string>bg0_1-ipadhd.png</string>
         </dict>
     </dict>
 </plist>
