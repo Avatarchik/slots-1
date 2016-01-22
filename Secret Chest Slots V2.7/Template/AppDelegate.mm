@@ -24,6 +24,17 @@
 @implementation AppDelegate
 
 
+
+-(GameViewController *)gameViewController{
+    UIViewController* rootVC = self.window.rootViewController;
+    if([rootVC isKindOfClass:[GameViewController class]])
+    {
+        return (GameViewController*) rootVC;
+    }
+    return  nil;
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Create the main window
