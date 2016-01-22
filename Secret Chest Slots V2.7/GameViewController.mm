@@ -10,12 +10,21 @@
 #import "GameScene.h"
 #import "Constants.h"
 #import "Lobby.h"
+#import "NodeNames.h"
+#import "b6luxLoadingView.h"
+#import "cfg.h"
+
+@interface GameViewController()
+@property (nonatomic, readonly) SKScene* scene;
+
+@end
 
 @implementation GameViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addDidBecomeActiveNotification];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -30,6 +39,42 @@
     
     // Present the scene.
     [skView presentScene:lobbyScene];
+}
+
+-(SKScene*) scene
+{
+    SKView* skView = (SKView*)self.view;
+    SKScene* scene = skView.scene;
+    return scene;
+}
+
+-(void)animationLoadingCheck{
+    
+    BOOL wasRunning = [b6luxLoadingView removeLoadingViewFromSuperView:self.view];
+    // If it was running, create a loading view and display it.
+    if (wasRunning) {
+        [b6luxLoadingView loadingViewInSuperView:self.view loadingType:kLOADING_PURCHASE];
+    }
+}
+
+
+/******************************************************
+ */
+#pragma mark - UIApplicationDidBecomeActiveNotification
+/*
+ ********************************************************/
+
+-(void) addDidBecomeActiveNotification{
+    [self removeDidBecomeActiveNotification];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notif_applicationDidBecomeActive:)     name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+-(void) removeDidBecomeActiveNotification{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+-(void) notif_applicationDidBecomeActive:(NSNotification*) notification{
+    [self animationLoadingCheck];
 }
 
 - (BOOL)shouldAutorotate
@@ -54,6 +99,11 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+
+-(void)dealloc{
+    [self removeDidBecomeActiveNotification];
 }
 
 @end
