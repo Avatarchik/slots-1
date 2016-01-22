@@ -217,23 +217,27 @@
     // Get touch node.
     SKNode* node = [self nodeFromTouches:touches inParentNode:self];
     
-    if([node isEqualToNode:self.rateApp])
-    {
-        [self.rateApp setTexture:[SKTexture textureWithImageNamed:@"rateapp_pressed.png"]];
-    }
-    else if([node isEqualToNode:self.freeApp])
-    {
-        [self.freeApp setTexture:[SKTexture textureWithImageNamed:@"freegames_pressed.png"]];
-    }
-    else if([node isEqualToNode:self.moreGames])
-    {
-        [self.moreGames setTexture:[SKTexture textureWithImageNamed:@"moregames_pressed.png"]];
-    }
-    else if([node isEqualToNode:self.playTables])
-    {
-        [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables_pressed.png"]];
-    }
-    else if([node isEqualToNode:self.slotIcon])
+//    if([node isEqualToNode:self.rateApp])
+//    {
+//        [self.rateApp setTexture:[SKTexture textureWithImageNamed:@"rateapp_pressed.png"]];
+//    }
+//    else if([node isEqualToNode:self.freeApp])
+//    {
+//        [self.freeApp setTexture:[SKTexture textureWithImageNamed:@"freegames_pressed.png"]];
+//    }
+//    else if([node isEqualToNode:self.moreGames])
+//    {
+//        [self.moreGames setTexture:[SKTexture textureWithImageNamed:@"moregames_pressed.png"]];
+//    }
+//    else if([node isEqualToNode:self.playTables])
+//    {
+//        [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables_pressed.png"]];
+//    }
+//    else if([node isEqualToNode:self.slotIcon])
+//    {
+//        [self.slotIcon setScale:0.9];
+//    }
+    if([node isEqualToNode:self.slotIcon])
     {
         [self.slotIcon setScale:0.9];
     }
@@ -243,10 +247,10 @@
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     #warning EF create sprite texture cache
-    [self.rateApp setTexture:   [SKTexture textureWithImageNamed:@"rateapp.png"]];
-    [self.freeApp setTexture:   [SKTexture textureWithImageNamed:@"freegames.png"]];
-    [self.moreGames setTexture: [SKTexture textureWithImageNamed:@"moregames.png"]];
-    [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables.png"]];
+//    [self.rateApp setTexture:   [SKTexture textureWithImageNamed:@"rateapp.png"]];
+//    [self.freeApp setTexture:   [SKTexture textureWithImageNamed:@"freegames.png"]];
+//    [self.moreGames setTexture: [SKTexture textureWithImageNamed:@"moregames.png"]];
+//    [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables.png"]];
     [self.slotIcon setScale:1.2];
 
     SKNode* node = [self nodeFromTouches:touches inParentNode:self];
