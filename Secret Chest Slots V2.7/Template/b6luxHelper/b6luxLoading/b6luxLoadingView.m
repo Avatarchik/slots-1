@@ -13,14 +13,24 @@
 #import "SCombinations.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+
+
 @implementation b6luxLoadingView
 
++(instancetype) loadingViewWithLoadingType:(NSInteger) type{
+    return [b6luxLoadingView loadingViewInSuperView:[GAMEVIEWCONTROLLER view] loadingType:type];
+}
 
 +(instancetype) loadingViewInSuperView:(UIView*) superView loadingType:(NSInteger) type{
     b6luxLoadingView *loadingView = [[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_PURCHASE];
     [superView addSubview:loadingView];
     loadingView.tag = kLOADINGTAG;
     return loadingView;
+}
+
++(BOOL) removeLoadingView{
+    return [b6luxLoadingView removeLoadingViewFromSuperView: [GAMEVIEWCONTROLLER view]];
 }
 
 +(BOOL) removeLoadingViewFromSuperView:(UIView*) superView{
@@ -44,7 +54,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [[CCDirector sharedDirector] openGLView].userInteractionEnabled = NO;
+//        [[CCDirector sharedDirector] openGLView].userInteractionEnabled = NO;
+        self.userInteractionEnabled = NO;
         switch (loading) {
                 //kLOADING_PURCHASE
             case 1:[self imagesLoad];break;

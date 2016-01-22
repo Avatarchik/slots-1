@@ -13,12 +13,13 @@
     
 }
 
++(instancetype) loadingViewWithLoadingType:(NSInteger) type;
++(BOOL) removeLoadingView;
 
-+(instancetype) loadingViewInSuperView:(UIView*) superView loadingType:(NSInteger) type;
-+(BOOL) removeLoadingViewFromSuperView:(UIView*) superView;
+//+(instancetype) loadingViewInSuperView:(UIView*) superView loadingType:(NSInteger) type;
+//+(BOOL) removeLoadingViewFromSuperView:(UIView*) superView;
 
 - (id)initWithFrame:(CGRect)frame loading:(int)loading;
-
--(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
--(void)loadingON;
+- (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
+- (void)loadingON;
 @end
