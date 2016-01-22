@@ -10,7 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 
-@interface Menu : SKSpriteNode <CCScrollLayerDelegate, CCTouchOneByOneDelegate>
+@interface Menu : SKSpriteNode //<CCScrollLayerDelegate, CCTouchOneByOneDelegate>
 {
     CCSpriteBatchNode *MENU_;
     
@@ -44,7 +44,6 @@
     CCSprite *goRightButton;
     CCSprite *goLeftButton;
     
-    CCSprite *slotIcon;
     
     int menuTnr;
 
