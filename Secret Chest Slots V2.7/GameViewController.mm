@@ -50,10 +50,11 @@
 
 -(void)animationLoadingCheck{
     
-    BOOL wasRunning = [b6luxLoadingView removeLoadingViewFromSuperView:self.view];
+    BOOL wasRunning = [b6luxLoadingView removeLoadingView];
     // If it was running, create a loading view and display it.
+    wasRunning = YES;
     if (wasRunning) {
-        [b6luxLoadingView loadingViewInSuperView:self.view loadingType:kLOADING_PURCHASE];
+        [b6luxLoadingView loadingViewWithLoadingType:kLOADING_PURCHASE];
     }
 }
 
