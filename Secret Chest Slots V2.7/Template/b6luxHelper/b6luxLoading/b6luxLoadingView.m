@@ -15,15 +15,41 @@
 
 @implementation b6luxLoadingView
 
+
++(instancetype) loadingViewInSuperView:(UIView*) superView loadingType:(NSInteger) type{
+    b6luxLoadingView *loadingView = [[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_PURCHASE];
+    [superView addSubview:loadingView];
+    loadingView.tag = kLOADINGTAG;
+    return loadingView;
+}
+
++(BOOL) removeLoadingViewFromSuperView:(UIView*) superView{
+    BOOL wasRunning = NO;
+    
+    // See if loading view is a subview
+    for (UIView *a in superView.subviews) {
+        if ([a viewWithTag:kLOADINGTAG]) {
+            
+            // remove it from superview
+            [[a viewWithTag:kLOADINGTAG]removeFromSuperview];
+            wasRunning = YES;
+        }
+    }
+    
+    return wasRunning;
+}
+
+
 - (id)initWithFrame:(CGRect)frame loading:(int)loading
 {
     self = [super initWithFrame:frame];
     if (self) {
         [[CCDirector sharedDirector] openGLView].userInteractionEnabled = NO;
         switch (loading) {
+                //kLOADING_PURCHASE
             case 1:[self imagesLoad];break;
+                //kLOADING_MACHINE
             case 2:[self machineLoading];break;
-                
             default:break;
         }
     }
