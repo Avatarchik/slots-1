@@ -6,9 +6,6 @@
 //  Copyright © 2016 outlandishappsllc. All rights reserved.
 //
 
-#define kNodeLobby @"kNodeLobby";
-#define kNodeTopMenu @"kNodeTopMenu";
-
-//#define kNodeLobby @"kNodeLobby";
-//#define kNodeLobby @"kNodeLobby";
-//#define kNodeLobby @"kNodeLobby";
+#define kNodeLobby          @"kNodeLobby"
+#define kNodeTopMenu        @"kNodeTopMenu"
+#define kNodeLoadingScreen  @"kNodeLoadingScreen"
