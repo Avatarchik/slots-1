@@ -308,8 +308,9 @@
 
 -(void)animationLoadingCheck{
     
-#warning EF -rewrite this.  it checks to see if the loading screen is up.  if it is, the loading screen is removed from view and another view is shown.
-//    
+#warning EF -rewrite this.  it checks to see if the loading screen is up.  if it is, the loading screen is removed from view and another view is shown. Moved to GameViewControler?
+    
+//
 //    BOOL wasRunning = NO;
 //    
 //    for (UIView *a in [[[CCDirector sharedDirector] openGLView]subviews]) {
