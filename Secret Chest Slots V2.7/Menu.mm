@@ -116,65 +116,66 @@
         goLeftButton.opacity = 50;
         
         [self prepareCoinsFlyAct];
-        
+
+        // Calculate experience and post to Game Center.
         int exp__ = [DB_ getValueBy:d_Exp table:d_DB_Table];
-        
         if (exp__ > 0) {
             [GC_ submitMainScore:exp__];
         }
         
-        #warning EF do this as SKAction;
-        //        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.3f],[CCCallFunc actionWithTarget:self  selector:@selector(loadingOff)], nil]];
+        // Remove the loading screen after a delay.
+        SKAction* delayAction = [SKAction waitForDuration:0.3];
+        SKAction* removeLoadingAction = [SKAction performSelector:@selector(loadingOff) onTarget:self];
+        [self runAction:[SKAction sequence:@[delayAction, removeLoadingAction]]];
         
         [self checkSound];
         
-    }
-    
-    // Chartboost stuff
-    [Chartboost showInterstitial:CBLocationHomeScreen];
-    [Chartboost cacheInterstitial:CBLocationHomeScreen];
-    [Chartboost cacheRewardedVideo:CBLocationMainMenu];
-    
-    // App Lovin'
-    if ([ApplovinAddAtGameOverandMenu  isEqual: @YES]) {
-        if([ALInterstitialAd isReadyForDisplay]){
-            [ALInterstitialAd show];
-            NSLog(@"AD SHOW (APPLOVIN)");
+        // Chartboost stuff
+        [Chartboost showInterstitial:CBLocationHomeScreen];
+        [Chartboost cacheInterstitial:CBLocationHomeScreen];
+        [Chartboost cacheRewardedVideo:CBLocationMainMenu];
+        
+        // App Lovin'
+        if ([ApplovinAddAtGameOverandMenu  isEqual: @YES]) {
+            if([ALInterstitialAd isReadyForDisplay]){
+                [ALInterstitialAd show];
+                NSLog(@"AD SHOW (APPLOVIN)");
+            }
+            else{
+                NSLog(@"AD NOT READY, SO CAN'T SHOW");
+                // No interstitial ad is currently available.  Perform failover logic...
+            }
         }
-        else{
-            NSLog(@"AD NOT READY, SO CAN'T SHOW");
-            // No interstitial ad is currently available.  Perform failover logic...
+        
+        // Setup Buttons.
+        self.rateApp = [SKSpriteNode spriteNodeWithImageNamed:@"rateapp.png"];
+        self.freeApp = [SKSpriteNode spriteNodeWithImageNamed:@"freegames.png"];
+        self.moreGames = [SKSpriteNode spriteNodeWithImageNamed:@"moregames.png"];
+        self.playTables = [SKSpriteNode spriteNodeWithImageNamed:@"paytables.png"];
+        
+        if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9)
+        {
+#warning EF redo this with Asset catalogs
+            self.rateApp = [SKSpriteNode spriteNodeWithImageNamed:@"rateappipad.png"];
+            self.freeApp = [SKSpriteNode spriteNodeWithImageNamed:@"freegamesipad.png"];
+            self.moreGames = [SKSpriteNode spriteNodeWithImageNamed:@"moregamesipad.png"];
+            self.playTables = [SKSpriteNode spriteNodeWithImageNamed:@"paytablesipad.png"];
         }
+        
+        self.rateApp.position = CGPointMake(self.size.width/8*1,self.size.height/3);
+        [self.rateApp setScale:0.35];
+        self.freeApp.position = CGPointMake(self.size.width/8*3,self.size.height/3);
+        [self.freeApp setScale:0.35];
+        self.moreGames.position = CGPointMake(self.size.width/8*5,self.size.height/3);
+        [self.moreGames setScale:0.35];
+        self.playTables.position = CGPointMake(self.size.width/8*7,self.size.height/3);
+        [self.playTables setScale:0.35];
+        
+        [self addChild:self.rateApp];
+        [self addChild:self.freeApp];
+        [self addChild:self.moreGames];
+        [self addChild:self.playTables];
     }
-    
-    self.rateApp = [SKSpriteNode spriteNodeWithImageNamed:@"rateapp.png"];
-    self.freeApp = [SKSpriteNode spriteNodeWithImageNamed:@"freegames.png"];
-    self.moreGames = [SKSpriteNode spriteNodeWithImageNamed:@"moregames.png"];
-    self.playTables = [SKSpriteNode spriteNodeWithImageNamed:@"paytables.png"];
-    
-    if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9)
-    {
-        #warning EF redo this with Asset catalogs
-        self.rateApp = [SKSpriteNode spriteNodeWithImageNamed:@"rateappipad.png"];
-        self.freeApp = [SKSpriteNode spriteNodeWithImageNamed:@"freegamesipad.png"];
-        self.moreGames = [SKSpriteNode spriteNodeWithImageNamed:@"moregamesipad.png"];
-        self.playTables = [SKSpriteNode spriteNodeWithImageNamed:@"paytablesipad.png"];
-    }
-    
-    self.rateApp.position = CGPointMake(self.size.width/8*1,self.size.height/3);
-    [self.rateApp setScale:0.35];
-    self.freeApp.position = CGPointMake(self.size.width/8*3,self.size.height/3);
-    [self.freeApp setScale:0.35];
-    self.moreGames.position = CGPointMake(self.size.width/8*5,self.size.height/3);
-    [self.moreGames setScale:0.35];
-    self.playTables.position = CGPointMake(self.size.width/8*7,self.size.height/3);
-    [self.playTables setScale:0.35];
-    
-    [self addChild:self.rateApp];
-    [self addChild:self.freeApp];
-    [self addChild:self.moreGames];
-    [self addChild:self.playTables];
-    
     return self;
 }
 
@@ -283,19 +284,13 @@
 
 -(void)loading
 {
-//    UIView *view__ = [[[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_MACHINE]autorelease];
-//    view__.tag = kLOADINGTAG;
-//    [[[CCDirector sharedDirector] openGLView]addSubview:view__];
+    [b6luxLoadingView loadingViewWithLoadingType:kLOADING_MACHINE];
 }
 
 -(void)loadingOff
 {
-//    for (UIView *a in [[[CCDirector sharedDirector] openGLView]subviews]) {
-//        if ([a viewWithTag:kLOADINGTAG]) {
-//            [[a viewWithTag:kLOADINGTAG]removeFromSuperview];
-//        }
-//    }
-//    SOUND_.musicVolume = 0.5f;
+    [b6luxLoadingView removeLoadingView];
+    SOUND_.musicVolume = 0.5f;
     #warning EF SKPopupmanager
 //    [(PopupManager *)[self getChildByTag:kSpeWindowTAG] setUp:kWindowSpecialBonus someValue:0];
 }
@@ -311,7 +306,6 @@
 ////////////////////// TOP MENU ////////////////////////////////////////////////////////////////////////
 -(void)topMenuType:(int) menuType
 {
-    return;
     if (!self.tMenu) {
         
         float coins_  = [DB_ getValueBy:d_Coins table:d_DB_Table];
