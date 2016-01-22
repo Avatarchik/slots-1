@@ -10,7 +10,7 @@
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		229588691C4DB3D600014B8F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588631C4DB3D500014B8F /* GameScene.m */; };
 		2295886A1C4DB3D600014B8F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 229588641C4DB3D500014B8F /* GameScene.sks */; };
-		2295886B1C4DB3D600014B8F /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229588661C4DB3D500014B8F /* GameViewController.mm */; };
+		2295886B1C4DB3D600014B8F /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229588661C4DB3D500014B8F /* GameViewController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2295886C1C4DB3D600014B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229588671C4DB3D500014B8F /* Main.storyboard */; };
 		2295886D1C4DB3D600014B8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229588681C4DB3D500014B8F /* LaunchScreen.storyboard */; };
 		22EFDE141C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22EFDE131C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm */; };
@@ -131,7 +131,7 @@
 		C9DBED831B7D381100EA53BD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DBED821B7D381100EA53BD /* CoreTelephony.framework */; };
 		C9DBED851B7D382000EA53BD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DBED841B7D382000EA53BD /* CoreMedia.framework */; };
 		C9DBED871B7D382A00EA53BD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DBED861B7D382A00EA53BD /* MediaPlayer.framework */; };
-		F532D3C617C354470035456B /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3C517C354470035456B /* Menu.mm */; };
+		F532D3C617C354470035456B /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3C517C354470035456B /* Menu.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F532D3CC17C390C40035456B /* CCScrollLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3CB17C390C40035456B /* CCScrollLayer.mm */; };
 		F532D3CF17C3F0CB0035456B /* TopMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3CE17C3F0CB0035456B /* TopMenu.mm */; };
 		F532D3DE17C763D00035456B /* SettingsWindows.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3DD17C763CE0035456B /* SettingsWindows.mm */; };
