@@ -491,7 +491,6 @@
 
 -(void)minusCoins:(float)coins
 {
-    //float c = [DB_ getValueBy:d_Coins table:d_DB_Table];
     [DB_ updateValue:d_Coins table:d_DB_Table :coins];
 
     NSString *numberString;
@@ -504,12 +503,10 @@
     }
     else
     {
-        // numberString = [NSString stringWithFormat:@"%.0f", final_coins];
         [coinsLabel setString:stringFormated];
     }
 #warning EF
 //    [self unschedule:@selector(txtAnimation:)];
-    //[coinsLabel setString:stringFormated];
 
 }
 
@@ -542,21 +539,7 @@
             NSString *stringFormated = [cfg formatTo3digitsValue:coins_];
             [coinsLabel setString:stringFormated];
         }
-        
-        
-        //formatter
-        
-//        float value = final_coins;
-//        NSNumberFormatter * formatter = [NSNumberFormatter new];
-//        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-//        [formatter setMaximumFractionDigits:3]; // Set this if you need 2 digits
-//        NSString * newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
-//        [coinsLabel setString:newString];
-//        [formatter release];
-        //
-        
-        
-        
+
         return;
     }
     
@@ -571,7 +554,7 @@
         }
         else
         {
-            // numberString = [NSString stringWithFormat:@"%.0f", final_coins];
+
             NSString *stringFormated = [cfg formatTo3digitsValue:final_coins];
             [coinsLabel setString:stringFormated];
         }
