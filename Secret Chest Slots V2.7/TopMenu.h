@@ -64,7 +64,6 @@
 -(void) closeCardGame;
 -(void) closeWindowWin;
 -(void) closeWindowLvl;
--(void) Pause_Play_BackgroundMusic;
 -(void) musicStatus:(int)mSTATUS soundsStatus:(int)sSTATUS;
 
 

@@ -15,9 +15,6 @@
 #import "b6luxLoadingView.h"
 #import "SKNode+SKNode_Extensions.h"
 
-#define kTAGOFSTAR 222
-#define kTAGOFEXPLBL 333
-
 @interface TopMenu()
 
 @property (nonatomic, strong) SKNode* TOP_MENU_;
@@ -52,31 +49,29 @@
 
 @implementation TopMenu
 
-
-
-
 -(id)initWithRect:(CGRect)rect type:(int)TYPE experience:(int)EXP coins:(float)COINS
 {
     if((self = [super init]))
     {
-        
         self.name = kNodeTopMenu;
-        
         self.position       = rect.origin;
         self.size           = rect.size;
-        counter = 0;
         
         int lvl = [Exp returnLevelByEXP:EXP];
         level_ = lvl;
-
+        exp_   = EXP;
+        coins_ = COINS;
+        menuType = TYPE;
         
+        counter = 0;
+
+        // Create TopMenu parent node.
         self.TOP_MENU_ = [SKNode node];
         [self addChild:self.TOP_MENU_];
 //        TOP_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_top_menu.pvr.ccz"]];
 //        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_top_menu.plist"]];
-
-
         
+        // Create buttons.
         #warning EF get these from cc sprite sheets
         self.settingsBtn_Active          = [SKSpriteNode spriteNodeWithImageNamed:@"btn_settings_active.png"];
         self.paytableBtn_Active          = [SKSpriteNode spriteNodeWithImageNamed:@"btn_paytable_active.png"];
@@ -93,11 +88,6 @@
         
         if (IS_IPAD)    { fSize = 16; lHeight = 3.5f; }
         else            { fSize = 10; lHeight = 5.0f; }
-        
-        exp_   = EXP;
-        coins_ = COINS;
-        
-        menuType = TYPE;
 
         if (TYPE == 1)
         {
@@ -125,15 +115,12 @@
 
         openSett = false;
         openPay  = false;
-        
         progress_value = 0;
         sizee          = 0;
         
         int expPercents = [Exp returnExpPercentage:EXP];
       
-        
         [self progressNumber:expPercents scale:NO];
-        
 //      [self addChild:[SCombinations boxWithColor:ccc4(100, 100, 120, 200) pos:self.position size:self.contentSize] z:999];
         
         [self activeButtons:YES];
@@ -154,13 +141,12 @@
 
 -(void)addButtons
 {    
-// --------------------------------------------------------------------------------------------------------------------------
     self.setings_button              = [SKSpriteNode spriteNodeWithImageNamed:@"btn_settings.png"];
     self.setings_button.anchorPoint  = ccp(0.5f, 0.5f);
     self.setings_button.position     = ccp(self.menu_line.position.x + (self.menu_line.size.width/2) - self.setings_button.size.width/1.2, self.menu_line.position.y);
     [self.TOP_MENU_ addChild:self.setings_button];
 //    [self.TOP_MENU_ addChild:self.setings_button z:10];
-// --------------------------------------------------------------------------------------------------------------------------
+    
     self.expBg                       = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field.png"];
     self.expBg.anchorPoint           = ccp(0.5f, 0.5f);
     self.expBg.position              = ccp(self.menu_line.position.x - (self.menu_line.size.width/2) + self.expBg.size.width/1.5f, self.menu_line.position.y);
@@ -173,13 +159,13 @@
     [self addChild:self.expStar];
 //    [self addChild:self.expStar z:11 tag:kTAGOFSTAR];
     
-    
+
+    ////////////////PROGRESS
     self.progressSp                  = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_fill.png"];
     //self.progressSp.anchorPoint      = ccp(0.f, 0.5f);
     //self.progressSp.scaleX           = 0.f;
     //self.progressSp.position         = ccp(self.expBg.position.x - (self.expBg.size.width/2.05f), self.expBg.position.y);
     
-    ////////////////PROGRESS
 #warning EF create SKProgressBar
 //    _progress                   = [CCProgressTimer progressWithSprite:self.progressSp];
 //    _progress.type              = kCCProgressTimerTypeBar;
@@ -721,17 +707,9 @@
 //    [self.coins_button setDisplayFrame:self.buyBtn_notActive];
 }
 
-//-(void) fastBack
-//{
-//    CCScrollLayer *s = (CCScrollLayer *)[self getChildByTag:100];
-//    [s goFast];
-//}
-
-
 -(void) openSettingsWindow
 {
 #warning EF
-    
 //    PopupManager *SWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)];
 //    SWindow.anchorPoint = ccp(0, 0);
 //    [self addChild:SWindow z:15 tag:kSetWindowTAG];
@@ -741,7 +719,6 @@
 -(void) openPayTableWindow
 {
 #warning EF
-
 //    PopupManager *PWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
 //    PWindow.anchorPoint = ccp(0, 0);
 //    [self addChild:PWindow z:15 tag:kPayWindowTAG];
