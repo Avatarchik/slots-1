@@ -25,7 +25,6 @@
 +(instancetype) loadingViewInSuperView:(UIView*) superView loadingType:(NSInteger) type{
     b6luxLoadingView *loadingView = [[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_PURCHASE];
     [superView addSubview:loadingView];
-    loadingView.tag = kLOADINGTAG;
     return loadingView;
 }
 
@@ -56,6 +55,7 @@
     if (self) {
 //        [[CCDirector sharedDirector] openGLView].userInteractionEnabled = NO;
         self.userInteractionEnabled = NO;
+        self.tag = kLOADINGTAG;
         switch (loading) {
                 //kLOADING_PURCHASE
             case 1:[self imagesLoad];break;
@@ -185,9 +185,6 @@
     
 }
 
--(void)loadingON
-{
-}
 
 -(void)dealloc
 {
