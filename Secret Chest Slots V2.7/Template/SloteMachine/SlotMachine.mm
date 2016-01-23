@@ -452,17 +452,18 @@
 ///////////////////////////////////////////////////////////
 -(void)topMenuType:(int) menuType
 {
-    float coins_  = [DB_ getValueBy:d_Coins table:d_DB_Table];
-    
-    int exp_    = [DB_ getValueBy:d_Exp table:d_DB_Table];
-    
-    //NSLog(@"COINS:   %i",coins_);
-    
-    TopMenu *TMenu = [[[TopMenu alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.8f, kWidthScreen, kHeightScreen * 0.2f) type:menuType experience:exp_ coins:coins_] autorelease];
-    
-    TMenu.anchorPoint   = ccp(0,0);
-    TMenu.position      = ccp(0, 0);
-    [self addChild:TMenu z:9 tag:kTopMenuTAG];
+#warning EF
+//    float coins_  = [DB_ getValueBy:d_Coins table:d_DB_Table];
+//    
+//    int exp_    = [DB_ getValueBy:d_Exp table:d_DB_Table];
+//    
+//    //NSLog(@"COINS:   %i",coins_);
+//    
+//    TopMenu *TMenu = [[[TopMenu alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.8f, kWidthScreen, kHeightScreen * 0.2f) type:menuType experience:exp_ coins:coins_] autorelease];
+//    
+//    TMenu.anchorPoint   = ccp(0,0);
+//    TMenu.position      = ccp(0, 0);
+//    [self addChild:TMenu z:9 tag:kTopMenuTAG];
     
     //[TMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.8f position:ccp(0, 0)] rate:3]];
     
