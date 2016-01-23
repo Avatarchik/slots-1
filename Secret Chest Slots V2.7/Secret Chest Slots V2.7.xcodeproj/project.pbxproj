@@ -133,7 +133,7 @@
 		C9DBED871B7D382A00EA53BD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DBED861B7D382A00EA53BD /* MediaPlayer.framework */; };
 		F532D3C617C354470035456B /* Menu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3C517C354470035456B /* Menu.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F532D3CC17C390C40035456B /* CCScrollLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3CB17C390C40035456B /* CCScrollLayer.mm */; };
-		F532D3CF17C3F0CB0035456B /* TopMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3CE17C3F0CB0035456B /* TopMenu.mm */; };
+		F532D3CF17C3F0CB0035456B /* TopMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3CE17C3F0CB0035456B /* TopMenu.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F532D3DE17C763D00035456B /* SettingsWindows.mm in Sources */ = {isa = PBXBuildFile; fileRef = F532D3DD17C763CE0035456B /* SettingsWindows.mm */; };
 		F55D63F917CB72B400F3B2C6 /* ClippingNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D63F717CB72B400F3B2C6 /* ClippingNode.mm */; };
 		F55D645B17CC81CD00F3B2C6 /* BottomMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D645A17CC81CD00F3B2C6 /* BottomMenu.mm */; };
