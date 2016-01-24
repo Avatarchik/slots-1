@@ -14,10 +14,6 @@
 #import "b6luxLoadingView.h"
 #import "cfg.h"
 
-@interface GameViewController()
-@property (nonatomic, readonly) SKScene* scene;
-
-@end
 
 @implementation GameViewController
 

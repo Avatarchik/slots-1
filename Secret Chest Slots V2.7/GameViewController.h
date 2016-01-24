@@ -10,5 +10,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GameViewController : UIViewController
-
+@property (nonatomic, readonly) SKScene* scene;
 @end
