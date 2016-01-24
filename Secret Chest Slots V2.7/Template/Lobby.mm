@@ -51,7 +51,10 @@ enum {
     {
         // Set the name of the node so it can be tracked.
         self.name = kNodeLobby;
+        
+        // Set ZPosition
         self.zPosition = ZDepthLobby;
+        
         // Show loading view.
         [b6luxLoadingView loadingViewWithLoadingType:kLOADING_MACHINE];
         
