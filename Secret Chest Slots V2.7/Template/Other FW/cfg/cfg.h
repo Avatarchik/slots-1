@@ -14,6 +14,13 @@
 #import "SimpleAudioEngine.h"
 #import "NodeNames.h"
 
+typedef NS_ENUM(NSInteger, ZDepth)
+{
+    ZDepthBottom = 0,
+    ZDepthLobby,
+    ZDepthMenu,
+    ZDepth_MAX
+};
 
 #define delegater        (AppDelegate *)[[UIApplication sharedApplication] delegate]
 

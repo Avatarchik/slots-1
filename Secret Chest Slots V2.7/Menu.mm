@@ -55,7 +55,7 @@
 //}
 +(Menu*) menuWithRect:(CGRect) rect type:(NSInteger) type level:(NSInteger) level
 {
-    Menu* menu = [Menu node];
+    Menu* menu = [[Menu alloc] initWithRect:rect type:type level:level];
     return menu;
 }
 
@@ -63,6 +63,7 @@
 {
     if((self = [super init]))
     {
+        self.zPosition = ZDepthMenu;
         self.userInteractionEnabled = YES;
         #warning EF - what is DB used for, if anything?
         [DB_ setValueToDB:d_Coins table:d_DB_Table :k_First_Cash];

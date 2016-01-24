@@ -9,9 +9,6 @@
 // Import the interfaces
 #import "Lobby.h"
 
-// Not included in "cocos2d.h"
-#import "CCPhysicsSprite.h"
-
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
@@ -23,12 +20,8 @@
 #import "TopMenu.h"
 
 
-//#define PTM_RATIO_LH [LevelHelperLoader pointsToMeterRatio]
-
-#define kTopMMenuTAG 10
-
 enum {
-	kTagParentNode = 1,
+	kTagParentNode = 1
 };
 
 
@@ -39,10 +32,6 @@ enum {
 @end
 
 @implementation Lobby
-
-
-
-
 
 +(SKScene *) scene
 {
@@ -62,35 +51,18 @@ enum {
     {
         // Set the name of the node so it can be tracked.
         self.name = kNodeLobby;
-        
-#warning EF -  Create a loading view
-        
-//        UIView *view__ = [[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_MACHINE];
-//        view__.tag = kLOADINGTAG;
-//        
-//        /// present that loading view if one isnt already on screen.
-//        if (![[[CCDirector sharedDirector] openGLView]viewWithTag:kLOADINGTAG]) {
-//            [[[CCDirector sharedDirector] openGLView]addSubview:view__];
-//        }
-        
-//        BG_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_background.png"]];
-//        //[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_background.plist"]];
-//        [self addChild:BG_];
-        
-        
-        
+        self.zPosition = ZDepthLobby;
+        // Show loading view.
+        [b6luxLoadingView loadingViewWithLoadingType:kLOADING_MACHINE];
         
         /// Add a background Layer
         SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"sp_background.png"];
-        
-        [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"sp_background.png"]];
         background.position  = CGPointMake(kWidthScreen / 2, kHeightScreen / 2);
         [self addChild:background];
         [self showRunMenu];
     }
 	return self;
 }
-
 
 
 -(void)UPDATE_SPECIAL_BONUS{
@@ -106,30 +78,6 @@ enum {
     self.runMenu.position    = ccp(0, 0);
     [self addChild:self.runMenu];
 }
-
-- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    //Add a new body/atlas sprite at the touched location
-	for( UITouch *touch in touches ) {
-		CGPoint location = [touch locationInView: [touch view]];
-        
-		location = [[CCDirector sharedDirector] convertToGL: location];
-        
-        if(skeleton){
-            
-            location.x -= 60;//i substract this so the snake head will not be hidden by the finger when testing on device
-            
-            [skeleton setPosition:location forBoneNamed:@"UntitledNode_3"];
-        }
-	}
-}
-
-#warning EF
-//-(void) onEnter
-//{
-//    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-//    [super onEnter];
-//}
 
 
 @end
