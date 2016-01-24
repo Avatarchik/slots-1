@@ -17,4 +17,15 @@
     return node;
 }
 
+-(void) addChild:(SKNode*) child atZPosition:(CGFloat) zPosition{
+    child.zPosition = zPosition;
+    [self addChild:child];
+}
+
+-(void) addChildToTopZ:(SKNode*) child{
+    NSInteger count = self.children ? self.children.count : 0;
+    CGFloat topZ = count;
+    NSLog(@"adding child:%@ to %@  z:%f", child.name, self.name, topZ);
+    [self addChild:child atZPosition:topZ];
+}
 @end

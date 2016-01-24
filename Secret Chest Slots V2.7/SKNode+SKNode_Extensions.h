@@ -11,5 +11,6 @@
 @interface SKNode (SKNode_Extensions)
 
 -(instancetype) nodeFromTouches:(NSSet<UITouch *> *) touches inParentNode:(SKNode*) parentNode;
-
+-(void) addChild:(SKNode*) child atZPosition:(CGFloat) zPosition;
+-(void) addChildToTopZ:(SKNode*) child;
 @end
