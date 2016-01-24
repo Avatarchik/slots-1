@@ -1,6 +1,20 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
+      "filename" : "rateapp_pressed-2.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "rateapp_pressed-1.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "iphone",
       "filename" : "rateapp_pressed.png",
       "scale" : "1x"

@@ -1,6 +1,20 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
+      "filename" : "freegames_pressed-2.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "freegames_pressed-1.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "iphone",
       "filename" : "freegames_pressed.png",
       "scale" : "1x"

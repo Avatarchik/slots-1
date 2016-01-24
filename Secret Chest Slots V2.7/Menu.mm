@@ -55,7 +55,7 @@
 //}
 +(Menu*) menuWithRect:(CGRect) rect type:(NSInteger) type level:(NSInteger) level
 {
-    Menu* menu = [[Menu alloc] initWithRect:rect type:type level:level];
+    Menu* menu = [[Menu alloc] initWithRect:rect type:type level:(int)level];
     return menu;
 }
 
@@ -154,15 +154,6 @@
         self.moreGames = [SKSpriteNode spriteNodeWithImageNamed:@"moregames.png"];
         self.playTables = [SKSpriteNode spriteNodeWithImageNamed:@"paytables.png"];
         
-        if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9)
-        {
-#warning EF redo this with Asset catalogs
-            self.rateApp = [SKSpriteNode spriteNodeWithImageNamed:@"rateappipad.png"];
-            self.freeApp = [SKSpriteNode spriteNodeWithImageNamed:@"freegamesipad.png"];
-            self.moreGames = [SKSpriteNode spriteNodeWithImageNamed:@"moregamesipad.png"];
-            self.playTables = [SKSpriteNode spriteNodeWithImageNamed:@"paytablesipad.png"];
-        }
-        
         self.rateApp.position = CGPointMake(self.size.width/8*1,self.size.height/3);
         [self.rateApp setScale:0.35];
         self.freeApp.position = CGPointMake(self.size.width/8*3,self.size.height/3);
@@ -219,26 +210,26 @@
     // Get touch node.
     SKNode* node = [self nodeFromTouches:touches inParentNode:self];
     
-//    if([node isEqualToNode:self.rateApp])
-//    {
-//        [self.rateApp setTexture:[SKTexture textureWithImageNamed:@"rateapp_pressed.png"]];
-//    }
-//    else if([node isEqualToNode:self.freeApp])
-//    {
-//        [self.freeApp setTexture:[SKTexture textureWithImageNamed:@"freegames_pressed.png"]];
-//    }
-//    else if([node isEqualToNode:self.moreGames])
-//    {
-//        [self.moreGames setTexture:[SKTexture textureWithImageNamed:@"moregames_pressed.png"]];
-//    }
-//    else if([node isEqualToNode:self.playTables])
-//    {
-//        [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables_pressed.png"]];
-//    }
-//    else if([node isEqualToNode:self.slotIcon])
-//    {
-//        [self.slotIcon setScale:0.9];
-//    }
+    if([node isEqualToNode:self.rateApp])
+    {
+        [self.rateApp setTexture:[SKTexture textureWithImageNamed:@"rateapp_pressed.png"]];
+    }
+    else if([node isEqualToNode:self.freeApp])
+    {
+        [self.freeApp setTexture:[SKTexture textureWithImageNamed:@"freegames_pressed.png"]];
+    }
+    else if([node isEqualToNode:self.moreGames])
+    {
+        [self.moreGames setTexture:[SKTexture textureWithImageNamed:@"moregames_pressed.png"]];
+    }
+    else if([node isEqualToNode:self.playTables])
+    {
+        [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables_pressed.png"]];
+    }
+    else if([node isEqualToNode:self.slotIcon])
+    {
+        [self.slotIcon setScale:0.9];
+    }
     if([node isEqualToNode:self.slotIcon])
     {
         [self.slotIcon setScale:0.9];
@@ -249,10 +240,10 @@
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     #warning EF create sprite texture cache
-//    [self.rateApp setTexture:   [SKTexture textureWithImageNamed:@"rateapp.png"]];
-//    [self.freeApp setTexture:   [SKTexture textureWithImageNamed:@"freegames.png"]];
-//    [self.moreGames setTexture: [SKTexture textureWithImageNamed:@"moregames.png"]];
-//    [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables.png"]];
+    [self.rateApp setTexture:   [SKTexture textureWithImageNamed:@"rateapp.png"]];
+    [self.freeApp setTexture:   [SKTexture textureWithImageNamed:@"freegames.png"]];
+    [self.moreGames setTexture: [SKTexture textureWithImageNamed:@"moregames.png"]];
+    [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables.png"]];
     [self.slotIcon setScale:1.2];
 
     SKNode* node = [self nodeFromTouches:touches inParentNode:self];
