@@ -67,9 +67,7 @@
 
         // Create TopMenu parent node.
         self.TOP_MENU_ = [SKNode node];
-        [self addChild:self.TOP_MENU_];
-//        TOP_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_top_menu.pvr.ccz"]];
-//        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_top_menu.plist"]];
+        [self addChildToTopZ:self.TOP_MENU_];
         
         // Create buttons.
         #warning EF get these from cc sprite sheets
@@ -121,8 +119,6 @@
         int expPercents = [Exp returnExpPercentage:EXP];
       
         [self progressNumber:expPercents scale:NO];
-//      [self addChild:[SCombinations boxWithColor:ccc4(100, 100, 120, 200) pos:self.position size:self.contentSize] z:999];
-        
         [self activeButtons:YES];
  
     }
@@ -135,8 +131,7 @@
     self.menu_line = [SKSpriteNode spriteNodeWithImageNamed:@"top_bar.png"];
     self.menu_line.anchorPoint = ccp(0.5f, 0.5f);
     self.menu_line.position = ccp(kWidthScreen / 2, kHeightScreen - self.menu_line.size.height/2);
-    [self.TOP_MENU_ addChild:self.menu_line];
-//    [self.TOP_MENU_ addChild:self.menu_line z:5];
+    [self.TOP_MENU_ addChildToTopZ:self.menu_line];
 }
 
 -(void)addButtons
@@ -144,27 +139,24 @@
     self.setings_button              = [SKSpriteNode spriteNodeWithImageNamed:@"btn_settings.png"];
     self.setings_button.anchorPoint  = ccp(0.5f, 0.5f);
     self.setings_button.position     = ccp(self.menu_line.position.x + (self.menu_line.size.width/2) - self.setings_button.size.width/1.2, self.menu_line.position.y);
-    [self.TOP_MENU_ addChild:self.setings_button];
-//    [self.TOP_MENU_ addChild:self.setings_button z:10];
+    [self.TOP_MENU_ addChildToTopZ:self.setings_button];
     
     self.expBg                       = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field.png"];
     self.expBg.anchorPoint           = ccp(0.5f, 0.5f);
     self.expBg.position              = ccp(self.menu_line.position.x - (self.menu_line.size.width/2) + self.expBg.size.width/1.5f, self.menu_line.position.y);
-    [self.TOP_MENU_ addChild:self.expBg];
-//    [self.TOP_MENU_ addChild:self.expBg z:8];
+    [self.TOP_MENU_ addChildToTopZ:self.expBg];
     
     self.expStar                     = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_star.png"];
     self.expStar.anchorPoint         = ccp(0.5f, 0.5f);
     self.expStar.position            = ccp(self.expBg.position.x - (self.expBg.size.width/2), self.expBg.position.y);
-    [self addChild:self.expStar];
-//    [self addChild:self.expStar z:11 tag:kTAGOFSTAR];
+    [self.TOP_MENU_ addChildToTopZ:self.expStar];
     
 
     ////////////////PROGRESS
     self.progressSp                  = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_fill.png"];
-    //self.progressSp.anchorPoint      = ccp(0.f, 0.5f);
-    //self.progressSp.scaleX           = 0.f;
-    //self.progressSp.position         = ccp(self.expBg.position.x - (self.expBg.size.width/2.05f), self.expBg.position.y);
+    self.progressSp.anchorPoint      = ccp(0.f, 0.5f);
+    self.progressSp.xScale           = 0.0;
+    self.progressSp.position         = ccp(self.expBg.position.x - (self.expBg.size.width/2.05f), self.expBg.position.y);
     
 #warning EF create SKProgressBar
 //    _progress                   = [CCProgressTimer progressWithSprite:self.progressSp];
@@ -176,7 +168,7 @@
 //    //_progress.position          = ccp(0,0);
 //    _progress.anchorPoint       = ccp(0.f, 0.5f);
 //
-//    [self addChild:_progress z:10];
+//    [self addChildToTopZ:_progress z:10];
     /////////////////////////////////
 
     
@@ -194,38 +186,35 @@
         self.coinsBg.position         = ccp(self.menu_line.position.x, self.menu_line.position.y);
     }
     
-    [self.TOP_MENU_ addChild:self.coinsBg];
-//    [self.TOP_MENU_ addChild:self.coinsBg z:9];
+    [self.TOP_MENU_ addChildToTopZ:self.coinsBg];
     
     self.coins_button                = [SKSpriteNode spriteNodeWithImageNamed:@"btn_menubuy.png"];
     self.coins_button.anchorPoint    = ccp(0.5f, 0.5f);
     self.coins_button.position       = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2.035f) - (self.coins_button.size.width/2), self.coinsBg.position.y - (self.coinsBg.size.height*0.015f));
-    [self addChild:self.coins_button];
-//    [self addChild:self.coins_button z:10];
+    [self.TOP_MENU_ addChildToTopZ:self.coins_button];
     
-    #warning EF do this, create SKShape?
+    #warning EF this shape might not be needed.
     SKShapeNode* shape = [SKShapeNode shapeNodeWithRectOfSize:self.size];
     shape.fillColor = [SKColor colorWithRed:100/255.0 green:100/255.0 blue:120/255.0 alpha:200/255.0];
     shape.position = self.position;
-    [self.coins_button addChild:shape];
-//    [self.coins_button addChild:[SCombinations boxWithColor:ccc4(100, 100, 120, 200) pos:self.position size:self.size] z:999];
+    [self.coins_button addChildToTopZ:shape];
     
     if (gamePlay)
     {
         self.winBg                     = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field.png"];
         self.winBg.anchorPoint         = ccp(0.5f, 0.5f);
         self.winBg.position        = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2) + self.winBg.size.width/1.8f, self.menu_line.position.y);
-        [self.TOP_MENU_ addChild:self.winBg];
+        [self.TOP_MENU_ addChildToTopZ:self.winBg];
 
         self.lobby_button              = [SKSpriteNode spriteNodeWithImageNamed:@"btn_lobby.png"];
         self.lobby_button.anchorPoint  = ccp(0.5f, 0.5f);
         self.lobby_button.position = ccp(self.winBg.position.x + (self.winBg.size.width/2) + self.lobby_button.size.width/1.8f, self.menu_line.position.y);
-        [self.TOP_MENU_ addChild:self.lobby_button];
+        [self.TOP_MENU_ addChildToTopZ:self.lobby_button];
         
         self.ptable_button             = [SKSpriteNode spriteNodeWithImageNamed:@"btn_paytable.png"];
         self.ptable_button.anchorPoint = ccp(0.5f, 0.5f);
         self.ptable_button.position = ccp(self.lobby_button.position.x + (self.lobby_button.size.width/2) + self.ptable_button.size.width, self.menu_line.position.y);
-        [self.TOP_MENU_ addChild:self.ptable_button];
+        [self.TOP_MENU_ addChildToTopZ:self.ptable_button];
     }
     else
     {
@@ -250,8 +239,8 @@
 //    levelLabel.position = ccp(self.expStar.size.width/2.1f ,self.expStar.size.height/2);
 //    levelLabel.color    = ccc3(69, 42, 4);
 //    
-////    [[self getChildByTag:kTAGOFSTAR] addChild:levelLabel z:1];
-//    [self.expStar addChild:levelLabel];
+////    [[self getChildByTag:kTAGOFSTAR] addChildToTopZ:levelLabel z:1];
+//    [self.expStar addChildToTopZ:levelLabel];
 
 }
 
@@ -281,7 +270,7 @@
 //        expLabel.scale = 1.6;
 //    }
 //    
-//    [self addChild:expLabel z:10];
+//    [self addChildToTopZ:expLabel z:10];
 }
 
 
@@ -336,8 +325,8 @@
 //        winLabel.scale = 1.3;
 //    }
 //    
-//    [self addChild:winL z:10];
-//    [self addChild:winLabel z:10];
+//    [self addChildToTopZ:winL z:10];
+//    [self addChildToTopZ:winLabel z:10];
     
 }
 
@@ -373,7 +362,7 @@
 //        coinsLabel.scale = 1.6;
 //    }
 #warning EF
-//    [self addChild:coinsLabel z:9];
+//    [self addChildToTopZ:coinsLabel z:9];
 }
 
 -(void)activeButtons:(bool)bool_
@@ -606,19 +595,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////// < -------------------------------------------------------------- >
 
 
-#warning EF does this matter for SK?
-//-(void) onEnter
-//{
-//        [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_Buttons swallowsTouches:NO];
-//    
-//    [super onEnter];
-//}
-//-(void)onExit
-//{
-//    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-//    [super onExit];
-//}
-
 - (CGPoint)convertTouchToNodeSpace:(UITouch *)touch
 {
     CGPoint point = [touch locationInView: [touch view]];
@@ -712,7 +688,7 @@
 #warning EF
 //    PopupManager *SWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)];
 //    SWindow.anchorPoint = ccp(0, 0);
-//    [self addChild:SWindow z:15 tag:kSetWindowTAG];
+//    [self addChildToTopZ:SWindow z:15 tag:kSetWindowTAG];
 //    [SWindow setUp:kWindowSettings someValue:0];
 }
 
@@ -721,14 +697,14 @@
 #warning EF
 //    PopupManager *PWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
 //    PWindow.anchorPoint = ccp(0, 0);
-//    [self addChild:PWindow z:15 tag:kPayWindowTAG];
+//    [self addChildToTopZ:PWindow z:15 tag:kPayWindowTAG];
 //    [PWindow setUp:kWindowPayTable someValue:0];
     
     
 ////////////////////// WHEEL GAME ////////////////////////////////
 //    WheelGame *WGame = [[[WheelGame alloc] init] autorelease];
 //    WGame.anchorPoint = ccp(0, 0);
-//    [self addChild:WGame z:12 tag:kWheelGameTAG];
+//    [self addChildToTopZ:WGame z:12 tag:kWheelGameTAG];
   
     
     
@@ -738,14 +714,14 @@
 //    }
 //    CardGame *WGame = [[[CardGame alloc] init] autorelease];
 //    WGame.anchorPoint = ccp(0, 0);
-//    [self addChild:WGame z:12 tag:kCardGameTAG];
+//    [self addChildToTopZ:WGame z:12 tag:kCardGameTAG];
     
     
     
 ///////////////////// WIN WINDOW /////////////////////////////////
 //    PopupManager *PWindow = [[[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] autorelease];
 //    PWindow.anchorPoint = ccp(0, 0);
-//    [self addChild:PWindow z:10 tag:kWinWindowTAG];
+//    [self addChildToTopZ:PWindow z:10 tag:kWinWindowTAG];
 //    [PWindow setUp:kWindowWin someValue:2700];
     
     
@@ -754,7 +730,7 @@
 //    PopupManager *PWindow = [[[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] autorelease];
 //    PWindow.anchorPoint = ccp(0, 0);
 //    //PWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-//    [self addChild:PWindow z:10 tag:kNewWindowTAG];
+//    [self addChildToTopZ:PWindow z:10 tag:kNewWindowTAG];
 //    [PWindow setUp:kWindowWin someValue:2002];
     
 }
@@ -767,7 +743,7 @@
 //        case 1: BWindow = [[[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] autorelease];
 //            BWindow.anchorPoint = ccp(0, 0);
 //            if (![self getChildByTag:kBuyWindowTAG]) {
-//                [self addChild:BWindow z:15 tag:kBuyWindowTAG];
+//                [self addChildToTopZ:BWindow z:15 tag:kBuyWindowTAG];
 //                [BWindow setUp:kWindowBuyCoins someValue:0];
 //            }
 //        
@@ -775,7 +751,7 @@
 //        case 2: BWindow = [[[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] autorelease];
 //            BWindow.anchorPoint = ccp(0, 0);
 //            if (![self getChildByTag:kBuyWindowTAG]) {
-//                [self addChild:BWindow z:15 tag:kBuyWindowTAG];
+//                [self addChildToTopZ:BWindow z:15 tag:kBuyWindowTAG];
 //                [BWindow setUp:kWindowBuyBoosts someValue:0];
 //            }
 //            break;
