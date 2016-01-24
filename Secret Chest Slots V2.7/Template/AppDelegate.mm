@@ -23,8 +23,6 @@
 
 @implementation AppDelegate
 
-
-
 -(GameViewController *)gameViewController{
     UIViewController* rootVC = self.window.rootViewController;
     if([rootVC isKindOfClass:[GameViewController class]])
@@ -84,128 +82,10 @@
          NSString *key = [[info allKeys] objectAtIndex:0];
          NSLog(@"KEY %@",key);
          */
-        
     }
-//    
-//    CCDirectorIOS* director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
-//	CCGLView *glView = [CCGLView viewWithFrame:[[UIScreen mainScreen] bounds]
-//								   pixelFormat:kEAGLColorFormatRGB565
-//								   depthFormat:0
-//							preserveBackbuffer:NO
-//									sharegroup:nil
-//								 multiSampling:NO
-//							   numberOfSamples:0];
-//
-//	// Enable multiple touches
-//	[glView setMultipleTouchEnabled:NO];
-//
-//	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
-//
-//	director_.wantsFullScreenLayout = YES;
-//
-//	// Display FSP and SPF
-//	[director_ setDisplayStats:NO];
-//
-//	// set FPS at 60
-//	[director_ setAnimationInterval:1.0/60];
-//	
-//	// attach the openglView to the director
-//	[director_ setView:glView];
+
     return YES;
     
-    
-//    
-//    
-//    
-//    
-//	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
-//								   pixelFormat:kEAGLColorFormatRGB565
-//								   depthFormat:0
-//							preserveBackbuffer:NO
-//									sharegroup:nil
-//								 multiSampling:NO
-//							   numberOfSamples:0];
-//
-//	// Enable multiple touches
-//	[glView setMultipleTouchEnabled:NO];
-//
-//	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
-//	
-//	director_.wantsFullScreenLayout = YES;
-//	
-//	// Display FSP and SPF
-//	[director_ setDisplayStats:NO];
-//	
-//	// set FPS at 60
-//	[director_ setAnimationInterval:1.0/60];
-//	
-//	// attach the openglView to the director
-//	[director_ setView:glView];
-//	
-//	// 2D projection
-//	[director_ setProjection:kCCDirectorProjection2D];
-//	//	[director setProjection:kCCDirectorProjection3D];
-//	
-//	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-//	if( ! [director_ enableRetinaDisplay:YES] )
-//		CCLOG(@"Retina Display Not supported");
-//	
-//	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
-//	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
-//	// You can change anytime.
-//	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-//	
-//	// If the 1st suffix is not found and if fallback is enabled then fallback suffixes are going to searched. If none is found, it will try with the name without suffix.
-//	// On iPad HD  : "-ipadhd", "-ipad",  "-hd"
-//	// On iPad     : "-ipad", "-hd"
-//	// On iPhone HD: "-hd"
-//	CCFileUtils *sharedFileUtils = [CCFileUtils sharedFileUtils];
-//	[sharedFileUtils setEnableFallbackSuffixes:NO];				// Default: NO. No fallback suffixes are going to be used
-//	[sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];		// Default on iPhone RetinaDisplay is "-hd"
-//	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
-//	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
-//	
-//	// Assume that PVR images have premultiplied alpha
-//	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
-//	
-//	// Create a Navigation Controller with the Director
-//	navController_ = [[MyNavigationController alloc] initWithRootViewController:director_];
-//	navController_.navigationBarHidden = YES;
-//	
-//	// for rotation and other messages
-//	[director_ setDelegate:navController_];
-//	
-//	// set the Navigation Controller as the root view controller
-//	[window_ setRootViewController:navController_];
-//	
-//	// make main window visible
-//	[window_ makeKeyAndVisible];
-//    
-//    //local pushes
-//    
-//    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-//    
-//    application.applicationIconBadgeNumber = 0;
-//	
-//	// Handle launching from a notification
-//	UILocalNotification *localNotif =
-//	[launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-//    
-//    if (localNotif) {
-//        /*
-//		NSLog(@"[ didFinishLaunchingWithOptions ] : Recieved Notification %@",localNotif);
-//        NSDictionary *info = localNotif.userInfo;
-//        NSLog(@"DICT IN PUSH %@",info);
-//        NSString *key = [[info allKeys] objectAtIndex:0];
-//        NSLog(@"KEY %@",key);
-//         */
-//  
-//	}
-//
-//
-////    [BBXBeeblex initializeWithAPIKey:@"NWQyMmI0YTdlZmM2MDMwNTg2MjUwNmM4NzJkYjJmZWIyMWIxNzU4NDUxMGE1ZjQ4NTIyNWRiNWJiYmIzZTYxZWExNGZmZDE1MTI5MzU4ODNiNjllNjI4NzkzZjlmZTE2ZGU0ODZlNjllZDVjZjQ5NzQwMTBlOTBlNzVkNTYzNTcsLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEyTzdjbFhwQUZuL1NOTmpydHUxdwpOdWJWWGdpT1gxck5jRkMwampCVGhuVkVmY1RpV1FFa3ArWldFOVdveHdtc2FMNW5MNnZGYnIrUlpxbG9hdm16ClBueGRvVVlLamYvYnY0cStxQ0ZZd1NMQ25aQ0Flb2ppditKOUdaL0N2YlB6aUFIQ3ArN1AyTGhEUWw4Vk1qZVQKQndVZkt6NTRHWGZQTG5VZ05mNkFtS3AvNlNHT0hnTFlDb2IrSEJBRklJQnQvY2NweXRDenlPKzVtb1d0N2FrWQo3WG1JRmR6b2NkTnh3YkdJK3Y3cnpGLzJtbUk3TDFqbmVXWGw2MUJKcmIyT1dmSFVPcTBmUDBHWmRTdXZ5YUxICjZuNjdKaE9meURoZW5RaUd4cHBLcU5wRkQvZ3BtWVNadGpYN3drZE5RM3hOd0x5Rjd1YjBMV3JORnFUWXA5ZlEKYlFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"];
-//	
-//	return YES;
 }
 // system push notification registration success callback, delegate to pushManager
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -283,60 +163,22 @@
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
-	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 #warning EF resume sk scene if paused
 //	if( [navController_ visibleViewController] == director_ )
 //		[director_ resume];
     
     
-  //  NSLog(@"running scene is %@. children %@",[director_ runningScene],[[director_ runningScene]children]);
+    if([self.gameViewController.scene isKindOfClass:[Lobby class]])
+    {
+//        Lobby* lobby = (Lobby*) self.gameViewController.scene;
+//        [lobby UPDATE_SPECIAL_BONUS];
+        [self.SB UPDATE_ME];
+            //[SB updateBonusLabel];
+    }
 
     
-#warning EF - rewrite, if the scene's Lobby is a child, then UPdate SB
-//    
-//    CCScene *scene = [director_ runningScene];
-//    
-//    for (CCNode *n in scene.children)
-//    {
-//        if (n.tag == 999 && [n isKindOfClass:[Lobby class]]){
-//            //[(Lobby*)n UPDATE_SPECIAL_BONUS];
-//            [self.SB UPDATE_ME];
-//            //[SB updateBonusLabel];
-//        }
-//    }
-//    
     [GC_ authenticateLocalPlayer];
-    
     application.applicationIconBadgeNumber = 0;
-    
-    //check animation
-    
-    [self animationLoadingCheck];
-    
-    //[self performSelector:@selector(startPlayMusic) withObject:nil afterDelay:1.f];
-    
-}
-
--(void)animationLoadingCheck{
-    
-#warning EF -rewrite this.  it checks to see if the loading screen is up.  if it is, the loading screen is removed from view and another view is shown. Moved to GameViewControler?
-    
-//
-//    BOOL wasRunning = NO;
-//    
-//    for (UIView *a in [[[CCDirector sharedDirector] openGLView]subviews]) {
-//        if ([a viewWithTag:kLOADINGTAG]) {
-//            [[a viewWithTag:kLOADINGTAG]removeFromSuperview];
-//            wasRunning = YES;
-//        }
-//    }
-//    
-//    if (wasRunning) {
-//        UIView *view__ = [[[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_PURCHASE]autorelease];
-//        view__.tag = kLOADINGTAG;
-//        [[[CCDirector sharedDirector] openGLView]addSubview:view__];
-//    }
-    
 }
 
 -(void)startPlayMusic{
