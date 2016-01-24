@@ -173,10 +173,10 @@
     {
         
 
-        if      (![Combinations isRetina] && IS_IPAD)   { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card_ipad.png" andImageTwo:@"card2_ipad.png"]; }
-        else if ([Combinations isRetina] && IS_IPAD)    { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card_ipadhd.png" andImageTwo:@"card2_ipadhd.png"]; }
-        else if (![Combinations isRetina] && IS_IPHONE) { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card_iphone.png" andImageTwo:@"card2_iphone.png"]; }
-        else if ([Combinations isRetina] && IS_IPHONE)  { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card_iphonehd.png" andImageTwo:@"card2_iphonehd.png"]; }
+        if      (![Combinations isRetina] && IS_IPAD)   { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card.png" andImageTwo:@"card2.png"]; }
+        else if ([Combinations isRetina] && IS_IPAD)    { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card.png" andImageTwo:@"card2.png"]; }
+        else if (![Combinations isRetina] && IS_IPHONE) { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card.png" andImageTwo:@"card2.png"]; }
+        else if ([Combinations isRetina] && IS_IPHONE)  { cardSprite = [[SpriteFlipCard alloc] initSpriteFlipCardWithImageOne:@"card.png" andImageTwo:@"card2.png"]; }
         if (IS_STANDARD_IPHONE_6_PLUS) {
             cardSprite.scale = 2.0;
         }

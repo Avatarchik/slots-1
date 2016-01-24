@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "coins_field.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "coins_field.png",
       "scale" : "2x"
     },
     {
