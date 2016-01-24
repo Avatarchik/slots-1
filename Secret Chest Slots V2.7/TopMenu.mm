@@ -364,14 +364,14 @@
 -(void)addScoreLabel
 {
     //Create and add the score label as a child
-    coinsLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFONT_MENU];
-    coinsLabel.anchorPoint  = ccp(0.5f, 0.5f);
-    coinsLabel.position     = ccp(self.coinsBg.position.x - self.coins_button.size.width/3, self.menu_line.position.y);
-    coinsLabel.color        = ccc3(233, 192, 0);
-    if (iPhone3) { coinsLabel.scale = 0.65f; }
-    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
-        coinsLabel.scale = 1.6;
-    }
+//    coinsLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFONT_MENU];
+//    coinsLabel.anchorPoint  = ccp(0.5f, 0.5f);
+//    coinsLabel.position     = ccp(self.coinsBg.position.x - self.coins_button.size.width/3, self.menu_line.position.y);
+//    coinsLabel.color        = ccc3(233, 192, 0);
+//    if (iPhone3) { coinsLabel.scale = 0.65f; }
+//    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
+//        coinsLabel.scale = 1.6;
+//    }
 #warning EF
 //    [self addChild:coinsLabel z:9];
 }

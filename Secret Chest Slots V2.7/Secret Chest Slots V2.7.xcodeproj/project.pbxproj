@@ -13,6 +13,7 @@
 		2295886B1C4DB3D600014B8F /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229588661C4DB3D500014B8F /* GameViewController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		2295886C1C4DB3D600014B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229588671C4DB3D500014B8F /* Main.storyboard */; };
 		2295886D1C4DB3D600014B8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229588681C4DB3D500014B8F /* LaunchScreen.storyboard */; };
+		22B859AE1C55581600CFABCC /* TopMenu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B859AD1C55581600CFABCC /* TopMenu.xcassets */; };
 		22EFDE141C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22EFDE131C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm */; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
@@ -708,6 +709,7 @@
 		229588661C4DB3D500014B8F /* GameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameViewController.mm; sourceTree = "<group>"; };
 		229588671C4DB3D500014B8F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		229588681C4DB3D500014B8F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22B859AD1C55581600CFABCC /* TopMenu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TopMenu.xcassets; sourceTree = "<group>"; };
 		22EFDE121C503E5000F2F0BD /* SKNode+SKNode_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+SKNode_Extensions.h"; sourceTree = "<group>"; };
 		22EFDE131C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SKNode+SKNode_Extensions.mm"; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
@@ -2490,6 +2492,7 @@
 			children = (
 				2227073F1C431488005383CF /* ReadMe */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
+				22B859AD1C55581600CFABCC /* TopMenu.xcassets */,
 				229588621C4DB3D500014B8F /* GameScene.h */,
 				229588631C4DB3D500014B8F /* GameScene.m */,
 				22EFDE111C503D8A00F2F0BD /* Categories */,
@@ -3882,6 +3885,7 @@
 				F56F95BA17EAFFAB0012962B /* icon1-ipadhd.png in Resources */,
 				FA69F24C1818F2CA00F4970E /* sp_special_bonus-hd.pvr.ccz in Resources */,
 				C98A6A411C10D6ED00426BB6 /* freegames_pressed.png in Resources */,
+				22B859AE1C55581600CFABCC /* TopMenu.xcassets in Resources */,
 				FA640D2C1827D785002472B7 /* 256_S.fnt in Resources */,
 				FA1628C718166D4B002F580A /* sp_bottom_menu.plist in Resources */,
 				C90DC8B01B9B670B00BDCBDA /* bg_0.png in Resources */,
