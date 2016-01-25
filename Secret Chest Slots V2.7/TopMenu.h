@@ -32,10 +32,6 @@
     int   fSize;
     float lHeight;
     
-    CCLabelBMFont *levelLabel;
-    CCLabelBMFont *expLabel;
-    CCLabelBMFont *coinsLabel;
-    CCLabelBMFont *winLabel;
     
     CCProgressTimer *_progress;
 
@@ -59,7 +55,6 @@
 -(void) closeWindowPay;
 -(void) closeWindowBuy;
 
--(void) openBuyWindow;
 -(void) closeWheelGame;
 -(void) closeCardGame;
 -(void) closeWindowWin;

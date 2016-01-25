@@ -18,15 +18,14 @@
 @interface TopMenu()
 
 @property (nonatomic, strong) SKNode* TOP_MENU_;
-@property (nonatomic, strong) SKSpriteNode *settingsBtn_Active;
-@property (nonatomic, strong) SKSpriteNode *paytableBtn_Active;
-@property (nonatomic, strong) SKSpriteNode *lobbyBtn_Active;
-@property (nonatomic, strong) SKSpriteNode *buyBtn_Active;
-
-@property (nonatomic, strong) SKSpriteNode *settingsBtn_notActive;
-@property (nonatomic, strong) SKSpriteNode *paytableBtn_notActive;
-@property (nonatomic, strong) SKSpriteNode *lobbyBtn_notActive;
-@property (nonatomic, strong) SKSpriteNode *buyBtn_notActive;
+@property (nonatomic, strong) SKTexture *settingsBtn_Active;
+@property (nonatomic, strong) SKTexture *paytableBtn_Active;
+@property (nonatomic, strong) SKTexture *lobbyBtn_Active;
+@property (nonatomic, strong) SKTexture *buyBtn_Active;
+@property (nonatomic, strong) SKTexture *settingsBtn_notActive;
+@property (nonatomic, strong) SKTexture *paytableBtn_notActive;
+@property (nonatomic, strong) SKTexture *lobbyBtn_notActive;
+@property (nonatomic, strong) SKTexture *buyBtn_notActive;
 
 @property (nonatomic, strong) SKSpriteNode *menu_line;
 @property (nonatomic, strong) SKSpriteNode *coins_button;
@@ -38,11 +37,11 @@
 @property (nonatomic, strong) SKSpriteNode *lobby_button;
 @property (nonatomic, strong) SKSpriteNode *ptable_button;
 @property (nonatomic, strong) SKSpriteNode *progressSp;
-//
-//@property (nonatomic, strong) SKLabelNode *levelLabel;
-//@property (nonatomic, strong) SKLabelNode *expLabel;
-//@property (nonatomic, strong) SKLabelNode *coinsLabel;
-//@property (nonatomic, strong) SKLabelNode *winLabel;
+
+@property (nonatomic, strong) SKLabelNode *levelLabel;
+@property (nonatomic, strong) SKLabelNode *expLabel;
+@property (nonatomic, strong) SKLabelNode *coinsLabel;
+@property (nonatomic, strong) SKLabelNode *winLabel;
 
 @end
 
@@ -53,6 +52,7 @@
 {
     if((self = [super init]))
     {
+        self.userInteractionEnabled = YES;
         self.name = kNodeTopMenu;
         self.position       = rect.origin;
         self.size           = rect.size;
@@ -69,24 +69,28 @@
         self.TOP_MENU_ = [SKNode node];
         [self addChildToTopZ:self.TOP_MENU_];
         
-        // Create buttons.
-        #warning EF get these from cc sprite sheets
-        self.settingsBtn_Active          = [SKSpriteNode spriteNodeWithImageNamed:@"btn_settings_active.png"];
-        self.paytableBtn_Active          = [SKSpriteNode spriteNodeWithImageNamed:@"btn_paytable_active.png"];
-        self.lobbyBtn_Active             = [SKSpriteNode spriteNodeWithImageNamed:@"btn_lobby_active.png"];
-        self.buyBtn_Active               = [SKSpriteNode spriteNodeWithImageNamed:@"btn_menubuy_active.png"];
-        
-        self.settingsBtn_notActive       = [SKSpriteNode spriteNodeWithImageNamed:@"btn_settings.png"];
-        self.paytableBtn_notActive       = [SKSpriteNode spriteNodeWithImageNamed:@"btn_paytable.png"];
-        self.lobbyBtn_notActive          = [SKSpriteNode spriteNodeWithImageNamed:@"btn_lobby.png"];
-        self.buyBtn_notActive            = [SKSpriteNode spriteNodeWithImageNamed:@"btn_menubuy.png"];
+#warning EF research best practices  and dealloc for this
+        // Create button textures and cache.
+        self.settingsBtn_Active          = [SKTexture textureWithImageNamed:@"btn_settings_active.png"];
+        self.paytableBtn_Active          = [SKTexture textureWithImageNamed:@"btn_paytable_active.png"];
+        self.lobbyBtn_Active             = [SKTexture textureWithImageNamed:@"btn_lobby_active.png"];
+        self.buyBtn_Active               = [SKTexture textureWithImageNamed:@"btn_menubuy_active.png"];
+        self.settingsBtn_notActive       = [SKTexture textureWithImageNamed:@"btn_settings.png"];
+        self.paytableBtn_notActive       = [SKTexture textureWithImageNamed:@"btn_paytable.png"];
+        self.lobbyBtn_notActive          = [SKTexture textureWithImageNamed:@"btn_lobby.png"];
+        self.buyBtn_notActive            = [SKTexture textureWithImageNamed:@"btn_menubuy.png"];
         
         
         if (IS_IPHONE && ![Combinations isRetina]) { iPhone3 = true; }
         
         if (IS_IPAD)    { fSize = 16; lHeight = 3.5f; }
         else            { fSize = 10; lHeight = 5.0f; }
-
+        
+        
+#warning  EF debug only
+        TYPE = 1;
+        
+        
         if (TYPE == 1)
         {
             gamePlay = true;
@@ -134,9 +138,11 @@
     [self.TOP_MENU_ addChildToTopZ:self.menu_line];
 }
 
+
 -(void)addButtons
-{    
-    self.setings_button              = [SKSpriteNode spriteNodeWithImageNamed:@"btn_settings.png"];
+{
+    
+    self.setings_button              = [SKSpriteNode spriteNodeWithTexture:self.settingsBtn_notActive];
     self.setings_button.anchorPoint  = ccp(0.5f, 0.5f);
     self.setings_button.position     = ccp(self.menu_line.position.x + (self.menu_line.size.width/2) - self.setings_button.size.width/1.2, self.menu_line.position.y);
     [self.TOP_MENU_ addChildToTopZ:self.setings_button];
@@ -188,7 +194,7 @@
     
     [self.TOP_MENU_ addChildToTopZ:self.coinsBg];
     
-    self.coins_button                = [SKSpriteNode spriteNodeWithImageNamed:@"btn_menubuy.png"];
+    self.coins_button                = [SKSpriteNode spriteNodeWithTexture:self.buyBtn_notActive];
     self.coins_button.anchorPoint    = ccp(0.5f, 0.5f);
     self.coins_button.position       = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2.035f) - (self.coins_button.size.width/2), self.coinsBg.position.y - (self.coinsBg.size.height*0.015f));
     [self.TOP_MENU_ addChildToTopZ:self.coins_button];
@@ -198,6 +204,7 @@
     shape.fillColor = [SKColor colorWithRed:100/255.0 green:100/255.0 blue:120/255.0 alpha:200/255.0];
     shape.position = self.position;
     [self.coins_button addChildToTopZ:shape];
+
     
     if (gamePlay)
     {
@@ -206,12 +213,12 @@
         self.winBg.position        = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2) + self.winBg.size.width/1.8f, self.menu_line.position.y);
         [self.TOP_MENU_ addChildToTopZ:self.winBg];
 
-        self.lobby_button              = [SKSpriteNode spriteNodeWithImageNamed:@"btn_lobby.png"];
+        self.lobby_button              = [SKSpriteNode spriteNodeWithTexture:self.lobbyBtn_notActive];
         self.lobby_button.anchorPoint  = ccp(0.5f, 0.5f);
         self.lobby_button.position = ccp(self.winBg.position.x + (self.winBg.size.width/2) + self.lobby_button.size.width/1.8f, self.menu_line.position.y);
         [self.TOP_MENU_ addChildToTopZ:self.lobby_button];
         
-        self.ptable_button             = [SKSpriteNode spriteNodeWithImageNamed:@"btn_paytable.png"];
+        self.ptable_button             = [SKSpriteNode spriteNodeWithTexture:self.paytableBtn_notActive];
         self.ptable_button.anchorPoint = ccp(0.5f, 0.5f);
         self.ptable_button.position = ccp(self.lobby_button.position.x + (self.lobby_button.size.width/2) + self.ptable_button.size.width, self.menu_line.position.y);
         [self.TOP_MENU_ addChildToTopZ:self.ptable_button];
@@ -227,50 +234,43 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)addLevelLabel
 {
-#warning EF do this
-//    levelLabel = [CCLabelBMFont labelWithString:@"" fntFile:IS_IPAD ? ([Combinations isRetina]) ? kFONT_BIG : kFONT_MEDIUM  : kFONT_MEDIUM];
-//    levelLabel.anchorPoint = ccp(0.5f,0.5f);
-//    levelLabel.scale = 0.75f;
-//    if (iPhone3) { levelLabel.scale = 0.35f; }
-//    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
-//        levelLabel.scale = 1.0;
-//    }
-//    levelLabel.alignment = kCCTextAlignmentCenter;
-//    levelLabel.position = ccp(self.expStar.size.width/2.1f ,self.expStar.size.height/2);
-//    levelLabel.color    = ccc3(69, 42, 4);
-//    
-////    [[self getChildByTag:kTAGOFSTAR] addChildToTopZ:levelLabel z:1];
-//    [self.expStar addChildToTopZ:levelLabel];
+    self.levelLabel = [SKLabelNode labelNodeWithFontNamed:IS_IPAD ? ([Combinations isRetina]) ? kFONT_BIG : kFONT_MEDIUM  : kFONT_MEDIUM];
+    self.levelLabel.scale = 0.75f;
+    if (iPhone3) { self.levelLabel.scale = 0.35f; }
+    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
+        self.levelLabel.scale = 1.0;
+    }
+    self.levelLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    self.levelLabel.position = ccp(-self.expStar.size.width/2.1f ,-self.expStar.size.height/2);
+    self.levelLabel.fontColor  = [SKColor colorWithRed:69/255.0 green:42/255.0 blue:4/255.0 alpha:1.0];
+    [self.expStar addChildToTopZ:self.levelLabel];
 
 }
 
 -(void)addLevelNr:(int)levelValue
 {
-#warning EF do this
-//    if (level_ < levelValue)
-//    {
-//        
+    if (level_ < levelValue)
+    {
+    #warning EF do this
 //        [(SlotMachine *)_parent levelUp:levelValue levelup:NO];
-//        [self.expStar runAction:[CCEaseInOut actionWithAction:[CCRotateBy actionWithDuration:0.5f angle:360] rate:1.5f]];
-//    }
-//    level_ = levelValue;
-//    
-//    [levelLabel setString:[NSString stringWithFormat:@"%d", level_]];
+        [self.expStar runAction:[SKAction rotateToAngle:360 duration:1.5]];
+    }
+    level_ = levelValue;
+    self.levelLabel.text = [NSString stringWithFormat:@"%d", level_];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)addExpLabel
 {
-#warning EF do this
-//    expLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFONT_MENU];
-//    expLabel.position = ccp(self.expBg.position.x, self.expBg.position.y);
-//    expLabel.color    = ccWHITE;
-//    if (iPhone3) { expLabel.scale = 0.65f; }
-//    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD||IS_IPAD) {
-//        expLabel.scale = 1.6;
-//    }
-//    
-//    [self addChildToTopZ:expLabel z:10];
+    self.expLabel = [SKLabelNode labelNodeWithFontNamed:kFONT_MENU];
+    self.expLabel.position = ccp(self.expBg.position.x, self.expBg.position.y);
+    self.expLabel.fontColor = [SKColor lightTextColor];
+    if (iPhone3) { self.expLabel.scale = 0.65f; }
+    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD||IS_IPAD) {
+        self.expLabel.scale = 1.6;
+    }
+    
+    [self.TOP_MENU_ addChildToTopZ:self.expLabel];
 }
 
 
@@ -290,7 +290,7 @@
     exp_ = expValue;
     
     NSString *stringFormated = [cfg formatTo3digitsValue:exp_];
-    [expLabel setString:stringFormated];
+    self.expLabel.text = stringFormated;
     
     int lvl = [Exp returnLevelByEXP:exp_];
     [self addLevelNr:lvl];
@@ -299,34 +299,32 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)addWinLabel
 {
-#warning EF
-//    CCLabelTTF *winL = [CCLabelBMFont labelWithString:@"Win:" fntFile:kFONT_MENU];
-//    winL.anchorPoint  = ccp(0.5f, 0.5f);
-//    winL.position     = ccp((self.winBg.position.x - self.winBg.size.width*0.55) + winL.size.width, self.menu_line.position.y  - 280);
-//    winL.color        = ccWHITE;
-//    if (iPhone3) { winL.scale = 0.65f;  winL.position = ccp((self.winBg.position.x - self.winBg.size.width*0.60f) + winL.size.width, self.menu_line.position.y);}
-//    if (IS_STANDARD_IPHONE_6_PLUS) {
-//        winL.position = ccp((self.winBg.position.x - self.winBg.size.width*0.45 ) + winL.size.width, self.menu_line.position.y);
-//        winL.scale = 1.3;
-//    }
-//    if (IS_IPAD) {
-//        winL.scale = 1.3;
-//    }
-//    
-//    
-//    winLabel = [CCLabelBMFont labelWithString:@"0" fntFile:kFONT_MENU];
-//    winLabel.anchorPoint  = ccp(0.0f, 0.5f);
-//    winLabel.position = ccp(self.winBg.position.x - self.winBg.size.width*0.15f, self.menu_line.position.y);
-//    winLabel.color    = ccc3(233, 192, 0);
-//    if (iPhone3) { winLabel.scale = 0.65f;
-//    winLabel.position = ccp(self.winBg.position.x - self.winBg.size.width*0.1f, self.menu_line.position.y);}
-//    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
-//        //winLabel.position = ccp(self.winBg.position.x , self.menu_line.position.y);
-//        winLabel.scale = 1.3;
-//    }
-//    
-//    [self addChildToTopZ:winL z:10];
-//    [self addChildToTopZ:winLabel z:10];
+    SKLabelNode *winL = [SKLabelNode labelNodeWithFontNamed:kFONT_MENU];
+    winL.text = @"Win:";
+    winL.position     = CGPointMake(self.winBg.position.x - self.winBg.size.width/4, self.winBg.position.y );
+    winL.fontColor    = [SKColor lightTextColor];
+    if (iPhone3) { winL.scale = 0.65f;  winL.position = ccp((self.winBg.position.x - self.winBg.size.width*0.60f), self.menu_line.position.y);}
+    if (IS_STANDARD_IPHONE_6_PLUS) {
+        winL.position = ccp((self.winBg.position.x - self.winBg.size.width*0.45 ), self.menu_line.position.y);
+        winL.scale = 1.3;
+    }
+    if (IS_IPAD) {
+        winL.scale = 1.3;
+    }
+
+    
+    self.winLabel = [SKLabelNode labelNodeWithFontNamed:kFONT_MENU];
+    self.winLabel.text = @"0";
+    self.winLabel.position = CGPointMake(self.winBg.position.x, self.winBg.position.y );
+    self.winLabel.fontColor = [SKColor colorWithRed:233/255.0 green:192/255.0 blue:0 alpha:1.0];
+    if (iPhone3) { self.winLabel.scale = 0.65f;
+    self.winLabel.position = ccp(self.winBg.position.x - self.winBg.size.width*0.1f, self.menu_line.position.y);}
+    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
+        self.winLabel.scale = 1.3;
+    }
+    
+    [self.TOP_MENU_ addChildToTopZ:winL];
+    [self.TOP_MENU_ addChildToTopZ:self.winLabel];
     
 }
 
@@ -338,13 +336,12 @@
     
     if (win_ < 10  && win_ >= 0.1) {
         numberString = [NSString stringWithFormat:@"%.1f0", win_];
-        [winLabel setString:numberString];
+        self.winLabel.text = numberString;
     }
     else
     {
-        // numberString = [NSString stringWithFormat:@"%.0f", final_coins];
         NSString *stringFormated = [cfg formatTo3digitsValue:win_];
-        [winLabel setString:stringFormated];
+        self.winLabel.text = stringFormated;
     }
     
     
@@ -352,17 +349,15 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)addScoreLabel
 {
-    //Create and add the score label as a child
-//    coinsLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFONT_MENU];
-//    coinsLabel.anchorPoint  = ccp(0.5f, 0.5f);
-//    coinsLabel.position     = ccp(self.coinsBg.position.x - self.coins_button.size.width/3, self.menu_line.position.y);
-//    coinsLabel.color        = ccc3(233, 192, 0);
-//    if (iPhone3) { coinsLabel.scale = 0.65f; }
-//    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
-//        coinsLabel.scale = 1.6;
-//    }
-#warning EF
-//    [self addChildToTopZ:coinsLabel z:9];
+//    Create and add the score label as a child
+    self.coinsLabel = [SKLabelNode labelNodeWithFontNamed:kFONT_MENU];
+    self.coinsLabel.position     = ccp(self.coinsBg.position.x - self.coins_button.size.width/3, self.menu_line.position.y);
+    self.coinsLabel.fontColor = [SKColor colorWithRed:233/255.0 green:192/255.0 blue:0.0 alpha:1.0];
+    if (iPhone3) { self.coinsLabel.scale = 0.65f; }
+    if (IS_STANDARD_IPHONE_6_PLUS||IS_IPAD) {
+        self.coinsLabel.scale = 1.6;
+    }
+    [self.TOP_MENU_ addChildToTopZ:self.coinsLabel];
 }
 
 -(void)activeButtons:(bool)bool_
@@ -370,6 +365,7 @@
     buttonActive = bool_;
     
     if (bool_) {
+        #warning EF
         SKAction* tintIn =[SKAction colorizeWithColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0] colorBlendFactor:1.0 duration:0.1];
 //        id tintIn = [CCTintTo actionWithDuration:0.1f red:255 green:255 blue:255];
         
@@ -380,6 +376,7 @@
     else
     {
 //        id tintOut = [CCTintTo actionWithDuration:0.1f red:130 green:130 blue:130];
+        #warning EF
         SKAction* tintOut =[SKAction colorizeWithColor:[UIColor colorWithRed:130/255.0 green:130/255.0 blue:130/255.0 alpha:1.0] colorBlendFactor:1.0 duration:0.1];
 
         [self.lobby_button       runAction:tintOut];
@@ -474,11 +471,11 @@
     
     if (coins > 0.09 && coins < 10) {
         numberString = [NSString stringWithFormat:@"%.1f0", coins];
-        [coinsLabel setString:numberString];
+        self.coinsLabel.text = numberString;
     }
     else
     {
-        [coinsLabel setString:stringFormated];
+        self.coinsLabel.text = stringFormated;
     }
 #warning EF
 //    [self unschedule:@selector(txtAnimation:)];
@@ -496,7 +493,7 @@
     
     final_coins = [DB_ getValueBy:d_Coins table:d_DB_Table];
     
-   // [self scaleAction:coinsLabel];
+    [self scaleAction:self.coinsLabel];
 
     
     if (coins_ == final_coins) {
@@ -506,13 +503,12 @@
     
         if (coins_ > 0.09 && coins_ < 10) {
             numberString = [NSString stringWithFormat:@"%.1f0", coins_];
-            [coinsLabel setString:numberString];
+            self.coinsLabel.text = numberString;
         }
         else
         {
-            // numberString = [NSString stringWithFormat:@"%.0f", final_coins];
             NSString *stringFormated = [cfg formatTo3digitsValue:coins_];
-            [coinsLabel setString:stringFormated];
+            self.coinsLabel.text = stringFormated;
         }
 
         return;
@@ -525,13 +521,12 @@
         
         if (final_coins > 0.09 && final_coins < 10) {
             numberString = [NSString stringWithFormat:@"%.1f0", final_coins];
-            [coinsLabel setString:numberString];
+            self.coinsLabel.text = numberString;
         }
         else
         {
-
             NSString *stringFormated = [cfg formatTo3digitsValue:final_coins];
-            [coinsLabel setString:stringFormated];
+            self.coinsLabel.text = stringFormated;
         }
         
         counter = 0;
@@ -560,7 +555,7 @@
     if (bool_) {
 #warning EF
 //        [self scaleAction:_progress];
-//        [self scaleAction:expLabel];
+        [self scaleAction:self.expLabel];
     }
     _progress.percentage = progress_number;
 }
@@ -604,54 +599,45 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     CGPoint touchPos = [self convertTouchToNodeSpace:touches.anyObject];
-    if (touchPos.y < kHeightScreen - self.menu_line.size.height) {
-        return;
-    }
+    
     
     CGRect r = self.lobby_button.frame;
     r.origin.y = r.origin.y - r.size.height*2;
     r.size.height = r.size.height*5;
     
-    
     SKNode* touchedNode = [self nodeFromTouches:touches inParentNode:self];
     
-    if([touchedNode isEqualToNode:self.settingsBtn_Active])
+    if([touchedNode isEqualToNode:self.setings_button])
     {
-        #warning EF flip visiblity?
-        //        [self.setings_button setDisplayFrame:self.settingsBtn_Active];
-        
+        [self.setings_button setTexture:self.settingsBtn_Active];
         openSett = true;
         [self openSettingsWindow];
+        [AUDIO playEffect:s_click1];
     }
-    else if([touchedNode isEqualToNode:self.buyBtn_Active])
+    else if([touchedNode isEqualToNode:self.coins_button])
     {
-        #warning EF flip visiblity?
-        //        [self.coins_button setDisplayFrame:self.buyBtn_Active];
-        
+        [self.coins_button setTexture:self.buyBtn_Active];
         openSett = true;
         [self openBuyWindow_withNR:@(1)];
         [AUDIO playEffect:s_click1];
     }
-    else if ((CGRectContainsPoint(r, touchPos)) && buttonActive)
+    else if ([touchedNode isEqualToNode:self.lobby_button] && buttonActive)
     {
+        [self.lobby_button setTexture:self.lobbyBtn_Active];
+        
         [self loading];
-        
-#warning EF flip visiblity?
-//        [self.lobby_button setDisplayFrame:self.lobbyBtn_Active];
-        
         sizee = 0;
         
         [AUDIO playEffect:s_click1];
+        
         #warning EF
         //[[CCDirector sharedDirector] replaceScene:[Lobby scene]];//node]];
+        
         return;
     }
-    else if ([touchedNode isEqualToNode:self.paytableBtn_Active] & buttonActive)
+    else if ([touchedNode isEqualToNode:self.ptable_button] && buttonActive)
     {
-#warning EF flip visiblity?
-        
-//        [self.ptable_button setDisplayFrame:self.paytableBtn_Active];
-        
+        [self.ptable_button setTexture:self.paytableBtn_Active];
         if (openPay == false && gamePlay == true)
         {
             openPay = true;
@@ -663,24 +649,20 @@
 
 
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    #warning EF do this
-//    [self.setings_button setDisplayFrame:self.settingsBtn_notActive];
-//    [self.ptable_button setDisplayFrame:self.paytableBtn_notActive];
-//    [self.lobby_button setDisplayFrame:self.lobbyBtn_notActive];
-//    [self.coins_button setDisplayFrame:self.buyBtn_notActive];
-    
+    [self setButtonsToUpState];
 }
 
+-(void) setButtonsToUpState{
+    [self.setings_button setTexture:self.settingsBtn_notActive];
+    [self.ptable_button setTexture:self.paytableBtn_notActive];
+    [self.lobby_button setTexture:self.lobbyBtn_notActive];
+    [self.coins_button setTexture:self.buyBtn_notActive];
+}
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    CGPoint touchPos = [self convertTouchToNodeSpace:touches.anyObject];
     openSett = false;
     openPay  = false;
-    #warning EF do this
-//    [self.setings_button setDisplayFrame:self.settingsBtn_notActive];
-//    [self.ptable_button setDisplayFrame:self.paytableBtn_notActive];
-//    [self.lobby_button setDisplayFrame:self.lobbyBtn_notActive];
-//    [self.coins_button setDisplayFrame:self.buyBtn_notActive];
+    [self setButtonsToUpState];
 }
 
 -(void) openSettingsWindow
