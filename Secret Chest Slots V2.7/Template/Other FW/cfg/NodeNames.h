@@ -8,6 +8,8 @@
 
 #define kNodeLobby          @"kNodeLobby"
 #define kNodeTopMenu        @"kNodeTopMenu"
-#define kNodeLoadingScreen  @"kNodeLoadingScreen"
 #define kNodeSettings       @"kNodeSettings"
-#define kNodePayTable       @"kNodePaytable"
+
+//#define kNodeLoadingScreen  @"kNodeLoadingScreen"
+//#define kNodePayTable       @"kNodePaytable"
+

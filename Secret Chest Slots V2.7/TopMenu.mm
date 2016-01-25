@@ -173,6 +173,7 @@
     
     
     // COINS
+    // Create Coins count
     self.coinsBg                     = [SKSpriteNode spriteNodeWithImageNamed:@"coins_field.png"];
     self.coinsBg.anchorPoint         = ccp(0.5f, 0.5f);
     if (gamePlay)
@@ -185,21 +186,14 @@
     }
     [self.TOP_MENU_ addChildToTopZ:self.coinsBg];
     
+    // Create buy coins button.
     self.coins_button                = [SKSpriteNode spriteNodeWithTexture:self.buyBtn_notActive];
     self.coins_button.anchorPoint    = ccp(0.5f, 0.5f);
     self.coins_button.position       = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2.035f) - (self.coins_button.size.width/2), self.coinsBg.position.y - (self.coinsBg.size.height*0.015f));
     [self.TOP_MENU_ addChildToTopZ:self.coins_button];
     
-    #warning EF this shape might not be needed.
-    SKShapeNode* shape = [SKShapeNode shapeNodeWithRectOfSize:self.size];
-    shape.fillColor = [SKColor colorWithRed:100/255.0 green:100/255.0 blue:120/255.0 alpha:200/255.0];
-    shape.position = self.position;
-    [self.coins_button addChildToTopZ:shape];
 
-    
-    
-    // WIN, Lobby Button and Paytable Button.
-    
+    // Win Label, Lobby Button and Paytable Button.
     if (gamePlay)
     {
         // Create last Win label and field;
@@ -666,11 +660,11 @@
 
 -(void) openSettingsWindow
 {
-#warning EF
-//    PopupManager *SWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)];
-//    SWindow.anchorPoint = ccp(0, 0);
+    PopupManager *SWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)];
+    SWindow.anchorPoint = ccp(0, 0);
+    [self addChildToTopZ:SWindow];
 //    [self addChildToTopZ:SWindow z:15 tag:kSetWindowTAG];
-//    [SWindow setUp:kWindowSettings someValue:0];
+    [SWindow setUp:kWindowSettings someValue:0];
 }
 
 -(void) openPayTableWindow
