@@ -87,8 +87,8 @@
         else            { fSize = 10; lHeight = 5.0f; }
         
         
-#warning  EF debug only
-        TYPE = 1;
+//#warning  EF debug only
+//        TYPE = 1;
         
         
         if (TYPE == 1)
