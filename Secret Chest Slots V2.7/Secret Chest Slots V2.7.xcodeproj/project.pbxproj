@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
+		22507CE21C55B333005B77E8 /* FSSpriteKitProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */; };
 		229588691C4DB3D600014B8F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588631C4DB3D500014B8F /* GameScene.m */; };
 		2295886A1C4DB3D600014B8F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 229588641C4DB3D500014B8F /* GameScene.sks */; };
 		2295886B1C4DB3D600014B8F /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229588661C4DB3D500014B8F /* GameViewController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -669,6 +670,8 @@
 /* Begin PBXFileReference section */
 		2214557C1C4EE8290052B029 /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		22507CE01C55B333005B77E8 /* FSSpriteKitProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSpriteKitProgressBar.h; sourceTree = "<group>"; };
+		22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSpriteKitProgressBar.m; sourceTree = "<group>"; };
 		229588621C4DB3D500014B8F /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		229588631C4DB3D500014B8F /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		229588641C4DB3D500014B8F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -1753,6 +1756,8 @@
 			children = (
 				22EFDE121C503E5000F2F0BD /* SKNode+SKNode_Extensions.h */,
 				22EFDE131C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm */,
+				22507CE01C55B333005B77E8 /* FSSpriteKitProgressBar.h */,
+				22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -4139,6 +4144,7 @@
 				FA589A1417BEDAE900E38432 /* b2BlockAllocator.cpp in Sources */,
 				FA589A1717BEDAE900E38432 /* b2Draw.cpp in Sources */,
 				FA589A1B17BEDAE900E38432 /* b2Math.cpp in Sources */,
+				22507CE21C55B333005B77E8 /* FSSpriteKitProgressBar.m in Sources */,
 				C9D39A921B81B35D0019FDA3 /* B6luxIAPHelper.mm in Sources */,
 				FA589A1E17BEDAE900E38432 /* b2Settings.cpp in Sources */,
 				FA589A2117BEDAE900E38432 /* b2StackAllocator.cpp in Sources */,
