@@ -12,6 +12,12 @@
 #import "SlotMachine.h"
 #import "Menu.h"
 #import "AppDelegate.h"
+#import "SKNode+SKNode_Extensions.h"
+
+@interface PopupManager()
+@property (nonatomic, strong) SKShapeNode* blackBG;
+
+@end
 
 @implementation PopupManager
 
@@ -23,7 +29,7 @@
     if((self = [super init]))
     {
         self.position       = rect.origin;
-        self.contentSize    = rect.size;
+        self.size    = rect.size;
     }
     
     return self;
@@ -74,14 +80,11 @@
 
 -(void) addBlackBackground
 {
-    CCSprite *spr   = [CCSprite node];
-    spr.textureRect = CGRectMake(0,0,kWidthScreen,kHeightScreen);
-    spr.opacity     = 0;
-    spr.anchorPoint = ccp(0, 0);
-    spr.color       = ccc3(255,255,255);
-    [self addChild:spr z:13 tag:kBlackBackgroundTAG];
-    
-    [spr runAction:[CCFadeTo actionWithDuration:0.2 opacity:100]];
+    self.blackBG = [SKShapeNode shapeNodeWithRect:CGRectMake(0,0,kWidthScreen,kHeightScreen)];
+    self.blackBG.fillColor = [SKColor blackColor];
+    self.blackBG.alpha = 0.0;
+    [self addChildToTopZ:self.blackBG];
+    [self.blackBG runAction:[SKAction fadeAlphaTo:0.2 duration:0.2]];
 }
 
 //////////////////////////////////////// OPEN WINDOWS ///////////////////////////////////////////
@@ -93,17 +96,18 @@
          [AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
-        SettingsWindows *SWindow = [[[SettingsWindows alloc] init] autorelease];
-        SWindow.anchorPoint = ccp(0.5f, 0.5f);
-        SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-        [self addChild:SWindow z:14 tag:kSetWindowTAG];
-        if ([_parent.parent isKindOfClass:[Menu class]]) {
-            [SWindow setUp:2];
-        }
-        else if ([_parent.parent isKindOfClass:[SlotMachine class]])
-        {
-            [SWindow setUp:1];
-        }
+#warning EF
+//        SettingsWindows *SWindow = [[[SettingsWindows alloc] init] autorelease];
+//        SWindow.anchorPoint = ccp(0.5f, 0.5f);
+//        SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
+//        [self addChild:SWindow z:14 tag:kSetWindowTAG];
+//        if ([_parent.parent isKindOfClass:[Menu class]]) {
+//            [SWindow setUp:2];
+//        }
+//        else if ([_parent.parent isKindOfClass:[SlotMachine class]])
+//        {
+//            [SWindow setUp:1];
+//        }
         
     }
     else { }
@@ -117,11 +121,12 @@
         [self addBlackBackground];
         btnPressed = true;
         //NSLog(@"%@",_parent.parent);
-        int machineNum = [(SlotMachine *)_parent.parent resumeMachineNum];
-        PayTableWindow *PWindow = [[[PayTableWindow alloc] init_withMachineNR:machineNum] autorelease];
-        PWindow.anchorPoint = ccp(0.5f, 0.5f);
-        PWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-        [self addChild:PWindow z:14 tag:kPayWindowTAG];
+        #warning EF
+//        int machineNum = [(SlotMachine *)_parent.parent resumeMachineNum];
+//        PayTableWindow *PWindow = [[[PayTableWindow alloc] init_withMachineNR:machineNum] autorelease];
+//        PWindow.anchorPoint = ccp(0.5f, 0.5f);
+//        PWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
+//        [self addChild:PWindow z:14 tag:kPayWindowTAG];
     }
     else { }
 }
@@ -215,9 +220,10 @@
 
 -(void)removeBlackBG
 {
-    [[self getChildByTag:kBlackBackgroundTAG] runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.2f opacity:0],[CCCallBlock actionWithBlock:^{
-        [[self getChildByTag:kBlackBackgroundTAG] removeFromParentAndCleanup:YES];
-    }], nil]];
+    #warning EF
+//    [[self getChildByTag:kBlackBackgroundTAG] runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.2f opacity:0],[CCCallBlock actionWithBlock:^{
+//        [[self getChildByTag:kBlackBackgroundTAG] removeFromParentAndCleanup:YES];
+//    }], nil]];
 }
 ///////////////////////////////////////////////////////////////////
 
@@ -225,45 +231,51 @@
 -(void) closeSettingsWindow
 {
     //[self removeBlackBG];
-    [self removeChild:(SettingsWindows *)[self getChildByTag:kSetWindowTAG] cleanup:YES];
-    [_parent performSelector:@selector(closeWindowSet) withObject:nil];
-    btnPressed = false;
+    #warning EF
+//    [self removeChild:(SettingsWindows *)[self getChildByTag:kSetWindowTAG] cleanup:YES];
+//    [_parent performSelector:@selector(closeWindowSet) withObject:nil];
+//    btnPressed = false;
 }
 
 -(void) closePayTableWindow
 {
-    [self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
-    [self removeChild:(PayTableWindow *)[self getChildByTag:kPayWindowTAG] cleanup:YES];
-    [_parent performSelector:@selector(closeWindowPay) withObject:nil];
+    #warning EF
+//    [self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
+//    [self removeChild:(PayTableWindow *)[self getChildByTag:kPayWindowTAG] cleanup:YES];
+//    [_parent performSelector:@selector(closeWindowPay) withObject:nil];
     btnPressed = false;
 }
 
 -(void) closeBuyWindow
 {
+    #warning EF
     //[self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
-    [self removeChild:(BuyCoinsWindow *)[self getChildByTag:kBuyWindowTAG] cleanup:YES];
-    [(TopMenu *) _parent closeWindowBuy]; 
+//    [self removeChild:(BuyCoinsWindow *)[self getChildByTag:kBuyWindowTAG] cleanup:YES];
+//    [(TopMenu *) _parent closeWindowBuy]; 
 
     btnPressed = false;
 }
 
 -(void) closeWinWindow
 {
-    [self removeChild:(PayTableWindow *)[self getChildByTag:kWinWindowTAG] cleanup:YES];
-    [(TopMenu *) _parent closeWindowWin];
+    #warning EF
+//    [self removeChild:(PayTableWindow *)[self getChildByTag:kWinWindowTAG] cleanup:YES];
+//    [(TopMenu *) _parent closeWindowWin];
     btnPressed = false;
 }
 
 -(void) closeLvlWindow
 {
-    [self removeChild:(PayTableWindow *)[self getChildByTag:kNewWindowTAG] cleanup:YES];
-    [(TopMenu *) _parent closeWindowLvl];
+    #warning EF
+//    [self removeChild:(PayTableWindow *)[self getChildByTag:kNewWindowTAG] cleanup:YES];
+//    [(TopMenu *) _parent closeWindowLvl];
     btnPressed = false;
 }
 
 -(void) closeUseBoostWindow
 {
-    [_parent performSelector:@selector(closeBUseWindow) withObject:nil];
+    #warning EF
+//    [_parent performSelector:@selector(closeBUseWindow) withObject:nil];
 }
 
 

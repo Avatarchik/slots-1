@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "SpecialBonus.h"
+#import <SpriteKit/SpriteKit.h>
 
-
-@interface PopupManager : CCSprite <CCTouchOneByOneDelegate>
+@interface PopupManager : SKSpriteNode
 {
 
     BOOL B1Position;
@@ -31,10 +31,10 @@
 
 -(void)musicPopWindow;
 
--(void)B1Pos;
--(void)B2Pos;
--(void)B1Pos2;
--(void)B2Pos2;
+//-(void)B1Pos;
+//-(void)B2Pos;
+////-(void)B1Pos2;
+//-(void)B2Pos2;
 
 -(void)removeBlackBG;
 
