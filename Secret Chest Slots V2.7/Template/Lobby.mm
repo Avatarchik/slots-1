@@ -39,7 +39,8 @@ enum {
     CGRect window = [[UIScreen mainScreen] bounds];
     SKScene* scene = [SKScene sceneWithSize:window.size];
     
-	Lobby *lobbyNode = [Lobby node];
+    //Create Lobby node.
+    Lobby *lobbyNode = [Lobby node];
     [scene addChild:lobbyNode];
     
 	return scene;

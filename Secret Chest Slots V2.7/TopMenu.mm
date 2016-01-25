@@ -14,6 +14,9 @@
 #import "coinsFA.h"
 #import "b6luxLoadingView.h"
 #import "SKNode+SKNode_Extensions.h"
+#import "FSSpriteKitProgressBar.h"
+
+
 
 @interface TopMenu()
 
@@ -36,15 +39,15 @@
 @property (nonatomic, strong) SKSpriteNode *winBg;
 @property (nonatomic, strong) SKSpriteNode *lobby_button;
 @property (nonatomic, strong) SKSpriteNode *ptable_button;
-@property (nonatomic, strong) SKSpriteNode *progressSp;
 
 @property (nonatomic, strong) SKLabelNode *levelLabel;
 @property (nonatomic, strong) SKLabelNode *expLabel;
 @property (nonatomic, strong) SKLabelNode *coinsLabel;
 @property (nonatomic, strong) SKLabelNode *winLabel;
 
-@end
+@property (nonatomic, strong) FSSpriteKitProgressBar* progress;
 
+@end
 
 @implementation TopMenu
 
@@ -121,7 +124,6 @@
         sizee          = 0;
         
         int expPercents = [Exp returnExpPercentage:EXP];
-      
         [self progressNumber:expPercents scale:NO];
         [self activeButtons:YES];
  
@@ -141,46 +143,36 @@
 
 -(void)addButtons
 {
-    
+    // Create Settings Button.
     self.setings_button              = [SKSpriteNode spriteNodeWithTexture:self.settingsBtn_notActive];
     self.setings_button.anchorPoint  = ccp(0.5f, 0.5f);
     self.setings_button.position     = ccp(self.menu_line.position.x + (self.menu_line.size.width/2) - self.setings_button.size.width/1.2, self.menu_line.position.y);
     [self.TOP_MENU_ addChildToTopZ:self.setings_button];
     
+    // Create Experience BG.
     self.expBg                       = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field.png"];
     self.expBg.anchorPoint           = ccp(0.5f, 0.5f);
     self.expBg.position              = ccp(self.menu_line.position.x - (self.menu_line.size.width/2) + self.expBg.size.width/1.5f, self.menu_line.position.y);
     [self.TOP_MENU_ addChildToTopZ:self.expBg];
     
+    // Create Experience Star.
     self.expStar                     = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_star.png"];
     self.expStar.anchorPoint         = ccp(0.5f, 0.5f);
     self.expStar.position            = ccp(self.expBg.position.x - (self.expBg.size.width/2), self.expBg.position.y);
+
+    // Progress Bar.
+    SKSpriteNode* progressSp                  = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_fill.png"];
+    self.progress                   = [[FSSpriteKitProgressBar alloc] initWithSpriteNode:progressSp];
+    self.progress.position        = ccp(self.expBg.position.x, self.expBg.position.y);
+    [self.TOP_MENU_ addChildToTopZ:_progress];
+
     [self.TOP_MENU_ addChildToTopZ:self.expStar];
-    
-
-    ////////////////PROGRESS
-    self.progressSp                  = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_fill.png"];
-    self.progressSp.anchorPoint      = ccp(0.f, 0.5f);
-    self.progressSp.xScale           = 0.0;
-    self.progressSp.position         = ccp(self.expBg.position.x - (self.expBg.size.width/2.05f), self.expBg.position.y);
-    
-#warning EF create SKProgressBar
-//    _progress                   = [CCProgressTimer progressWithSprite:self.progressSp];
-//    _progress.type              = kCCProgressTimerTypeBar;
-//    _progress.barChangeRate     = ccp(1,0);
-//    _progress.midpoint          = ccp(0.0,0.0f);
-//    //_progress.percentage        = 100;
-//    _progress.position        = ccp(self.expBg.position.x - (self.expBg.size.width/2.05f), self.expBg.position.y);
-//    //_progress.position          = ccp(0,0);
-//    _progress.anchorPoint       = ccp(0.f, 0.5f);
-//
-//    [self addChildToTopZ:_progress z:10];
-    /////////////////////////////////
-
-    
     
     
     // --------------------------------------------------------------------------------------------------------------------------
+    
+    
+    // COINS
     self.coinsBg                     = [SKSpriteNode spriteNodeWithImageNamed:@"coins_field.png"];
     self.coinsBg.anchorPoint         = ccp(0.5f, 0.5f);
     if (gamePlay)
@@ -191,7 +183,6 @@
     {
         self.coinsBg.position         = ccp(self.menu_line.position.x, self.menu_line.position.y);
     }
-    
     [self.TOP_MENU_ addChildToTopZ:self.coinsBg];
     
     self.coins_button                = [SKSpriteNode spriteNodeWithTexture:self.buyBtn_notActive];
@@ -206,18 +197,24 @@
     [self.coins_button addChildToTopZ:shape];
 
     
+    
+    // WIN, Lobby Button and Paytable Button.
+    
     if (gamePlay)
     {
+        // Create last Win label and field;
         self.winBg                     = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field.png"];
         self.winBg.anchorPoint         = ccp(0.5f, 0.5f);
         self.winBg.position        = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2) + self.winBg.size.width/1.8f, self.menu_line.position.y);
         [self.TOP_MENU_ addChildToTopZ:self.winBg];
-
+        
+        // Create Lobby Button.
         self.lobby_button              = [SKSpriteNode spriteNodeWithTexture:self.lobbyBtn_notActive];
         self.lobby_button.anchorPoint  = ccp(0.5f, 0.5f);
         self.lobby_button.position = ccp(self.winBg.position.x + (self.winBg.size.width/2) + self.lobby_button.size.width/1.8f, self.menu_line.position.y);
         [self.TOP_MENU_ addChildToTopZ:self.lobby_button];
         
+        // Create Paytable Button.
         self.ptable_button             = [SKSpriteNode spriteNodeWithTexture:self.paytableBtn_notActive];
         self.ptable_button.anchorPoint = ccp(0.5f, 0.5f);
         self.ptable_button.position = ccp(self.lobby_button.position.x + (self.lobby_button.size.width/2) + self.ptable_button.size.width, self.menu_line.position.y);
@@ -225,10 +222,11 @@
     }
     else
     {
+        // Move buttons off screen so the hit detection isnt triggered
         self.ptable_button.position = ccp(kWidthScreen, kHeightScreen);
         self.lobby_button.position = ccp(kWidthScreen, kHeightScreen);
     }
-    // --------------------------------------------------------------------------------------------------------------------------
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -389,7 +387,9 @@
 
 -(void)txtAnimation:(ccTime)dt
 {
+    //TODO: hook up coin flying animation
 #warning EF hook up coin flying animation
+    
 //    int i = [(coinsFA *)[_parent getChildByTag:675] getPowerByCoinsAmmount:coins_];
 //    //coinsFA *f = (coinsFA*)[_parent getChildByTag:675];
 //    int ff = 100;
@@ -553,11 +553,10 @@
 -(void)progressNumber:(float)progress_number scale:(bool)bool_
 {
     if (bool_) {
-#warning EF
-//        [self scaleAction:_progress];
+        [self scaleAction:self.progress];
         [self scaleAction:self.expLabel];
     }
-    _progress.percentage = progress_number;
+    [self.progress setProgress: progress_number];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////// < -------------------------------------------------------------- >
@@ -924,7 +923,7 @@
 //       // sizee = sizee + 200;
 //
 //       // [self progressNumber:sizee nextLevel:2500];
-//       // self.progressSp.scaleX = scaleXsize;
+//       // progressSp.scaleX = scaleXsize;
 //
 //
 //

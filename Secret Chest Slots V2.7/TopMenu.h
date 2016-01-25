@@ -31,9 +31,6 @@
     
     int   fSize;
     float lHeight;
-    
-    
-    CCProgressTimer *_progress;
 
     BOOL openSett;
     BOOL openPay;
