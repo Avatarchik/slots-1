@@ -70,7 +70,6 @@
         self.anchorPoint    = CGPointZero;
         self.position       = rect.origin;
         self.size           = rect.size;
-        //        self.contentSize    = rect.size;
         
         #warning EF - this MENU looks unused, it seems to provide a way of scrolling through multiple games on the lobby screen.
         //        MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_arrow.pvr.ccz"]];

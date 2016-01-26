@@ -25,6 +25,7 @@
 		22B859BF1C556C6000CFABCC /* Card Mini Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B859BE1C556C6000CFABCC /* Card Mini Game.xcassets */; };
 		22B859C11C556CD800CFABCC /* Loading Spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B859C01C556CD800CFABCC /* Loading Spinner.xcassets */; };
 		22B859C31C556CEE00CFABCC /* Slot Machine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B859C21C556CEE00CFABCC /* Slot Machine.xcassets */; };
+		22DBE5D81C570AA900DA084D /* SpecialBonus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DBE5D71C570AA900DA084D /* SpecialBonus.xcassets */; };
 		22EFDE141C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22EFDE131C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm */; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
@@ -690,6 +691,7 @@
 		22B859BE1C556C6000CFABCC /* Card Mini Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Card Mini Game.xcassets"; sourceTree = "<group>"; };
 		22B859C01C556CD800CFABCC /* Loading Spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Loading Spinner.xcassets"; sourceTree = "<group>"; };
 		22B859C21C556CEE00CFABCC /* Slot Machine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Slot Machine.xcassets"; sourceTree = "<group>"; };
+		22DBE5D71C570AA900DA084D /* SpecialBonus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpecialBonus.xcassets; sourceTree = "<group>"; };
 		22EFDE121C503E5000F2F0BD /* SKNode+SKNode_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+SKNode_Extensions.h"; sourceTree = "<group>"; };
 		22EFDE131C503E5000F2F0BD /* SKNode+SKNode_Extensions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "SKNode+SKNode_Extensions.mm"; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
@@ -1747,6 +1749,7 @@
 				22B859C21C556CEE00CFABCC /* Slot Machine.xcassets */,
 				22B859BA1C556AC800CFABCC /* Fonts.xcassets */,
 				22B859BE1C556C6000CFABCC /* Card Mini Game.xcassets */,
+				22DBE5D71C570AA900DA084D /* SpecialBonus.xcassets */,
 			);
 			name = "Asset Catalogs";
 			sourceTree = "<group>";
@@ -3691,6 +3694,7 @@
 				FA548159181FFB7400EC88DD /* background1-ipad.png in Resources */,
 				FA640D2B1827D785002472B7 /* 196_S.png in Resources */,
 				C96D6DB91BF76BC5005A5381 /* ALAdType.html in Resources */,
+				22DBE5D81C570AA900DA084D /* SpecialBonus.xcassets in Resources */,
 				FA0C9DF017F954A9003F2285 /* 196.png in Resources */,
 				FA548150181FDED300EC88DD /* 24.png in Resources */,
 				FA822D3A182140EF0096DF01 /* card2_ipad.png in Resources */,
