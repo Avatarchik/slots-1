@@ -10,11 +10,17 @@
 
 @implementation SKNode (SKNode_Extensions)
 
--(instancetype) nodeFromTouches:(NSSet<UITouch *> *) touches inParentNode:(SKNode*) parentNode{
+-(instancetype) nodeFromTouches:(NSSet<UITouch *> *) touches{
+    SKNode* node = [SKNode nodeFromTouches:touches inParentNode:self];
+    return node;
+}
+
++(instancetype) nodeFromTouches:(NSSet<UITouch *> *) touches inParentNode:(SKNode*) parentNode{
     UITouch* touch = touches.anyObject;
     CGPoint touchPoint = [touch locationInNode:parentNode];
-    SKNode* node = [self nodeAtPoint:touchPoint];
+    SKNode* node = [parentNode nodeAtPoint:touchPoint];
     return node;
+    
 }
 
 -(void) addChild:(SKNode*) child atZPosition:(CGFloat) zPosition{

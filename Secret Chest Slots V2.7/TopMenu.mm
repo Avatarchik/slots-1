@@ -598,7 +598,7 @@
     r.origin.y = r.origin.y - r.size.height*2;
     r.size.height = r.size.height*5;
     
-    SKNode* touchedNode = [self nodeFromTouches:touches inParentNode:self];
+    SKNode* touchedNode = [self nodeFromTouches:touches];
     
     if([touchedNode isEqualToNode:self.setings_button])
     {

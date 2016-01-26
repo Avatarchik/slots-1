@@ -207,7 +207,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
     // Get touch node.
-    SKNode* node = [self nodeFromTouches:touches inParentNode:self];
+    SKNode* node = [self nodeFromTouches:touches];
     
     if([node isEqualToNode:self.rateApp])
     {
@@ -245,7 +245,7 @@
     [self.playTables setTexture:[SKTexture textureWithImageNamed:@"paytables.png"]];
     [self.slotIcon setScale:1.2];
 
-    SKNode* node = [self nodeFromTouches:touches inParentNode:self];
+    SKNode* node = [self nodeFromTouches:touches];
     
     if([node isEqualToNode:self.rateApp])
     {
