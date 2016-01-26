@@ -5,13 +5,33 @@
 #import "Combinations.h"
 #import <Chartboost/Chartboost.h>
 #import "IDSTOREPLACE.h"
-
+#import "SKNode+SKNode_Extensions.h"
 
 #define kFullWaiTime            10800
 #define kNotiftime              86400
 #define kPushText               @"Special Bonus is ready. Come and get it!"
 #define kPushTextNotif          @"Hey, don't forget to take your special bonus"
-#define kbuttonBlinkActionTag    10
+//#define kButtonBlinkActionTag    10
+#define kButtonBlinkActionKey    @"kButtonBlinkActionKey"
+
+
+@interface SpecialBonus()
+
+@property (nonatomic, strong) SKSpriteNode* specBackground;
+@property (nonatomic, strong) SKSpriteNode* grille;
+@property (nonatomic, strong) SKSpriteNode* progress_line;
+@property (nonatomic, strong) SKSpriteNode* button;
+@property (nonatomic, strong) SKSpriteNode* Coin;
+@property (nonatomic, assign) int Coins;
+
+@property (nonatomic, strong) SKTexture* Btn_Active;
+@property (nonatomic, strong) SKTexture* Btn_notActive;
+
+@property (nonatomic, strong) SKLabelNode* TIME_LEFT_LABEL;
+@property (nonatomic, strong) SKLabelNode* NO_CONNECTION_LABEL;
+@property (nonatomic, strong) SKLabelNode* SBonusLabel;
+
+@end
 
 
 
@@ -20,8 +40,12 @@
     BOOL canTouch;
     int timeLeft;
     
-    CCLabelBMFont *TIME_LEFT_LABEL;
-    CCLabelBMFont *NO_CONNECTION_LABEL;
+//    CCLabelBMFont *self.TIME_LEFT_LABEL;
+//    CCLabelBMFont *self.NO_CONNECTION_LABEL;
+//    CCLabelBMFont       *self.SBonusLabel;
+    
+    
+    
     
 }
 
@@ -29,54 +53,47 @@
 {
     if((self = [super init]))
     {
-        
         int plus = 150;
-      //  int level = kLEVEL;
         int machinemaxNr = [Exp checMaxMachineWithLevelNr:kLEVEL];  //1;
         
-        coins = 200+(plus*machinemaxNr);
+        self.Coins = 200+(plus*machinemaxNr);
+        self.size = CGSizeMake(kWidthScreen, kHeightScreen);
         
-        [self setContentSize:CGSizeMake(kWidthScreen, kHeightScreen)];
+        // Add background node
+        self.specBackground              = [SKSpriteNode spriteNodeWithImageNamed:@"bonus_background.png"];
+        self.specBackground.anchorPoint  = ccp(0.5f, 0);
+        self.specBackground.position     = ccp(kWidthScreen/2, 0);
+        [self addChildToTopZ:self.specBackground];
         
-        SPEC_BONUS = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_special_bonus.pvr.ccz"]];
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_special_bonus.plist"]];
-        [self addChild:SPEC_BONUS z:1];
-        
-        
-        specBackground              = [CCSprite spriteWithSpriteFrameName:@"bonus_background.png"];
-        specBackground.anchorPoint  = ccp(0.5f, 0);
-        specBackground.position     = ccp(kWidthScreen/2, 0);
-        [SPEC_BONUS addChild:specBackground z:2];
-        
-        Btn_Active          = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"btn_get_active.png"]];
-        Btn_notActive       = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"btn_get.png"]];
+        // Cache some textures
+        self.Btn_Active          = [SKTexture textureWithImageNamed:@"btn_get_active.png"];
+        self.Btn_notActive       = [SKTexture textureWithImageNamed:@"btn_get.png"];
         
         b1 = false;
         
         [self addProgress];
         [self addTxtLabel];
-        [self addButton ];
+        [self addButton];
         
         //custom
         [self addTimeLeftLabel];
         
         [self UPDATE_ME];
         
-        NSString *name = (IS_IPAD) ? @"coins_fly" : @"coins_fly_iPhone";
+        NSString *name = (IS_IPAD) ? @"Coins_fly" : @"Coins_fly_iPhone";
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist",name]];
+#warning EF this should a be an animation I believe
+//        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist",name]];
         
-        Coin = [CCSprite spriteWithSpriteFrameName:@"coin_flat.png"];
-        Coin.anchorPoint = ccp(0.5f, 0.5f);
-        Coin.position = ccp(progress_line.position.x + progress_line.contentSize.width *0.4f, progress_line.position.y);
-        Coin.scale = IS_IPAD ? ([Combinations isRetina]) ? 0.7f : 0.4f    : ([Combinations isRetina]) ? 0.4f : 0.4f ;
-        Coin.visible = NO;
-        [self addChild:Coin z:4];
-        if (coins > 1000) {
-            Coin.position = ccpAdd(Coin.position, ccp(-Coin.boundingBox.size.width*0.25f, 0));
+        self.Coin = [SKSpriteNode spriteNodeWithImageNamed:@"Coin_flat.png"];
+        self.Coin.anchorPoint = ccp(0.5f, 0.5f);
+        self.Coin.position = ccp(self.progress_line.position.x + self.progress_line.size.width *0.4f, self.progress_line.position.y);
+        self.Coin.scale = IS_IPAD ? ([Combinations isRetina]) ? 0.7f : 0.4f    : ([Combinations isRetina]) ? 0.4f : 0.4f ;
+        self.Coin.hidden = NO;
+        [self addChildToTopZ:self.Coin];
+        if (self.Coins > 1000) {
+            self.Coin.position = ccpAdd(self.Coin.position, ccp(-self.Coin.size.width*0.25f, 0));
         }
-        
-        
     }
     
     return self;
@@ -92,7 +109,7 @@
     
     canTouch = NO;
     
-    button.opacity = 100;    //  first always should be small opacity, later change
+    self.button.alpha = 100/255.0;    //  first always should be small opacity, later change
 
    // NSLog(@"Must update special bonus %@",self);
     
@@ -103,8 +120,9 @@
         //NSLog(@"No connection in bonus window");
         // make state no connection
         [self changeSpecialBonusStateTo:state_notconnected];
-        [self unschedule:@selector(internetCheckingUpdate:)];
-        [self schedule:@selector(internetCheckingUpdate:) interval:0.3f];
+#warning EF
+//        [self unschedule:@selector(internetCheckingUpdate:)];
+//        [self schedule:@selector(internetCheckingUpdate:) interval:0.3f];
         return;
     }
 //    else {
@@ -113,7 +131,8 @@
     
     [self changeSpecialBonusStateTo:state_connecting];
     
-    [self unschedule:@selector(internetCheckingUpdate:)];
+#warning EF
+//    [self unschedule:@selector(internetCheckingUpdate:)];
     
     //check if it was no connection state -
     
@@ -186,19 +205,14 @@
 
     }
         [self updateBonusLabel];
-    
-    
-    
 }
 
 -(NSString*)MY_ID{
-    
     return [Combinations getNSDEFAULTS_String:kUSER_UNIQE_IDE];
-    
 }
 
 -(void)CHECKFORBONUS_SS{
-    
+#warning EF this isnt implemented.
     return;
     
     __block NSString *timleftState = nil;
@@ -223,14 +237,15 @@
             //NSLog(@"FINISHED SERVER time left %@",timleftState);
             
             if ([timleftState integerValue]==0 && timleftState != nil){
-                //enalbe buttons press etc;
+                //enalbe self.buttons press etc;
                 [self changeSpecialBonusStateTo:state_canTakeBonus];
                 
             }
             else if ([timleftState integerValue] > 0 && timleftState != nil){
                 timeLeft = [timleftState integerValue];
                 [self changeSpecialBonusStateTo:state_waitingForbonus];
-                [self schedule:@selector(specialBonusTimeUpdate:) interval:1.f];
+#warning EF not used
+//                [self schedule:@selector(specialBonusTimeUpdate:) interval:1.f];
             }
             else{
              //   NSLog(@"error !");
@@ -285,8 +300,8 @@
 -(void) updateBonusLabel{
     if(![self canDisplayAD]){
         [self changeSpecialBonusStateTo:state_waitingForbonus];
-        progress_line.opacity = 0;
-    [TIME_LEFT_LABEL setString:[self getTimeLeftStillNextAddString]];
+        self.progress_line.alpha = 0.0;
+        self.TIME_LEFT_LABEL.text = [self getTimeLeftStillNextAddString];
     }else{
         if ([self canDisplayAD]) {
             if([Chartboost hasRewardedVideo:CBLocationMainMenu]) {
@@ -303,9 +318,9 @@
 
 -(void)GET_BONUS_SS{
     
-    float oldscale = progress_line.scaleX;
+    float oldscale = self.progress_line.xScale;
 
-    progress_line.scaleX = 0;
+    self.progress_line.xScale = 0.0;
 
     if (![Combinations connectedToInternet]) {
       //  NSLog(@"Warning! Could not get bonus - check internet connection");
@@ -337,15 +352,16 @@
                 timeLeft = kFullWaiTime;
                 [self specialBonusTimeUpdate:0.1f];
                 
-                [self unschedule:@selector(specialBonusTimeUpdate:)];
-                [self schedule:@selector(specialBonusTimeUpdate:) interval:1.f];
+#warning EF
+//                [self unschedule:@selector(specialBonusTimeUpdate:)];
+//                [self schedule:@selector(specialBonusTimeUpdate:) interval:1.f];
                 
                 //save push
                 
                 [self saveLocalPushSettings];
                 
                 //
-                    //GIVE COINS HERE
+                    //GIVE self.CoinS HERE
                 //
                 
                 
@@ -364,63 +380,72 @@
 
 -(void)changeSpecialBonusStateTo:(int)state_{
     
-    [button stopActionByTag:kbuttonBlinkActionTag];
+
+#warning EF this isnt used?
+//    [self.button stopActionByTag:kButtonBlinkActionTag];
     
-    Coin.visible = NO;
-    TIME_LEFT_LABEL.position = grille.position;
+    self.Coin.hidden = NO;
+    self.TIME_LEFT_LABEL.position = self.grille.position;
     
     if (state_ == state_notconnected){
-        progress_line.opacity = 50;
-        progress_line.scaleX = 0;
-        [self unschedule:@selector(specialBonusTimeUpdate:)];
-        TIME_LEFT_LABEL.visible = NO;
-        NO_CONNECTION_LABEL.visible = YES;
+        self.progress_line.alpha = 50/255.0;
+        self.progress_line.xScale = 0.0;
+        
+//        [self unschedule:@selector(specialBonusTimeUpdate:)];
+        self.TIME_LEFT_LABEL.hidden = NO;
+        
+#warning EF stop animation if exists on
+        self.NO_CONNECTION_LABEL.hidden = YES;
+
         // must show not connected to internet itp
     }
     
     //    else if(state_ == state_connected){
-    //        progress_line.opacity = 255;
-    //        NO_CONNECTION_LABEL.visible = NO;
-    //        progress_line.opacity = 50;
-    //        progress_line.scaleX = 0;
-    //        [TIME_LEFT_LABEL setString:@"Connecting..."];
+    //        self.progress_line.opacity = 255;
+    //        self.NO_CONNECTION_LABEL.hidden = NO;
+    //        self.progress_line.opacity = 50;
+    //        self.progress_line.xScale = 0;
+    //        [self.TIME_LEFT_LABEL setString:@"Connecting..."];
     //    }
     
     else if (state_ == state_waitingForbonus){
         canTouch = NO;
-        progress_line.opacity = 255;
-        [TIME_LEFT_LABEL setString:@"Not available"];
+        self.progress_line.alpha = 255/255.0;
+        [self.TIME_LEFT_LABEL setString:@"Not available"];
         
-        button.opacity = 100;
-        TIME_LEFT_LABEL.visible = YES;
-        NO_CONNECTION_LABEL.visible = NO;
+        self.button.alpha = 100/255.0;
+        self.TIME_LEFT_LABEL.hidden = YES;
+        self.NO_CONNECTION_LABEL.hidden = NO;
         
     }
     else if (state_ == state_canTakeBonus){
         canTouch = YES;
-        progress_line.opacity = 255;
-        button.opacity = 255;
-        progress_line.scaleX = 1;
-        TIME_LEFT_LABEL.visible = YES;
-        Coin.visible = YES;
-        TIME_LEFT_LABEL.position = ccp(grille.position.x + grille.contentSize.width*(IS_IPAD ? 0.1f : 0.2f), grille.position.y);
-        [TIME_LEFT_LABEL setString:[NSString stringWithFormat:@"%i",coins]];
-        NO_CONNECTION_LABEL.visible = NO;
-        [self unschedule:@selector(specialBonusTimeUpdate:)];
+        self.progress_line.alpha = 255/255.0;
+        self.button.alpha = 255/255.0;
+        self.progress_line.xScale = 1;
+        self.TIME_LEFT_LABEL.hidden = YES;
+        self.Coin.hidden = YES;
+        self.TIME_LEFT_LABEL.position = ccp(self.grille.position.x + self.grille.size.width*(IS_IPAD ? 0.1f : 0.2f), self.grille.position.y);
+        self.TIME_LEFT_LABEL.text = [NSString stringWithFormat:@"%i",self.Coins];
+        self.NO_CONNECTION_LABEL.hidden = NO;
+#warning EF
+//        [self unschedule:@selector(specialBonusTimeUpdate:)];
         [self getBonusButtonEffect];
     }
     if (state_ == state_connectionError){
-        progress_line.opacity = 50;
-        TIME_LEFT_LABEL.visible = NO;
-        NO_CONNECTION_LABEL.visible = YES;
-        [self unschedule:@selector(specialBonusTimeUpdate:)];
+        self.progress_line.alpha = 50/255.0;
+        self.TIME_LEFT_LABEL.hidden = NO;
+        self.NO_CONNECTION_LABEL.hidden = YES;
+#warning EF
+//        [self unschedule:@selector(specialBonusTimeUpdate:)];
     }
     if (state_ == state_connecting)
     {
-        [TIME_LEFT_LABEL setString:@"Connecting..."];
-        button.opacity = 100;
-        progress_line.scaleX = 0;
-        [self unschedule:@selector(specialBonusTimeUpdate:)];
+        self.TIME_LEFT_LABEL.text = @"Connecting";
+        self.button.alpha = 1.0;
+        self.progress_line.xScale = 0;
+#warning EF
+//        [self unschedule:@selector(specialBonusTimeUpdate:)];
     }
     
 }
@@ -449,7 +474,7 @@
 	
 	// Notification details
     localNotif.alertBody = text_;
-	// Set the action button
+	// Set the action self.button
     localNotif.alertAction = @"View";
 	
     localNotif.soundName = UILocalNotificationDefaultSoundName;
@@ -477,25 +502,25 @@
     
 }
 
--(void)specialBonusTimeUpdate:(ccTime)dt{
+-(void)specialBonusTimeUpdate:(float)dt{
+//-(void)specialBonusTimeUpdate:(ccTime)dt{
     
     timeLeft--;
-    
     float progress = (float)((timeLeft*100)/kFullWaiTime)/100;    //(kFullWaiTime - timeLeft)/100;
-    progress_line.scaleX = 1-progress;
+    self.progress_line.xScale = 1-progress;
     
     NSString *stringTime = [NSString stringWithFormat:@"%02li:%02li:%02li",
-                            
                             lround(floor(timeLeft / 3600.)) % 100,
                             lround(floor(timeLeft / 60.)) % 60,
                             lround(floor(timeLeft)) % 60];
     
-    [TIME_LEFT_LABEL setString:stringTime];
+    self.TIME_LEFT_LABEL.text = stringTime;
     
     if (timeLeft <= 0) {
         timeLeft = 0;
         [self changeSpecialBonusStateTo:state_canTakeBonus];
-        [self unschedule:@selector(specialBonusTimeUpdate:)];
+#warning EF
+//        [self unschedule:@selector(specialBonusTimeUpdate:)];
     }
     
 }
@@ -504,7 +529,7 @@
 
 -(void)getCoins
 {
-    UIAlertView* view = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Earn %i Coins!",coins] message:[NSString stringWithFormat:@"Would you like to watch a video for %i Coins?", coins] delegate:self cancelButtonTitle:@"No thanks" otherButtonTitles:@"Watch now", nil];
+    UIAlertView* view = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Earn %i Coins!",self.Coins] message:[NSString stringWithFormat:@"Would you like to watch a video for %i Coins?", self.Coins] delegate:self cancelButtonTitle:@"No thanks" otherButtonTitles:@"Watch now", nil];
     [view show];
    
 }
@@ -517,182 +542,227 @@
 -(void) reedemCoinReward{
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"AdWatchedDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    TopMenu *t = (TopMenu *)[_parent.parent getChildByTag:kTopMenuTAG];
     
-    float coins_ = [DB_ getValueBy:d_Coins table:d_DB_Table];
-    
-    float finalCoins = coins_ + coins;
-    
+    float Coins_ = [DB_ getValueBy:d_Coins table:d_DB_Table];
+    float finalCoins = Coins_ + self.Coins;
     [DB_ updateValue:d_Coins table:d_DB_Table :finalCoins];
+
+    // Tell Menu to play coin animation.
+    Menu* menu = (Menu*)[(SKScene*)GAMEVIEWCONTROLLER.scene childNodeWithName:kNodeMenu];
+    if(menu)
+    {
+        [menu coinAnimation:self.Coins];
+    }
     
-    [(Menu *)_parent.parent coinAnimation:coins];
-    
-    [t addCoins:coins];
+    // Tell TopMenu to add coins.
+    TopMenu *topMenu = (TopMenu *)[(SKScene*)GAMEVIEWCONTROLLER.scene childNodeWithName:kNodeTopMenu];
+    if(topMenu)
+    {
+        [topMenu addCoins:self.Coins];
+    }
     canTouch = NO;
-    Coin.opacity = 0;
+    self.Coin.alpha = 0.0;
     //[self updateBonusLabel];
 }
 
 -(void)getBonusButtonEffect{
-    
-    id scale1 = [CCScaleTo actionWithDuration:0.2f scale:1.1f];
-    id scaleDef = [CCScaleTo actionWithDuration:0.1f scale:1.f];
-    id delay = [CCDelayTime actionWithDuration:1.f];
-    id seq = [CCSequence actions:scale1,scaleDef,nil];
-    id repeat = [CCSequence actions:[CCRepeat actionWithAction:seq times:2],delay, nil];
-    id r = [CCRepeatForever actionWithAction:repeat];
-    
-    [button runAction:r].tag = kbuttonBlinkActionTag;
-    
+    SKAction* scale1 = [SKAction scaleTo:0.2 duration:1.1];
+    SKAction* scaleDef = [SKAction scaleTo:1.1 duration:0.1];
+    SKAction* delay = [SKAction waitForDuration:1.0];
+    SKAction* seq = [SKAction sequence:@[scale1, scaleDef]];
+    SKAction* repeat = [SKAction sequence:@[[SKAction repeatAction:seq count:2], delay]];
+    SKAction* r = [SKAction repeatActionForever:repeat];
+    [self.button runAction:r withKey:kButtonBlinkActionKey];
 }
 
 -(void)addTimeLeftLabel{
+    self.TIME_LEFT_LABEL          = [SKLabelNode labelNodeWithFontNamed:kFONT_SPEC];
+    self.TIME_LEFT_LABEL.text = @"00:00:00";
     
-    TIME_LEFT_LABEL          = [CCLabelBMFont labelWithString:@"00:00:00" fntFile:kFONT_SPEC];
-    TIME_LEFT_LABEL.position = ccp(button.position.x, SBonusLabel.position.y);//ccpAdd(button.position, ccp(0, TIME_LEFT_LABEL.boundingBox.size.height/2));
-    TIME_LEFT_LABEL.color    = ccWHITE; //ccc3(69, 42, 4);
-    TIME_LEFT_LABEL.scale    = (IS_IPAD) ? 0.55f : 0.65f;
+#warning EF positioning
+    self.TIME_LEFT_LABEL.position = ccp(self.button.position.x, self.SBonusLabel.position.y);//ccpAdd(self.button.position, ccp(0, self.TIME_LEFT_LABEL.size.height/2));
+    self.TIME_LEFT_LABEL.fontColor    = [SKColor lightTextColor];
+    self.TIME_LEFT_LABEL.scale    = (IS_IPAD) ? 0.55f : 0.65f;
     if (IS_STANDARD_IPHONE_6_PLUS) {
-        TIME_LEFT_LABEL.scale = 1.4;
+        self.TIME_LEFT_LABEL.scale = 1.4;
     }
-    [self addChild:TIME_LEFT_LABEL z:5];
-    
-    
-    TIME_LEFT_LABEL.position = grille.position;
-    
+    [self addChildToTopZ:self.TIME_LEFT_LABEL];
+    self.TIME_LEFT_LABEL.position = self.grille.position;
 }
 
-//
 
 -(void) addProgress
 {
-    grille              = [CCSprite spriteWithSpriteFrameName:@"bonus_separator.png"];
-    grille.anchorPoint  = ccp(0.5f, 0.5f);
-    grille.position     = ccp(specBackground.position.x - specBackground.boundingBox.size.width*0.008f, specBackground.position.y + specBackground.boundingBox.size.height*0.34f);
-    [SPEC_BONUS addChild:grille z:4];
-    grille.visible = NO;
+    self.grille              = [SKSpriteNode spriteNodeWithImageNamed:@"bonus_separator.png"];
+    self.grille.anchorPoint  = ccp(0.5f, 0.5f);
+    self.grille.position     = ccp(self.specBackground.position.x - self.specBackground.size.width*0.008f, self.specBackground.position.y + self.specBackground.size.height*0.34f);
     
-    progress_line              = [CCSprite spriteWithSpriteFrameName:@"bonus_progress.png"];
-    progress_line.anchorPoint  = ccp(0.f, 0.5f);
-    progress_line.position     = ccp(grille.position.x, grille.position.y);
-    progress_line.position = ccpAdd(progress_line.position,
-                                    ccp(-progress_line.boundingBox.size.width/2, 0));
-    [SPEC_BONUS addChild:progress_line z:3];
+    [self addChildToTopZ:self.grille];
+    self.grille.hidden = NO;
     
-    NO_CONNECTION_LABEL          = [CCLabelBMFont labelWithString:@"NO INTERNET CONNECTION" fntFile:kFONT_SPEC];
-    if (NO_CONNECTION_LABEL) {
-        SBonusLabel.scale *= 2;
+    self.progress_line              = [SKSpriteNode spriteNodeWithImageNamed:@"bonus_progress.png"];
+    self.progress_line.anchorPoint  = ccp(0.f, 0.5f);
+    self.progress_line.position     = ccp(self.grille.position.x, self.grille.position.y);
+    self.progress_line.position = ccpAdd(self.progress_line.position,
+                                    ccp(-self.progress_line.size.width/2, 0));
+    [self addChildToTopZ:self.progress_line];
+    
+    self.NO_CONNECTION_LABEL          = [SKLabelNode labelNodeWithFontNamed:kFONT_SPEC];
+    self.NO_CONNECTION_LABEL.text     = @"NO INTERNET CONNECTION";
+    
+    if (self.NO_CONNECTION_LABEL) {
+#warning EF
+//        self.SBonusLabel.scale *= 2;
     }
-    NO_CONNECTION_LABEL.position = grille.position;
-    NO_CONNECTION_LABEL.color    = ccWHITE; //ccc3(69, 42, 4);
-    NO_CONNECTION_LABEL.scale    = 0.35f;
-    [self addChild:NO_CONNECTION_LABEL z:5];
-    NO_CONNECTION_LABEL.visible = NO;
+    self.NO_CONNECTION_LABEL.position = self.grille.position;
+    self.NO_CONNECTION_LABEL.fontColor = [SKColor lightTextColor];
+    self.NO_CONNECTION_LABEL.scale    = 0.35f;
+    [self addChildToTopZ:self.NO_CONNECTION_LABEL];
+    self.NO_CONNECTION_LABEL.hidden = NO;
     
     [self noConnectionAction];
-    
 }
 
 -(void)noConnectionAction{
     
-    id blinkWhite = [CCFadeTo actionWithDuration:0.2f opacity:255.f];
-    id blinkDef   = [CCFadeTo actionWithDuration:0.3f opacity:150.f];
-    id seq = [CCSequence actionOne:blinkWhite two:blinkDef];
-    [NO_CONNECTION_LABEL runAction:[CCRepeatForever actionWithAction:seq]];
-    
+    SKAction* blinkWhite = [SKAction fadeAlphaTo:1.0 duration:0.2];
+    SKAction* blinkDef = [SKAction fadeAlphaTo:150/255.0 duration:0.3];
+    SKAction* seq = [SKAction sequence:@[blinkWhite, blinkDef]];
+    SKAction* repeatForever = [SKAction repeatActionForever:seq];
+    [self.NO_CONNECTION_LABEL runAction:repeatForever withKey:kButtonBlinkActionKey];
 }
 
 -(void) addButton
 {
-    button              = [CCSprite spriteWithSpriteFrameName:@"btn_get.png"];
-    button.anchorPoint  = ccp(0.5f, 0.5f);
-    button.position     = ccp(progress_line.position.x + progress_line.boundingBox.size.width*0.92f, progress_line.position.y);
-    button.position = ccpAdd(button.position,
-                                    ccp(progress_line.boundingBox.size.width/2, 0));
-    [SPEC_BONUS addChild:button z:4];
+    self.button              = [SKSpriteNode spriteNodeWithImageNamed:@"btn_get.png"];
+    self.button.anchorPoint  = ccp(0.5f, 0.5f);
+    self.button.position     = ccp(self.progress_line.position.x + self.progress_line.size.width*0.92f, self.progress_line.position.y);
+    self.button.position = ccpAdd(self.button.position,
+                                    ccp(self.progress_line.size.width/2, 0));
+    [self addChildToTopZ:self.button];
 }
 
 -(void) addTxtLabel
 {
-    SBonusLabel          = [CCLabelBMFont labelWithString:@"GET FREE COINS" fntFile:kFONT_SPEC];
-    SBonusLabel.position = ccp(specBackground.position.x, specBackground.position.y + specBackground.boundingBox.size.height*0.72f);
-    SBonusLabel.position = ccpAdd(SBonusLabel.position, ccp(SBonusLabel.boundingBox.size.width*0.15f, 0));
-    SBonusLabel.color    = ccBLACK; //ccc3(69, 42, 4);
-    SBonusLabel.scale    = 0.8f;
+    self.SBonusLabel          = [SKLabelNode labelNodeWithFontNamed:kFONT_SPEC];
+    self.SBonusLabel.text = @"GET FREE COINS";
+    self.SBonusLabel.position = ccp(self.specBackground.position.x, self.specBackground.position.y + self.specBackground.size.height*0.72f);
+#warning EF why add the cpp?
+//    self.SBonusLabel.position = ccpAdd(self.SBonusLabel.position, ccp(self.SBonusLabel.size.width*0.15f, 0));
+    self.SBonusLabel.fontColor = [SKColor lightTextColor];
+    self.SBonusLabel.scale    = 0.8f;
     if (IS_STANDARD_IPHONE_6_PLUS) {
-        SBonusLabel.scale = 1.8;
+        self.SBonusLabel.scale = 1.8;
     }
-
-    [self addChild:SBonusLabel z:5];
+    [self addChildToTopZ:self.SBonusLabel];
 }
 ////////////////////// TOUCHES //////////////////////////////////
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    CGPoint touchPos = [self convertTouchToNodeSpace:touch];
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    if (!canTouch) {
-        return NO;
+    if(!canTouch)
+    {
+        return;
     }
     
-    if (CGRectContainsPoint(button.boundingBox, touchPos))
+    SKNode* touchedNode = [self nodeFromTouches:touches];
+    if([touchedNode isEqualToNode:self.button])
     {
         b1 = true;
         [AUDIO playEffect:s_click1];
-        [button setDisplayFrame:Btn_Active];
+        self.button.texture = self.Btn_Active;
     }
-    
-    
-    return YES;
 }
 
 
--(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
-{
+
+-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     if (b1)
     {
-        [button setDisplayFrame:Btn_notActive];
+        self.button.texture = self.Btn_notActive;
     }
+    
 }
 
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    CGPoint touchPos = [self convertTouchToNodeSpace:touch];
-    
-    
-    if (CGRectContainsPoint(button.boundingBox, touchPos))
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    SKNode* touchedNode = [self nodeFromTouches:touches];
+    if([touchedNode isEqualToNode:self.button])
     {
         b1 = false;
-        [button setDisplayFrame:Btn_notActive];
-         //take bonus
-        
+        self.button.texture = self.Btn_notActive;
+        //take bonus
         [self getCoins];
-        
-        
-        
     }
     
     if (b1)
     {
-        [button setDisplayFrame:Btn_notActive];
+        self.button.texture = self.Btn_notActive;
     }
-    
-   
-    
 }
+//
+//-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//    CGPoint touchPos = [self convertTouchToNodeSpace:touch];
+//    
+//    
+//    if (CGRectContainsPoint(self.button.boundingBox, touchPos))
+//    {
+//        b1 = false;
+//        [self.button setDisplayFrame:self.Btn_notActive];
+//        //take bonus
+//        
+//        [self getself.Coins];
+//        
+//        
+//        
+//    }
+//    
+//    if (b1)
+//    {
+//        [self.button setDisplayFrame:self.Btn_notActive];
+//    }
+//    
+//    
+//    
+//}
+//
 
 
+//
+//-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//    CGPoint touchPos = [self convertTouchToNodeSpace:touch];
+//    
+//    if (!canTouch) {
+//        return NO;
+//    }
+//    
+//    if (CGRectContainsPoint(self.button.boundingBox, touchPos))
+//    {
+//        b1 = true;
+//        [AUDIO playEffect:s_click1];
+//        [self.button setDisplayFrame:self.Btn_Active];
+//    }
+//    
+//    
+//    return YES;
+//}
 
--(void) onEnter
-{
-    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_Buttons swallowsTouches:NO];
-    [super onEnter];
-}
--(void)onExit
-{
-    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-    [super onExit];
-}
 
+#warning EF
+
+//-(void) onEnter
+//{
+//    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_self.buttons swallowsTouches:NO];
+//    [super onEnter];
+//}
+//-(void)onExit
+//{
+//    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+//    [super onExit];
+//}
+//
 
 
 

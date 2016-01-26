@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import <SpriteKit/SpriteKit.h>
 
 enum states_{
     
@@ -12,24 +13,14 @@ enum states_{
     
 };
 
-@interface SpecialBonus : CCSprite <CCTouchOneByOneDelegate, UIAlertViewDelegate>
+@interface SpecialBonus : SKSpriteNode <UIAlertViewDelegate>
 {
  
     CCSpriteBatchNode   *SPEC_BONUS;
     
     int coins;
     
-    CCSprite *Coin;
-    
-    CCSprite            *specBackground;
-    CCSprite            *grille;
-    CCSprite            *progress_line;
-    CCSprite            *button;
-    
-    CCLabelBMFont       *SBonusLabel;
-    
-    CCSpriteFrame *Btn_Active;
-    CCSpriteFrame *Btn_notActive;
+
     
     BOOL b1;
 }

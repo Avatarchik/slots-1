@@ -7,6 +7,7 @@
 //
 
 #define kNodeLobby          @"kNodeLobby"
+#define kNodeMenu           @"kNodeMenu"
 #define kNodeTopMenu        @"kNodeTopMenu"
 #define kNodeSettings       @"kNodeSettings"
 
