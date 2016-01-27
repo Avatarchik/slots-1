@@ -26,6 +26,7 @@
 {
     if((self = [super init]))
     {
+        self.name = kNodePopupManager;
         self.position       = rect.origin;
         self.size    = rect.size;
     }
@@ -190,9 +191,8 @@
         
         [(AppDelegate *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
         
-        //[BonusMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:ccp(BonusMenu.position.x, 0)] rate:1]];
-        
-#warning EF
+#warning EF Spring animated this up from the bottom of the screen
+            BonusMenu.position = CGPointMake(BonusMenu.position.x, 0);
 //        [BonusMenu runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.15f],[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.1f position:ccp(BonusMenu.position.x, IS_IPAD ? 30    :   15)] rate:1.5f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.07f position:ccp(0, IS_IPAD ? -44    :   -22)] rate:1.0f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.1f position:ccp(0, IS_IPAD ? 14    :   7)] rate:1.5f], nil]];
         
         

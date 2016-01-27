@@ -5,7 +5,7 @@
 
 @interface SettingsWindows : SKSpriteNode
 {
-    CCSpriteBatchNode *SETTINGS_MENU_;
+//    CCSpriteBatchNode *SETTINGS_MENU_;
     
     BOOL B1on;
     BOOL B2on;

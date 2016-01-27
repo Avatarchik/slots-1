@@ -92,11 +92,9 @@
     
     [self runAction:[CCSequence actions:easeScale1,easeScale2,easeScale3, nil]];
     
-    
 //          SETTINGS_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_settings_menu.pvr.ccz"]];
 //        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_settings_menu.plist"]];
 //        [self addChild:SETTINGS_MENU_ z:12];
-
         
         self.background             = [SKSpriteNode spriteNodeWithImageNamed:@"settingsMenuBG.png"];
         self.background.anchorPoint = ccp(0.5f, 0.5f);

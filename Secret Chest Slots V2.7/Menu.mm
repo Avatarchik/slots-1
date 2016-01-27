@@ -282,8 +282,13 @@
 {
     [b6luxLoadingView removeLoadingView];
     SOUND_.musicVolume = 0.5f;
-    #warning EF SKPopupmanager
-//    [(PopupManager *)[self getChildByTag:kSpeWindowTAG] setUp:kWindowSpecialBonus someValue:0];
+    
+    PopupManager* popupManager = (PopupManager*)[self childNodeWithName:kNodePopupManager];
+    
+    if(popupManager)
+    {
+        [popupManager setUp:kWindowSpecialBonus someValue:0];
+    }
 }
 
 -(void) goToMachineNR:(NSNumber *)machineNumber
@@ -318,17 +323,11 @@
 ////////////////////// SPECIAL BONUS /////////////////////////////////////////////////////////////////
 -(void) openSBonusWindow
 {
-    
-#warning EF create PopupManager
-    return;
-    
     PopupManager *SBWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)];
     SBWindow.anchorPoint = ccp(0, 0);
-//    [self addChild:SBWindow z:10 tag:kSpeWindowTAG];
-    
+    [self addChildToTopZ:SBWindow];
     //get special bonus
     SPECIAL_BONUS = [SBWindow GET_SPECIALBONUS];
-    
 }
 
 -(SpecialBonus*)GET_SPECIAL_BONUS{

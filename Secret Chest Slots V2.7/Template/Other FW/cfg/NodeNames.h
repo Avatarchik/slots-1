@@ -13,6 +13,7 @@
 #define kNodeSpecialBonus   @"kNodeSpecialBonus"
 
 // Popups
+#define kNodePopupManager   @"kNodePopupManager" //kSpeWindowTAG
 #define kNodeSettings       @"kNodeSettings"
 #define kNodePayTable       @"kNodePayTable"
 #define kNodeBuyWindow      @"kNodeBuyWindow"
