@@ -112,7 +112,7 @@
 		F55D646F17D602BC00F3B2C6 /* 128.png in Resources */ = {isa = PBXBuildFile; fileRef = F55D646317D602BC00F3B2C6 /* 128.png */; };
 		F55D647017D602BC00F3B2C6 /* 256.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F55D646417D602BC00F3B2C6 /* 256.fnt */; };
 		F55D647117D602BC00F3B2C6 /* 256.png in Resources */ = {isa = PBXBuildFile; fileRef = F55D646517D602BC00F3B2C6 /* 256.png */; };
-		F55D647D17D7124D00F3B2C6 /* PopupManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D647C17D7124D00F3B2C6 /* PopupManager.mm */; };
+		F55D647D17D7124D00F3B2C6 /* PopupManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D647C17D7124D00F3B2C6 /* PopupManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F55D648017D7295A00F3B2C6 /* PayTableWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D647F17D7295A00F3B2C6 /* PayTableWindow.mm */; };
 		F55D648317D732F900F3B2C6 /* BuyCoinsWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D648217D732F900F3B2C6 /* BuyCoinsWindow.mm */; };
 		F56F94F817E9A5D60012962B /* Segan-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F56F94F717E9A5D60012962B /* Segan-Light.ttf */; };
@@ -610,7 +610,7 @@
 		FA69F2231818F1BE00F4970E /* coming_soon-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = FA69F2071818F1BE00F4970E /* coming_soon-hd.png */; };
 		FA69F2241818F1BE00F4970E /* coming_soon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = FA69F2081818F1BE00F4970E /* coming_soon-ipad.png */; };
 		FA69F2371818F1BE00F4970E /* coming_soon-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = FA69F21B1818F1BE00F4970E /* coming_soon-ipadhd.png */; };
-		FA69F2411818F28900F4970E /* SpecialBonus.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA69F2401818F28900F4970E /* SpecialBonus.mm */; };
+		FA69F2411818F28900F4970E /* SpecialBonus.mm in Sources */ = {isa = PBXBuildFile; fileRef = FA69F2401818F28900F4970E /* SpecialBonus.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		FA69F24B1818F2CA00F4970E /* sp_special_bonus-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA69F2431818F2CA00F4970E /* sp_special_bonus-hd.plist */; };
 		FA69F24C1818F2CA00F4970E /* sp_special_bonus-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = FA69F2441818F2CA00F4970E /* sp_special_bonus-hd.pvr.ccz */; };
 		FA69F24D1818F2CA00F4970E /* sp_special_bonus.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA69F2451818F2CA00F4970E /* sp_special_bonus.plist */; };

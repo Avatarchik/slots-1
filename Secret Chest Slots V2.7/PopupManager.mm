@@ -15,14 +15,12 @@
 #import "SKNode+SKNode_Extensions.h"
 
 @interface PopupManager()
+
 @property (nonatomic, strong) SKShapeNode* blackBG;
 
 @end
 
 @implementation PopupManager
-
-
-
 
 -(id)initWithRect:(CGRect)rect
 {
@@ -31,51 +29,46 @@
         self.position       = rect.origin;
         self.size    = rect.size;
     }
-    
     return self;
 }
 
 -(void)setUp:(int) PopWindowNR someValue:(int)value_
 {
+    switch (PopWindowNR)
+    {
+        case kWindowSettings:       [self openSettingsWindow];
+            break;
             
-            switch (PopWindowNR)
-            {
-                case kWindowSettings:       [self openSettingsWindow];
-                    break;
-                    
-                case kWindowPayTable:       [self openPayTableWindow];
-                    break;
-                    
-                case kWindowBuyCoins:       [self openBuyWindow_from:1];
-                    break;
-                    
-                case kWindowBigWin:  
-                    break;
-                    
-                case kWindowNewMachine:  
-                    break;
-                    
-                case kWindowSpecialBonus:   [self openSBonusWindow];
-                    break;
-                    
-                case kWindowNotEnoughCoins: 
-                    break;
-                    
-                case kWindowBuyBoosts:      [self openBuyWindow_from:2];
-                    break;
-                    
-                case kWindowWin:            [self openWinWindow_withWin:value_];
-                    break;
-                    
-                case kWindowNewLevel:       [self openNewLvlWindow_withLVL:value_];
-                    break;
-                    
-                default:
-                    break;
-            }
-                   
-        
-    
+        case kWindowPayTable:       [self openPayTableWindow];
+            break;
+            
+        case kWindowBuyCoins:       [self openBuyWindow_from:1];
+            break;
+            
+        case kWindowBigWin:  
+            break;
+            
+        case kWindowNewMachine:  
+            break;
+            
+        case kWindowSpecialBonus:   [self openSBonusWindow];
+            break;
+            
+        case kWindowNotEnoughCoins: 
+            break;
+            
+        case kWindowBuyBoosts:      [self openBuyWindow_from:2];
+            break;
+            
+        case kWindowWin:            [self openWinWindow_withWin:value_];
+            break;
+            
+        case kWindowNewLevel:       [self openNewLvlWindow_withLVL:value_];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 -(void) addBlackBackground
@@ -90,24 +83,23 @@
 //////////////////////////////////////// OPEN WINDOWS ///////////////////////////////////////////
 -(void) openSettingsWindow
 {
-    
+    self.name = kNodeSettings;
     if (btnPressed == false)
     {
          [AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
-#warning EF
-//        SettingsWindows *SWindow = [[[SettingsWindows alloc] init] autorelease];
-//        SWindow.anchorPoint = ccp(0.5f, 0.5f);
-//        SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-//        [self addChild:SWindow z:14 tag:kSetWindowTAG];
-//        if ([_parent.parent isKindOfClass:[Menu class]]) {
-//            [SWindow setUp:2];
-//        }
-//        else if ([_parent.parent isKindOfClass:[SlotMachine class]])
-//        {
-//            [SWindow setUp:1];
-//        }
+        SettingsWindows *SWindow = [[SettingsWindows alloc] init];
+        SWindow.anchorPoint = ccp(0.5f, 0.5f);
+        SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
+        [self addChild:SWindow z:14 tag:kSetWindowTAG];
+        if ([_parent.parent isKindOfClass:[Menu class]]) {
+            [SWindow setUp:2];
+        }
+        else if ([_parent.parent isKindOfClass:[SlotMachine class]])
+        {
+            [SWindow setUp:1];
+        }
         
     }
     else { }
@@ -115,6 +107,7 @@
 
 -(void) openPayTableWindow
 {
+    self.name = kNodePayTable;
     if (btnPressed == false)
     {
         // [AUDIO playEffect:s_click1];
@@ -133,12 +126,13 @@
 
 -(void) openBuyWindow_from:(int)nr_
 {
+    self.name = kNodeBuyWindow;
     if (btnPressed == false)
     {
          //[AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
-         BuyCoinsWindow *BWindow = [[[BuyCoinsWindow alloc] init_WithNumber:nr_] autorelease];
+         BuyCoinsWindow *BWindow = [[BuyCoinsWindow alloc] init_WithNumber:nr_];
         BWindow.anchorPoint = ccp(0.5f, 0.5f);
         BWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
         if (nr_ == 1) { [self addChild:BWindow z:16 tag:kBuyWindowTAG]; }
@@ -154,7 +148,7 @@
     {
          //[AUDIO playEffect:s_click1];
         btnPressed = true;
-        WinsWindow *WWindow = [[[WinsWindow alloc] init_with_WIN:win_ type:1] autorelease];
+        WinsWindow *WWindow = [[WinsWindow alloc] init_with_WIN:win_ type:1];
         WWindow.anchorPoint = ccp(0.5f, 0.5f);
         WWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
         [self addChild:WWindow z:14 tag:kWinWindowTAG];
@@ -168,7 +162,7 @@
     {
          //[AUDIO playEffect:s_click1];
         btnPressed = true;
-        NewLevelWindow *NWindow = [[[NewLevelWindow alloc] init_with_LVL:level_] autorelease];
+        NewLevelWindow *NWindow = [[NewLevelWindow alloc] init_with_LVL:level_];
         NWindow.anchorPoint = ccp(0.5f, 0.5f);
         NWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
         [self addChild:NWindow z:14 tag:kNewWindowTAG];
@@ -184,14 +178,14 @@
     {
         btnPressed = true;
         
-        BonusMenu               = [[[SpecialBonus alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.2f, kWidthScreen, kHeightScreen * 0.2f) kProgress:kProgress1 bonusValue:500] autorelease];
+        BonusMenu               = [[SpecialBonus alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.2f, kWidthScreen, kHeightScreen * 0.2f) kProgress:kProgress1 bonusValue:500];
         BonusMenu.anchorPoint   = ccp(0,0);
         BonusMenu.position      = ccp(BonusMenu.position.x, kHeightScreen - kHeightScreen*1.3f);
-        [self addChild:BonusMenu z:14 tag:kSpeWindowTAG];
+        [self addChildToTopZ:BonusMenu];
+//        [self addChild:BonusMenu z:14 tag:kSpeWindowTAG];
         
         [(AppDelegate *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
         
-         
         //[BonusMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:ccp(BonusMenu.position.x, 0)] rate:1]];
         
         [BonusMenu runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.15f],[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.1f position:ccp(BonusMenu.position.x, IS_IPAD ? 30    :   15)] rate:1.5f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.07f position:ccp(0, IS_IPAD ? -44    :   -22)] rate:1.0f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.1f position:ccp(0, IS_IPAD ? 14    :   7)] rate:1.5f], nil]];

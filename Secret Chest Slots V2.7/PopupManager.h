@@ -29,7 +29,7 @@
 -(void) openSBonusWindow;
 -(void) hideSBonusWindow;
 
--(void)musicPopWindow;
+//-(void)musicPopWindow;
 
 //-(void)B1Pos;
 //-(void)B2Pos;
