@@ -663,17 +663,15 @@
     PopupManager *SWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)];
     SWindow.anchorPoint = ccp(0, 0);
     [self addChildToTopZ:SWindow];
-//    [self addChildToTopZ:SWindow z:15 tag:kSetWindowTAG];
     [SWindow setUp:kWindowSettings someValue:0];
 }
 
 -(void) openPayTableWindow
 {
-#warning EF
-//    PopupManager *PWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
-//    PWindow.anchorPoint = ccp(0, 0);
-//    [self addChildToTopZ:PWindow z:15 tag:kPayWindowTAG];
-//    [PWindow setUp:kWindowPayTable someValue:0];
+    PopupManager *PWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
+    PWindow.anchorPoint = ccp(0, 0);
+    [self addChildToTopZ:PWindow];
+    [PWindow setUp:kWindowPayTable someValue:0];
     
     
 ////////////////////// WHEEL GAME ////////////////////////////////
@@ -712,26 +710,33 @@
 
 -(void) openBuyWindow_withNR:(NSNumber *)nr_
 {
-#warning EF
-//    switch (nr_.intValue)
-//    {
-//        case 1: BWindow = [[[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] autorelease];
-//            BWindow.anchorPoint = ccp(0, 0);
-//            if (![self getChildByTag:kBuyWindowTAG]) {
-//                [self addChildToTopZ:BWindow z:15 tag:kBuyWindowTAG];
-//                [BWindow setUp:kWindowBuyCoins someValue:0];
-//            }
-//        
-//        break;
-//        case 2: BWindow = [[[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] autorelease];
-//            BWindow.anchorPoint = ccp(0, 0);
-//            if (![self getChildByTag:kBuyWindowTAG]) {
-//                [self addChildToTopZ:BWindow z:15 tag:kBuyWindowTAG];
-//                [BWindow setUp:kWindowBuyBoosts someValue:0];
-//            }
-//            break;
-//        default: break;
-//    }
+    switch (nr_.intValue)
+    {
+        case 1:
+        {
+            BWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
+            BWindow.anchorPoint = ccp(0, 0);
+            SKNode* buyWindow = [(SKScene*)GAMEVIEWCONTROLLER.scene childNodeWithName:kNodeBuyWindow];
+            if(!buyWindow)
+            {
+                [self addChildToTopZ:buyWindow];
+                [BWindow setUp:kWindowBuyCoins someValue:0];
+            }
+        }
+        break;
+        case 2:
+        {
+            BWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
+            BWindow.anchorPoint = ccp(0, 0);
+            SKNode* buyWindow = [(SKScene*)GAMEVIEWCONTROLLER.scene childNodeWithName:kNodeBuyWindow];
+            if (!buyWindow) {
+                [self addChildToTopZ:buyWindow];
+                [BWindow setUp:kWindowBuyBoosts someValue:0];
+            }
+        }
+            break;
+        default: break;
+    }
 }
 
 -(void) closeWindowSet
