@@ -92,11 +92,13 @@
         SettingsWindows *SWindow = [[SettingsWindows alloc] init];
         SWindow.anchorPoint = ccp(0.5f, 0.5f);
         SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-        [self addChild:SWindow z:14 tag:kSetWindowTAG];
-        if ([_parent.parent isKindOfClass:[Menu class]]) {
+        [self addChildToTopZ:SWindow];
+        
+#warning EF make sure this works the self.parent.parent crap
+        if ([self.parent.parent isKindOfClass:[Menu class]]) {
             [SWindow setUp:2];
         }
-        else if ([_parent.parent isKindOfClass:[SlotMachine class]])
+        else if ([self.parent.parent isKindOfClass:[SlotMachine class]])
         {
             [SWindow setUp:1];
         }
@@ -135,8 +137,9 @@
          BuyCoinsWindow *BWindow = [[BuyCoinsWindow alloc] init_WithNumber:nr_];
         BWindow.anchorPoint = ccp(0.5f, 0.5f);
         BWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-        if (nr_ == 1) { [self addChild:BWindow z:16 tag:kBuyWindowTAG]; }
-        if (nr_ == 2) { [self addChild:BWindow z:16 tag:kBooWindowTAG]; }
+#warning EF
+//        if (nr_ == 1) { [self addChild:BWindow z:16 tag:kBuyWindowTAG]; }
+//        if (nr_ == 2) { [self addChild:BWindow z:16 tag:kBooWindowTAG]; }
     }
     else { }
 }
@@ -151,7 +154,8 @@
         WinsWindow *WWindow = [[WinsWindow alloc] init_with_WIN:win_ type:1];
         WWindow.anchorPoint = ccp(0.5f, 0.5f);
         WWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-        [self addChild:WWindow z:14 tag:kWinWindowTAG];
+#warning EF
+//        [self addChild:WWindow z:14 tag:kWinWindowTAG];
     }
     else { }
 }
@@ -165,7 +169,8 @@
         NewLevelWindow *NWindow = [[NewLevelWindow alloc] init_with_LVL:level_];
         NWindow.anchorPoint = ccp(0.5f, 0.5f);
         NWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-        [self addChild:NWindow z:14 tag:kNewWindowTAG];
+#warning EF
+//        [self addChild:NWindow z:14 tag:kNewWindowTAG];
     }
     else { }
 }
@@ -182,13 +187,13 @@
         BonusMenu.anchorPoint   = ccp(0,0);
         BonusMenu.position      = ccp(BonusMenu.position.x, kHeightScreen - kHeightScreen*1.3f);
         [self addChildToTopZ:BonusMenu];
-//        [self addChild:BonusMenu z:14 tag:kSpeWindowTAG];
         
         [(AppDelegate *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
         
         //[BonusMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.3f position:ccp(BonusMenu.position.x, 0)] rate:1]];
         
-        [BonusMenu runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.15f],[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.1f position:ccp(BonusMenu.position.x, IS_IPAD ? 30    :   15)] rate:1.5f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.07f position:ccp(0, IS_IPAD ? -44    :   -22)] rate:1.0f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.1f position:ccp(0, IS_IPAD ? 14    :   7)] rate:1.5f], nil]];
+#warning EF
+//        [BonusMenu runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.15f],[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.1f position:ccp(BonusMenu.position.x, IS_IPAD ? 30    :   15)] rate:1.5f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.07f position:ccp(0, IS_IPAD ? -44    :   -22)] rate:1.0f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.1f position:ccp(0, IS_IPAD ? 14    :   7)] rate:1.5f], nil]];
         
         
     }
