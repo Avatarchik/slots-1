@@ -53,6 +53,7 @@
 {
     if((self = [super init]))
     {
+        self.name = kNodeSpecialBonus;
         int plus = 150;
         int machinemaxNr = [Exp checMaxMachineWithLevelNr:kLEVEL];  //1;
         
@@ -381,8 +382,7 @@
 -(void)changeSpecialBonusStateTo:(int)state_{
     
 
-#warning EF this isnt used?
-//    [self.button stopActionByTag:kButtonBlinkActionTag];
+    [self.button removeActionForKey:kButtonBlinkActionKey];
     
     self.Coin.hidden = NO;
     self.TIME_LEFT_LABEL.position = self.grille.position;
@@ -394,7 +394,7 @@
 //        [self unschedule:@selector(specialBonusTimeUpdate:)];
         self.TIME_LEFT_LABEL.hidden = NO;
         
-#warning EF stop animation if exists on
+#warning EF stop animation if exists on NO_CONNETION_LABEL
         self.NO_CONNECTION_LABEL.hidden = YES;
 
         // must show not connected to internet itp
@@ -411,7 +411,7 @@
     else if (state_ == state_waitingForbonus){
         canTouch = NO;
         self.progress_line.alpha = 255/255.0;
-        [self.TIME_LEFT_LABEL setString:@"Not available"];
+        self.TIME_LEFT_LABEL.text = @"Not available";
         
         self.button.alpha = 100/255.0;
         self.TIME_LEFT_LABEL.hidden = YES;
