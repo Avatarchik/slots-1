@@ -10,6 +10,7 @@
 #define kNodeMenu           @"kNodeMenu"
 #define kNodeTopMenu        @"kNodeTopMenu"
 
+#define kNodeSpecialBonus   @"kNodeSpecialBonus"
 
 // Popups
 #define kNodeSettings       @"kNodeSettings"
@@ -20,3 +21,4 @@
 
 
 
+#define kNodeBlackBackground @"kNodeBlackBackground"
