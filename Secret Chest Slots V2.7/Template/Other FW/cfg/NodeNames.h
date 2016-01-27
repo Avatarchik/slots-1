@@ -9,8 +9,14 @@
 #define kNodeLobby          @"kNodeLobby"
 #define kNodeMenu           @"kNodeMenu"
 #define kNodeTopMenu        @"kNodeTopMenu"
-#define kNodeSettings       @"kNodeSettings"
 
-//#define kNodeLoadingScreen  @"kNodeLoadingScreen"
-//#define kNodePayTable       @"kNodePaytable"
+
+// Popups
+#define kNodeSettings       @"kNodeSettings"
+#define kNodePayTable       @"kNodePayTable"
+#define kNodeBuyWindow      @"kNodeBuyWindow"
+#define kNodeBuyCoins       @"kNodeBuyCoins"
+#define kNodeBuyBoosts      @"kNodeBuyBoosts"
+
+
 
