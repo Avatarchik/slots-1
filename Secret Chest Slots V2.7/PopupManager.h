@@ -5,14 +5,10 @@
 
 @interface PopupManager : SKSpriteNode
 {
-
     BOOL B1Position;
     BOOL B2Position;
-    
     BOOL btnPressed;
-    
     SpecialBonus *BonusMenu;
-    
     int buyNumber;
 }
 
@@ -22,9 +18,10 @@
 -(void) openSettingsWindow;
 -(void) closePayTableWindow;
 -(void) closeBuyWindow;
--(void) closeUseBoostWindow;
--(void) closeWinWindow;
--(void) closeLvlWindow;
+
+//-(void) closeUseBoostWindow;
+//-(void) closeWinWindow;
+//-(void) closeLvlWindow;
 
 -(void) openSBonusWindow;
 -(void) hideSBonusWindow;

@@ -77,6 +77,7 @@
     self.blackBG = [SKShapeNode shapeNodeWithRect:CGRectMake(0,0,kWidthScreen,kHeightScreen)];
     self.blackBG.fillColor = [SKColor blackColor];
     self.blackBG.alpha = 0.0;
+    self.blackBG.name = kNodeBlackBackground;
     [self addChildToTopZ:self.blackBG];
     [self.blackBG runAction:[SKAction fadeAlphaTo:0.2 duration:0.2]];
 }
@@ -219,10 +220,14 @@
 
 -(void)removeBlackBG
 {
-    #warning EF
-//    [[self getChildByTag:kBlackBackgroundTAG] runAction:[CCSequence actions:[CCFadeTo actionWithDuration:0.2f opacity:0],[CCCallBlock actionWithBlock:^{
-//        [[self getChildByTag:kBlackBackgroundTAG] removeFromParentAndCleanup:YES];
-//    }], nil]];
+    SKNode* blackBG = [self childNodeWithName:kNodeBlackBackground];
+    if(blackBG)
+    {
+        SKAction* fadeAction = [SKAction fadeAlphaTo:0.0 duration:0.2];
+        SKAction* removeFromParent = [SKAction removeFromParent];
+        SKAction* sequence = [SKAction sequence:@[fadeAction, removeFromParent]];
+        [blackBG runAction:sequence];
+    }
 }
 ///////////////////////////////////////////////////////////////////
 
@@ -255,27 +260,27 @@
     btnPressed = false;
 }
 
--(void) closeWinWindow
-{
-    #warning EF
-//    [self removeChild:(PayTableWindow *)[self getChildByTag:kWinWindowTAG] cleanup:YES];
-//    [(TopMenu *) _parent closeWindowWin];
-    btnPressed = false;
-}
-
--(void) closeLvlWindow
-{
-    #warning EF
-//    [self removeChild:(PayTableWindow *)[self getChildByTag:kNewWindowTAG] cleanup:YES];
-//    [(TopMenu *) _parent closeWindowLvl];
-    btnPressed = false;
-}
-
--(void) closeUseBoostWindow
-{
-    #warning EF
-//    [_parent performSelector:@selector(closeBUseWindow) withObject:nil];
-}
+//-(void) closeWinWindow
+//{
+//    #warning EF
+////    [self removeChild:(PayTableWindow *)[self getChildByTag:kWinWindowTAG] cleanup:YES];
+////    [(TopMenu *) _parent closeWindowWin];
+//    btnPressed = false;
+//}
+//
+//-(void) closeLvlWindow
+//{
+//    #warning EF
+////    [self removeChild:(PayTableWindow *)[self getChildByTag:kNewWindowTAG] cleanup:YES];
+////    [(TopMenu *) _parent closeWindowLvl];
+//    btnPressed = false;
+//}
+//
+//-(void) closeUseBoostWindow
+//{
+//    #warning EF
+////    [_parent performSelector:@selector(closeBUseWindow) withObject:nil];
+//}
 
 
 
