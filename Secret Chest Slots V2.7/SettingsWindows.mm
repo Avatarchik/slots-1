@@ -194,12 +194,6 @@
     blackShape.fillColor = [SKColor blackColor];
     blackShape.name = kNodeBlackBackground;
     [self addChildToTopZ:blackShape];
-//    CCSprite *spr   = [CCSprite node];
-//    spr.textureRect = CGRectMake(0,0,kWidthScreen,kHeightScreen);
-//    spr.opacity     = 0;
-//    spr.anchorPoint = ccp(0, 0);
-//    spr.color       = ccc3(255,255,255);
-//    [self addChild:spr z:0 tag:kBlackBackgroundTAG];
 }
 
 
