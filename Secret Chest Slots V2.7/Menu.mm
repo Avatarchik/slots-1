@@ -312,9 +312,8 @@
         self.tMenu.position = CGPointMake(self.tMenu.position.x, kHeightScreen);
         [self addChild:self.tMenu];
         
-#warning EF maybe animate this
+#warning EF maybe animate this in
         self.tMenu.position = CGPointZero;
-
 //        [self.tMenu runAction:[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.0f position:ccp(0, 0)] rate:1]];
     }
 }

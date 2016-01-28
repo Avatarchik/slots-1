@@ -10,7 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 
-@interface Menu : SKSpriteNode //<CCScrollLayerDelegate, CCTouchOneByOneDelegate>
+@interface Menu : SKSpriteNode
 {
     CCSpriteBatchNode *MENU_;
     
