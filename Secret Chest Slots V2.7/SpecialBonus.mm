@@ -11,8 +11,7 @@
 #define kNotiftime              86400
 #define kPushText               @"Special Bonus is ready. Come and get it!"
 #define kPushTextNotif          @"Hey, don't forget to take your special bonus"
-//#define kButtonBlinkActionTag    10
-#define kButtonBlinkActionKey    @"kButtonBlinkActionKey"
+#define kButtonBlinkActionKey   @"kButtonBlinkActionKey"
 
 
 @interface SpecialBonus()

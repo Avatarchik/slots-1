@@ -1,21 +1,13 @@
 #import "cfg.h"
-
 #import "Reels.h"
-
 #import "SCombinations.h"
-
 #import "SlotMachine.h"
-
 #import "ClippingNode.h"
-
 #import "Awards.h"
-
 #import "Lines.h"
-
 #import "TopMenu.h"
 #import "BottomMenu.h"
 #import "Bet.h"
-
 #import "WheelGame.h"
 #import "CardGame.h"
 #import "WinsWindow.h"
