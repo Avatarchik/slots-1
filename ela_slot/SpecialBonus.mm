@@ -579,7 +579,7 @@
     self.TIME_LEFT_LABEL.text = @"00:00:00";
     
 #warning EF positioning
-    self.TIME_LEFT_LABEL.position = ccp(self.button.position.x, self.SBonusLabel.position.y);//ccpAdd(self.button.position, ccp(0, self.TIME_LEFT_LABEL.size.height/2));
+    self.TIME_LEFT_LABEL.position = ccp(self.button.position.x, self.SBonusLabel.position.y);
     self.TIME_LEFT_LABEL.fontColor    = [SKColor lightTextColor];
     self.TIME_LEFT_LABEL.scale    = (IS_IPAD) ? 0.55f : 0.65f;
     if (IS_STANDARD_IPHONE_6_PLUS) {

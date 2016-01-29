@@ -11,30 +11,23 @@
 {
     if((self = [super init]))
     {
-        
-        [self setContentSize:CGSizeMake(kWidthScreen, kHeightScreen)];
+        self.size = CGSizeMake(kWidthScreen, kHeightScreen);
         
         //// SCALE EFFECT
-        
-        self.scale = 0.3f;
-        id scale1       = [CCScaleTo actionWithDuration:0.1f scale:1.2f];
-        id easeScale1   = [CCEaseInOut actionWithAction:scale1 rate:2.0f];
-        
-        id scale2       = [CCScaleTo actionWithDuration:0.07f scale:0.97f];
-        id easeScale2   = [CCEaseInOut actionWithAction:scale2 rate:1.0f];
-        
-        id scale3       = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
-        id easeScale3   = [CCEaseInOut actionWithAction:scale3 rate:2.0f];
-        
-        [self runAction:[CCSequence actions:easeScale1,easeScale2,easeScale3, nil]];
-        
-        BUY_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_buy_menu.pvr.ccz"]];
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_buy_menu.plist"]];
-        [self addChild:BUY_MENU_];
-        
-        SETTINGS_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_settings_menu.pvr.ccz"]];
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_settings_menu.plist"]];
-        [self addChild:SETTINGS_MENU_];
+#warning EF replace this with Spring animation
+//        SKAction* scale1       = [SKAction scaleTo:1.2 duration:1.0];// [CCScaleTo actionWithDuration:0.1f scale:1.2f];
+//        SKAction* scale2       = [CCScaleTo actionWithDuration:0.07f scale:0.97f];
+//        SKAction* scale3       = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
+//        
+//        [self runAction:[CCSequence actions:easeScale1,easeScale2,easeScale3, nil]];
+//        
+//        BUY_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_buy_menu.pvr.ccz"]];
+//        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_buy_menu.plist"]];
+//        [self addChild:BUY_MENU_];
+//        
+//        SETTINGS_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_settings_menu.pvr.ccz"]];
+//        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_settings_menu.plist"]];
+//        [self addChild:SETTINGS_MENU_];
         
         background             = [CCSprite spriteWithSpriteFrameName:@"buy_BG.png"];
         background.anchorPoint = ccp(0.5f, 0.5f);
@@ -82,8 +75,6 @@
     [BUY_MENU_ addChild:s2 z:20];
     
     [s2 runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCRepeat actionWithAction:[CCSequence actions:[CCSpawn actions:[CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.08f scaleX:0.9f scaleY:1.2f] rate:1.5f],[CCMoveBy actionWithDuration:0.08f position:ccp(0, -s2.contentSize.height*0.15f)], nil],[CCSpawn actions:[CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.065f scaleX:1.1f scaleY:0.9f] rate:1.5f],[CCMoveBy actionWithDuration:0.065f position:ccp(0, s2.contentSize.height*0.2f)], nil],[CCSpawn actions:[CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.045f scaleX:1.0f scaleY:1.f] rate:1.5f],[CCMoveBy actionWithDuration:0.045f position:ccp(0, -s2.contentSize.height*0.05f)], nil], nil] times:2],[CCDelayTime actionWithDuration:2.f], nil]]];
-
-
 }
 
 -(void) addCoinsButton

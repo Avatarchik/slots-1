@@ -4,8 +4,9 @@
 
 #import "cfg.h"
 #import "Constants.h"
+#import <SpriteKit/SpriteKit.h>
 
-@interface BuyCoinsWindow : CCSprite <CCTouchOneByOneDelegate>
+@interface BuyCoinsWindow : SKSpriteNode
 {
     CCSpriteBatchNode *BUY_MENU_;
     CCSpriteBatchNode *SETTINGS_MENU_;

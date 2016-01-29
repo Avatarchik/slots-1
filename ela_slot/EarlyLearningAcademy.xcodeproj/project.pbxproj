@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		220FB5581C5ADEBF001346AD /* SettingsWindows.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220FB5571C5ADEBF001346AD /* SettingsWindows.xcassets */; };
+		220FB55A1C5C1768001346AD /* Buy Coins Window.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220FB5591C5C1768001346AD /* Buy Coins Window.xcassets */; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		22507CE21C55B333005B77E8 /* FSSpriteKitProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */; };
 		229588691C4DB3D600014B8F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588631C4DB3D500014B8F /* GameScene.m */; };
@@ -671,6 +672,7 @@
 
 /* Begin PBXFileReference section */
 		220FB5571C5ADEBF001346AD /* SettingsWindows.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SettingsWindows.xcassets; sourceTree = "<group>"; };
+		220FB5591C5C1768001346AD /* Buy Coins Window.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Buy Coins Window.xcassets"; sourceTree = "<group>"; };
 		2214557C1C4EE8290052B029 /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		22507CE01C55B333005B77E8 /* FSSpriteKitProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSpriteKitProgressBar.h; sourceTree = "<group>"; };
@@ -1753,6 +1755,7 @@
 				22B859BE1C556C6000CFABCC /* Card Mini Game.xcassets */,
 				22DBE5D71C570AA900DA084D /* SpecialBonus.xcassets */,
 				220FB5571C5ADEBF001346AD /* SettingsWindows.xcassets */,
+				220FB5591C5C1768001346AD /* Buy Coins Window.xcassets */,
 			);
 			name = "Asset Catalogs";
 			sourceTree = "<group>";
@@ -3908,6 +3911,7 @@
 				FA1628C818166D4B002F580A /* sp_bottom_menu.pvr.ccz in Resources */,
 				FA69F24E1818F2CA00F4970E /* sp_special_bonus.pvr.ccz in Resources */,
 				C96D6DC81BF76BC5005A5381 /* _print.scss in Resources */,
+				220FB55A1C5C1768001346AD /* Buy Coins Window.xcassets in Resources */,
 				FA30AE40181A560C00349FA8 /* 80x80.png in Resources */,
 				FA09E4DD181F055200F2DBF2 /* loading_1.png in Resources */,
 				FA30AEBE181A8A5E00349FA8 /* BigWin-ipadhd.pvr.ccz in Resources */,
