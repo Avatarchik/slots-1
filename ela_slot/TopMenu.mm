@@ -143,11 +143,7 @@
 
 -(void)addButtons
 {
-    // Create Settings Button.
-    self.setings_button              = [SKSpriteNode spriteNodeWithTexture:self.settingsBtn_notActive];
-    self.setings_button.anchorPoint  = ccp(0.5f, 0.5f);
-    self.setings_button.position     = ccp(self.menu_line.position.x + (self.menu_line.size.width/2) - self.setings_button.size.width/1.2, self.menu_line.position.y);
-    [self.TOP_MENU_ addChildToTopZ:self.setings_button];
+
     
     // Create Experience BG.
     self.expBg                       = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field.png"];
@@ -161,7 +157,7 @@
     self.expStar.position            = ccp(self.expBg.position.x - (self.expBg.size.width/2), self.expBg.position.y);
 
     // Progress Bar.
-    SKSpriteNode* progressSp                  = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_fill.png"];
+    SKSpriteNode* progressSp        = [SKSpriteNode spriteNodeWithImageNamed:@"exp_field_fill.png"];
     self.progress                   = [[FSSpriteKitProgressBar alloc] initWithSpriteNode:progressSp];
     self.progress.position        = ccp(self.expBg.position.x, self.expBg.position.y);
     [self.TOP_MENU_ addChildToTopZ:_progress];
@@ -192,6 +188,12 @@
     self.coins_button.position       = ccp(self.coinsBg.position.x + (self.coinsBg.size.width/2.035f) - (self.coins_button.size.width/2), self.coinsBg.position.y - (self.coinsBg.size.height*0.015f));
     [self.TOP_MENU_ addChildToTopZ:self.coins_button];
     
+    
+    // Create Settings Button.
+    self.setings_button              = [SKSpriteNode spriteNodeWithTexture:self.settingsBtn_notActive];
+    self.setings_button.anchorPoint  = ccp(0.5f, 0.5f);
+    self.setings_button.position     = ccp(self.menu_line.position.x + (self.menu_line.size.width/2) - self.setings_button.size.width/1.2, self.menu_line.position.y);
+    [self.TOP_MENU_ addChildToTopZ:self.setings_button];
 
     // Win Label, Lobby Button and Paytable Button.
     if (gamePlay)
@@ -591,14 +593,8 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    CGPoint touchPos = [self convertTouchToNodeSpace:touches.anyObject];
-    
-    
-    CGRect r = self.lobby_button.frame;
-    r.origin.y = r.origin.y - r.size.height*2;
-    r.size.height = r.size.height*5;
-    
     SKNode* touchedNode = [self nodeFromTouches:touches];
+    NSLog(@"%@", touchedNode);
     
     if([touchedNode isEqualToNode:self.setings_button])
     {
@@ -714,23 +710,23 @@
     {
         case 1:
         {
-            BWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
-            BWindow.anchorPoint = ccp(0, 0);
             SKNode* buyWindow = [(SKScene*)GAMEVIEWCONTROLLER.scene childNodeWithName:kNodeBuyWindow];
             if(!buyWindow)
             {
-                [self addChildToTopZ:buyWindow];
+                BWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
+                BWindow.anchorPoint = ccp(0, 0);
+                [self addChildToTopZ:BWindow];
                 [BWindow setUp:kWindowBuyCoins someValue:0];
             }
         }
         break;
         case 2:
         {
-            BWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
-            BWindow.anchorPoint = ccp(0, 0);
             SKNode* buyWindow = [(SKScene*)GAMEVIEWCONTROLLER.scene childNodeWithName:kNodeBuyWindow];
             if (!buyWindow) {
-                [self addChildToTopZ:buyWindow];
+                BWindow = [[PopupManager alloc] initWithRect:CGRectMake(0, 0, kWidthScreen, kHeightScreen)] ;
+                BWindow.anchorPoint = ccp(0, 0);
+                [self addChildToTopZ:BWindow];
                 [BWindow setUp:kWindowBuyBoosts someValue:0];
             }
         }
@@ -741,7 +737,11 @@
 
 -(void) closeWindowSet
 {
-//    [self removeChild:[self getChildByTag:kSetWindowTAG] cleanup:YES];
+    SKNode* settingsNode = [self childNodeWithName:kNodeSettings];
+    if(settingsNode && settingsNode.parent)
+    {
+        [settingsNode removeFromParent];
+    }
 }
 
 -(void) closeWindowPay

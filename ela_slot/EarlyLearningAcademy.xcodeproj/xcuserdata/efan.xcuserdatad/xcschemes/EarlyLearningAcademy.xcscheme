@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA58984517BEDADD00E38432"
-               BuildableName = "Secret Chest Slots V2.7.app"
-               BlueprintName = "Secret Chest Slots V2.7"
-               ReferencedContainer = "container:Secret Chest Slots V2.7.xcodeproj">
+               BuildableName = "EarlyLearningAcademy.app"
+               BlueprintName = "EarlyLearningAcademy"
+               ReferencedContainer = "container:EarlyLearningAcademy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA58984517BEDADD00E38432"
-            BuildableName = "Secret Chest Slots V2.7.app"
-            BlueprintName = "Secret Chest Slots V2.7"
-            ReferencedContainer = "container:Secret Chest Slots V2.7.xcodeproj">
+            BuildableName = "EarlyLearningAcademy.app"
+            BlueprintName = "EarlyLearningAcademy"
+            ReferencedContainer = "container:EarlyLearningAcademy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA58984517BEDADD00E38432"
-            BuildableName = "Secret Chest Slots V2.7.app"
-            BlueprintName = "Secret Chest Slots V2.7"
-            ReferencedContainer = "container:Secret Chest Slots V2.7.xcodeproj">
+            BuildableName = "EarlyLearningAcademy.app"
+            BlueprintName = "EarlyLearningAcademy"
+            ReferencedContainer = "container:EarlyLearningAcademy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA58984517BEDADD00E38432"
-            BuildableName = "Secret Chest Slots V2.7.app"
-            BlueprintName = "Secret Chest Slots V2.7"
-            ReferencedContainer = "container:Secret Chest Slots V2.7.xcodeproj">
+            BuildableName = "EarlyLearningAcademy.app"
+            BlueprintName = "EarlyLearningAcademy"
+            ReferencedContainer = "container:EarlyLearningAcademy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -62,7 +62,8 @@ enum {
         /// Add a background Layer
         SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"sp_background.png"];
         background.position  = CGPointMake(kWidthScreen / 2, kHeightScreen / 2);
-        [self addChild:background];
+#warning EF for test only
+//        [self addChild:background];
         [self showRunMenu];
     }
 	return self;

@@ -178,7 +178,8 @@
     
     [self.slotIcon setScale:1.2];
     machineTag               = machineTag + 1;
-    [self addChild:self.slotIcon];
+#warning EF for testing only
+//    [self addChild:self.slotIcon];
 }
 
 -(void)checkSound{

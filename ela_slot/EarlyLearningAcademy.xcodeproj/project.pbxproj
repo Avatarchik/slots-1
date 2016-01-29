@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220FB5581C5ADEBF001346AD /* SettingsWindows.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220FB5571C5ADEBF001346AD /* SettingsWindows.xcassets */; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		22507CE21C55B333005B77E8 /* FSSpriteKitProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */; };
 		229588691C4DB3D600014B8F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588631C4DB3D500014B8F /* GameScene.m */; };
@@ -669,6 +670,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220FB5571C5ADEBF001346AD /* SettingsWindows.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SettingsWindows.xcassets; sourceTree = "<group>"; };
 		2214557C1C4EE8290052B029 /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		22507CE01C55B333005B77E8 /* FSSpriteKitProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSpriteKitProgressBar.h; sourceTree = "<group>"; };
@@ -1014,7 +1016,7 @@
 		FA54816F181FFB9A00EC88DD /* btn_spin1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_spin1-hd.png"; sourceTree = "<group>"; };
 		FA548170181FFB9A00EC88DD /* btn_spinactive1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_spinactive1-hd.png"; sourceTree = "<group>"; };
 		FA56384918280CB50059E558 /* m_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m_3.mp3; sourceTree = "<group>"; };
-		FA58984617BEDADD00E38432 /* Secret Chest Slots V2.7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Secret Chest Slots V2.7.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA58984617BEDADD00E38432 /* EarlyLearningAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarlyLearningAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA58984917BEDADD00E38432 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FA58984B17BEDADD00E38432 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FA58984D17BEDADD00E38432 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1750,6 +1752,7 @@
 				22B859BA1C556AC800CFABCC /* Fonts.xcassets */,
 				22B859BE1C556C6000CFABCC /* Card Mini Game.xcassets */,
 				22DBE5D71C570AA900DA084D /* SpecialBonus.xcassets */,
+				220FB5571C5ADEBF001346AD /* SettingsWindows.xcassets */,
 			);
 			name = "Asset Catalogs";
 			sourceTree = "<group>";
@@ -2415,7 +2418,7 @@
 		FA58984717BEDADD00E38432 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA58984617BEDADD00E38432 /* Secret Chest Slots V2.7.app */,
+				FA58984617BEDADD00E38432 /* EarlyLearningAcademy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3605,9 +3608,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA58984517BEDADD00E38432 /* Secret Chest Slots V2.7 */ = {
+		FA58984517BEDADD00E38432 /* EarlyLearningAcademy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Secret Chest Slots V2.7" */;
+			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "EarlyLearningAcademy" */;
 			buildPhases = (
 				FA58984217BEDADD00E38432 /* Sources */,
 				FA58984317BEDADD00E38432 /* Frameworks */,
@@ -3617,9 +3620,9 @@
 			);
 			dependencies = (
 			);
-			name = "Secret Chest Slots V2.7";
+			name = EarlyLearningAcademy;
 			productName = Template;
-			productReference = FA58984617BEDADD00E38432 /* Secret Chest Slots V2.7.app */;
+			productReference = FA58984617BEDADD00E38432 /* EarlyLearningAcademy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3636,7 +3639,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "Secret Chest Slots V2.7" */;
+			buildConfigurationList = FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "EarlyLearningAcademy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3648,7 +3651,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA58984517BEDADD00E38432 /* Secret Chest Slots V2.7 */,
+				FA58984517BEDADD00E38432 /* EarlyLearningAcademy */,
 			);
 		};
 /* End PBXProject section */
@@ -3910,6 +3913,7 @@
 				FA30AEBE181A8A5E00349FA8 /* BigWin-ipadhd.pvr.ccz in Resources */,
 				FA640D121827853F002472B7 /* wheelspin2.mp3 in Resources */,
 				F56F979D17F162920012962B /* Lines_p1.pvr.ccz in Resources */,
+				220FB5581C5ADEBF001346AD /* SettingsWindows.xcassets in Resources */,
 				FA30AE46181A560C00349FA8 /* 72x72.png in Resources */,
 				FA0C9E0117F99C49003F2285 /* coins.pvr.ccz in Resources */,
 				FA30AEBA181A8A5E00349FA8 /* BigWin-hd.pvr.ccz in Resources */,
@@ -4410,7 +4414,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "Secret Chest Slots V2.7";
+				PRODUCT_NAME = EarlyLearningAcademy;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "\"Template/libs\"";
@@ -4454,7 +4458,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "Secret Chest Slots V2.7";
+				PRODUCT_NAME = EarlyLearningAcademy;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "\"Template/libs\"";
@@ -4467,7 +4471,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "Secret Chest Slots V2.7" */ = {
+		FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "EarlyLearningAcademy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA589A8F17BEDAEC00E38432 /* Debug */,
@@ -4476,7 +4480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Secret Chest Slots V2.7" */ = {
+		FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "EarlyLearningAcademy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA589A9217BEDAEC00E38432 /* Debug */,

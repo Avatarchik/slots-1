@@ -29,6 +29,11 @@
 }
 
 -(void) addChildToTopZ:(SKNode*) child{
+    if(child.parent)
+    {
+        NSLog(@"child already has parent! - %@  parent: %@", child, child.parent);
+        return;
+    }
     NSInteger count = self.children ? self.children.count : 0;
     CGFloat topZ = count;
     NSLog(@"adding child:%@ to %@  z:%f", child.name, self.name, topZ);

@@ -28,7 +28,7 @@
 
 -(void)setUp:(int)state;
 -(void)closeSettingsWindow2;
--(void)saveSoundInfo;
+//-(void)saveSoundInfo;
 
 
 @end

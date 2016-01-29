@@ -27,7 +27,7 @@
     if((self = [super init]))
     {
         self.name = kNodePopupManager;
-        self.position       = rect.origin;
+        self.position = rect.origin;
         self.size    = rect.size;
     }
     return self;
@@ -88,11 +88,12 @@
     self.name = kNodeSettings;
     if (btnPressed == false)
     {
-         [AUDIO playEffect:s_click1];
+#warning EF disabled for testing, kept throwing break points
+//        [AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
         SettingsWindows *SWindow = [[SettingsWindows alloc] init];
-        SWindow.anchorPoint = ccp(0.5f, 0.5f);
+//        SWindow.anchorPoint = ccp(1.0, 1.0);
         SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
         [self addChildToTopZ:SWindow];
         
@@ -104,9 +105,9 @@
         {
             [SWindow setUp:1];
         }
-        
     }
-    else { }
+    else {}
+    
 }
 
 -(void) openPayTableWindow
@@ -188,7 +189,8 @@
         BonusMenu               = [[SpecialBonus alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.2f, kWidthScreen, kHeightScreen * 0.2f) kProgress:kProgress1 bonusValue:500];
         BonusMenu.anchorPoint   = ccp(0,0);
         BonusMenu.position      = ccp(BonusMenu.position.x, kHeightScreen - kHeightScreen*1.3f);
-        [self addChildToTopZ:BonusMenu];
+#warning EF for testing only
+//        [self addChildToTopZ:BonusMenu];
         
         [(AppDelegate *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
         
@@ -234,11 +236,14 @@
 //////////////////////////////////////// CLOSe WINDOWS ///////////////////////////////////////////
 -(void) closeSettingsWindow
 {
-    //[self removeBlackBG];
-    #warning EF
-//    [self removeChild:(SettingsWindows *)[self getChildByTag:kSetWindowTAG] cleanup:YES];
-//    [_parent performSelector:@selector(closeWindowSet) withObject:nil];
-//    btnPressed = false;
+    [self removeBlackBG];
+    SKNode* settingsWindow = [self childNodeWithName:kNodeSettings];
+    if(settingsWindow && settingsWindow.parent)
+    {
+        [settingsWindow removeFromParent];
+    }
+    [self.parent performSelector:@selector(closeWindowSet) withObject:nil];
+    btnPressed = false;
 }
 
 -(void) closePayTableWindow
