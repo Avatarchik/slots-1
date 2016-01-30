@@ -46,16 +46,16 @@
         case kWindowBuyCoins:       [self openBuyWindow_from:1];
             break;
             
-        case kWindowBigWin:  
+        case kWindowBigWin:
             break;
             
-        case kWindowNewMachine:  
+        case kWindowNewMachine:
             break;
             
         case kWindowSpecialBonus:   [self openSBonusWindow];
             break;
             
-        case kWindowNotEnoughCoins: 
+        case kWindowNotEnoughCoins:
             break;
             
         case kWindowBuyBoosts:      [self openBuyWindow_from:2];
@@ -89,11 +89,10 @@
     if (btnPressed == false)
     {
 #warning EF disabled for testing, kept throwing break points
-//        [AUDIO playEffect:s_click1];
+        //        [AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
         SettingsWindows *SWindow = [[SettingsWindows alloc] init];
-//        SWindow.anchorPoint = ccp(1.0, 1.0);
         SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
         [self addChildToTopZ:SWindow];
         
@@ -106,8 +105,6 @@
             [SWindow setUp:1];
         }
     }
-    else {}
-    
 }
 
 -(void) openPayTableWindow
@@ -119,14 +116,13 @@
         [self addBlackBackground];
         btnPressed = true;
         //NSLog(@"%@",_parent.parent);
-        #warning EF
-//        int machineNum = [(SlotMachine *)_parent.parent resumeMachineNum];
-//        PayTableWindow *PWindow = [[[PayTableWindow alloc] init_withMachineNR:machineNum] autorelease];
-//        PWindow.anchorPoint = ccp(0.5f, 0.5f);
-//        PWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-//        [self addChild:PWindow z:14 tag:kPayWindowTAG];
+#warning EF
+        //        int machineNum = [(SlotMachine *)_parent.parent resumeMachineNum];
+        //        PayTableWindow *PWindow = [[[PayTableWindow alloc] init_withMachineNR:machineNum] autorelease];
+        //        PWindow.anchorPoint = ccp(0.5f, 0.5f);
+        //        PWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
+        //        [self addChild:PWindow z:14 tag:kPayWindowTAG];
     }
-    else { }
 }
 
 -(void) openBuyWindow_from:(int)nr_
@@ -134,17 +130,13 @@
     self.name = kNodeBuyWindow;
     if (btnPressed == false)
     {
-         //[AUDIO playEffect:s_click1];
+        //[AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
-         BuyCoinsWindow *BWindow = [[BuyCoinsWindow alloc] init_WithNumber:nr_];
-        BWindow.anchorPoint = ccp(0.5f, 0.5f);
-        BWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
-#warning EF
-//        if (nr_ == 1) { [self addChild:BWindow z:16 tag:kBuyWindowTAG]; }
-//        if (nr_ == 2) { [self addChild:BWindow z:16 tag:kBooWindowTAG]; }
+        BuyCoinsWindow *BWindow = [[BuyCoinsWindow alloc] init_WithNumber:nr_];
+        BWindow.position = CGPointZero;
+        [self addChildToTopZ:BWindow];
     }
-    else { }
 }
 
 
@@ -152,30 +144,28 @@
 {
     if (btnPressed == false)
     {
-         //[AUDIO playEffect:s_click1];
+        //[AUDIO playEffect:s_click1];
         btnPressed = true;
         WinsWindow *WWindow = [[WinsWindow alloc] init_with_WIN:win_ type:1];
         WWindow.anchorPoint = ccp(0.5f, 0.5f);
         WWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
 #warning EF
-//        [self addChild:WWindow z:14 tag:kWinWindowTAG];
+        //        [self addChild:WWindow z:14 tag:kWinWindowTAG];
     }
-    else { }
 }
 
 -(void) openNewLvlWindow_withLVL:(int)level_
 {
     if (btnPressed == false)
     {
-         //[AUDIO playEffect:s_click1];
+        //[AUDIO playEffect:s_click1];
         btnPressed = true;
         NewLevelWindow *NWindow = [[NewLevelWindow alloc] init_with_LVL:level_];
         NWindow.anchorPoint = ccp(0.5f, 0.5f);
         NWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
 #warning EF
-//        [self addChild:NWindow z:14 tag:kNewWindowTAG];
+        //        [self addChild:NWindow z:14 tag:kNewWindowTAG];
     }
-    else { }
 }
 
 
@@ -189,18 +179,17 @@
         BonusMenu               = [[SpecialBonus alloc] initWithRect:CGRectMake(0, kHeightScreen * 0.2f, kWidthScreen, kHeightScreen * 0.2f) kProgress:kProgress1 bonusValue:500];
         BonusMenu.anchorPoint   = ccp(0,0);
         BonusMenu.position      = ccp(BonusMenu.position.x, kHeightScreen - kHeightScreen*1.3f);
-#warning EF for testing only
-//        [self addChildToTopZ:BonusMenu];
+//#warning EF for testing only
+        [self addChildToTopZ:BonusMenu];
         
         [(AppDelegate *)[[UIApplication sharedApplication] delegate]setSPECIALBONUS:BonusMenu];
         
 #warning EF Spring animated this up from the bottom of the screen
-            BonusMenu.position = CGPointMake(BonusMenu.position.x, 0);
-//        [BonusMenu runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.15f],[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.1f position:ccp(BonusMenu.position.x, IS_IPAD ? 30    :   15)] rate:1.5f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.07f position:ccp(0, IS_IPAD ? -44    :   -22)] rate:1.0f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.1f position:ccp(0, IS_IPAD ? 14    :   7)] rate:1.5f], nil]];
+        BonusMenu.position = CGPointMake(BonusMenu.position.x, 0);
+        //        [BonusMenu runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.15f],[CCEaseInOut actionWithAction:[CCMoveTo actionWithDuration:0.1f position:ccp(BonusMenu.position.x, IS_IPAD ? 30    :   15)] rate:1.5f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.07f position:ccp(0, IS_IPAD ? -44    :   -22)] rate:1.0f],[CCEaseInOut actionWithAction:[CCMoveBy actionWithDuration:0.1f position:ccp(0, IS_IPAD ? 14    :   7)] rate:1.5f], nil]];
         
         
     }
-    else { }
 }
 
 
@@ -248,20 +237,38 @@
 
 -(void) closePayTableWindow
 {
-    #warning EF
-//    [self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
-//    [self removeChild:(PayTableWindow *)[self getChildByTag:kPayWindowTAG] cleanup:YES];
-//    [_parent performSelector:@selector(closeWindowPay) withObject:nil];
+#warning EF
+    //    [self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
+    //    [self removeChild:(PayTableWindow *)[self getChildByTag:kPayWindowTAG] cleanup:YES];
+    //    [_parent performSelector:@selector(closeWindowPay) withObject:nil];
     btnPressed = false;
 }
 
 -(void) closeBuyWindow
 {
-    #warning EF
-    //[self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
-//    [self removeChild:(BuyCoinsWindow *)[self getChildByTag:kBuyWindowTAG] cleanup:YES];
-//    [(TopMenu *) _parent closeWindowBuy]; 
-
+    
+    SettingsWindows* settingsWindow = (SettingsWindows*)[self childNodeWithName:kNodeSettings];
+    SKNode* blackBG = [settingsWindow childNodeWithName:kNodeBlackBackground];
+    if(blackBG && blackBG.parent)
+    {
+        [blackBG removeFromParent];
+    }
+    
+    BuyCoinsWindow* buyWindow = (BuyCoinsWindow*)[self childNodeWithName:kNodeBuyWindow];
+    if(buyWindow && buyWindow.parent)
+    {
+        [buyWindow removeFromParent];
+    }
+    
+    TopMenu* topMenu = (TopMenu*) self.parent;
+    if(topMenu)
+    {
+        [topMenu closeWindowBuy];
+    }
+//
+//    [self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
+//        [self removeChild:(BuyCoinsWindow *)[self getChildByTag:kBuyWindowTAG] cleanup:YES];
+//        [(TopMenu *) _parent closeWindowBuy];
     btnPressed = false;
 }
 
@@ -286,12 +293,6 @@
 //    #warning EF
 ////    [_parent performSelector:@selector(closeBUseWindow) withObject:nil];
 //}
-
-
-
-
-
-
 
 
 @end

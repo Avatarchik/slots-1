@@ -1,7 +1,7 @@
 
 #import "cocos2d.h"
 #import <StoreKit/StoreKit.h>
-
+#import <SpriteKit/SpriteKit.h>
 UIKIT_EXTERN NSString *const IAPHelperProductPurchasedNotification;
 
 enum validationStates{
@@ -15,7 +15,7 @@ enum validationStates{
 @interface IAPHelper : NSObject<SKProductsRequestDelegate, SKPaymentTransactionObserver,UIAlertViewDelegate>
 {
     SKProductsRequest * _productsRequest;
-    CCNode *parent__;
+    SKNode *parent__;
     NSString *identifier_;
     BOOL isPurchasedNow;
     BOOL isRestoringNow;
@@ -24,9 +24,11 @@ enum validationStates{
 @property (assign) BOOL isRestoringNow;
 
 - (id)init;
-- (void)requestProductsWithIndetifier:(NSString *)_indetifier parent:(CCNode *)sender;
+- (void)requestProductsWithIndetifier:(NSString *)_indetifier parent:(SKNode *)sender;
 - (void)buyProduct:(SKProduct *)product;
-- (void)restoreCompletedTransactionsWithparent:(CCNode *)sender;
+- (void)restoreCompletedTransactionsWithparent:(SKNode *)sender;
+
+
 - (void)calculatePoits:(NSString *)indetifier;
 
 @end

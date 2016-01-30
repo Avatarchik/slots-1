@@ -90,7 +90,7 @@ static const char* jailbreak_apps[] =
     
 }
 
-- (void)requestProductsWithIndetifier:(NSString *)_indetifier parent:(CCNode *)sender{
+- (void)requestProductsWithIndetifier:(NSString *)_indetifier parent:(SKNode *)sender{
     
     UIView *view__ = [[[b6luxLoadingView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) loading:kLOADING_PURCHASE]autorelease];
     view__.tag = kLOADINGTAG;
@@ -579,7 +579,7 @@ static const char* jailbreak_apps[] =
     
 }
 
-- (void)restoreCompletedTransactionsWithparent:(CCNode *)sender{
+- (void)restoreCompletedTransactionsWithparent:(SKNode *)sender{
     
     parent__ = sender;
     

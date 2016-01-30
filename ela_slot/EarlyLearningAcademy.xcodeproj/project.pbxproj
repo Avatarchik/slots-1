@@ -116,7 +116,7 @@
 		F55D647117D602BC00F3B2C6 /* 256.png in Resources */ = {isa = PBXBuildFile; fileRef = F55D646517D602BC00F3B2C6 /* 256.png */; };
 		F55D647D17D7124D00F3B2C6 /* PopupManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D647C17D7124D00F3B2C6 /* PopupManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F55D648017D7295A00F3B2C6 /* PayTableWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D647F17D7295A00F3B2C6 /* PayTableWindow.mm */; };
-		F55D648317D732F900F3B2C6 /* BuyCoinsWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D648217D732F900F3B2C6 /* BuyCoinsWindow.mm */; };
+		F55D648317D732F900F3B2C6 /* BuyCoinsWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = F55D648217D732F900F3B2C6 /* BuyCoinsWindow.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F56F94F817E9A5D60012962B /* Segan-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F56F94F717E9A5D60012962B /* Segan-Light.ttf */; };
 		F56F95BA17EAFFAB0012962B /* icon1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F56F95B417EAFFAB0012962B /* icon1-ipadhd.png */; };
 		F56F95C617EAFFBB0012962B /* icon1-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F56F95C017EAFFBB0012962B /* icon1-ipad.png */; };

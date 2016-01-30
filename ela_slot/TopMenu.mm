@@ -751,7 +751,11 @@
 
 -(void) closeWindowBuy
 {
-//    [self removeChild:[self getChildByTag:kBuyWindowTAG] cleanup:YES];
+    SKNode* buyWindow = (SKNode*) [self childNodeWithName:kNodeBuyWindow];
+    if(buyWindow && buyWindow.parent)
+    {
+        [buyWindow removeFromParent];
+    }
 }
 
 -(void) closeWheelGame

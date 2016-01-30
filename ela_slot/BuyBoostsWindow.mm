@@ -542,33 +542,34 @@
 
 -(void)purchase:(int)boostNR
 {
-    if (BOOSTx2) {
-        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_1_99 parent:self];}
-        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_2_99 parent:self];}
-        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_3_99 parent:self];}
-        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_4_99 parent:self];}
-    }
-    else if (BOOSTx3)
-    {
-        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_2_99 parent:self];}
-        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_4_99 parent:self];}
-        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_6_99 parent:self];}
-        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_8_99 parent:self];}
-    }
-    else if (BOOSTx4)
-    {
-        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_6_99 parent:self];}
-        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_8_99 parent:self];}
-        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_14_99 parent:self];}
-        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_19_99 parent:self];}
-    }
-    else if (BOOSTx5)
-    {
-        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_14_99 parent:self];}
-        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_24_99 parent:self];}
-        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_34_99 parent:self];}
-        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_49_99 parent:self];}
-    }
+#warning EF
+//    if (BOOSTx2) {
+//        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_1_99 parent:self];}
+//        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_2_99 parent:self];}
+//        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_3_99 parent:self];}
+//        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST2X_4_99 parent:self];}
+//    }
+//    else if (BOOSTx3)
+//    {
+//        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_2_99 parent:self];}
+//        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_4_99 parent:self];}
+//        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_6_99 parent:self];}
+//        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST3X_8_99 parent:self];}
+//    }
+//    else if (BOOSTx4)
+//    {
+//        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_6_99 parent:self];}
+//        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_8_99 parent:self];}
+//        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_14_99 parent:self];}
+//        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST4X_19_99 parent:self];}
+//    }
+//    else if (BOOSTx5)
+//    {
+//        if(boostNR == 1)        {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_14_99 parent:self];}
+//        else if (boostNR == 2)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_24_99 parent:self];}
+//        else if (boostNR == 3)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_34_99 parent:self];}
+//        else if (boostNR == 4)  {[IAP_ requestProductsWithIndetifier:kIAP_I_BOOST5X_49_99 parent:self];}
+//    }
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event

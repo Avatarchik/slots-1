@@ -14,6 +14,22 @@
 #import "SimpleAudioEngine.h"
 #import "NodeNames.h"
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+static inline SKColor*
+SKColor3(const GLubyte r, const GLubyte g, const GLubyte b)
+{
+    SKColor* color = [SKColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
+    return color;
+}
+    
+#ifdef __cplusplus
+}
+#endif
+
+
 typedef NS_ENUM(NSInteger, ZDepth)
 {
     ZDepthBottom = 0,
