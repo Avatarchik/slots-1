@@ -39,4 +39,25 @@
     NSLog(@"adding child:%@ to %@  z:%f", child.name, self.name, topZ);
     [self addChild:child atZPosition:topZ];
 }
+
+-(CGFloat) right
+{
+    return self.position.x + self.frame.size.width * 2;
+}
+
+-(CGFloat) top
+{
+    return self.position.y + self.frame.size.height * 2;
+}
+
+-(CGFloat) left
+{
+    return self.position.x - self.frame.size.width * 2;
+}
+
+-(CGFloat) bottom
+{
+    return self.position.y - self.frame.size.height * 2;
+}
+
 @end

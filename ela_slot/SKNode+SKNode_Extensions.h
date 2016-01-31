@@ -15,6 +15,9 @@
 -(void) addChild:(SKNode*) child atZPosition:(CGFloat) zPosition;
 -(void) addChildToTopZ:(SKNode*) child;
 
-
+-(CGFloat) right;
+-(CGFloat) top;
+-(CGFloat) left;
+-(CGFloat) bottom;
 
 @end
