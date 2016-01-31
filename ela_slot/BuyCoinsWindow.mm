@@ -248,9 +248,9 @@
         else if (nr_ == 2)
         {
             self.name = kNodeBuyBoosts;
-            coinsBtn.hidden = NO;
-            boostBtn.hidden = NO;
-            closeBtn.hidden = NO;
+            coinsBtn.hidden = YES;
+            boostBtn.hidden = YES;
+            closeBtn.hidden = YES;
             [self openBoostsWindow];
         }
     }
@@ -1027,9 +1027,9 @@
     
     if ([touchedNode isEqualToNode:boostBtn])
     {
-        coinsBtn.hidden = NO;
-        boostBtn.hidden = NO;
-        closeBtn.hidden = NO;
+        coinsBtn.hidden = YES;
+        boostBtn.hidden = YES;
+        closeBtn.hidden = YES;
         [self openBoostsWindow];
         // [AUDIO playEffect:s_click1];
         //  [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
@@ -1154,18 +1154,15 @@
 
 -(void) openBoostsWindow
 {
-#warning EF
-
     BuyBoostsWindow *BWindow = [[BuyBoostsWindow alloc] initWithBool:NO];
-    BWindow.anchorPoint = ccp(0, 0);
-//    [self addChildToTopZ:BWindow z:15 tag:kBoostsTAG];
+    [self addChildToTopZ:BWindow];
 }
 
 -(void) closeBoostsWindow
 {
-    coinsBtn.hidden = YES;
-    boostBtn.hidden = YES;
-    closeBtn.hidden = YES;
+    coinsBtn.hidden = NO;
+    boostBtn.hidden = NO;
+    closeBtn.hidden = NO;
     SKNode* boostWindow = [self childNodeWithName:kNodeBuyBoosts];
     if(boostWindow && boostWindow.parent)
     {
@@ -1182,7 +1179,7 @@
         PopupManager* popupManager = (PopupManager*) self.parent;
         [popupManager closeBuyWindow];
     }
-//#warning EF animation this maybe?
+#warning EF animation this maybe?
 //    SKAction* scale3       = [SKAction scaleTo:0.1 duration:0.2];
 //
 //    __weak BuyCoinsWindow* weakSelf = self;
