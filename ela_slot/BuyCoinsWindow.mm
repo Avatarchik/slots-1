@@ -211,11 +211,11 @@
 //        
 //        BUY_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_buy_menu.pvr.ccz"]];
 //        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_buy_menu.plist"]];
-//        [self addChild:BUY_MENU_];
+//        [self addChildToTopZ:BUY_MENU_];
 //        
 //        SETTINGS_MENU_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_settings_menu.pvr.ccz"]];
 //        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_settings_menu.plist"]];
-//        [self addChild:SETTINGS_MENU_];
+//        [self addChildToTopZ:SETTINGS_MENU_];
         
         background             = [SKSpriteNode spriteNodeWithImageNamed:@"buy_BG.png"];
         background.anchorPoint = ccp(0.5f, 0.5f);
@@ -227,7 +227,6 @@
         [self addFields];
         [self addCoinsIcons];
         [self addCoins_value_for_line1:@"350,000" for_line2:@"150,000" for_line3:@"40,000" for_line4:@"15,000" for_line5:@"4,000" for_line6:@"1,000"];
-        [self addCoins_prices];
         [self addBonusPercent1:75 percent2:45 percent3:30 percent4:15 percent5:10 percent6:5];
         [self addEquallitySymbol];
         [self addCoinsIcons2];
@@ -235,11 +234,11 @@
         
         [self addRedArrow];
         
-        
         [self addCoinsButton];
         [self addBoostButton];
         [self addCloseButton];
         [self addBuyCoinsButtons];
+        [self addCoins_prices];
         
         
         if(nr_ == 1)
@@ -396,7 +395,7 @@
     if (IS_STANDARD_IPHONE_6_PLUS) {
         buyLabel1.scale = 1.6;
     }
-    [self addChild:buyLabel1];
+    [self addChildToTopZ:buyLabel1];
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     buyBtn5                   = [SKSpriteNode spriteNodeWithTexture: self.buyButtonTexture];
     buyBtn5.anchorPoint       = ccp(1.0f, 0.5f);
@@ -411,7 +410,7 @@
     if (IS_STANDARD_IPHONE_6_PLUS) {
         buyLabel2.scale = 1.6;
     }
-    [self addChild:buyLabel2];
+    [self addChildToTopZ:buyLabel2];
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     buyBtn4                   = [SKSpriteNode spriteNodeWithTexture: self.buyButtonTexture];
     buyBtn4.anchorPoint       = ccp(1.0f, 0.5f);
@@ -426,7 +425,7 @@
     if (IS_STANDARD_IPHONE_6_PLUS) {
         buyLabel3.scale = 1.6;
     }
-    [self addChild:buyLabel3];
+    [self addChildToTopZ:buyLabel3];
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     buyBtn3                   = [SKSpriteNode spriteNodeWithTexture: self.buyButtonTexture];
     buyBtn3.anchorPoint       = ccp(1.0f, 0.5f);
@@ -441,7 +440,7 @@
     if (IS_STANDARD_IPHONE_6_PLUS) {
         buyLabel4.scale = 1.6;
     }
-    [self addChild:buyLabel4];
+    [self addChildToTopZ:buyLabel4];
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     buyBtn2                   = [SKSpriteNode spriteNodeWithTexture: self.buyButtonTexture];
     buyBtn2.anchorPoint       = ccp(1.0f, 0.5f);
@@ -456,7 +455,7 @@
     if (IS_STANDARD_IPHONE_6_PLUS) {
         buyLabel5.scale = 1.6;
     }
-    [self addChild:buyLabel5];
+    [self addChildToTopZ:buyLabel5];
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     buyBtn1                   = [SKSpriteNode spriteNodeWithTexture: self.buyButtonTexture];
     buyBtn1.anchorPoint       = ccp(1.0f, 0.5f);
@@ -472,7 +471,7 @@
     if (IS_STANDARD_IPHONE_6_PLUS) {
         buyLabel6.scale = 1.6;
     }
-    [self addChild:buyLabel6];
+    [self addChildToTopZ:buyLabel6];
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
@@ -486,11 +485,12 @@
     lineLabel1.alpha         = 110/255.0;
     lineLabel1.fontColor           = SKColor3(233, 192, 0);
     lineLabel1.scale           = 0.8f;
+    lineLabel1.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { lineLabel1.scale = 0.65f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         lineLabel1.scale = 1.6;
     }
-    [self addChild:lineLabel1];
+    [self addChildToTopZ:lineLabel1];
     
     lineLabel2 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     lineLabel2.text = [NSString stringWithFormat:@"%@", l5_];
@@ -498,11 +498,12 @@
     lineLabel2.alpha         = 145/255.0;
     lineLabel2.scale           = 0.8f;
     lineLabel2.fontColor           = SKColor3(233, 192, 0);
+    lineLabel2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { lineLabel2.scale = 0.65f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         lineLabel2.scale = 1.6;
     }
-    [self addChild:lineLabel2];
+    [self addChildToTopZ:lineLabel2];
     
     lineLabel3 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     lineLabel3.text = [NSString stringWithFormat:@"%@", l4_];
@@ -510,11 +511,12 @@
     lineLabel3.alpha         = 160/255.0;
     lineLabel3.scale           = 0.8f;
     lineLabel3.fontColor           = SKColor3(233, 192, 0);
+    lineLabel3.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { lineLabel3.scale = 0.65f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         lineLabel3.scale = 1.6;
     }
-    [self addChild:lineLabel3];
+    [self addChildToTopZ:lineLabel3];
     
     lineLabel4 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     lineLabel4.text = [NSString stringWithFormat:@"%@", l3_];
@@ -522,11 +524,12 @@
     lineLabel4.alpha         = 185/255.0;
     lineLabel4.scale           = 0.8f;
     lineLabel4.fontColor           = SKColor3(233, 192, 0);
+    lineLabel4.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { lineLabel4.scale = 0.65f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         lineLabel4.scale = 1.6;
     }
-    [self addChild:lineLabel4];
+    [self addChildToTopZ:lineLabel4];
     
     lineLabel5 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     lineLabel5.text = [NSString stringWithFormat:@"%@", l2_];
@@ -534,11 +537,12 @@
     lineLabel5.alpha         = 200/255.0;
     lineLabel5.scale           = 0.8f;
     lineLabel5.fontColor           = SKColor3(233, 192, 0);
+    lineLabel5.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { lineLabel5.scale = 0.65f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         lineLabel5.scale = 1.6;
     }
-    [self addChild:lineLabel5];
+    [self addChildToTopZ:lineLabel5];
     
     lineLabel6 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     lineLabel6.text = [NSString stringWithFormat:@"%@", l1_];
@@ -546,74 +550,83 @@
     lineLabel6.alpha         = 255/255.0;
     lineLabel6.scale           = 0.8f;
     lineLabel6.fontColor           = SKColor3(233, 192, 0);
+    lineLabel6.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { lineLabel6.scale = 0.65f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         lineLabel6.scale = 1.6;
     }
-    [self addChild:lineLabel6];
+    [self addChildToTopZ:lineLabel6];
 }
 
 -(void) addCoins_prices
 {
+    CGFloat priceLabelSpacing = 1.1f;
+    
     priceLabel1 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     priceLabel1.text = @"$99.99";
-    priceLabel1.position        = ccp(buyBtn1.position.x - buyBtn1.size.width*1.2f, buyBtn1.position.y);
+    priceLabel1.position        = ccp(buyBtn1.position.x - buyBtn1.size.width*priceLabelSpacing, buyBtn1.position.y);
     priceLabel1.fontColor           = [SKColor lightTextColor];
+    priceLabel1.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     if (iPhone3) { priceLabel1.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         priceLabel1.scale = 1.6;
     }
-    [self addChild:priceLabel1];
+    [self addChildToTopZ:priceLabel1];
     
     priceLabel2 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     priceLabel2.text = @"$49.99";
-    priceLabel2.position        = ccp(buyBtn2.position.x - buyBtn2.size.width*1.2f, buyBtn2.position.y);
+    priceLabel2.position        = ccp(buyBtn2.position.x - buyBtn2.size.width*priceLabelSpacing, buyBtn2.position.y);
     priceLabel2.fontColor           = [SKColor lightTextColor];
+    priceLabel2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     if (iPhone3) { priceLabel2.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         priceLabel2.scale = 1.6;
     }
-    [self addChild:priceLabel2];
+    [self addChildToTopZ:priceLabel2];
     
     priceLabel3 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     priceLabel3.text = @"$19.99";
-    priceLabel3.position        = ccp(buyBtn3.position.x - buyBtn3.size.width*1.2f, buyBtn3.position.y);
+    priceLabel3.position        = ccp(buyBtn3.position.x - buyBtn3.size.width*priceLabelSpacing, buyBtn3.position.y);
     priceLabel3.fontColor           = [SKColor lightTextColor];
+    priceLabel3.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     if (iPhone3) { priceLabel3.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         priceLabel3.scale = 1.6;
     }
-    [self addChild:priceLabel3];
+    [self addChildToTopZ:priceLabel3];
     
     priceLabel4 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     priceLabel4.text = @"$9.99";
-    priceLabel4.position        = ccp(buyBtn4.position.x - buyBtn4.size.width*1.2f, buyBtn4.position.y);
+    priceLabel4.position        = ccp(buyBtn4.position.x - buyBtn4.size.width*priceLabelSpacing, buyBtn4.position.y);
     priceLabel4.fontColor           = [SKColor lightTextColor];
+    priceLabel4.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     if (iPhone3) { priceLabel4.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         priceLabel4.scale = 1.6;
     }
-    [self addChild:priceLabel4];
+    [self addChildToTopZ:priceLabel4];
     
     priceLabel5 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     priceLabel5.text = @"$4.99";
-    priceLabel5.position        = ccp(buyBtn5.position.x - buyBtn5.size.width*1.2f, buyBtn5.position.y);
+    priceLabel5.position        = ccp(buyBtn5.position.x - buyBtn5.size.width*priceLabelSpacing, buyBtn5.position.y);
     priceLabel5.fontColor           = [SKColor lightTextColor];
+    priceLabel5.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     if (iPhone3) { priceLabel5.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         priceLabel5.scale = 1.6;
     }
-    [self addChild:priceLabel5];
+    [self addChildToTopZ:priceLabel5];
     
     priceLabel6 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     priceLabel6.text = @"$1.99";
-    priceLabel6.position        = ccp(buyBtn6.position.x - buyBtn6.size.width*1.2f, buyBtn6.position.y);
+    priceLabel6.position        = ccp(buyBtn6.position.x - buyBtn6.size.width*priceLabelSpacing, buyBtn6.position.y);
     priceLabel6.fontColor           = [SKColor lightTextColor];
+    priceLabel6.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     if (iPhone3) { priceLabel6.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         priceLabel6.scale = 1.6;
     }
-    [self addChild:priceLabel6];
+    [self addChildToTopZ:priceLabel6];
 
 }
 
@@ -629,9 +642,12 @@
     
     bonusP1 = p1_; bonusP2 = p2_; bonusP3 = p3_; bonusP4 = p4_; bonusP5 = p5_; bonusP6 = p6_;
     
+    
+    CGFloat percentBGXPosition = lineLabel1.right + lineLabel1.frame.size.width  * 0.5;
+    
     bonusPercent1               = [SKSpriteNode spriteNodeWithTexture: self.percentBackgroundTexture];
     bonusPercent1.anchorPoint   = ccp(0.5f, 0.5f);
-    bonusPercent1.position      = ccp(coinIco1.position.x, field6.position.y);
+    bonusPercent1.position      = ccp(percentBGXPosition, field6.position.y);
     [self addChildToTopZ:bonusPercent1];
     
     bonusLabel1 =   [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
@@ -648,7 +664,7 @@
     
     bonusPercent2               = [SKSpriteNode spriteNodeWithTexture: self.percentBackgroundTexture];
     bonusPercent2.anchorPoint   = ccp(0.5f, 0.5f);
-    bonusPercent2.position      = ccp(coinIco2.position.x, field5.position.y);
+    bonusPercent2.position      = ccp(percentBGXPosition, field5.position.y);
     [self addChildToTopZ:bonusPercent2];
     
     bonusLabel2 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
@@ -665,7 +681,7 @@
     
     bonusPercent3               = [SKSpriteNode spriteNodeWithTexture: self.percentBackgroundTexture];
     bonusPercent3.anchorPoint   = ccp(0.5f, 0.5f);
-    bonusPercent3.position      = ccp(coinIco3.position.x, field4.position.y);
+    bonusPercent3.position      = ccp(percentBGXPosition, field4.position.y);
     [self addChildToTopZ:bonusPercent3];
     
     bonusLabel3 =   [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
@@ -682,7 +698,7 @@
     
     bonusPercent4               = [SKSpriteNode spriteNodeWithTexture: self.percentBackgroundTexture];
     bonusPercent4.anchorPoint   = ccp(0.5f, 0.5f);
-    bonusPercent4.position      = ccp(coinIco4.position.x, field3.position.y);
+    bonusPercent4.position      = ccp(percentBGXPosition, field3.position.y);
     [self addChildToTopZ:bonusPercent4];
     
     bonusLabel4 =   [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
@@ -699,7 +715,7 @@
     
     bonusPercent5               = [SKSpriteNode spriteNodeWithTexture: self.percentBackgroundTexture];
     bonusPercent5.anchorPoint   = ccp(0.5f, 0.5f);
-    bonusPercent5.position      = ccp(coinIco5.position.x, field2.position.y);
+    bonusPercent5.position      = ccp(percentBGXPosition, field2.position.y);
     [self addChildToTopZ:bonusPercent5];
     
     
@@ -718,7 +734,7 @@
     
     bonusPercent6               = [SKSpriteNode spriteNodeWithTexture: self.percentBackgroundTexture];
     bonusPercent6.anchorPoint   = ccp(0.5f, 0.5f);
-    bonusPercent6.position      = ccp(coinIco6.position.x, field1.position.y);
+    bonusPercent6.position      = ccp(percentBGXPosition, field1.position.y);
     [self addChildToTopZ:bonusPercent6];
     
     bonusLabel6 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
@@ -803,33 +819,27 @@
 -(void) addCoinsIcons2
 {
     coinIco11                   = [SKSpriteNode spriteNodeWithTexture: self.coinTexture];
-    coinIco11.anchorPoint       = ccp(0.5f, 0.5f);
-    coinIco11.position          = ccp(equal1.position.x, equal1.position.y);
+    coinIco11.position          = ccp(equal1.position.x + equal1.frame.size.width * 2, equal1.position.y);
     [self addChildToTopZ:coinIco11];
     
     coinIco22                   = [SKSpriteNode spriteNodeWithTexture: self.coinTexture];
-    coinIco22.anchorPoint       = ccp(0.5f, 0.5f);
-    coinIco22.position          = ccp(equal2.position.x, equal2.position.y);
+    coinIco22.position          = ccp(equal2.position.x + equal2.frame.size.width * 2, equal2.position.y);
     [self addChildToTopZ:coinIco22];
     
     coinIco33                   = [SKSpriteNode spriteNodeWithTexture: self.coinTexture];
-    coinIco33.anchorPoint       = ccp(0.5f, 0.5f);
-    coinIco33.position          = ccp(equal3.position.x, equal3.position.y);
+    coinIco33.position          = ccp(equal3.position.x + equal3.frame.size.width * 2, equal3.position.y);
     [self addChildToTopZ:coinIco33];
     
     coinIco44                   = [SKSpriteNode spriteNodeWithTexture: self.coinTexture];
-    coinIco44.anchorPoint       = ccp(0.5f, 0.5f);
-    coinIco44.position          = ccp(equal4.position.x, equal4.position.y);
+    coinIco44.position          = ccp(equal4.position.x + equal4.frame.size.width * 2, equal4.position.y);
     [self addChildToTopZ:coinIco44];
     
     coinIco55                   = [SKSpriteNode spriteNodeWithTexture: self.coinTexture];
-    coinIco55.anchorPoint       = ccp(0.5f, 0.5f);
-    coinIco55.position          = ccp(equal5.position.x, equal5.position.y);
+    coinIco55.position          = ccp(equal5.position.x + equal5.frame.size.width * 2, equal5.position.y);
     [self addChildToTopZ:coinIco55];
     
     coinIco66                   = [SKSpriteNode spriteNodeWithTexture: self.coinTexture];
-    coinIco66.anchorPoint       = ccp(0.5f, 0.5f);
-    coinIco66.position          = ccp(equal6.position.x , equal6.position.y);
+    coinIco66.position          = ccp(equal6.position.x + equal6.frame.size.width * 2 , equal6.position.y);
     [self addChildToTopZ:coinIco66];
 }
 
@@ -843,75 +853,85 @@
 {
     finalAmountLabel1 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     finalAmountLabel1.text = [NSString stringWithFormat:@"%@", l1_];
-    finalAmountLabel1.position        = ccp(coinIco11.position.x + coinIco11.size.width, coinIco11.position.y);
+    finalAmountLabel1.position        = ccp(coinIco11.right, coinIco11.position.y);
     finalAmountLabel1.alpha         = 255/255.0;
     finalAmountLabel1.scale           = 1.1;
     finalAmountLabel1.fontColor           = SKColor3(233, 192, 0);
+    finalAmountLabel1.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { finalAmountLabel1.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         finalAmountLabel1.scale = 1.6;
     }
-    [self addChild:finalAmountLabel1];
+    [self addChildToTopZ:finalAmountLabel1];
     
     finalAmountLabel2 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     finalAmountLabel2.text = [NSString stringWithFormat:@"%@", l2_];
-    finalAmountLabel2.position        = ccp(coinIco22.position.x + coinIco22.size.width, coinIco22.position.y);
+    finalAmountLabel2.position        = ccp(coinIco22.right, coinIco22.position.y);
     finalAmountLabel2.alpha         = 200/255.0;
     finalAmountLabel2.scale           = 1.1;
     finalAmountLabel2.fontColor           = SKColor3(233, 192, 0);
+    finalAmountLabel2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     if (iPhone3) { finalAmountLabel2.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         finalAmountLabel2.scale = 1.6;
     }
-    [self addChild:finalAmountLabel2];
+    [self addChildToTopZ:finalAmountLabel2];
     
     finalAmountLabel3 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     finalAmountLabel3.text = [NSString stringWithFormat:@"%@", l3_];
-    finalAmountLabel3.position        = ccp(coinIco33.position.x + coinIco33.size.width, coinIco33.position.y);
+    finalAmountLabel3.position        = ccp(coinIco33.right, coinIco33.position.y);
     finalAmountLabel3.alpha         = 185/255.0;
     finalAmountLabel3.scale           = 1.1;
     finalAmountLabel3.fontColor           = SKColor3(233, 192, 0);
+    finalAmountLabel3.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    
     if (iPhone3) { finalAmountLabel3.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         finalAmountLabel3.scale = 1.6;
     }
-    [self addChild:finalAmountLabel3];
+    [self addChildToTopZ:finalAmountLabel3];
     
     finalAmountLabel4 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     finalAmountLabel4.text = [NSString stringWithFormat:@"%@", l4_];
-    finalAmountLabel4.position        = ccp(coinIco44.position.x + coinIco44.size.width, coinIco44.position.y);
+    finalAmountLabel4.position        = ccp(coinIco44.right, coinIco44.position.y);
     finalAmountLabel4.alpha         = 160/255.0;
     finalAmountLabel4.scale           = 1.1;
     finalAmountLabel4.fontColor           = SKColor3(233, 192, 0);
+    finalAmountLabel4.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    
     if (iPhone3) { finalAmountLabel4.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         finalAmountLabel4.scale = 1.6;
     }
-    [self addChild:finalAmountLabel4];
+    [self addChildToTopZ:finalAmountLabel4];
     
     finalAmountLabel5 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     finalAmountLabel5.text = [NSString stringWithFormat:@"%@", l5_];
-    finalAmountLabel5.position        = ccp(coinIco55.position.x + coinIco55.size.width, coinIco55.position.y);
+    finalAmountLabel5.position        = ccp(coinIco55.right, coinIco55.position.y);
     finalAmountLabel5.alpha         = 145/255.0;
     finalAmountLabel5.scale           = 1.1;
     finalAmountLabel5.fontColor           = SKColor3(233, 192, 0);
+    finalAmountLabel5.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+
     if (iPhone3) { finalAmountLabel5.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         finalAmountLabel5.scale = 1.6;
     }
-    [self addChild:finalAmountLabel5];
+    [self addChildToTopZ:finalAmountLabel5];
     
     finalAmountLabel6 = [SKLabelNode labelNodeWithFontNamed:kFONT_BUY_TXT];
     finalAmountLabel6.text = [NSString stringWithFormat:@"%@", l6_];
-    finalAmountLabel6.position        = ccp(coinIco66.position.x + coinIco66.size.width, coinIco66.position.y);
+    finalAmountLabel6.position        = ccp(coinIco66.right, coinIco66.position.y);
     finalAmountLabel6.alpha         = 110/255.0;
     finalAmountLabel6.scale           = 1.1;
     finalAmountLabel6.fontColor           = SKColor3(233, 192, 0);
+    finalAmountLabel6.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+
     if (iPhone3) { finalAmountLabel6.scale = 0.75f; }
     if (IS_STANDARD_IPHONE_6_PLUS) {
         finalAmountLabel6.scale = 1.6;
     }
-    [self addChild:finalAmountLabel6];
+    [self addChildToTopZ:finalAmountLabel6];
 
 }
 
@@ -996,8 +1016,6 @@
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     SKNode* touchedNode = [self nodeFromTouches:touches];
-//    CGPoint touchPos = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-    
     
     if ([touchedNode isEqualToNode:closeBtn])
     {
@@ -1140,7 +1158,7 @@
 
     BuyBoostsWindow *BWindow = [[BuyBoostsWindow alloc] initWithBool:NO];
     BWindow.anchorPoint = ccp(0, 0);
-//    [self addChild:BWindow z:15 tag:kBoostsTAG];
+//    [self addChildToTopZ:BWindow z:15 tag:kBoostsTAG];
 }
 
 -(void) closeBoostsWindow

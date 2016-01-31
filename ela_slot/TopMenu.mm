@@ -641,6 +641,14 @@
     [self setButtonsToUpState];
 }
 
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    openSett = false;
+    openPay  = false;
+    [self setButtonsToUpState];
+}
+
+
 -(void) setButtonsToUpState{
     [self.setings_button setTexture:self.settingsBtn_notActive];
     [self.ptable_button setTexture:self.paytableBtn_notActive];
@@ -648,11 +656,7 @@
     [self.coins_button setTexture:self.buyBtn_notActive];
 }
 
--(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    openSett = false;
-    openPay  = false;
-    [self setButtonsToUpState];
-}
+
 
 -(void) openSettingsWindow
 {
