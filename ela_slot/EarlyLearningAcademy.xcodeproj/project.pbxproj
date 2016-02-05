@@ -11,6 +11,8 @@
 		220FB55A1C5C1768001346AD /* Buy Window.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220FB5591C5C1768001346AD /* Buy Window.xcassets */; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		22507CE21C55B333005B77E8 /* FSSpriteKitProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */; };
+		225F96391C60384400B80B2D /* Reel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F96381C60384400B80B2D /* Reel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		229193031C614A7300612332 /* ReelSymbolNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 229193021C614A7300612332 /* ReelSymbolNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		229588691C4DB3D600014B8F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 229588631C4DB3D500014B8F /* GameScene.m */; };
 		2295886A1C4DB3D600014B8F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 229588641C4DB3D500014B8F /* GameScene.sks */; };
 		2295886B1C4DB3D600014B8F /* GameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229588661C4DB3D500014B8F /* GameViewController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -143,9 +145,9 @@
 		F56F974E17F1625B0012962B /* CCMaskedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974017F1625B0012962B /* CCMaskedSprite.mm */; };
 		F56F974F17F1625B0012962B /* Lines.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974217F1625B0012962B /* Lines.mm */; };
 		F56F975017F1625B0012962B /* LinesPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = F56F974417F1625B0012962B /* LinesPosition.m */; };
-		F56F975117F1625B0012962B /* Reels.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974617F1625B0012962B /* Reels.mm */; };
+		F56F975117F1625B0012962B /* Reels.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974617F1625B0012962B /* Reels.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F56F975217F1625B0012962B /* Result.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974817F1625B0012962B /* Result.mm */; };
-		F56F975317F1625B0012962B /* SlotMachine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974A17F1625B0012962B /* SlotMachine.mm */; };
+		F56F975317F1625B0012962B /* SlotMachine.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974A17F1625B0012962B /* SlotMachine.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F56F975417F1625B0012962B /* Slots_Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = F56F974C17F1625B0012962B /* Slots_Animation.mm */; };
 		F56F979217F162920012962B /* blink-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F56F975717F162920012962B /* blink-hd.png */; };
 		F56F979317F162920012962B /* blink-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F56F975817F162920012962B /* blink-ipad.png */; };
@@ -677,6 +679,10 @@
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		22507CE01C55B333005B77E8 /* FSSpriteKitProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSpriteKitProgressBar.h; sourceTree = "<group>"; };
 		22507CE11C55B333005B77E8 /* FSSpriteKitProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSpriteKitProgressBar.m; sourceTree = "<group>"; };
+		225F96371C60384400B80B2D /* Reel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reel.h; path = Model/Reel.h; sourceTree = "<group>"; };
+		225F96381C60384400B80B2D /* Reel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reel.m; path = Model/Reel.m; sourceTree = "<group>"; };
+		229193011C614A7300612332 /* ReelSymbolNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReelSymbolNode.h; path = Model/ReelSymbolNode.h; sourceTree = "<group>"; };
+		229193021C614A7300612332 /* ReelSymbolNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReelSymbolNode.m; path = Model/ReelSymbolNode.m; sourceTree = "<group>"; };
 		229588621C4DB3D500014B8F /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		229588631C4DB3D500014B8F /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		229588641C4DB3D500014B8F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -2124,6 +2130,8 @@
 				F56F974A17F1625B0012962B /* SlotMachine.mm */,
 				F56F974B17F1625B0012962B /* Slots_Animation.h */,
 				F56F974C17F1625B0012962B /* Slots_Animation.mm */,
+				225F96371C60384400B80B2D /* Reel.h */,
+				225F96381C60384400B80B2D /* Reel.m */,
 				FA292BFC17F3041300E18E36 /* Bet.h */,
 				FA292BFD17F3041300E18E36 /* Bet.mm */,
 				FA3806161806B27E008AFD3F /* Exp.h */,
@@ -2375,6 +2383,8 @@
 		FA58983D17BEDADD00E38432 = {
 			isa = PBXGroup;
 			children = (
+				229193011C614A7300612332 /* ReelSymbolNode.h */,
+				229193021C614A7300612332 /* ReelSymbolNode.m */,
 				2227073F1C431488005383CF /* ReadMe */,
 				22B859B71C55674700CFABCC /* Asset Catalogs */,
 				229588621C4DB3D500014B8F /* GameScene.h */,
@@ -4066,6 +4076,7 @@
 				FA5898F117BEDAE200E38432 /* CCParticleBatchNode.m in Sources */,
 				FA5898F417BEDAE200E38432 /* CCParticleExamples.m in Sources */,
 				FA5898F717BEDAE200E38432 /* CCParticleSystem.m in Sources */,
+				229193031C614A7300612332 /* ReelSymbolNode.m in Sources */,
 				FA5898FA17BEDAE200E38432 /* CCParticleSystemQuad.m in Sources */,
 				FA5898FD17BEDAE200E38432 /* CCPhysicsDebugNode.m in Sources */,
 				FA54814C181FA55D00EC88DD /* UnlockMachineWindow.m in Sources */,
@@ -4213,6 +4224,7 @@
 				FA589ADB17BEDC3200E38432 /* LHCuttingEngineMgr.mm in Sources */,
 				FA589ADC17BEDC3200E38432 /* LHFixture.mm in Sources */,
 				FA589ADD17BEDC3200E38432 /* LHJoint.mm in Sources */,
+				225F96391C60384400B80B2D /* Reel.m in Sources */,
 				FA589ADE17BEDC3200E38432 /* LHLayer.mm in Sources */,
 				FA589ADF17BEDC3200E38432 /* LHNode.mm in Sources */,
 				FA589AE017BEDC3200E38432 /* LHParallaxNode.mm in Sources */,

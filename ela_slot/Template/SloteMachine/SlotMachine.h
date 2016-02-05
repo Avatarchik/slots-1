@@ -1,9 +1,9 @@
 
 #import "cocos2d.h"
 #import "coinsFA.h"
+#import <SpriteKit/SpriteKit.h>
 
-
-@interface SlotMachine : CCSprite <CCTouchOneByOneDelegate>
+@interface SlotMachine : SKSpriteNode
 {
     NSArray *elements;
     int machineNumber;
@@ -15,7 +15,7 @@
     
     int lineNum;
 }
-+(CCScene *) sceneWithMachineNr:(int)machineNumber;
++(SKScene *) sceneWithMachineNr:(int)machineNumber;
 -(id) initWithMachineNr:(int)number;
 -(void)spin;
 -(void)lineUP;

@@ -88,15 +88,13 @@
     self.name = kNodeSettings;
     if (btnPressed == false)
     {
-#warning EF disabled for testing, kept throwing break points
-        //        [AUDIO playEffect:s_click1];
+        [AUDIO playEffect:s_click1];
         [self addBlackBackground];
         btnPressed = true;
         SettingsWindows *SWindow = [[SettingsWindows alloc] init];
         SWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
         [self addChildToTopZ:SWindow];
         
-#warning EF make sure this works the self.parent.parent crap
         if ([self.parent.parent isKindOfClass:[Menu class]]) {
             [SWindow setUp:2];
         }

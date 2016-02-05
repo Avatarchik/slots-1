@@ -11,15 +11,17 @@
 #import "BottomMenu.h"
 #import "Bet.h"
 #import "Exp.h"
+#import "Reel.h"
+#import "SKNode+SKNode_Extensions.h"
 
 #define kIconRect_iPad CGRectMake(0,0,120,120)
 #define kIconRect_iPhone CGRectMake(0,0,55,40)
 
-#define kHEIGHT_OF_LITTLE_BG [[myParent getChildByTag:555] getChildByTag:555]
+#warning EF check this, it is supposed to point to a BG sprite for the reels
+#define kHEIGHT_OF_LITTLE_BG  (SKSpriteNode*)[myParent childNodeWithName: kNodeReelsBG]
 
-#define kHEIGHT_OF_REEL kHEIGHT_OF_LITTLE_BG.contentSize.height *20
+#define kHEIGHT_OF_REEL kHEIGHT_OF_LITTLE_BG.size.height *20
 
-#define kTAG_OF_ANIMATION 500
 
 #define kTAG_OF_ICON 100
 #define kTAG_OF_REEL 50
@@ -37,19 +39,24 @@
 #define b (BottomMenu *)[myParent getChildByTag:kBottomMenuTAG]
 #define t (TopMenu *)[myParent getChildByTag:kTopMenuTAG]
 
+@interface Reels()
 
-@implementation Reels{
-    
-     CCNode *myParent;
-    BOOL Started;
-}
+@property (nonatomic, strong) SKNode* myParent;
+@property (nonatomic, assign) BOOL Started;
+@property (nonatomic, strong) NSMutableArray* reels;
 
-- (id)initWithFrame:(CGRect)frame node:(CCNode *)par lineNumber:(int)lineNum maxLines:(int)maxLines_{
+@end
+
+
+@implementation Reels
+@synthesize myParent = myParent;
+@synthesize Started = Started;
+
+
+- (id)initWithFrame:(CGRect)frame node:(SKNode *)par lineNumber:(int)lineNum maxLines:(int)maxLines_{
     self = [super init];
     if (self) {
-
-        
-
+        self.name = kNodeReels;
         linesNumber = lineNum;
         maxLines = maxLines_;
         i_freespinC = 0;
@@ -64,24 +71,27 @@
         freeSpin_WIN = 0;
         b_canSpin = true;
         
-        [self addLineSpriteSheet];
-        [self addWinningSquareSpriteSheet];
+        
+#warning EF figure out SK caching
+//        [self addLineSpriteSheet];
+//        [self addWinningSquareSpriteSheet];
         
         elements = [NSArray arrayWithObjects:kA,kK,kQ,kJ,k10,kICON1,kICON2,kICON3,kICON4,kWILD,kSCATER,kBONUS, nil];
         
-        if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9) {
-        elements = [NSMutableArray arrayWithObjects:kAipad,kKipad,kQipad,kJipad,k10ipad,kICON1ipad,kICON2ipad,kICON3ipad,kICON4ipad,kWILDipad,kSCATERipad,kBONUSipad, nil];
-        }
-
-        
+//        if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9) {
+//        elements = [NSMutableArray arrayWithObjects:kAipad,kKipad,kQipad,kJipad,k10ipad,kICON1ipad,kICON2ipad,kICON3ipad,kICON4ipad,kWILDipad,kSCATERipad,kBONUSipad, nil];
+//        }
+//
+//        
         myParent = par; // xxx
         canUpdateIcons = true;
         reelcount = 0;
         
         [self addReelBlocks];
-        [self addElements];
+//        [self addElements];
         [self addWinReels];
-        [self scheduleUpdate];
+#warning EF what is this for?
+//        [self scheduleUpdate];
         
         for (int i = 1; i <=5; i++) {
             [self resetWinIcons:i];
@@ -92,35 +102,51 @@
     return self;
 }
 
--(void)addLineSpriteSheet
-{
-    for (int i = 1; i<=2; i++) {
-        
-        [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-        CCSpriteBatchNode *lines = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"Lines_p%i.pvr.ccz",i]];
-        [self addChild:lines z:20 tag:kTAG_OF_LINE+i];
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"Lines_p%i.plist",i]];
+-(BOOL) isReelsAnimationRunning{
+    for(Reel* reel in self.reels)
+    {
+        if(reel.isReelRunning)
+        {
+            return YES;
+        }
     }
-
+    return NO;
 }
 
--(void)addWinningSquareSpriteSheet
-{
-    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-    CCSpriteBatchNode *lines = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"win_square.pvr.ccz"]];
-    [self addChild:lines z:21 tag:kTAG_SQUARE];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"win_square.plist"]];
-
+-(void)dealloc{
+    self.reels = nil;
 }
+
+//-(void)addLineSpriteSheet
+//{
+//    for (int i = 1; i<=2; i++) {
+//        
+//        [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
+//        CCSpriteBatchNode *lines = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"Lines_p%i.pvr.ccz",i]];
+//        [self addChild:lines z:20 tag:kTAG_OF_LINE+i];
+//        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"Lines_p%i.plist",i]];
+//    }
+//
+//}
+//
+//-(void)addWinningSquareSpriteSheet
+//{
+//    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
+//    CCSpriteBatchNode *lines = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"win_square.pvr.ccz"]];
+//    [self addChild:lines z:21 tag:kTAG_SQUARE];
+//    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"win_square.plist"]];
+//
+//}
 
 - (NSArray *)countRandomeSpin
 {
     
-    NSArray *icons = [NSArray arrayWithObjects:kA,kK,kQ,kJ,k10,kICON1,kICON2,kICON3,kICON4,kWILD,kSCATER,kBONUS, nil];    if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9){
-        icons = [NSMutableArray arrayWithObjects:kAipad,kKipad,kQipad,kJipad,k10ipad,kICON1ipad,kICON2ipad,kICON3ipad,kICON4ipad,kWILDipad,kSCATERipad,kBONUSipad, nil];
-    }
+    NSArray *icons = [NSArray arrayWithObjects:kA,kK,kQ,kJ,k10,kICON1,kICON2,kICON3,kICON4,kWILD,kSCATER,kBONUS, nil];
+//    if([[UIScreen mainScreen] respondsToSelector:NSSelectorFromString(@"scale")] && [(NSString*)[UIDevice currentDevice].model hasPrefix:@"iPad"]&&[[UIScreen mainScreen] scale] > 1.9){
+//        icons = [NSMutableArray arrayWithObjects:kAipad,kKipad,kQipad,kJipad,k10ipad,kICON1ipad,kICON2ipad,kICON3ipad,kICON4ipad,kWILDipad,kSCATERipad,kBONUSipad, nil];
+//    }
     
-    NSMutableArray *randomeIcons = [[[NSMutableArray alloc]init]autorelease];
+    NSMutableArray *randomeIcons = [[NSMutableArray alloc]init];
     
     for (int i = 0; i<=15; i++) {
         [randomeIcons addObject:[icons objectAtIndex:arc4random_uniform(12)]];
@@ -223,7 +249,7 @@
     return (float)( (arc4random() % (max-min+1)) + min );
 }
 
--(void)checkAnim:(CCNode *)n
+-(void)checkAnim
 {
     
     [AUDIO playEffect:s_reelStop1];
@@ -232,78 +258,125 @@
     i_touchCount = 5;
     reelcount += 1;
     if (reelcount >= 5) {
-        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:b_freespin ? 0.15 :  0.1f],[CCCallBlock actionWithBlock:^{
-            if (spin_state == STATE_STOPPED) {
-                
-                [self onAnimation];
-                if(!b_freespin){
-                    if (!b_autoSpin) {
-                        [b buttonActive:YES];
-                    }
+        
+        
+        CGFloat delayTime = b_freespin ? 0.15 :  0.1f;
+        SKAction* delayAction = [SKAction waitForDuration:delayTime];
+        __weak Reels* weakSelf = self;
+        [self runAction:delayAction completion:^{
+            [weakSelf onAnimation];
+            if(!b_freespin){
+                if (!b_autoSpin) {
+                    [b buttonActive:YES];
                 }
             }
-        }], nil]];
+        }];
+
         reelcount = 0;
         canUpdateIcons = true;
     }
 }
 
--(CCAction *)reelSwipeDownAnimation:(CCNode *)node_ tag:(int)tag__ duration:(float)dur_
+
+-(SKAction *)reelSwipeDownAnimation:(SKNode *)node_ name:(NSString*)tag__ duration:(float)dur_
 {
-    float distance = (-kHEIGHT_OF_LITTLE_BG.contentSize.height *20);
+    float distance = (-kHEIGHT_OF_LITTLE_BG.size.height *20);
     
     if (node_.position.y > kHEIGHT_OF_LITTLE_BG.position.y) {
-        distance = -(kHEIGHT_OF_LITTLE_BG.contentSize.height *20 + kHEIGHT_OF_LITTLE_BG.contentSize.height);
+        distance = -(kHEIGHT_OF_LITTLE_BG.size.height *20 + kHEIGHT_OF_LITTLE_BG.size.height);
     }
     
-    id firstDelay   =   [CCDelayTime actionWithDuration:0.0f];
+    SKAction* firstDelay   =  [SKAction waitForDuration:0.0];//  [CCDelayTime actionWithDuration:0.0f];
+    SKAction* firstMove   = [SKAction moveByX:0 y:distance -(IS_IPHONE ? 40 : 60) duration:dur_];
+//    [CCMoveBy actionWithDuration:dur_ position:ccp(0, distance -(IS_IPHONE ? 40 : 60))];
+//    id easein       =   [CCEaseInOut actionWithAction:firstMove rate:2.f];
+    SKAction* secondMove   = [SKAction moveByX:0 y:(IS_IPHONE ? 40 : 60) duration:1.0];
+//    [CCEaseInOut actionWithAction:
+//                         [CCMoveBy actionWithDuration:0.2f position:ccp(0, (IS_IPHONE ? 40 : 60))] rate:1.f];
+    SKAction* lastFunc     = [SKAction performSelector:@selector(checkAnim) onTarget:self];
+//    [CCCallFuncO actionWithTarget:self selector:@selector(checkAnim:) object:node_];
+    SKAction* sequence;
     
-    CCActionInterval *firstMove   =   [CCMoveBy actionWithDuration:dur_ position:ccp(0, distance -(IS_IPHONE ? 40 : 60))];
-
-    
-    id easein       =   [CCEaseInOut actionWithAction:firstMove rate:2.f];
-    
-    id secondMove   =   [CCEaseInOut actionWithAction:
-                         [CCMoveBy actionWithDuration:0.2f position:ccp(0, (IS_IPHONE ? 40 : 60))] rate:1.f];
-    
-    id lastFunc     =   [CCCallFuncO actionWithTarget:self selector:@selector(checkAnim:) object:node_];
-    
-    id sequence;
-    
-    
+    // if it is the first 4 reels
+#warning EF
     if (tag__ > 54) {
-        sequence = [CCSequence actions:firstDelay,easein,secondMove,lastFunc, nil];
+        sequence = [SKAction sequence:@[firstDelay, secondMove, lastFunc]];// [CCSequence actions:firstDelay,easein,secondMove,lastFunc, nil];
     }
     else
     {
-        sequence = [CCSequence actions:firstDelay,easein,secondMove, nil];
+        sequence = [SKAction sequence:@[firstDelay, secondMove]];
+//        sequence = [CCSequence actions:firstDelay,easein,secondMove, nil];
     }
-
-    id speed        =   [CCSpeed actionWithAction:sequence speed:1.0f];
     
-     
+#warning EF
+    SKAction* speed = sequence;
+//    id speed        =   [CCSpeed actionWithAction:sequence speed:1.0f];
+    
+    
     return speed;
 }
+//
+//
+//-(CCAction *)reelSwipeDownAnimation:(CCNode *)node_ tag:(int)tag__ duration:(float)dur_
+//{
+//    float distance = (-kHEIGHT_OF_LITTLE_BG.size.height *20);
+//    
+//    if (node_.position.y > kHEIGHT_OF_LITTLE_BG.position.y) {
+//        distance = -(kHEIGHT_OF_LITTLE_BG.size.height *20 + kHEIGHT_OF_LITTLE_BG.size.height);
+//    }
+//    
+//    id firstDelay   =   [CCDelayTime actionWithDuration:0.0f];
+//    
+//    CCActionInterval *firstMove   =   [CCMoveBy actionWithDuration:dur_ position:ccp(0, distance -(IS_IPHONE ? 40 : 60))];
+//
+//    
+//    id easein       =   [CCEaseInOut actionWithAction:firstMove rate:2.f];
+//    
+//    id secondMove   =   [CCEaseInOut actionWithAction:
+//                         [CCMoveBy actionWithDuration:0.2f position:ccp(0, (IS_IPHONE ? 40 : 60))] rate:1.f];
+//    
+//    id lastFunc     =   [CCCallFuncO actionWithTarget:self selector:@selector(checkAnim:) object:node_];
+//    
+//    id sequence;
+//    
+//    
+//    if (tag__ > 54) {
+//        sequence = [CCSequence actions:firstDelay,easein,secondMove,lastFunc, nil];
+//    }
+//    else
+//    {
+//        sequence = [CCSequence actions:firstDelay,easein,secondMove, nil];
+//    }
+//
+//    id speed        =   [CCSpeed actionWithAction:sequence speed:1.0f];
+//    
+//     
+//    return speed;
+//}
 
 ////////////////////
 ///  RANDOME STOP
 ////////////////////
 
 
-- (float)randomeStop:(int)tag_
+//- (float)randomeStop:(int)tag_
+- (float)randomeStop:(NSString*)nodeName
 {
     float i;
     
     float j = [self MyRandomIntegerBetween:2 :6];
     
-    switch (tag_) {
-        case 50:i = 2.0f + j;break;
-        case 51:i = 2.8f - j;break;
-        case 52:i = 2.5f + j;break;
-        case 53:i = 2.6f - j;break;
-        case 54:i = 3.0f + j;break;
-        default:break;
-    }
+#warning EF this should be a property of the reel
+    i =  2.0f + j;
+    
+//    switch (tag_) {
+//        case 50:i = 2.0f + j;break;
+//        case 51:i = 2.8f - j;break;
+//        case 52:i = 2.5f + j;break;
+//        case 53:i = 2.6f - j;break;
+//        case 54:i = 3.0f + j;break;
+//        default:break;
+//    }
     
     return i;
 }
@@ -318,11 +391,13 @@
     b_autoSpin = bool_;
     
     if (bool_) {
-        [self schedule:@selector(autoSpin) interval:0.5f];
+#warning EF
+//        [self schedule:@selector(autoSpin) interval:0.5f];
     }
     else
     {
-        [self unschedule:@selector(autoSpin)];
+#warning EF
+//        [self unschedule:@selector(autoSpin)];
         [b buttonActive:YES];
         
     }
@@ -332,22 +407,44 @@
 ///  SPIN ANIMATION
 ////////////////////
 
--(void)reelRunAction:(CCNode*)node_
+-(void)reelRunAction:(SKNode*)node_
 {
-    if (![self getActionByTag:node_.tag]) {
+    if (![self actionForKey:node_.name])
+    {
+        // Get a somewhat random stopping reel position.
+        float i = [self randomeStop:node_.name];
         
-        float i = [self randomeStop:node_.tag];
+        // Create reelSwipeDownAnimation
+        SKAction* reelSwipeDownAnimation = [self reelSwipeDownAnimation:node_ name:node_.name duration:i];
+        [node_ runAction:reelSwipeDownAnimation withKey:node_.name];
         
-        [node_ runAction:[self reelSwipeDownAnimation:node_ tag:node_.tag duration:i]].tag = node_.tag;
-          
-        [[self getChildByTag:(kTAG_OF_WIN_REELS + node_.tag) - 50] runAction:[self reelSwipeDownAnimation:node_ tag:kTAG_OF_WIN_REEL_ACTION + node_.tag duration:i]].tag = kTAG_OF_WIN_REEL_ACTION + node_.tag;
-            
+        
+#warning EF get win reel and run action;
+        // Create reel run aciton
+//        [[self getChildByTag:(kTAG_OF_WIN_REELS + node_.tag) - 50] runAction:[self reelSwipeDownAnimation:node_ tag:kTAG_OF_WIN_REEL_ACTION + node_.tag duration:i]].tag = kTAG_OF_WIN_REEL_ACTION + node_.tag;
+        
+//#warning EF
+//        // Get refernce to icon?
+//        SKNode* icon = [self getChildByTag:(kTAG_OF_WIN_REELS + node_.tag) - 50];
+//        [icon runAction:[self reelSwipeDownAnimation:node_ tag:kTAG_OF_WIN_REEL_ACTION + node_.tag duration:i]].tag = kTAG_OF_WIN_REEL_ACTION + node_.tag;
     }
+    
+//    if (![self getActionByTag:node_.tag]) {
+//        
+//        float i = [self randomeStop:node_.tag];
+//        
+//        [node_ runAction:[self reelSwipeDownAnimation:node_ tag:node_.tag duration:i]].tag = node_.tag;
+//          
+//        [[self getChildByTag:(kTAG_OF_WIN_REELS + node_.tag) - 50] runAction:[self reelSwipeDownAnimation:node_ tag:kTAG_OF_WIN_REEL_ACTION + node_.tag duration:i]].tag = kTAG_OF_WIN_REEL_ACTION + node_.tag;
+//            
+//    }
+    
+    
 }
 
 //- (NSArray *)getIdElement
 //{
-//    NSMutableArray *mArray = [[[NSMutableArray alloc]initWithCapacity:16] autorelease];
+//    NSMutableArray *mArray = [[[NSMutableArray alloc]initWithCapacity:16] ;
 //    
 //    for (int i = 1; i<=15; i++) {
 //        [mArray addObject:[NSNumber numberWithInt:[self MyRandomIntegerBetween:1 :10]]];
@@ -380,23 +477,23 @@
    // NSLog(@"FINAL %i:   %@",reelNr, randoome);
             int l = 3 * reelNr;
             
-            CCSprite *s = (CCSprite *)[self getChildByTag:(kTAG_OF_WIN_REELS+reelNr) -1];
+            CCSprite *winReel = (CCSprite *)[self getChildByTag:(kTAG_OF_WIN_REELS+reelNr) -1];
             
             CCSprite *reel = (CCSprite *)[self getChildByTag:(kTAG_OF_REEL+reelNr) - 1];
             
             for (int i = 0; i<3; i++) {
                 
-                Slots_Animation *sAnin = (Slots_Animation *)[s getChildByTag:l];
+                Slots_Animation *sAnin = (Slots_Animation *)[winReel getChildByTag:l];
                 if (sAnin) {
                     [sAnin removeFromParentAndCleanup:YES];
                     
-                    Slots_Animation *sAnim_ = [[[Slots_Animation alloc]initWithFrame:CGRectMake(0, 0, 0, 0) node:self machineNr:1 iconNr:l elements:randoome]autorelease];//////////////////////////////////////////////////////////////////////////////////
+                    Slots_Animation *sAnim_ = [[[Slots_Animation alloc]initWithFrame:CGRectMake(0, 0, 0, 0) node:self machineNr:1 iconNr:l elements:randoome];//////////////////////////////////////////////////////////////////////////////////
                     
                     sAnim_.anchorPoint = ccp(0.5f, 0.5f);
                     
-                    sAnim_.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.contentSize.height/3 - sAnim_.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.contentSize.height/3 * i));
+                    sAnim_.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.size.height/3 - sAnim_.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.size.height/3 * i));
                     
-                    [s addChild:sAnim_ z:10 tag:l];
+                    [winReel addChild:sAnim_ z:10 tag:l];
 
                 }
                 l -= 1;
@@ -413,37 +510,35 @@
 
 -(void)addWinReels
 {
-        NSLog(@"AddWinReels Started");
+    NSLog(@"AddWinReels Started");
+    
     NSArray *randome = [self getElementsArray:1];
+    
     for (int j = 1; j<=5; j++) {
         
-        int l = 3 * j;
+        int slotAnimationTag = 3 * j;
         
-        CCSprite *s = [[[CCSprite alloc]init] autorelease];
+        // Creat stlo animation holder.
+        CCSprite *slotAnimationHolder = [[[CCSprite alloc]init] ;
         
+        // Create reel with tag of 50+..
         CCSprite *reel = (CCSprite *)[self getChildByTag:(kTAG_OF_REEL+j) - 1];
         
-        
-        s.contentSize = CGSizeMake([self getChildByTag:kTAG_OF_REEL].contentSize.width, kHEIGHT_OF_LITTLE_BG.contentSize.height);
-        s.anchorPoint = ccp(0, 0);
-        
-        s.position = ccp(reel.position.x, reel.position.y + kHEIGHT_OF_REEL);
-        
-        [self addChild:s z:10 tag:(kTAG_OF_WIN_REELS+j) -1];
-        
+        // set size of the slotAnimationHolder to the width of the first reel, and heigh to the little bg.
+        slotAnimationHolder.contentSize = CGSizeMake([self getChildByTag:kTAG_OF_REEL].contentSize.width, kHEIGHT_OF_LITTLE_BG.size.height);
+        slotAnimationHolder.anchorPoint = ccp(0, 0);
+        slotAnimationHolder.position = ccp(reel.position.x, reel.position.y + kHEIGHT_OF_REEL);
+        [self addChild:slotAnimationHolder z:10 tag:(kTAG_OF_WIN_REELS+j) -1];
         
         for (int i = 0; i<3; i++) {
             
-            Slots_Animation *sAnim = [[[Slots_Animation alloc]initWithFrame:CGRectMake(0, 0, 0, 0) node:self machineNr:1 iconNr:l elements:randome]autorelease];
-            
+            Slots_Animation *sAnim = [[[Slots_Animation alloc]initWithFrame:CGRectMake(0, 0, 0, 0) node:self machineNr:1 iconNr:   l      elements:randome];
             sAnim.anchorPoint = ccp(0.5f, 0.5f);
-            
-            sAnim.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.contentSize.height/3 - sAnim.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.contentSize.height/3 * i));
-            
-            [s addChild:sAnim z:5 tag:l];
+            sAnim.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.size.height/3 - sAnim.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.size.height/3 * i));
+            [slotAnimationHolder addChild:sAnim z:5 tag:slotAnimationTag];
         
     
-            l -= 1;
+            slotAnimationTag -= 1;
         }
     }
     NSLog(@"AddWinReels Finished");
@@ -464,13 +559,10 @@
         }
     }
     
-    
-    
     for (int i = 1; i <=2; i++) {
         if ([[self getChildByTag:kTAG_OF_LINE+i] getChildByTag:333]) {
             [[[self getChildByTag:kTAG_OF_LINE+i] getChildByTag:333] removeFromParent];
         }
-        
     }
     
     // Change icons color to dark
@@ -728,24 +820,18 @@
 
     
    
-   
-    for (int i = 0; i<5; i++)
+    // bail out if any reels are still animating.
+    if([self isReelsAnimationRunning])
     {
-        if ([[self getChildByTag:kTAG_OF_REEL+i] getActionByTag:kTAG_OF_REEL + i]) {
-            return;
-        }
+        return;
     }
     
     [self defaultState];
     
-    
     [self removeLines];
     
-    for (int i = 0; i<5; i++) {
-        
-        [self performSelector:@selector(reelRunAction:) withObject:[self getChildByTag:kTAG_OF_REEL+i]];
-        
-    }
+    [self runReels];
+    
     
     b_canSpin = false;
     
@@ -782,6 +868,12 @@
 
 }
 
+-(void) runReels{
+  for(Reels* reel in self.reels)
+  {
+      [reel runReel];
+  }
+}
 
 ////////////////////
 ///  ADD LONG REELS
@@ -790,18 +882,26 @@
 
 -(void)addReelBlocks
 {
+    // Create array to hold all the reels.
+    self.reels = [NSMutableArray arrayWithCapacity:20];
+    
     for (int i = 0; i<5; i++) {
         
-        CCSprite *s = [[[CCSprite alloc]init]autorelease];
+        // Create reel size.
+        CGSize reelSize = CGSizeMake(kHEIGHT_OF_LITTLE_BG.size.width/5,((kHEIGHT_OF_LITTLE_BG.size.height *20) + (((kHEIGHT_OF_LITTLE_BG.size.height/3 - (IS_IPAD ? (kIconRect_iPad.size.height) : (kIconRect_iPhone.size.height))))/2) + kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.size.height/2 ));
         
-        s.anchorPoint = ccp(0, 0);
+        // Create reel.
+        Reel* reel = [[Reel alloc] initWithSpriteSize:reelSize];
         
-        s.position = ccp((kHEIGHT_OF_LITTLE_BG.position.x - kHEIGHT_OF_LITTLE_BG.contentSize.width/2) + ((kHEIGHT_OF_LITTLE_BG.contentSize.width/5)/2)+(((kHEIGHT_OF_LITTLE_BG.contentSize.width/5) *i)-  (kHEIGHT_OF_LITTLE_BG.contentSize.width/5 )/2) ,    kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.contentSize.height/2);
+        // Position reel sprite.
+        reel.reelSprite.anchorPoint = ccp(0, 0);
+        reel.reelSprite.position = ccp((kHEIGHT_OF_LITTLE_BG.position.x - kHEIGHT_OF_LITTLE_BG.size.width/2) + ((kHEIGHT_OF_LITTLE_BG.size.width/5)/2)+(((kHEIGHT_OF_LITTLE_BG.size.width/5) *i)-  (kHEIGHT_OF_LITTLE_BG.size.width/5 )/2) ,    kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.size.height/2);
         
+        // Add sprite to scene.
+        [self addChildToTopZ:s];
         
-        s.contentSize = CGSizeMake(kHEIGHT_OF_LITTLE_BG.contentSize.width/5,((kHEIGHT_OF_LITTLE_BG.contentSize.height *20) + (((kHEIGHT_OF_LITTLE_BG.contentSize.height/3 - (IS_IPAD ? (kIconRect_iPad.size.height) : (kIconRect_iPhone.size.height))))/2) + kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.contentSize.height/2 ));
-        
-        [self addChild:s z:10 tag:kTAG_OF_REEL+i];
+        // Store a reference to the reel.
+        [self.reels addObject:reel];
     }
 }
 
@@ -837,31 +937,13 @@
     
     switch (spin_state) {
         case STATE_SPINING:
-            
-
-            
-        //    NSLog(@"self %@",self);
-            
             [self spinSoundUpdate];
-            
-            
-         //   [AUDIO playEffect:@"wheelspin.mp3"];
-            
             break;
-            
-        case STATE_STOPPED:{
-            //[self onAnimation];
-           // spin_state = STATE_NORMAL;
+        case STATE_STOPPED:
             spinSoundStep = 0;
-            
-        }
-        break;
-            
-        case STATE_NORMAL:
-            
-            
             break;
-            
+        case STATE_NORMAL:
+            break;
         default:
             break;
     }
@@ -879,22 +961,22 @@
         CCSprite *winR = (CCSprite *)[self getChildByTag:kTAG_OF_WIN_REELS + j];
         CCSprite *reel = (CCSprite *)[self getChildByTag:kTAG_OF_REEL + j];
         
-        float pY = kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.contentSize.height/2;
+        float pY = kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.size.height/2;
         //NSLog(@"CS:   %f",winR.contentSize.height);
         
-        if (winR.position.y + kHEIGHT_OF_LITTLE_BG.contentSize.height *1.5f < pY) {
+        if (winR.position.y + kHEIGHT_OF_LITTLE_BG.size.height *1.5f < pY) {
             winR.position = ccp(winR.position.x, reel.position.y + kHEIGHT_OF_REEL);
             [self resetWinIcons:j+1];
         }
         
-        else if (winR.position.y < kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.contentSize.height/2) {
+        else if (winR.position.y < kHEIGHT_OF_LITTLE_BG.position.y - kHEIGHT_OF_LITTLE_BG.size.height/2) {
             
             reel.position = ccp(reel.position.x, winR.position.y + winR.contentSize.height);
             
           //  if (!canUpdateReels) {
                 for (int i = 0 ; i<12;i++) {
                     CCSprite *s = (CCSprite *)[reel getChildByTag:kTAG_OF_ICON+i];
-                    s.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.contentSize.height/3 - s.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.contentSize.height/3 * i));
+                    s.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.size.height/3 - s.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.size.height/3 * i));
                 }
             //    canUpdateReels = true;
            // }
@@ -911,14 +993,14 @@
                 
               //  CCTexture2D *newTexture = [[CCTextureCache sharedTextureCache] addImage:@"2.png"];
                 
-                icon.position = ccp(icon.position.x, icon.position.y + kHEIGHT_OF_LITTLE_BG.contentSize.height);
+                icon.position = ccp(icon.position.x, icon.position.y + kHEIGHT_OF_LITTLE_BG.size.height);
                 
                 //icon.opacity = 0;
               
             }
             if (pos.y + icon.contentSize.height*1.5f < 0)
             {
-                icon.position = ccp([self getChildByTag:kTAG_OF_REEL].contentSize.width/2,icon.position.y + (kHEIGHT_OF_LITTLE_BG.contentSize.height/3) *11);
+                icon.position = ccp([self getChildByTag:kTAG_OF_REEL].contentSize.width/2,icon.position.y + (kHEIGHT_OF_LITTLE_BG.size.height/3) *11);
             
             }
         }
@@ -962,6 +1044,7 @@
     
     for (int i = 1; i <= linesNumber; i++) {
         CCSprite *line = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"line_%i.png",i]];
+        NSLog([NSString stringWithFormat:@"line_%i.png", i]);
         line.opacity = 0;
         line.position = [LinesPosition getLinePosition:i];
         if (i <= 15) {
@@ -1051,31 +1134,39 @@
 ////////////////////
 
 
--(void)addElements
-{
-    for (int j = 0; j<5; j++) {
-    
-        for (int i = 0; i<12; i++) {
-            
-            CCSprite *reel = (CCSprite *)[self getChildByTag:kTAG_OF_REEL+j];
-            NSLog(@"Started");
-            UIImage* image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[elements objectAtIndex:[self INT_MyRandomIntegerBetween:0 :11]]]];
-            if (!image) {
-                NSLog(@"ERROR@@@@@ : NOT FOUND: %@",[NSString stringWithFormat:@"%@.png",[elements objectAtIndex:[self INT_MyRandomIntegerBetween:0 :11]]]);
-            }
-            CCTexture2D *texture = [[CCTexture2D alloc]initWithCGImage:image.CGImage resolutionType:kCCResolutionUnknown];
-            CCSprite *sprite = [CCSprite spriteWithTexture:texture];
-            NSLog(@"FOUND");
-            sprite.anchorPoint = ccp(0.5f, 0.f);
-            
-            sprite.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.contentSize.height/3 - sprite.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.contentSize.height/3 * i));
-            
-            [reel addChild:sprite z:5 tag:kTAG_OF_ICON+i];
-            
-        }
-    }
-    NSLog(@"METHOD FINISHED");
-}
+//-(void)addElements
+//{
+//    // cyles through reels
+//    for (int j = 0; j<5; j++) {
+//        
+//        //for each reel, add 12 random icons
+//        for (int i = 0; i<12; i++) {
+//            
+//            // get the reel
+//            CCSprite *reel = (CCSprite *)[self getChildByTag:kTAG_OF_REEL+j];
+//            NSLog(@"Started");
+//            
+//            // make UIImage
+//            UIImage* image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[elements objectAtIndex:[self INT_MyRandomIntegerBetween:0 :11]]]];
+//            if (!image) {
+//                NSLog(@"ERROR@@@@@ : NOT FOUND: %@",[NSString stringWithFormat:@"%@.png",[elements objectAtIndex:[self INT_MyRandomIntegerBetween:0 :11]]]);
+//            }
+//            CCTexture2D *texture = [[CCTexture2D alloc]initWithCGImage:image.CGImage resolutionType:kCCResolutionUnknown];
+//            
+//            // make sprite with image texture
+//            CCSprite *sprite = [CCSprite spriteWithTexture:texture];
+//            NSLog(@"FOUND");
+//            sprite.anchorPoint = ccp(0.5f, 0.f);
+//            
+//            sprite.position = ccp(reel.contentSize.width/2,((kHEIGHT_OF_LITTLE_BG.size.height/3 - sprite.contentSize.height))/2 + (kHEIGHT_OF_LITTLE_BG.size.height/3 * i));
+//            
+//            // add to reel.
+//            [reel addChild:sprite z:5 tag:kTAG_OF_ICON+i];
+//            
+//        }
+//    }
+//    NSLog(@"METHOD FINISHED");
+//}
 
 -(void) onEnter
 {
@@ -1101,8 +1192,11 @@
         
         int l = 3 * j;
         
+        //get win reel reference
         CCSprite *s = (CCSprite *)[self getChildByTag:(kTAG_OF_WIN_REELS+j) -1];
         
+        
+        // stop its slot animation;
         for (int i = 0; i<3; i++) {
             Slots_Animation *sAnim = (Slots_Animation *)[s getChildByTag:l];
             [sAnim stopAllAnimation];
@@ -1114,13 +1208,12 @@
 
 -(void)showFreeSpinWin:(NSArray *)ar_
 {
-    for (int i = 0; i<5; i++)
+    
+    if([self isReelsAnimationRunning])
     {
-        if ([[self getChildByTag:kTAG_OF_REEL+i] getActionByTag:kTAG_OF_REEL + i]) {
-            return;
-        }
+        return;
     }
-
+    
     for (int i = 1; i <=2; i++) {
         if (i == 1) {
             if ([[self getChildByTag:kTAG_OF_LINE+1] getChildByTag:333]) {
@@ -1189,20 +1282,15 @@
 
 - (void)showWin:(NSArray *)ar_
 {
-    
-    for (int i = 0; i<5; i++)
+
+    if([self isReelsAnimationRunning])
     {
-        if ([[self getChildByTag:kTAG_OF_REEL+i] getActionByTag:kTAG_OF_REEL + i]) {
-            return;
-        }
+        return;
     }
     
     [self stopAllAnimations];
     
    // NSLog(@"ARRAY:  %@",ar_);
-    
-    
-    
     
     
     for (int j = 1; j<=5; j++) {
@@ -1528,17 +1616,9 @@
 
 -(void)stopAllReels
 {
-    for(int k = 0; k < 5; k++)
+    for(Reel* reel in self.reels)
     {
-        CCSprite *reel_ = (CCSprite *)[self getChildByTag:kTAG_OF_REEL+k];
-        CCSpeed *sp = (CCSpeed *)[reel_ getActionByTag:kTAG_OF_REEL+k];
-        CCSpeed *sp2 = (CCSpeed *)[[self getChildByTag:(kTAG_OF_WIN_REELS + reel_.tag) - 50] getActionByTag:kTAG_OF_WIN_REEL_ACTION + (kTAG_OF_REEL+k)];
-        
-        if (sp) {
-            [sp setSpeed:5.f];
-            [sp2 setSpeed:5.f];
-        }
-        
+        [reel stopReel];
     }
 }
 

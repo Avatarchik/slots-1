@@ -16,7 +16,7 @@
 
 @implementation Slots_Animation
 
-- (id)initWithFrame:(CGRect)frame node:(CCNode *)par machineNr:(int)id_ iconNr:(int)nr_ elements:(NSArray *)el_
+- (id)initWithFrame:(CGRect)frame node:(SKSpriteNode *)par machineNr:(int)id_ iconNr:(int)nr_ elements:(NSArray *)el_
 {
     self = [super init];
     if (self) {

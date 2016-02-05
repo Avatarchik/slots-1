@@ -1,7 +1,8 @@
 
 #import "cocos2d.h"
+#import <SpriteKit/SpriteKit.h>
 
-@interface Slots_Animation : CCSprite
+@interface Slots_Animation : SKSpriteNode
 {
     CCNode *myParent;
     CCSpriteBatchNode *spriteSheet;
@@ -13,7 +14,7 @@
     int animationInter;
 }
 
-- (id)initWithFrame:(CGRect)frame node:(CCNode *)par machineNr:(int)id_ iconNr:(int)nr_ elements:(NSArray *)el_;
+- (id)initWithFrame:(CGRect)frame node:(SKSpriteNode *)par machineNr:(int)id_ iconNr:(int)nr_ elements:(NSArray *)el_;
 - (void)playAnimarionByTag:(int)tag__ repeat:(int)times_;
 - (void)setColorForIcon_red:(float)red green:(float)green blue:(float)blue;
 - (void)iconsAnimation;

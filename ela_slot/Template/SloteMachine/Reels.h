@@ -9,8 +9,10 @@
 #import "cocos2d.h"
 #import "GameDevHelper.h"
 #import "Result.h"
+#import <SpriteKit/SpriteKit.h>
 
-@interface Reels : CCSprite<CCTouchOneByOneDelegate,GHSkeletonDelegate>
+
+@interface Reels : SKSpriteNode
 {
     bool    canUpdateIcons;
     int     reelcount;
@@ -52,7 +54,7 @@
     
 }
 
--(id)initWithFrame:(CGRect)frame node:(CCNode *)par lineNumber:(int)lineNum maxLines:(int)maxLines_;
+-(id)initWithFrame:(CGRect)frame node:(SKNode *)par lineNumber:(int)lineNum maxLines:(int)maxLines_;
 -(NSArray *)getIdElement;
 -(void)spin;
 -(void)lineUP;

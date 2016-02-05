@@ -3,7 +3,7 @@
 //  Secret Chest Slots V2.7
 //
 //  Created by Eddy Fan on 1/20/16.
-//  Copyright © 2016 outlandishappsllc. All rights reserved.
+//  Copyright © 2016 Fantapstic Studio. All rights reserved.
 //
 
 #import "SKNode+SKNode_Extensions.h"

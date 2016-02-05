@@ -92,7 +92,6 @@ float btnAligment;
     CCSpriteFrame *boostsPress_notActive;
     CCSpriteFrame *closePress_notActive;
     
-    
     CCSpriteFrame *x2Btn_Active;
     CCSpriteFrame *x3Btn_Active;
     CCSpriteFrame *x4Btn_Active;

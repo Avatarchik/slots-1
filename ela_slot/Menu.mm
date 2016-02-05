@@ -297,6 +297,14 @@
    /// SOUND_.musicVolume = 0.15f;
     [AUDIO stopBackgroundMusic];
     [AUDIO playEffect:s_click1];
+    SKScene* scene = (SKScene*)GAMEVIEWCONTROLLER.scene;
+    SKView* view = scene.view;
+    SKScene* slotMachineScene = [SlotMachine sceneWithMachineNr:machineNumber.intValue];
+    [view presentScene:slotMachineScene];
+    
+
+
+
 //    [[CCDirector sharedDirector] replaceScene:[SlotMachine sceneWithMachineNr:machineNumber.intValue]];
 }
 
