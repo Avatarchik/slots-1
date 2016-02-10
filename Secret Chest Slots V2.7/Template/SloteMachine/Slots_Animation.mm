@@ -21,6 +21,8 @@
     self = [super init];
     if (self) {
         
+        NSLog(@"INIT SLOT ANIMATION WITH iconNr %i", nr_);
+        
         randomeElements = el_;
         
         machineNumber = id_;
@@ -58,7 +60,7 @@
     }
     
     NSString *ss = [NSString stringWithFormat:@"%@",[randomeElements objectAtIndex:iconNumber]];
-    
+    NSLog(@"addSquuareToIcon: %@", ss);
     for (int i = 0; i<3; i++) {
         CCSprite *s = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"win_s%i.png",i]];
         s.anchorPoint = ccp(0.5f, 0.5f);
@@ -149,6 +151,7 @@
         blink.anchorPoint = ccp(0.5f, 0.5f);
         blink.position = ccp(0, 0);
         NSString *name = [NSString stringWithFormat:@"%@.png",[randomeElements objectAtIndex:iconNumber]];
+        NSLog(@"add texture to icon: %@", name);
         CCTexture2D* texture = [[CCTexture2D alloc] initWithCGImage:[UIImage imageNamed:name].CGImage resolutionType:kCCResolutionUnknown];
         
         CCSprite *iconMask = [CCSprite spriteWithTexture:texture];
@@ -173,8 +176,8 @@
 
 - (void)loadFirstMachine
 {
-    NSLog(@"LoadFirstMachine Started");
     NSString *name = [NSString stringWithFormat:@"%@.png",[randomeElements objectAtIndex:iconNumber]];
+    NSLog(@"LoadFirstMachine Started: %@", name);
     
     UIImage* image = [UIImage imageNamed:name];
     CCTexture2D *texture = [[CCTexture2D alloc]initWithCGImage:image.CGImage resolutionType:kCCResolutionUnknown];
@@ -253,13 +256,14 @@
 
 - (void)iconsAnimation
 {
-    CCSprite *s = (CCSprite *)[self getChildByTag:k_FIRST_IMAGE];
+    CCSprite *firstImageSprite = (CCSprite *)[self getChildByTag:k_FIRST_IMAGE];
     
    // if ([s getActionByTag:kTagIconAnimation]) {
    //     return;
    // }
     
     NSString *ss = [NSString stringWithFormat:@"%@",[randomeElements objectAtIndex:iconNumber]];
+    NSLog(@"add icons animation: %@", ss);
     
     if (([ss isEqualToString:k10]) || ([ss isEqualToString:kK]) || ([ss isEqualToString:kA]) || ([ss isEqualToString:kJ]) || ([ss isEqualToString:kQ])) {
         
@@ -275,7 +279,7 @@
         
         id repeat = [CCRepeatForever actionWithAction:sequence];
         
-        [s runAction:repeat].tag = kTagIconAnimation;
+        [firstImageSprite runAction:repeat].tag = kTagIconAnimation;
     }
 }
 

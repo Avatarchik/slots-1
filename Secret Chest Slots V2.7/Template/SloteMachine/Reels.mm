@@ -423,7 +423,6 @@
         
         CCSprite *reel = (CCSprite *)[self getChildByTag:(kTAG_OF_REEL+j) - 1];
         
-        
         s.contentSize = CGSizeMake([self getChildByTag:kTAG_OF_REEL].contentSize.width, kHEIGHT_OF_LITTLE_BG.contentSize.height);
         s.anchorPoint = ccp(0, 0);
         
