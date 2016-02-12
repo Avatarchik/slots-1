@@ -93,9 +93,11 @@ static NSString* const kActionReelName = @"kActionReelName";
     // slots are 5 x 3;
     for (NSInteger i = 0; i<3; i++) {
         
-          Slots_Animation *sAnim = [[[Slots_Animation alloc]initWithFrame:CGRectMake(0, 0, 0, 0) node: self.reelSprite machineNr:1 iconNr:l elements:randome];
+        
+        
+          Slots_Animation *sAnim = [[Slots_Animation alloc]initWithFrame:CGRectMake(0, 0, 0, 0) node: self.reelSprite machineNr:1 iconNr:l elements:randome];
           sAnim.position = ccp(_reelSprite.size.width/2,((_reelSprite.size.height/3 - sAnim.size.height))/2 + (kHEIGHT_OF_LITTLE_BG.size.height/3 * i));
-          [slotAnimationHolder addChild:sAnim z:5 tag:slotAnimationTag];
+          [_winReelSprite addChild:sAnim z:5 tag:slotAnimationTag];
           
           
           slotAnimationTag -= 1;

@@ -11,21 +11,15 @@
 
 @class Reel;
 @protocol ReelDelegate <NSObject>
-
 @optional
--(void) reelDidFinishAnimation:(Reel*) reel;
-
+    -(void) reelDidFinishAnimation:(Reel*) reel;
 @end
 
-
 @interface Reel : NSObject
-
 #warning EF put reel and win reel in 1 sprite?
-@property (nonatomic, readonly) SKSpriteNode* reelSprite;
-@property (nonatomic, readonly) SKSpriteNode* winReelSprite;
-
-@property (nonatomic, weak) id<ReelDelegate> delegate;
-
+@property (nonatomic, readonly) SKSpriteNode*    reelSprite;
+@property (nonatomic, readonly) SKSpriteNode*    winReelSprite;
+@property (nonatomic, weak)     id<ReelDelegate> delegate;
 
 // Reel
 -(instancetype)initWithSpriteSize:(CGSize) size;

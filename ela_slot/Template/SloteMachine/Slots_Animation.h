@@ -4,7 +4,7 @@
 
 @interface Slots_Animation : SKSpriteNode
 {
-    CCNode *myParent;
+    SKSpriteNode *myParent;
     CCSpriteBatchNode *spriteSheet;
     NSArray *randomeElements;
     NSMutableArray *allElements;
