@@ -3696,9 +3696,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA58984517BEDADD00E38432 /* Secret Chest Slots V2.7 */ = {
+		FA58984517BEDADD00E38432 /* EarlyLearningAcademy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Secret Chest Slots V2.7" */;
+			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "EarlyLearningAcademy" */;
 			buildPhases = (
 				FA58984217BEDADD00E38432 /* Sources */,
 				FA58984317BEDADD00E38432 /* Frameworks */,
@@ -3708,7 +3708,7 @@
 			);
 			dependencies = (
 			);
-			name = "Secret Chest Slots V2.7";
+			name = EarlyLearningAcademy;
 			productName = Template;
 			productReference = FA58984617BEDADD00E38432 /* Secret Chest Slots V2.7.app */;
 			productType = "com.apple.product-type.application";
@@ -3727,7 +3727,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "Secret Chest Slots V2.7" */;
+			buildConfigurationList = FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "ela_slot" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3739,7 +3739,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA58984517BEDADD00E38432 /* Secret Chest Slots V2.7 */,
+				FA58984517BEDADD00E38432 /* EarlyLearningAcademy */,
 			);
 		};
 /* End PBXProject section */
@@ -4581,7 +4581,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "Secret Chest Slots V2.7" */ = {
+		FA58984117BEDADD00E38432 /* Build configuration list for PBXProject "ela_slot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA589A8F17BEDAEC00E38432 /* Debug */,
@@ -4590,7 +4590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Secret Chest Slots V2.7" */ = {
+		FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "EarlyLearningAcademy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA589A9217BEDAEC00E38432 /* Debug */,
