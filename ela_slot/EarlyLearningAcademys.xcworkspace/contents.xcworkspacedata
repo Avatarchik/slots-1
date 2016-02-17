@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../frameworks/FSAnalytics/FSAnalytics/Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../frameworks/FSAnalytics/FSAnalytics/FSAnalytics.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:ela_slot.xcodeproj">
    </FileRef>
 </Workspace>

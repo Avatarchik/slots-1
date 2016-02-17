@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
+		2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; };
+		2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
 		846A30E11828E35D00C32146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A30E01828E35D00C32146 /* Images.xcassets */; };
@@ -693,8 +695,23 @@
 		FAC0268E180FCC5A00979301 /* paytable_back.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC02682180FCC5A00979301 /* paytable_back.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2228F9231C7531DF0039FCCA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		2228F9241C7539550039FCCA /* FSAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSAnalytics.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<absolute>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -1753,6 +1770,7 @@
 				C9DBED871B7D382A00EA53BD /* MediaPlayer.framework in Frameworks */,
 				C9DBED851B7D382000EA53BD /* CoreMedia.framework in Frameworks */,
 				C9DBED831B7D381100EA53BD /* CoreTelephony.framework in Frameworks */,
+				2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */,
 				C9DBED811B7D380600EA53BD /* AdSupport.framework in Frameworks */,
 				FA58985217BEDADE00E38432 /* AVFoundation.framework in Frameworks */,
 				FA58985417BEDADE00E38432 /* UIKit.framework in Frameworks */,
@@ -2466,6 +2484,7 @@
 		FA58983D17BEDADD00E38432 = {
 			isa = PBXGroup;
 			children = (
+				2228F9241C7539550039FCCA /* FSAnalytics.framework */,
 				2227073F1C431488005383CF /* ReadMe */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
 				C9DBED101B7D2DED00EA53BD /* IDSTOREPLACE.h */,
@@ -3703,6 +3722,7 @@
 				FA58984217BEDADD00E38432 /* Sources */,
 				FA58984317BEDADD00E38432 /* Frameworks */,
 				FA58984417BEDADD00E38432 /* Resources */,
+				2228F9231C7531DF0039FCCA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -4513,6 +4533,7 @@
 				HEADER_SEARCH_PATHS = "\"Template/libs/kazmath/include\"";
 				INFOPLIST_FILE = Template/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Template/b6luxHelper/b6luxIAPurchase",
 					"$(PROJECT_DIR)/applovin-ios-sdk-3.0.2",
@@ -4557,6 +4578,7 @@
 				HEADER_SEARCH_PATHS = "\"Template/libs/kazmath/include\"";
 				INFOPLIST_FILE = Template/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Template/b6luxHelper/b6luxIAPurchase",
 					"$(PROJECT_DIR)/applovin-ios-sdk-3.0.2",

@@ -6,8 +6,9 @@
 //  Copyright bsixlux 2013. All rights reserved.
 //
 
+//
 #import "cocos2d.h"
-
+#import <FSAnalytics/FSAnalytics.h>
 #import "AppDelegate.h"
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
@@ -77,7 +78,13 @@
 {
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	
+    
+    // Setup Analytics
+    [FSAnalyticsManager setupWithTrackingID:@"UA-65793508-5" dispatchInterval:20 sampleRate:50.0];
+    [FSAnalyticsManager trackUserID:[[[UIDevice] currentDevice] identifierForVendor] UUIDString];
+    
+    
+    // Setup Chartboost
     [Chartboost startWithAppId:chartBoostAppID
                   appSignature:chartBoostAppSignature
                       delegate:self];

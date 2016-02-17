@@ -1,6 +1,7 @@
 //
 // Prefix header for all source files of the 'Test' target in the 'Test' project
 //
+#import <FSAnalytics/FSAnalytics.h>
 
 #import <Availability.h>
 
@@ -11,6 +12,10 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
+
+
+
 #define IS_OS_8_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
