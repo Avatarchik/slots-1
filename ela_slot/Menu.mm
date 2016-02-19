@@ -36,6 +36,7 @@
 //    if (IS_IPAD)return @"";return @"_iPhone";
 //}
 
+
 -(id)initWithRect:(CGRect)rect type:(int)type_ level:(int)level_
 {
     if((self = [super init]))
@@ -324,6 +325,8 @@
  //   int priority = -10;//kCCMenuTouchPriority - 2;
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_Menu swallowsTouches:YES];
     
+    [FSAnalyticsManager trackScreenView:kNodeMenu];
+    
     [super onEnter];
 }
 
@@ -536,7 +539,7 @@
     
     if (CGRectContainsPoint([self getChildByTag:1901].boundingBox,touchPos))
     {
-     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appUrl]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appUrl]];
     }
     else if (CGRectContainsPoint([self getChildByTag:1902].boundingBox,      touchPos))
     {
@@ -545,6 +548,7 @@
     else if (CGRectContainsPoint([self getChildByTag:1903].boundingBox,      touchPos))
     {
         [Chartboost showMoreApps:CBLocationHomeScreen];
+        [FSAnalyticsManager trackScreenView:kNodeMoreGames];
     }
     else if (CGRectContainsPoint([self getChildByTag:1904].boundingBox,      touchPos))
     {

@@ -712,6 +712,7 @@
 /* Begin PBXFileReference section */
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		2228F9241C7539550039FCCA /* FSAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSAnalytics.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<absolute>"; };
+		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -3443,6 +3444,7 @@
 				FA589A8217BEDAEB00E38432 /* AppDelegate.mm */,
 				FA589A8417BEDAEB00E38432 /* HelloWorldLayer.h */,
 				FA589A8517BEDAEB00E38432 /* HelloWorldLayer.mm */,
+				2228F9271C754C200039FCCA /* NodeNames.h */,
 				FA589A8717BEDAEB00E38432 /* IntroLayer.h */,
 				FA589A8817BEDAEB00E38432 /* IntroLayer.mm */,
 				FA589A8A17BEDAEB00E38432 /* GLES-Render.h */,
@@ -4532,7 +4534,7 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"Template/libs/kazmath/include\"";
 				INFOPLIST_FILE = Template/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Template/b6luxHelper/b6luxIAPurchase",
@@ -4577,7 +4579,7 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"Template/libs/kazmath/include\"";
 				INFOPLIST_FILE = Template/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Template/b6luxHelper/b6luxIAPurchase",

@@ -836,6 +836,7 @@
             if (![self getChildByTag:kBuyWindowTAG]) {
                 [self addChild:BWindow z:15 tag:kBuyWindowTAG];
                 [BWindow setUp:kWindowBuyCoins someValue:0];
+                
             }
         
         break;

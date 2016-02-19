@@ -29,6 +29,8 @@
     }
     return self;
 }
+
+
 -(void)machineLoading
 {
     CGRect rect = CGRectMake(0, 0, kWidthScreen, kHeightScreen);

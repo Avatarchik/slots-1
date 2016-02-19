@@ -79,9 +79,10 @@
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Setup Analytics
+    // Setup Analytics with tracking ID and device ID.
     [FSAnalyticsManager setupWithTrackingID:@"UA-65793508-5" dispatchInterval:20 sampleRate:50.0];
-    [FSAnalyticsManager trackUserID:[[[UIDevice] currentDevice] identifierForVendor] UUIDString];
+    NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    [FSAnalyticsManager trackUserID:uuid];
     
     
     // Setup Chartboost

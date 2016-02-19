@@ -226,6 +226,7 @@
 ////////////////////////////////////////////////////////////////////
 -(void) onEnter
 {
+    [FSAnalyticsManager trackScreenView:kNodeWinsWindow];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_PopUp swallowsTouches:YES];
     [super onEnter];
 }

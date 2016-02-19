@@ -53,6 +53,7 @@ enum {
 	return scene;
 }
 
+
 -(id) init
 {
 	if( (self=[super init]))
@@ -63,22 +64,16 @@ enum {
         if (![[[CCDirector sharedDirector] openGLView]viewWithTag:kLOADINGTAG]) {
             [[[CCDirector sharedDirector] openGLView]addSubview:view__];
         }
-
         
         [self setTouchEnabled:YES];
         
-
 //        BG_ = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"sp_background.png"]];
 //        //[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sp_background.plist"]];
 //        [self addChild:BG_];
-        
-        
  
         CCSprite *background = [CCSprite spriteWithFile:[NSString stringWithFormat:@"sp_background.png"]];
         background.position  = ccp(kWidthScreen / 2, kHeightScreen / 2);
         [self addChild:background];
-        
-       
         
         [self runMenu];
     }
@@ -233,6 +228,7 @@ enum {
 
 -(void) onEnter
 {
+    [FSAnalyticsManager trackScreenView:kNodeLoadingScreen];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     [super onEnter];
 }

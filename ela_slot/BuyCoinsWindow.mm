@@ -728,6 +728,7 @@
 
 -(void) onEnter
 {
+    [FSAnalyticsManager trackScreenView:kNodeBuyCoins];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_PopUp swallowsTouches:YES];
     [super onEnter];
 }

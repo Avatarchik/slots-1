@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Template/HelloWorldLayer.mm"
-            timestampString = "474088146.885799"
+            timestampString = "477464655.8553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-runMenu"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Template/b6luxHelper/b6luxLoading/b6luxLoadingView.m"
-            timestampString = "474088286.443942"
+            timestampString = "477464655.8553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "-machineLoading"
             landmarkType = "5">
          </BreakpointContent>
