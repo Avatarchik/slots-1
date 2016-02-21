@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220ABD3E1C7943930002708A /* AnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 220ABD3D1C7943930002708A /* AnalyticsManager.m */; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; };
 		2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -710,6 +711,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		220ABD3C1C7943930002708A /* AnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsManager.h; sourceTree = "<group>"; };
+		220ABD3D1C7943930002708A /* AnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsManager.m; sourceTree = "<group>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		2228F9241C7539550039FCCA /* FSAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSAnalytics.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<absolute>"; };
 		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
@@ -2503,6 +2506,8 @@
 				F55D645E17D6028500F3B2C6 /* Font */,
 				F532D3C417C354470035456B /* Menu.h */,
 				F532D3C517C354470035456B /* Menu.mm */,
+				220ABD3C1C7943930002708A /* AnalyticsManager.h */,
+				220ABD3D1C7943930002708A /* AnalyticsManager.m */,
 				F532D3CD17C3F0CB0035456B /* TopMenu.h */,
 				F532D3CE17C3F0CB0035456B /* TopMenu.mm */,
 				F55D645917CC81CD00F3B2C6 /* BottomMenu.h */,
@@ -4210,6 +4215,7 @@
 				FA58991F17BEDAE300E38432 /* CCShaderCache.m in Sources */,
 				FA58992217BEDAE300E38432 /* ccShaders.m in Sources */,
 				FA58992517BEDAE300E38432 /* CCSprite.m in Sources */,
+				220ABD3E1C7943930002708A /* AnalyticsManager.m in Sources */,
 				FA58992817BEDAE300E38432 /* CCSpriteBatchNode.m in Sources */,
 				FA58992B17BEDAE300E38432 /* CCSpriteFrame.m in Sources */,
 				FA58992E17BEDAE300E38432 /* CCSpriteFrameCache.m in Sources */,

@@ -728,7 +728,7 @@
 
 -(void) onEnter
 {
-    [FSAnalyticsManager trackScreenView:kNodeBuyCoins];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeBuyCoins];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_PopUp swallowsTouches:YES];
     [super onEnter];
 }
@@ -857,6 +857,7 @@
     boostBtn.visible = YES;
     closeBtn.visible = YES;
     [self removeChild:[self getChildByTag:kBoostsTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeBuyCoins];
 }
 
 

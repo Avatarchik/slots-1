@@ -228,7 +228,7 @@ enum {
 
 -(void) onEnter
 {
-    [FSAnalyticsManager trackScreenView:kNodeLoadingScreen];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeLoadingScreen];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
     [super onEnter];
 }

@@ -94,7 +94,7 @@
 
 -(void) onEnter
 {
-    [FSAnalyticsManager trackScreenView:kNodePayTable];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodePayTable];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_PopUp swallowsTouches:YES];
     [super onEnter];
 }
@@ -133,7 +133,7 @@
             table1.opacity  =   0;
             table2.opacity  = 255;
             btnOn           = true;
-            [FSAnalyticsManager trackScreenView:kNodePayTable];
+            [[AnalyticsManager sharedManager] trackScreenView:kNodePayTable];
         }
     }
     
@@ -148,7 +148,7 @@
             table1.opacity  = 255;
             table2.opacity  =   0;
             btnOn           = false;
-            [FSAnalyticsManager trackScreenView:kNodeLineTable];
+            [[AnalyticsManager sharedManager] trackScreenView:kNodeLineTable];
         }
     }
     
@@ -165,6 +165,7 @@
         [_parent performSelector:@selector(closePayTableWindow) withObject:nil];
     }else{
         [self.parent removeChild:self];
+        [[AnalyticsManager sharedManager] trackPopoverPresenter];
     }
 }
 

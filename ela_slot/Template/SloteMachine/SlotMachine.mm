@@ -161,6 +161,7 @@
 
 -(void) onEnter
 {
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeSlot];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_SloteMachine swallowsTouches:YES];
     [super onEnter];
 }

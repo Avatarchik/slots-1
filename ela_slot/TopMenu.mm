@@ -836,7 +836,6 @@
             if (![self getChildByTag:kBuyWindowTAG]) {
                 [self addChild:BWindow z:15 tag:kBuyWindowTAG];
                 [BWindow setUp:kWindowBuyCoins someValue:0];
-                
             }
         
         break;
@@ -854,21 +853,24 @@
 -(void) closeWindowSet
 {
     [self removeChild:[self getChildByTag:kSetWindowTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
 }
 
 -(void) closeWindowPay
 {
     [self removeChild:[self getChildByTag:kPayWindowTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
 }
 
 -(void) closeWindowBuy
 {
     [self removeChild:[self getChildByTag:kBuyWindowTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
 }
 
 -(void) closeWheelGame
 {
-    [self removeChild:[self getChildByTag:kWheelGameTAG] cleanup:YES];
+    [self removeChild:[self getChildByTag:kWheelGameTAG] cleanup:YES];    
 }
 
 -(void) closeCardGame

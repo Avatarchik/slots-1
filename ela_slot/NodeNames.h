@@ -20,5 +20,6 @@
 #define kNodeLineTable      @"Linetable"
 #define kNodeWinsWindow     @"WinsWindow"
 #define kNodeLevelUpWindow  @"LevelUpWindow"
+#define kNodeSlot           @"Slot"
 
 #endif /* NodeNames_h */

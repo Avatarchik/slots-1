@@ -294,7 +294,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 -(void) onEnter
 {
-    [FSAnalyticsManager trackScreenView:kNodeBuyBoosts];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeBuyBoosts];
     //int priority = kCCMenuTouchPriority - 2;
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_PopUp swallowsTouches:YES];
     [super onEnter];

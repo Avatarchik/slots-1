@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import <FSAnalytics/FSAnalytics.h>
 #import "Constants.h"
 #import "Combinations.h"
 #import "AppDelegate.h"
@@ -14,6 +13,7 @@
 #import "SoundManager.h"
 #import "SimpleAudioEngine.h"
 #import "NodeNames.h"
+#import "AnalyticsManager.h"
 
 #define delegater        (AppDelegate *)[[UIApplication sharedApplication] delegate]
 

@@ -42,8 +42,6 @@
     if((self = [super init]))
     {
         
-
-        
         [DB_ setValueToDB:d_Coins table:d_DB_Table :k_First_Cash];
         self.anchorPoint    = ccp(0,0);
         self.position       = rect.origin;
@@ -325,7 +323,7 @@
  //   int priority = -10;//kCCMenuTouchPriority - 2;
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_Menu swallowsTouches:YES];
     
-    [FSAnalyticsManager trackScreenView:kNodeMenu];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeMenu];
     
     [super onEnter];
 }
@@ -548,7 +546,7 @@
     else if (CGRectContainsPoint([self getChildByTag:1903].boundingBox,      touchPos))
     {
         [Chartboost showMoreApps:CBLocationHomeScreen];
-        [FSAnalyticsManager trackScreenView:kNodeMoreGames];
+        [[AnalyticsManager sharedManager] trackScreenView:kNodeMoreGames];
     }
     else if (CGRectContainsPoint([self getChildByTag:1904].boundingBox,      touchPos))
     {

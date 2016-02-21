@@ -254,6 +254,11 @@
 }
 
 
+- (void)didCloseMoreApps:(CBLocation)location{
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
+}
+
+
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
 {
