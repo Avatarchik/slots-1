@@ -498,6 +498,7 @@
 /////////////////////////////////////////////////////////////////
 -(void) onEnter
 {
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeMiniGameCard];
     for (CCNode *c in self.parent.children) {
         
         if (c == self) {

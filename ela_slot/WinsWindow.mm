@@ -202,13 +202,15 @@
 
 -(void) closeWindow
 {
-    
+    BOOL popupOverTracked = NO;
     if ([_parent isKindOfClass:[WheelGame class]]) {
         [(WheelGame *)_parent exitGame];
+        popupOverTracked = YES;
     }
     
     if ([_parent isKindOfClass:[CardGame class]]) {
         [(CardGame *)_parent exitGame];
+        popupOverTracked = YES;
     }
     
     id scale3       = [CCScaleTo actionWithDuration:0.1f scale:0.5f];
@@ -216,6 +218,11 @@
     
     if ([_parent isKindOfClass:[PopupManager class]] || [_parent isKindOfClass:[SlotMachine class]]) {
         [_parent removeBlackBG];
+    }
+    
+    if(!popupOverTracked)
+    {
+        [[AnalyticsManager sharedManager] trackPopoverPresenter];
     }
     
     [self runAction:[CCSequence actions:easeScale3,[CCCallBlock actionWithBlock:^{

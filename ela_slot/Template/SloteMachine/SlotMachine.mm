@@ -665,6 +665,7 @@
         Reels *r = (Reels *)[self getChildByTag:kReelTag];
         [r minigameIsClosed];
         [[self getChildByTag:kWheelGameTAG] removeFromParentAndCleanup:YES];
+        [[AnalyticsManager sharedManager] trackPopoverPresenter];
     }
 }
 
@@ -701,6 +702,7 @@
         Reels *r = (Reels *)[self getChildByTag:kReelTag];
         [r minigameIsClosed];
         [[self getChildByTag:kCardGameTAG] removeFromParentAndCleanup:YES];
+        [[AnalyticsManager sharedManager] trackPopoverPresenter];
     }
 }
 

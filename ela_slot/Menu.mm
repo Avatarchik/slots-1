@@ -323,7 +323,7 @@
  //   int priority = -10;//kCCMenuTouchPriority - 2;
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_Menu swallowsTouches:YES];
     
-    [[AnalyticsManager sharedManager] trackScreenView:kNodeMenu];
+    [[AnalyticsManager sharedManager] trackScreenView:kNodeLobby];
     
     [super onEnter];
 }

@@ -11,15 +11,23 @@
 
 #define kNodeLoadingScreen  @"LoadingScreen"
 #define kNodeLobby          @"Lobby"
-#define kNodeMenu           @"Menu"
-#define kNodeMoreGames      @"MoreGames"
+#define kNodeSlot           @"Slot"
+
 #define kNodeBuyCoins       @"BuyCoins"
 #define kNodeBuyBoosts      @"BuyBoosts"
 #define kNodeSettings       @"Settings"
+
+#define kNodeMoreGames      @"MoreGames"
 #define kNodePayTable       @"Paytable"
 #define kNodeLineTable      @"Linetable"
+
 #define kNodeWinsWindow     @"WinsWindow"
 #define kNodeLevelUpWindow  @"LevelUpWindow"
-#define kNodeSlot           @"Slot"
+
+#define kNodeBigWin         @"BigWinWindow"
+
+#define kNodeMiniGameCard   @"MiniGameCard"
+#define kNodeMiniGameWheel  @"MiniGameWheel"
+
 
 #endif /* NodeNames_h */

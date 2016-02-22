@@ -40,7 +40,7 @@
 
 
 -(NSArray*) popoverPresenters {
-    return @[kNodeLobby, kNodeMenu, kNodeSlot];
+    return @[kNodeLobby, kNodeSlot];
 }
 
 -(void) trackPopoverPresenter {

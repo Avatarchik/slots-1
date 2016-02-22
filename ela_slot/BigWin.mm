@@ -270,6 +270,7 @@
 
 -(void) onEnter
 {
+    [[AnalyticsManager sharedManager] trackScreenView: kNodeBigWin];
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:kTOUCH_PRIORITY_PopUp swallowsTouches:YES];
     [super onEnter];
 }

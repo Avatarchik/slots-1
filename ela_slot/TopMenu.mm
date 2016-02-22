@@ -870,22 +870,30 @@
 
 -(void) closeWheelGame
 {
-    [self removeChild:[self getChildByTag:kWheelGameTAG] cleanup:YES];    
+    [self removeChild:[self getChildByTag:kWheelGameTAG] cleanup:YES];
+     
+     [[AnalyticsManager sharedManager] trackPopoverPresenter];
 }
 
 -(void) closeCardGame
 {
     [self removeChild:[self getChildByTag:kCardGameTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
+    
 }
 
 -(void) closeWindowWin
 {
     [self removeChild:[self getChildByTag:kWinWindowTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
+    
 }
 
 -(void) closeWindowLvl
 {
     [self removeChild:[self getChildByTag:kNewWindowTAG] cleanup:YES];
+    [[AnalyticsManager sharedManager] trackPopoverPresenter];
+    
 }
 
 @end
