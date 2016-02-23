@@ -14,19 +14,20 @@
 @interface AnalyticsManager()
 
 @property (nonatomic, strong) NSString* previousPopupPresenter;
+@property (nonatomic, strong) NSString* currentScreenView;
 
 @end
 
 @implementation AnalyticsManager
 
 +(AnalyticsManager*) sharedManager{
-    static AnalyticsManager* analMan;
+    static AnalyticsManager* analyticsManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        analMan = [AnalyticsManager new];
+        analyticsManager = [AnalyticsManager new];
     });
     
-    return analMan;
+    return analyticsManager;
 }
 
 - (instancetype)init
@@ -59,9 +60,24 @@
         self.previousPopupPresenter = screenView;
     }
     
-    
-    //TODO: see if screenview is a popup presenter and store as self.previousPopPresenter
     [FSAnalyticsManager trackScreenView:screenView];
+    self.currentScreenView = screenView;
 }
+
+-(void)trackButtonTap:(NSString *)buttonName{
+    if(buttonName == nil)
+    {
+        NSLog(@"AnalyticManager - trackButtonTap - nil");
+    }
+    NSString* category = @"UX";
+    NSString* action = @"buttontap";
+    NSString* label = buttonName;
+    NSNumber* value = nil;
+    NSString* screenName = self.currentScreenView;
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:value screenName:screenName];
+}
+
+
+
 
 @end

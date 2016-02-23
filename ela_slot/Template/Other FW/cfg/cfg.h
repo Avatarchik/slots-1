@@ -14,6 +14,7 @@
 #import "SimpleAudioEngine.h"
 #import "NodeNames.h"
 #import "AnalyticsManager.h"
+#import <FSLog/FSLog.h>
 
 #define delegater        (AppDelegate *)[[UIApplication sharedApplication] delegate]
 

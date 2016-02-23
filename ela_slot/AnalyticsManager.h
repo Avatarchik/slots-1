@@ -12,7 +12,18 @@
 
 +(AnalyticsManager*) sharedManager;
 
+// UI
 -(void) trackScreenView:(NSString*) screenView;
 -(void) trackPopoverPresenter;
+-(void) trackButtonTap:(NSString*) buttonName;
+//-(void) trackScreenTapPoint:(CGPoint) tapPoint;
+
+// Gameplay
+//-(void) trackSpin:(NSInteger) bet lines:(NSUInteger) lines boost:(NSUInteger) boost;
+//-(void) trackWin;
+//-(void) trackLevelUp:(NSUInteger) level;
+
+
+
 
 @end

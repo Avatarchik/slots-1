@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		220ABD3E1C7943930002708A /* AnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 220ABD3D1C7943930002708A /* AnalyticsManager.m */; };
+		220ABD401C7A9D4F0002708A /* FSLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220ABD3F1C7A9D4F0002708A /* FSLog.framework */; };
+		220ABD411C7A9D4F0002708A /* FSLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 220ABD3F1C7A9D4F0002708A /* FSLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; };
 		2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -703,6 +705,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				220ABD411C7A9D4F0002708A /* FSLog.framework in Embed Frameworks */,
 				2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -713,6 +716,7 @@
 /* Begin PBXFileReference section */
 		220ABD3C1C7943930002708A /* AnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsManager.h; sourceTree = "<group>"; };
 		220ABD3D1C7943930002708A /* AnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsManager.m; sourceTree = "<group>"; };
+		220ABD3F1C7A9D4F0002708A /* FSLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSLog.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSLog.framework"; sourceTree = "<absolute>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		2228F9241C7539550039FCCA /* FSAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSAnalytics.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<absolute>"; };
 		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
@@ -1768,6 +1772,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220ABD401C7A9D4F0002708A /* FSLog.framework in Frameworks */,
 				C91829CF1B94EF5300E14ED9 /* libstdc++.dylib in Frameworks */,
 				FA589BB817BEDF3D00E38432 /* libz.dylib in Frameworks */,
 				FA589BBC17BEDF5800E38432 /* SystemConfiguration.framework in Frameworks */,
@@ -2488,6 +2493,7 @@
 		FA58983D17BEDADD00E38432 = {
 			isa = PBXGroup;
 			children = (
+				220ABD3F1C7A9D4F0002708A /* FSLog.framework */,
 				2228F9241C7539550039FCCA /* FSAnalytics.framework */,
 				2227073F1C431488005383CF /* ReadMe */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
