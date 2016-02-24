@@ -639,28 +639,31 @@
     
     ////////////// changed boundingox ////////////////////
     if ((CGRectContainsPoint(settingsButton_Rect, touchPos)) && buttonActive)
-    {   
+    {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeTopMenuButtonSettings];
         [setings_button setDisplayFrame:settingsBtn_Active];
-        
         openSett = true;
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.1f],[CCCallFuncN actionWithTarget:self  selector:@selector(openSettingsWindow)], nil]];
-      
+        
       //  [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
     }
     
     ////////////// changed boundingox ////////////////////
     else if (CGRectContainsPoint(buyButton_Rect,   touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeTopMenuButtonBuyCoins];
+        
         [coins_button setDisplayFrame:buyBtn_Active];
         
         openSett = true;
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.1f],[CCCallFuncO actionWithTarget:self selector:@selector(openBuyWindow_withNR:) object:[NSNumber numberWithInt:1]], nil]];
-     [AUDIO playEffect:s_click1];
+        [AUDIO playEffect:s_click1];
        /// [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
     }
     
     else if ((CGRectContainsPoint(r, touchPos)) && buttonActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeTopMenuButtonLobby];
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.f],[CCCallFunc actionWithTarget:self selector:@selector(loading)], nil]];
         
         [lobby_button setDisplayFrame:lobbyBtn_Active];
@@ -684,19 +687,19 @@
     ////////////// changed boundingox ////////////////////
     else if ((CGRectContainsPoint(paytableButton_Rect, touchPos)) && buttonActive)
     {
-         [ptable_button setDisplayFrame:paytableBtn_Active];
-        
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeTopMenuButtonPayTable];
+        [ptable_button setDisplayFrame:paytableBtn_Active];
         if (openPay == false && gamePlay == true)
         {
             openPay = true;
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.1f],[CCCallFuncN actionWithTarget:self  selector:@selector(openPayTableWindow)], nil]];
              [AUDIO playEffect:s_click1];
-           // [[SimpleAudioEngine sharedEngine] playEffect:@"btn2.mp3"];//play a sound
         }
     }
-
-    
-    
+    else
+    {
+        [[AnalyticsManager sharedManager] trackScreenTapPoint:touchPos screen:kNodeTopMenu];
+    }
     return YES;
 }
 
@@ -768,6 +771,7 @@
         
         
     }
+    
 
 }
 
