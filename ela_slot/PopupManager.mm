@@ -226,7 +226,6 @@
 -(void) closeSettingsWindow
 {
     //[self removeBlackBG];
-    [[AnalyticsManager sharedManager] trackPopoverPresenter];
     [self removeChild:(SettingsWindows *)[self getChildByTag:kSetWindowTAG] cleanup:YES];
     [_parent performSelector:@selector(closeWindowSet) withObject:nil];
     btnPressed = false;
@@ -234,7 +233,6 @@
 
 -(void) closePayTableWindow
 {
-    [[AnalyticsManager sharedManager] trackPopoverPresenter];
     [self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
     [self removeChild:(PayTableWindow *)[self getChildByTag:kPayWindowTAG] cleanup:YES];
     [_parent performSelector:@selector(closeWindowPay) withObject:nil];
@@ -244,7 +242,7 @@
 -(void) closeBuyWindow
 {
     //[self removeChild:(SettingsWindows *)[self getChildByTag:kBlackBackgroundTAG] cleanup:YES];
-    [[AnalyticsManager sharedManager] trackPopoverPresenter];
+//    [[AnalyticsManager sharedManager] trackPopoverPresenter];
     
     [self removeChild:(BuyCoinsWindow *)[self getChildByTag:kBuyWindowTAG] cleanup:YES];
     [(TopMenu *) _parent closeWindowBuy]; 
