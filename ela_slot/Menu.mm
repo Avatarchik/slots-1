@@ -534,26 +534,37 @@
     [[self getChildByTag:1904] setTexture: [[CCTextureCache sharedTextureCache] addImage:@"paytables.png"]];
     //[[self getChildByTag:1904] setScale:0.6];
     
-    
+     BOOL didCaptureButtonTap = NO;
     if (CGRectContainsPoint([self getChildByTag:1901].boundingBox,touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonRate];
+        didCaptureButtonTap = YES;
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appUrl]];
     }
     else if (CGRectContainsPoint([self getChildByTag:1902].boundingBox,      touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonBuyCoins];
+        didCaptureButtonTap = YES;
         [TMenu openBuyWindow_withNR:@1];
     }
     else if (CGRectContainsPoint([self getChildByTag:1903].boundingBox,      touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonMoreGames];
+        didCaptureButtonTap = YES;
         [Chartboost showMoreApps:CBLocationHomeScreen];
         [[AnalyticsManager sharedManager] trackScreenView:kNodeMoreGames];
     }
     else if (CGRectContainsPoint([self getChildByTag:1904].boundingBox,      touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonPayTable];
+        didCaptureButtonTap = YES;
         PayTableWindow* payTable = [[PayTableWindow alloc] init_withMachineNR:[machineID intValue]];
         payTable.position = CGPointMake(self.boundingBox.size.width/2,self.boundingBox.size.height/2);
         [self.parent addChild:payTable];
     }
+    
+    
+
     
     for (CCNode *ss in [[self getChildByTag:100] getChildByTag:iPageNum].children)
     {
@@ -573,7 +584,8 @@
         if (CGRectContainsPoint(ss.boundingBox,      touchPos) && (ss.tag == tagNR + 1))
         {
             
-            
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonSlot value:@(tagNR+1)];
+            didCaptureButtonTap = YES;
             if ([ss getChildByTag:kLockTag]) {
                 [[ss getChildByTag:kLockTag] runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.1f scale:0.85f],[CCScaleTo actionWithDuration:0.1f scale:1.f], nil] times:1]];
                  [AUDIO playEffect:s_lockedmachine];
@@ -594,7 +606,9 @@
         }
         else if (CGRectContainsPoint(ss.boundingBox, touchPos) && (ss.tag == tagNR + 2))
         {
-            
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonSlot value:@(tagNR+2)];
+            didCaptureButtonTap = YES;
+
             if ([ss getChildByTag:kLockTag]) {
                 [[ss getChildByTag:kLockTag] runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.1f scale:0.85f],[CCScaleTo actionWithDuration:0.1f scale:1.f], nil] times:1]];
                 [AUDIO playEffect:s_lockedmachine];
@@ -616,7 +630,9 @@
         }
         else if (CGRectContainsPoint(ss.boundingBox, touchPos) && (ss.tag == tagNR + 3))
         {
-            
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonSlot value:@(tagNR+3)];
+            didCaptureButtonTap = YES;
+
             if ([ss getChildByTag:kLockTag]) {
                 [[ss getChildByTag:kLockTag] runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.1f scale:0.85f],[CCScaleTo actionWithDuration:0.1f scale:1.f], nil] times:1]];
                 [AUDIO playEffect:s_lockedmachine];
@@ -637,7 +653,9 @@
         }
         else if (CGRectContainsPoint(ss.boundingBox, touchPos) && (ss.tag == tagNR + 4))
         {
-            
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonSlot value:@(tagNR+4)];
+            didCaptureButtonTap = YES;
+
             if ([ss getChildByTag:kLockTag]) {
                 [[ss getChildByTag:kLockTag] runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.1f scale:0.85f],[CCScaleTo actionWithDuration:0.1f scale:1.f], nil] times:1]];
                 [AUDIO playEffect:s_lockedmachine];
@@ -658,7 +676,9 @@
         }
         else if (CGRectContainsPoint(ss.boundingBox, touchPos) && (ss.tag == tagNR + 5))
         {
-            
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonSlot value:@(tagNR+5)];
+            didCaptureButtonTap = YES;
+
             if ([ss getChildByTag:kLockTag]) {
                 [[ss getChildByTag:kLockTag] runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.1f scale:0.85f],[CCScaleTo actionWithDuration:0.1f scale:1.f], nil] times:1]];
                 [AUDIO playEffect:s_lockedmachine];
@@ -680,6 +700,8 @@
         }
         else if (CGRectContainsPoint(ss.boundingBox, touchPos) && (ss.tag == tagNR + 6))
         {
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeLobbyButtonSlot value:@(tagNR+6)];
+            didCaptureButtonTap = YES;
             if ([ss getChildByTag:kLockTag]) {
                 [[ss getChildByTag:kLockTag] runAction:[CCRepeat actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.1f scale:0.85f],[CCScaleTo actionWithDuration:0.1f scale:1.f], nil] times:1]];
                 [AUDIO playEffect:s_lockedmachine];
@@ -700,6 +722,12 @@
              }
         }
     }
+    
+    if(!didCaptureButtonTap)
+    {
+        [[AnalyticsManager sharedManager] trackScreenTapPoint:touchPos];
+    }
+    
 }
 -(void)loading
 {
