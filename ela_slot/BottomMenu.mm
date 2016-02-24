@@ -720,8 +720,12 @@
 {
     CGPoint touchPos = [self convertTouchToNodeSpace:touch];
     
+    BOOL wasTapTracked = NO;
+    
     if ((CGRectContainsPoint(lines_button.boundingBox, touchPos)) && b_buttonsActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonLines];
+        wasTapTracked = YES;
         [lines_button setDisplayFrame:linesPress_Active];
         
         [AUDIO playEffect:s_click1];
@@ -734,6 +738,8 @@
     }
     else if ((CGRectContainsPoint(bet_button.boundingBox, touchPos)) && b_buttonsActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBet];
+        wasTapTracked = YES;
         
         [bet_button setDisplayFrame:betPress_Active];
         
@@ -747,6 +753,9 @@
     }
     else if ((CGRectContainsPoint(maxbet_button.boundingBox, touchPos)) && b_buttonsActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonMaxBet];
+        wasTapTracked = YES;
+
         [maxbet_button setDisplayFrame:maxbetPress_Active];
         
         [AUDIO playEffect:s_click1];
@@ -760,17 +769,22 @@
     }
     else if ((CGRectContainsPoint(boost_button.boundingBox, touchPos)) && b_buttonsActive && (![boost2xBtn getActionByTag:2]) && (![boost2xBtn getActionByTag:1]))
     {
+
         [AUDIO playEffect:s_click1];
         
         [self checkAllBoostButton];
         
             if (useBoostsOPENED)
             {
+                [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonCloseBoosts];
+                wasTapTracked = YES;
                 [boost_button setDisplayFrame:closePress_Active];
                 [self closeBoostsUse];
             }
             else
             {
+                [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBoosts];
+                wasTapTracked = YES;
                 [boost_button setDisplayFrame:boostsPress_Active];
                 [self openBoostsUse];
             }
@@ -778,8 +792,12 @@
     }
     else if (CGRectContainsPoint(spin_button.boundingBox, touchPos))
     {
+        
         if (b_buttonsActive)
         {
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonSpin];
+            wasTapTracked = YES;
+
             [spin_button setDisplayFrame:spinPress_Active];
             
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.05f],[CCCallBlock actionWithBlock:^{
@@ -790,6 +808,9 @@
         }
         else
         {
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonStop];
+            wasTapTracked = YES;
+
             [spin_button setDisplayFrame:stopPress_Active];//STOP BUTTON
             
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.05f],[CCCallBlock actionWithBlock:^{
@@ -808,6 +829,9 @@
     if ((CGRectContainsPoint(boost2xBtn.boundingBox, touchPos)) && b_buttonsActive)
     {
      
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBoost2x];
+        wasTapTracked = YES;
+
         if ([self checkIfBoostActive:2]) {
                 [AUDIO playEffect:s_click1];
                 [self boostButtonsActv:boost2xBtn frame:x2Btn_Active int_:2];
@@ -815,8 +839,11 @@
         }
     }
     
-    if ((CGRectContainsPoint(boost3xBtn.boundingBox, touchPos)) && b_buttonsActive)
+    else if ((CGRectContainsPoint(boost3xBtn.boundingBox, touchPos)) && b_buttonsActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBoost3x];
+        wasTapTracked = YES;
+
         if ([self checkIfBoostActive:3]) {
                 [AUDIO playEffect:s_click1];
                 [self boostButtonsActv:boost3xBtn frame:x3Btn_Active int_:3];
@@ -824,8 +851,11 @@
         }
     }
     
-    if ((CGRectContainsPoint(boost4xBtn.boundingBox, touchPos)) && b_buttonsActive)
+    else if ((CGRectContainsPoint(boost4xBtn.boundingBox, touchPos)) && b_buttonsActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBoost4x];
+        wasTapTracked = YES;
+
        
         if ([self checkIfBoostActive:4]) {
                 [AUDIO playEffect:s_click1];
@@ -835,17 +865,22 @@
         
     }
     
-    if ((CGRectContainsPoint(boost5xBtn.boundingBox, touchPos)) && b_buttonsActive)
+    else if ((CGRectContainsPoint(boost5xBtn.boundingBox, touchPos)) && b_buttonsActive)
     {
-      
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBoost5x];
+        wasTapTracked = YES;
+
         if ([self checkIfBoostActive:5]) {
                 [AUDIO playEffect:s_click1];
                 [self boostButtonsActv:boost5xBtn frame:x5Btn_Active int_:5];
             
         }
     }
-    if ((CGRectContainsPoint(buyMoreBtn.boundingBox, touchPos)) && b_buttonsActive)
+    else if ((CGRectContainsPoint(buyMoreBtn.boundingBox, touchPos)) && b_buttonsActive)
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBuyMore];
+        wasTapTracked = YES;
+        
         [buyMoreBtn setDisplayFrame:buyMoreBtn_Active];
         [AUDIO playEffect:s_click1];
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.05f],[CCCallBlock actionWithBlock:^{
@@ -854,6 +889,11 @@
             }
         }], nil]];
         
+    }
+    
+    if(!wasTapTracked)
+    {
+        [[AnalyticsManager sharedManager] trackScreenTapPoint:touchPos screen:kNodeBottomMenu];
     }
     
     return YES;

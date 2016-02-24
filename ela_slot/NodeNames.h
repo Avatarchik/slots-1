@@ -50,7 +50,10 @@
 #define kNodeBottomMenuButtonBet    @"BottomMenuButtonBet"
 #define kNodeBottomMenuButtonMaxBet @"BottomMenuButtonMaxBet"
 #define kNodeBottomMenuButtonBoosts @"BottomMenuButtonBoosts"
+#define kNodeBottomMenuButtonCloseBoosts @"BottomMenuButtonCloseBoosts"
 #define kNodeBottomMenuButtonSpin   @"BottomMenuButtonSpin"
+#define kNodeBottomMenuButtonStop   @"BottomMenuButtonStop"
+
 #define kNodeBottomMenuButtonBoost2x @"BottomMenuButtonBoost2x"
 #define kNodeBottomMenuButtonBoost3x @"BottomMenuButtonBoost3x"
 #define kNodeBottomMenuButtonBoost4x @"BottomMenuButtonBoost4x"
