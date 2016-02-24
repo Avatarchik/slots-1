@@ -13,9 +13,9 @@
 #define kNodeLobby          @"Lobby"
 #define kNodeSlot           @"Slot"
 
-#define kNodeBuyCoins       @"BuyCoins"
-#define kNodeBuyBoosts      @"BuyBoosts"
-#define kNodeSettings       @"Settings"
+#define kNodeBuyCoins       @"BuyCoinsPopup"
+#define kNodeBuyBoosts      @"BuyBoostsPopup"
+#define kNodeSettings       @"SettingsPopup"
 
 #define kNodeMoreGames      @"MoreGames"
 #define kNodePayTable       @"Paytable"
@@ -28,6 +28,37 @@
 
 #define kNodeMiniGameCard   @"MiniGameCard"
 #define kNodeMiniGameWheel  @"MiniGameWheel"
+
+// Lobby Buttons
+#define kNodeLobbyButtonRate        @"LobbyButtonRate"
+#define kNodeLobbyButtonBuyCoins    @"LobbyButtonBuyCoins"
+#define kNodeLobbyButtonMoreGames   @"LobbyButtonMoreGames"
+#define kNodeLobbyButtonPayTable    @"LobbyButtonPayTable"
+#define kNodeLobbyButtonSlot        @"LobbyButtonSlot"
+
+
+// Top Menu
+#define kNodeTopMenu                @"TopMenu"
+#define kNodeTopMenuButtonBuyCoins  @"TopMenuButtonBuyCoins"
+#define kNodeTopMenuButtonSettings  @"TopMenuButtonSettings"
+#define kNodeTopMenuButtonPayTable  @"TopMenuButtonPayTable"
+#define kNodeTopMenuButtonLobby     @"TopMenuButtonLobby"
+
+// Bottom Menu
+#define kNodeBottomMenu             @"BottomMenu"
+#define kNodeBottomMenuButtonLines  @"BottomMenuButtonLines"
+#define kNodeBottomMenuButtonBet    @"BottomMenuButtonBet"
+#define kNodeBottomMenuButtonMaxBet @"BottomMenuButtonMaxBet"
+#define kNodeBottomMenuButtonBoosts @"BottomMenuButtonBoosts"
+#define kNodeBottomMenuButtonSpin   @"BottomMenuButtonSpin"
+#define kNodeBottomMenuButtonBoost2x @"BottomMenuButtonBoost2x"
+#define kNodeBottomMenuButtonBoost3x @"BottomMenuButtonBoost3x"
+#define kNodeBottomMenuButtonBoost4x @"BottomMenuButtonBoost4x"
+#define kNodeBottomMenuButtonBoost5x @"BottomMenuButtonBoost5x"
+#define kNodeBottomMenuButtonBuyMore     @"BottomMenuBuyMore"
+
+
+
 
 
 #endif /* NodeNames_h */
