@@ -53,13 +53,17 @@
 #define kNodeBottomMenuButtonCloseBoosts @"BottomMenuButtonCloseBoosts"
 #define kNodeBottomMenuButtonSpin   @"BottomMenuButtonSpin"
 #define kNodeBottomMenuButtonStop   @"BottomMenuButtonStop"
-
 #define kNodeBottomMenuButtonBoost2x @"BottomMenuButtonBoost2x"
 #define kNodeBottomMenuButtonBoost3x @"BottomMenuButtonBoost3x"
 #define kNodeBottomMenuButtonBoost4x @"BottomMenuButtonBoost4x"
 #define kNodeBottomMenuButtonBoost5x @"BottomMenuButtonBoost5x"
 #define kNodeBottomMenuButtonBuyMore     @"BottomMenuBuyMore"
 
+
+// Buy Coins Window
+#define kNodeBuyCoinsWindowButtonBuy @"BuyCoinsWindowButtonBuy"
+#define kNodeBuyCoinsWindowButtonClose @"BuyCoinsWindowButtonClose"
+#define kNodeBuyCoinsWindowButtonBoosts @"BuyCoinsWindowButtonBoosts"
 
 
 

@@ -752,59 +752,73 @@
 //    id buttonAnimation2 = [CCScaleTo actionWithDuration:0.1f scale:1.0f];
 //    id runAnimation     = [CCSequence actions:buttonAnimation1, buttonAnimation2, nil];
     
+    
     if (CGRectContainsPoint(closeBtn.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBuyCoinsWindowButtonClose];
         [AUDIO playEffect:s_click1];
         [closeBtn setDisplayFrame:closeFrame];
     }
     
-    if (CGRectContainsPoint(boostBtn.boundingBox, touchPos))
+    else if (CGRectContainsPoint(boostBtn.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBuyCoinsWindowButtonBoosts];
         [AUDIO playEffect:s_click1];
         [buyBtn1 setTexture:[[CCSprite spriteWithSpriteFrameName:@"btn_buy_active.png"]CCtexture]];
     }
     ///////////////////////////////////////////////////////////// BUY BUTTONS //////////////////////////
-    if (CGRectContainsPoint(buyBtn1.boundingBox, touchPos))
+    else if (CGRectContainsPoint(buyBtn1.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:[NSString stringWithFormat:@"%@|%@", kNodeBuyCoinsWindowButtonBuy, kIAP_I_COINS_99_99] value:@(99.99)];
         [AUDIO playEffect:s_click1];
         [buyBtn1 setDisplayFrame:framePressed];
         [IAP_ requestProductsWithIndetifier:kIAP_I_COINS_99_99 parent:self];
     }
     
-    if (CGRectContainsPoint(buyBtn2.boundingBox, touchPos))
+    else if (CGRectContainsPoint(buyBtn2.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:[NSString stringWithFormat:@"%@|%@", kNodeBuyCoinsWindowButtonBuy, kIAP_I_COINS_49_99] value:@(49.99)];
         [AUDIO playEffect:s_click1];
         [buyBtn2 setDisplayFrame:framePressed];
         [IAP_ requestProductsWithIndetifier:kIAP_I_COINS_49_99 parent:self];
     }
     
-    if (CGRectContainsPoint(buyBtn3.boundingBox, touchPos))
+    else if (CGRectContainsPoint(buyBtn3.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:[NSString stringWithFormat:@"%@|%@", kNodeBuyCoinsWindowButtonBuy, kIAP_I_COINS_19_99] value:@(19.99)];
         [AUDIO playEffect:s_click1];
         [buyBtn3 setDisplayFrame:framePressed];
         [IAP_ requestProductsWithIndetifier:kIAP_I_COINS_19_99 parent:self];
     }
     
-    if (CGRectContainsPoint(buyBtn4.boundingBox, touchPos))
+    else if (CGRectContainsPoint(buyBtn4.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:[NSString stringWithFormat:@"%@|%@", kNodeBuyCoinsWindowButtonBuy, kIAP_I_COINS_9_99] value:@(9.99)];
         [AUDIO playEffect:s_click1];
         [buyBtn4 setDisplayFrame:framePressed];
         [IAP_ requestProductsWithIndetifier:kIAP_I_COINS_9_99 parent:self];
     }
     
-    if (CGRectContainsPoint(buyBtn5.boundingBox, touchPos))
+    else if (CGRectContainsPoint(buyBtn5.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:[NSString stringWithFormat:@"%@|%@", kNodeBuyCoinsWindowButtonBuy, kIAP_I_COINS_4_99] value:@(4.99)];
         [AUDIO playEffect:s_click1];
         [buyBtn5 setDisplayFrame:framePressed];
         [IAP_ requestProductsWithIndetifier:kIAP_I_COINS_4_99 parent:self];
     }
-    if (CGRectContainsPoint(buyBtn6.boundingBox, touchPos))
+    else if (CGRectContainsPoint(buyBtn6.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:[NSString stringWithFormat:@"%@|%@", kNodeBuyCoinsWindowButtonBuy, kIAP_I_COINS_1_99] value:@(1.99)];
         [AUDIO playEffect:s_click1];
         [buyBtn6 setDisplayFrame:framePressed];
         [IAP_ requestProductsWithIndetifier:kIAP_I_COINS_1_99 parent:self];
     }
+    else
+    {
+        [[AnalyticsManager sharedManager] trackScreenTapPoint:touchPos screen:kNodeBuyCoins];
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     
     
     return YES;

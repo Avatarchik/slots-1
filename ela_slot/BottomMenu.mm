@@ -778,6 +778,7 @@
             {
                 [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonCloseBoosts];
                 wasTapTracked = YES;
+                
                 [boost_button setDisplayFrame:closePress_Active];
                 [self closeBoostsUse];
             }
