@@ -14,16 +14,15 @@
 
 // UI
 -(void) trackScreenView:(NSString*) screenView;
--(void) trackPopoverPresenter;
 -(void) trackButtonTap:(NSString*) buttonName;
-//-(void) trackScreenTapPoint:(CGPoint) tapPoint;
+-(void) trackButtonTap:(NSString*) buttonName value:(NSNumber*) value;
+-(void) trackScreenTapPoint:(CGPoint) tapPoint;
+-(void) trackScreenTapPoint:(CGPoint) tapPoint screen:(NSString*) screenView;
+-(void) trackPopoverPresenter;
 
 // Gameplay
-//-(void) trackSpin:(NSInteger) bet lines:(NSUInteger) lines boost:(NSUInteger) boost;
-//-(void) trackWin;
-//-(void) trackLevelUp:(NSUInteger) level;
-
-
-
+-(void) trackWin;
+-(void) trackLevelUp:(NSUInteger) level;
+-(void) trackSpin:(NSInteger) bet lines:(NSUInteger) lines boost:(NSUInteger) boost;
 
 @end

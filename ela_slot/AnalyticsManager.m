@@ -48,6 +48,13 @@
     [self trackScreenView:self.previousPopupPresenter];
 }
 
+
+
+/******************************************************
+ */
+#pragma mark - Track Screen
+/*
+ ********************************************************/
 -(void)trackScreenView:(NSString *)screenView{
     if(screenView == nil)
     {
@@ -64,17 +71,45 @@
     self.currentScreenView = screenView;
 }
 
--(void)trackButtonTap:(NSString *)buttonName{
+
+
+/******************************************************
+ */
+#pragma mark - Track User Interaction
+/*
+ ********************************************************/
+
+// Track a tap on screen.
+-(void) trackScreenTapPoint:(CGPoint) tapPoint{
+    [self trackScreenTapPoint:tapPoint screen:self.currentScreenView];
+}
+
+// Track a tap on screen and screen view
+-(void) trackScreenTapPoint:(CGPoint) tapPoint screen:(NSString*) screenView{
+    NSString* category = @"UX";
+    NSString* action = @"Screen_Tap";
+    NSString* label = NSStringFromCGPoint(tapPoint);
+    NSNumber* valueNumber = nil;
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:screenView];
+}
+
+// Track a button tap with name and value.
+-(void)trackButtonTap:(NSString *)buttonName value:(NSNumber*) value{
     if(buttonName == nil)
     {
-        NSLog(@"AnalyticManager - trackButtonTap - nil");
+        NSLog(@"AnalyticManager - trackButtonTap:value - nil");
     }
     NSString* category = @"UX";
-    NSString* action = @"buttontap";
+    NSString* action = @"Button_Tap";
     NSString* label = buttonName;
-    NSNumber* value = nil;
+    NSNumber* valueNumber = value;
     NSString* screenName = self.currentScreenView;
-    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:value screenName:screenName];
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:screenName];
+}
+
+// Track a button tap with name.
+-(void)trackButtonTap:(NSString *)buttonName{
+    [self trackButtonTap:buttonName value:nil];
 }
 
 
