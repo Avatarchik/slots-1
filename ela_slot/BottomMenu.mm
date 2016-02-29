@@ -724,21 +724,21 @@
     
     if ((CGRectContainsPoint(lines_button.boundingBox, touchPos)) && b_buttonsActive)
     {
-        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonLines];
+      
         wasTapTracked = YES;
         [lines_button setDisplayFrame:linesPress_Active];
         
         [AUDIO playEffect:s_click1];
         
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.05f],[CCCallBlock actionWithBlock:^{
-            [(SlotMachine *)_parent lineUP];
+            int lines = [(SlotMachine *)_parent lineUP];
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonLines value:@(lines)];
             [self countTotalBet];
         }], nil]];
         
     }
     else if ((CGRectContainsPoint(bet_button.boundingBox, touchPos)) && b_buttonsActive)
     {
-        [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBet];
         wasTapTracked = YES;
         
         [bet_button setDisplayFrame:betPress_Active];
@@ -746,7 +746,8 @@
         [AUDIO playEffect:s_click1];
         
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.05f],[CCCallBlock actionWithBlock:^{
-            [(SlotMachine *)_parent betUp];
+            float bet = [(SlotMachine *)_parent betUp];
+            [[AnalyticsManager sharedManager] trackButtonTap:kNodeBottomMenuButtonBet value:@(bet)];
             [self countTotalBet];
         }], nil]];
         
