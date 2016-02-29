@@ -54,6 +54,7 @@
         
         LEVEL = level_;
         
+        [[AnalyticsManager sharedManager] trackLevelUp:level_];
         [self addButton];
         [self addNewLevel:LEVEL];
         [self addLEDS];

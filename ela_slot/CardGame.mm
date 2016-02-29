@@ -362,6 +362,7 @@
     
     secondC = 0;
     totalLives_ = totalLives_ - 1;
+    
     [self update_lives];
     
     if (totalLives_ == 0)

@@ -13,6 +13,7 @@
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; };
 		2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		22B1C65F1C83C9E1005E8693 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 22B1C65E1C83C9E1005E8693 /* ToDo */; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
 		846A30E11828E35D00C32146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A30E01828E35D00C32146 /* Images.xcassets */; };
@@ -720,6 +721,7 @@
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		2228F9241C7539550039FCCA /* FSAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSAnalytics.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<absolute>"; };
 		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
+		22B1C65E1C83C9E1005E8693 /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -2496,6 +2498,7 @@
 				220ABD3F1C7A9D4F0002708A /* FSLog.framework */,
 				2228F9241C7539550039FCCA /* FSAnalytics.framework */,
 				2227073F1C431488005383CF /* ReadMe */,
+				22B1C65E1C83C9E1005E8693 /* ToDo */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
 				C9DBED101B7D2DED00EA53BD /* IDSTOREPLACE.h */,
 				C98A3BCF1B94F68E004208A9 /* Images */,
@@ -3928,6 +3931,7 @@
 				FA822D471821448B0096DF01 /* 18.png in Resources */,
 				FAC0266F180FCB6C00979301 /* sp_wheel-ipadhd.plist in Resources */,
 				C90DC8BD1B9B687600BDCBDA /* bg1_1-ipadhd.plist in Resources */,
+				22B1C65F1C83C9E1005E8693 /* ToDo in Resources */,
 				FA640D4D1827E696002472B7 /* Default~ipad.png in Resources */,
 				F56F95DF17EB00980012962B /* icon1.png in Resources */,
 				FA54816C181FFB8E00EC88DD /* btn_spinactive1.png in Resources */,
