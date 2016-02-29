@@ -45,19 +45,19 @@
 #define kNodeTopMenuButtonLobby     @"TopMenuButtonLobby"
 
 // Bottom Menu
-#define kNodeBottomMenu             @"BottomMenu"
-#define kNodeBottomMenuButtonLines  @"BottomMenuButtonLines"
-#define kNodeBottomMenuButtonBet    @"BottomMenuButtonBet"
-#define kNodeBottomMenuButtonMaxBet @"BottomMenuButtonMaxBet"
-#define kNodeBottomMenuButtonBoosts @"BottomMenuButtonBoosts"
-#define kNodeBottomMenuButtonCloseBoosts @"BottomMenuButtonCloseBoosts"
-#define kNodeBottomMenuButtonSpin   @"BottomMenuButtonSpin"
-#define kNodeBottomMenuButtonStop   @"BottomMenuButtonStop"
-#define kNodeBottomMenuButtonBoost2x @"BottomMenuButtonBoost2x"
-#define kNodeBottomMenuButtonBoost3x @"BottomMenuButtonBoost3x"
-#define kNodeBottomMenuButtonBoost4x @"BottomMenuButtonBoost4x"
-#define kNodeBottomMenuButtonBoost5x @"BottomMenuButtonBoost5x"
-#define kNodeBottomMenuButtonBuyMore     @"BottomMenuBuyMore"
+#define kNodeBottomMenu                     @"BottomMenu"
+#define kNodeBottomMenuButtonLines          @"BottomMenuButtonLines"
+#define kNodeBottomMenuButtonBet            @"BottomMenuButtonBet"
+#define kNodeBottomMenuButtonMaxBet         @"BottomMenuButtonMaxBet"
+#define kNodeBottomMenuButtonBoosts         @"BottomMenuButtonBoosts"
+#define kNodeBottomMenuButtonCloseBoosts    @"BottomMenuButtonCloseBoosts"
+#define kNodeBottomMenuButtonSpin           @"BottomMenuButtonSpin"
+#define kNodeBottomMenuButtonStop           @"BottomMenuButtonStop"
+#define kNodeBottomMenuButtonBoost2x        @"BottomMenuButtonBoost2x"
+#define kNodeBottomMenuButtonBoost3x        @"BottomMenuButtonBoost3x"
+#define kNodeBottomMenuButtonBoost4x        @"BottomMenuButtonBoost4x"
+#define kNodeBottomMenuButtonBoost5x        @"BottomMenuButtonBoost5x"
+#define kNodeBottomMenuButtonBuyMore        @"BottomMenuBuyMore"
 
 
 // Buy Coins Window
