@@ -133,7 +133,7 @@
             table1.opacity  =   0;
             table2.opacity  = 255;
             btnOn           = true;
-            [[AnalyticsManager sharedManager] trackScreenView:kNodePayTable];
+            [[AnalyticsManager sharedManager] trackScreenView:kNodeLineTable];
         }
     }
     
@@ -148,7 +148,7 @@
             table1.opacity  = 255;
             table2.opacity  =   0;
             btnOn           = false;
-            [[AnalyticsManager sharedManager] trackScreenView:kNodeLineTable];
+            [[AnalyticsManager sharedManager] trackScreenView:kNodePayTable];
         }
     }
     
