@@ -10,6 +10,7 @@
 #import "Bet.h"
 #import "Exp.h"
 
+
 #define kIconRect_iPad CGRectMake(0,0,120,120)
 #define kIconRect_iPhone CGRectMake(0,0,55,40)
 
@@ -35,6 +36,21 @@
 #define b (BottomMenu *)[myParent getChildByTag:kBottomMenuTAG]
 #define t (TopMenu *)[myParent getChildByTag:kTopMenuTAG]
 
+#define ALWAYS_WIN YES
+
+typedef NS_ENUM(NSUInteger, WinStatus)
+{
+    WinStatusRandom = 0,
+    WinStatusWin = 1,
+    WinStatusLose = 2
+};
+
+
+@interface Reels()
+{
+    WinStatus     winStatus;
+}
+@end
 
 @implementation Reels{
     
@@ -52,7 +68,6 @@
         maxLines = maxLines_;
         i_freespinC = 0;
         spin_del = 1.f;
-        //winStatus = 1;
         
         coins = [DB_ getValueBy:d_Coins table:d_DB_Table];
         
@@ -134,9 +149,14 @@
     
     NSArray *win = [Result getResultFromArray:a lines:linesNumber];
     
+    
+    // get total money loses for player
     float moneySpent  = [DB_ getValueBy:d_LoseAllTime table:d_DB_Table];
+    
+    // get total money won for player.
     float moneyWin    = [DB_ getValueBy:d_WinAllTime table:d_DB_Table];
     
+    // prevent integer overflow?
     if (moneySpent >= 10000000 || moneyWin >= 10000000) {
         moneySpent = moneySpent/100000;
         moneyWin = moneyWin/100000;
@@ -144,43 +164,57 @@
         [DB_ updateValue:d_WinAllTime table:d_DB_Table :moneyWin];
     }
  
+    
+    // Ranges for win
     float _max = 1.2f;
     float _min = 0.4f;
     
+    // Determine coefficient of wins/spent
     float coficent = moneyWin/moneySpent;
     
-    if (coficent <= 0.1f) {
-        coficent = 0.9f;
+    //Default Randome.
+    winStatus = WinStatusRandom;
+    
+    
+    if (coficent > _max)
+    {
+        winStatus = WinStatusLose;
     }
-    
-
-    winStatus = 1;//Default Randome..
-
-    //int rand = [self INT_MyRandomIntegerBetween:1 :10];
-    
-    //NSLog(@"KOEFICIENT:::   %f",coficent);
-    
-    if (coficent > _max) {winStatus = 2;}
-    
-    else if (coficent <= _max && coficent >= _min)
+    else if ((coficent <= 0.1f) || (coficent <= _max && coficent >= _min))
     {
         int rand = [self INT_MyRandomIntegerBetween:0:5];
-        if (rand == 0 || rand == 5) {winStatus = 0;}else{winStatus = 2;}
+        if (rand == 0 || rand == 5)
+        {
+            winStatus = WinStatusRandom;
+        }else
+        {
+            winStatus = WinStatusLose;
+        }
         
     }
-    else if (coficent < _min){winStatus = 1;}
+    else if (coficent < _min)
+    {
+        winStatus = WinStatusWin;
+    }
     
     int littleWin = [self checkWinCoins:win];
     
-    if((winStatus == 2) && ((littleWin * [b getCurrentBet]) <= ([b getTotalBet]  * 1.5f) )/* && ((rand >= 9) || (rand <= 2))*/)
+    if(ALWAYS_WIN)
+    {
+        winStatus = WinStatusWin;
+    }
+    
+    
+    if((winStatus == WinStatusLose) && ((littleWin * [b getCurrentBet]) <= ([b getTotalBet]  * 1.5f)))
     {
        // NSLog(@"                LITTLE WIN")      ;
         return a;
     }
     
-    if (winStatus == 1)     //WIN
+    if (winStatus == WinStatusWin)     //WIN
     {
         
+        // continually generate spins until a win is found.
         bool b_win = false;
         while (!b_win) {
             if ([self check_if_win:win]) {
@@ -191,8 +225,9 @@
             win = [Result getResultFromArray:a lines:linesNumber];
         }
     }
-    else if (winStatus ==2) //NOT WIN
+    else if (winStatus == WinStatusLose) //NOT WIN
     {
+        // continually generate spins until a loss is found.
         bool b_win = true;
         while (b_win) {
             if (![self check_if_win:win]) {
@@ -203,9 +238,9 @@
             win = [Result getResultFromArray:a lines:linesNumber];
         }
     }
-    else if (winStatus == 0) //RANDOME
+    else if (winStatus == WinStatusRandom) //RANDOME
     {
-    return a;
+        return a;
     }
     
     return a;
@@ -633,9 +668,12 @@
 
         return;
     }
+    
+    NSUInteger boostValue = 1;
         
     if (boost2x)        {int boost = [DB_ getValueBy:d_Boost2x table:d_DB_Table];
         boost--;
+        boostValue = 2;
         [DB_ updateValue:d_Boost2x table:d_DB_Table :boost];
         if (boost <= 0) {
             [b hideBoostsIndicator];
@@ -647,6 +685,7 @@
     
     else if (boost3x)   {int boost = [DB_ getValueBy:d_Boost3x table:d_DB_Table];
         boost--;
+        boostValue = 3;
         [DB_ updateValue:d_Boost3x table:d_DB_Table :boost];
         if (boost <= 0) {
             [b hideBoostsIndicator];
@@ -656,6 +695,7 @@
     
     else if (boost4x)   {int boost = [DB_ getValueBy:d_Boost4x table:d_DB_Table];
         boost--;
+        boostValue = 4;
         [DB_ updateValue:d_Boost4x table:d_DB_Table :boost];
         if (boost <= 0) {
             [b hideBoostsIndicator];
@@ -665,6 +705,7 @@
     
     else if (boost5x)   {int boost = [DB_ getValueBy:d_Boost5x table:d_DB_Table];
         boost--;
+        boostValue = 5;
         [DB_ updateValue:d_Boost5x table:d_DB_Table :boost];
         if (boost <= 0) {
             [b hideBoostsIndicator];
@@ -679,6 +720,7 @@
     
     [b buttonActive:NO];
     
+
     
     if (b_freespin) {
         i_freespinC--;
@@ -687,6 +729,9 @@
         
         [b updateSpinLeft:i_freespinC];
         
+        
+        [[AnalyticsManager sharedManager] trackSpin:0 lines:linesNumber boost:boostValue];
+
         if (i_freespinC == -1) {
             b_freespin = false;
             if (!b_autoSpin) {
@@ -749,6 +794,8 @@
     ////////////////COINS COUNT/////////////////////
     coins = [DB_ getValueBy:d_Coins table:d_DB_Table];
     
+    [[AnalyticsManager sharedManager] trackSpin:totalBet lines:linesNumber boost:boostValue];
+
     if (!b_freespin) {
        coins = coins - totalBet;
         
@@ -928,9 +975,10 @@
 
     [b setLines:linesNumber];
     [b setBet:bet];
+    
 }
 
--(void)lineUP
+-(int)lineUP
 {
     [self defaultState];
     if (linesNumber == maxLines) {
@@ -1007,6 +1055,9 @@
 
     }], nil]].tag = 111;
     
+    
+    return linesNumber;
+    
 }
 
 
@@ -1036,7 +1087,7 @@
     else if (type_ == 2)
     {
         
-    return randomeElements;
+        return randomeElements;
     
     }
     
@@ -1409,7 +1460,9 @@
             [AUDIO playEffect:s_winicon3];
             
             freeSpins = [Awards getAward:[NSString stringWithFormat:@"%@",[[a objectAtIndex:0]objectAtIndex:3]] winCount:n.intValue];
-          
+            // Track free spins.
+            [[AnalyticsManager sharedManager] trackScatterFreeSpins:freeSpins];
+            
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:delay],[CCCallFuncO actionWithTarget:self selector:b_freespin ? @selector(showFreeSpinWin:) : @selector(showWin:) object:a], nil]].tag = scater_bonus_anim;
             
             
@@ -1421,7 +1474,8 @@
            // NSLog(@"BONUS");
             
             [AUDIO playEffect:s_wingame];
-            
+            // Track a bonus mini game.
+            [[AnalyticsManager sharedManager] trackBonusMiniGame];
             b_canSpin = false;
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:delay],[CCCallFuncO actionWithTarget:self selector:b_freespin ? @selector(showFreeSpinWin:) : @selector(showWin:) object:a],[CCDelayTime actionWithDuration:1.0f],[CCCallFunc actionWithTarget:self selector:@selector(miniGameShow)], nil]].tag = scater_bonus_anim;
             
@@ -1441,7 +1495,6 @@
         if ((!b_bonus) && (!scater)) {
             winCoins = winCoins + (award *currentBet);
         }
-       // winCoins = winCoins + (award *currentBet);
         
         if (b_freespin) {
             if (award > 0) {
@@ -1450,6 +1503,7 @@
                 float Allwin = [DB_ getValueBy:d_WinAllTime table:d_DB_Table];
                 Allwin = Allwin + winCoins;
                 [DB_ updateValue:d_WinAllTime table:d_DB_Table :Allwin];
+                [[AnalyticsManager sharedManager] trackWin:winCoins screenName:kNodeSlot];
                 
                 freeSpin_WIN = freeSpin_WIN + winCoins;
                 
@@ -1469,7 +1523,6 @@
     
     if (freeSpins > 0) {
         [self freeSpins:freeSpins];
-        //[(SlotMachine *)_parent setLabelOfFreeSpins:freeSpins];
     }
     
     if (!b_freespin) {
@@ -1480,8 +1533,6 @@
         else if (boost5x)   {winCoins = winCoins *5;bigWinNum = bigWinNum *5;}
 
     }
-    
-    //winCoins = winCoins *currentBet;
     
     if (winCoins > 0) {
         
@@ -1498,8 +1549,6 @@
         
         if (!b_freespin) {
 
-            //[(SlotMachine *)_parent winCoinAnimation];
-            
             [(SlotMachine *)_parent coinAnimation:(winCoins < 1) ? 1 : winCoins];
             
             [t addLastWin:winCoins];
@@ -1515,6 +1564,7 @@
             float Allwin = [DB_ getValueBy:d_WinAllTime table:d_DB_Table];
             Allwin = Allwin + winCoins;
             [DB_ updateValue:d_WinAllTime table:d_DB_Table :Allwin];
+            [[AnalyticsManager sharedManager] trackWin:winCoins screenName:kNodeSlot];
             
         }
         

@@ -25,7 +25,6 @@
     bool    b_freespin;
     int     i_freespinC;
     bool    b_canSpin;
-    int     winStatus;
     float   coins;
     float   freeSpin_WIN;
     
@@ -55,7 +54,7 @@
 -(id)initWithFrame:(CGRect)frame node:(CCNode *)par lineNumber:(int)lineNum maxLines:(int)maxLines_;
 -(NSArray *)getIdElement;
 -(void)spin;
--(void)lineUP;
+-(int)lineUP;
 -(void)countMaxBet:(float)bet lines:(int)lines_;
 -(void)stopAllReels;
 -(void)setAutoSpin:(bool)bool_;
