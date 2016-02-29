@@ -21,8 +21,13 @@
 -(void) trackPopoverPresenter;
 
 // Gameplay
--(void) trackWin;
+-(void) trackWin:(CGFloat)winAmount screenName:(NSString*) screenName;
 -(void) trackLevelUp:(NSUInteger) level;
 -(void) trackSpin:(NSInteger) bet lines:(NSUInteger) lines boost:(NSUInteger) boost;
+
+-(void) trackBonusMiniGame;
+-(void) trackScatterFreeSpins:(NSInteger) freeSpins;
+
+
 
 @end

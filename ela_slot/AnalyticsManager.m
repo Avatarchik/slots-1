@@ -114,5 +114,48 @@
 
 
 
+/******************************************************
+ */
+#pragma mark - Gameplay
+/*
+ ********************************************************/
+
+-(void) trackSpin:(NSInteger) bet lines:(NSUInteger) lines boost:(NSUInteger) boost{
+    NSNumber* betNumber = @(bet);
+    NSString* category = @"Gameplay";
+    NSString* action = @"Spin";
+    NSString* label = [NSString stringWithFormat:@"%ldl|%ldb", (unsigned long)lines, (unsigned long)boost];
+    NSNumber* valueNumber = betNumber;
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:kNodeSlot];
+}
+
+
+-(void)trackWin:(CGFloat)winAmount screenName:(NSString*) screenName{
+    NSNumber* winNumber = [NSNumber numberWithFloat:winAmount];
+    NSString* category = @"Gameplay";
+    NSString* action = @"Win";
+    NSString* label = @"Coins";
+    NSNumber* valueNumber = winNumber;
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:screenName];
+}
+
+-(void) trackBonusMiniGame{
+    NSString* category = @"Gameplay";
+    NSString* action = @"Win";
+    NSString* label = @"Bonus";
+    NSNumber* valueNumber = nil;
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:kNodeSlot];
+}
+
+-(void) trackScatterFreeSpins:(NSInteger) freeSpins{
+    NSNumber* spinsNumber = [NSNumber numberWithInteger:freeSpins];
+    NSString* category = @"Gameplay";
+    NSString* action = @"Win";
+    NSString* label = @"Scatter";
+    NSNumber* valueNumber = spinsNumber;
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:kNodeSlot];
+}
+
+
 
 @end
