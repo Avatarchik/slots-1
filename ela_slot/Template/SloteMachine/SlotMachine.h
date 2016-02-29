@@ -18,8 +18,8 @@
 +(CCScene *) sceneWithMachineNr:(int)machineNumber;
 -(id) initWithMachineNr:(int)number;
 -(void)spin;
--(void)lineUP;
--(void)betUp;
+-(int)lineUP;
+-(float)betUp;
 -(void)levelUp:(int)lvl levelup:(bool)bool_;
 -(void)unlockMachine;
 -(void)winCoinAnimation;

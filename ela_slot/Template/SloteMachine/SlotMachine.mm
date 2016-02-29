@@ -311,10 +311,10 @@
     [[self getChildByTag:kSpriteSheet_2] addChild:s1 z:5 tag:kSpriteSheet_2];
     
 }
--(void)lineUP
+-(int)lineUP
 {
     Reels *r = (Reels *)[self getChildByTag:kReelTag];
-    [r lineUP];
+    return [r lineUP];
 
 }
 
@@ -328,7 +328,7 @@
     [r countMaxBet:a.floatValue lines:lineNum];
 }
 
--(void)betUp
+-(float)betUp
 {
     betCount++;
     
@@ -342,7 +342,8 @@
     
     NSNumber *a = [bet objectAtIndex:betCount-1];
     
-    [(BottomMenu *)[self getChildByTag:kBottomMenuTAG]setBet:a.floatValue];    
+    [(BottomMenu *)[self getChildByTag:kBottomMenuTAG]setBet:a.floatValue];
+    return a.floatValue;
     
 }
 
