@@ -37,6 +37,8 @@
 #define t (TopMenu *)[myParent getChildByTag:kTopMenuTAG]
 
 #define ALWAYS_WIN YES
+#define ALWAYS_SCATTER NO
+#define ALWAYS_BONUS YES
 
 typedef NS_ENUM(NSUInteger, WinStatus)
 {
@@ -199,7 +201,7 @@ typedef NS_ENUM(NSUInteger, WinStatus)
     
     int littleWin = [self checkWinCoins:win];
     
-    if(ALWAYS_WIN)
+    if(ALWAYS_WIN || ALWAYS_BONUS || ALWAYS_SCATTER)
     {
         winStatus = WinStatusWin;
     }
@@ -1407,8 +1409,11 @@ typedef NS_ENUM(NSUInteger, WinStatus)
 -(void)miniGameShow
 {
     int i = [self INT_MyRandomIntegerBetween:1 :2];
+    i = 1;
     if (i == 1) {[(SlotMachine *)_parent openMiniGame:kCardGame_];}
     else if (i == 2){[(SlotMachine *)_parent openMiniGame:kWheelGame_];}
+    
+    
   
     [self defaultState];
 }
@@ -1450,7 +1455,7 @@ typedef NS_ENUM(NSUInteger, WinStatus)
         b_bonus = b_.boolValue;
         scater  = s.boolValue;
         
-        if (scater) {
+        if (scater || (ALWAYS_SCATTER && !ALWAYS_BONUS)) {
            // NSLog(@"SCATER");
             
             //b_freespin = true;
@@ -1470,7 +1475,7 @@ typedef NS_ENUM(NSUInteger, WinStatus)
             
             break;
         }
-        if (b_bonus) {
+        if (b_bonus || (ALWAYS_BONUS && !ALWAYS_SCATTER)) {
            // NSLog(@"BONUS");
             
             [AUDIO playEffect:s_wingame];

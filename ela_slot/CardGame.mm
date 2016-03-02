@@ -96,6 +96,7 @@
 
 -(void)showRes:(int)int_
 {
+    [[AnalyticsManager sharedManager] trackWin:int_ screenName:kNodeMiniGameCard];
     WinsWindow *WWindow = [[[WinsWindow alloc] init_with_WIN:int_ type:1] autorelease];
     WWindow.anchorPoint = ccp(0.5f, 0.5f);
     WWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
@@ -281,6 +282,7 @@
     
     if (CGRectContainsPoint(closeBtn.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeMiniGameCardButtonClose];
         [self exitGame];
     }
 }

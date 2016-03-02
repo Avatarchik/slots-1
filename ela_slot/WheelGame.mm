@@ -231,6 +231,7 @@
         {
             if (CGRectContainsPoint(spinButton.boundingBox, touchPos))
             {
+                [[AnalyticsManager sharedManager] trackButtonTap:kNodeMiniGameWheelButtonSpin value:@(spins_)];
                 startSpinning = true;
                 rndGet        = false;
                 spinRotation  = 0;
@@ -267,6 +268,7 @@
     
     if (CGRectContainsPoint(closeBtn.boundingBox, touchPos))
     {
+        [[AnalyticsManager sharedManager] trackButtonTap:kNodeMiniGameWheelButtonClose];
         [(SlotMachine *)_parent closeWheelGame];
     }
     
@@ -401,6 +403,7 @@
 -(void)showRes:(int)int_
 {
 
+    [[AnalyticsManager sharedManager] trackWin:finalWin screenName:kNodeMiniGameWheel];
     WinsWindow *WWindow = [[[WinsWindow alloc] init_with_WIN:int_ type:1] autorelease];
     WWindow.anchorPoint = ccp(0.5f, 0.5f);
     WWindow.position = ccp(kWidthScreen/2, kHeightScreen/2);
@@ -688,15 +691,11 @@
             }
             else if (win_ == 22222) ////// 2x //////
             {
-                finalWin = finalWin*2;
-                win_     = 0;
+                win_     = finalWin;
             }
             
-            
+            [[AnalyticsManager sharedManager] trackWin:win_ screenName:kNodeMiniGameWheel];
             finalWin = finalWin + win_;
-            
-
-            
         }
         
        // NSLog(@".... FINAL WIN : %d ....", finalWin);
