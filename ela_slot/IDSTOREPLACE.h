@@ -29,7 +29,7 @@
 
 //Set to yes or not, please use @YES / @NO    (capital letters and @ before it)
 // YES or NO
-#define shoudlStartPushWoosh @YES
+#define shoudlStartPushWoosh @NO
 
 
 
