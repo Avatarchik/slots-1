@@ -97,7 +97,7 @@
 #define SOUND_          [SoundManager sharedManager]
 #define AUDIO [SimpleAudioEngine sharedEngine]
 
-#define GC_LEADERBOARD @"PirateSlotsFree2"
+#define GC_LEADERBOARD @"com.fantapsticstudio.goldrushslots"
 
 #define GC_ [B6luxGameKitHelper sharedB6luxGameKitHelper]
 
