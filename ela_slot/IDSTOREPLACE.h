@@ -6,9 +6,9 @@
 //
 
 
-#define chartBoostAppID @"55e4d56dc909a6215c52fa43"
+#define chartBoostAppID @"56f876108838094c444cdafc"
 
-#define chartBoostAppSignature @"4ac16c66982166debf73e7e9f3e0b49a6d98fbcf"
+#define chartBoostAppSignature @"0843fabe4ea8f0213eb869e24af9ec678ede327a"
 
 //Applovin Add
 // YES or NO
@@ -22,7 +22,7 @@
 #define minutesBetweenAds @15
 
 //Shows when the user presses the Rate app button (Your App's App Store link)
-#define appUrl @"https://itunes.apple.com/us/app/secret-chest-free-slots-pirate/id1035205888?ls=1&mt=8"
+#define appUrl @"http://itunes.apple.com/app/id1089387812"
 
 //1-6. Defines the machine style
 #define machineID @1
