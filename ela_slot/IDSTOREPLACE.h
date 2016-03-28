@@ -22,7 +22,7 @@
 #define minutesBetweenAds @15
 
 //Shows when the user presses the Rate app button (Your App's App Store link)
-#define appUrl @"http://itunes.apple.com/app/id1089387812"
+#define appUrl @"https://itunes.apple.com/app/id1089387812"
 
 //1-6. Defines the machine style
 #define machineID @1

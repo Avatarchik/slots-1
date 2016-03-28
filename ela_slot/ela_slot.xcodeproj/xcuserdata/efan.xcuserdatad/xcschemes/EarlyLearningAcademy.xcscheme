@@ -18,7 +18,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA58984517BEDADD00E38432"
             BuildableName = "Secret Chest Slots V2.7.app"
-            BlueprintName = "EarlyLearningAcademy"
+            BlueprintName = "Gold Rush Slots"
             ReferencedContainer = "container:ela_slot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -41,7 +41,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA58984517BEDADD00E38432"
             BuildableName = "Secret Chest Slots V2.7.app"
-            BlueprintName = "EarlyLearningAcademy"
+            BlueprintName = "Gold Rush Slots"
             ReferencedContainer = "container:ela_slot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -59,7 +59,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA58984517BEDADD00E38432"
             BuildableName = "Secret Chest Slots V2.7.app"
-            BlueprintName = "EarlyLearningAcademy"
+            BlueprintName = "Gold Rush Slots"
             ReferencedContainer = "container:ela_slot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
