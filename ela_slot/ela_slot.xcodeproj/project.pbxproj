@@ -3731,9 +3731,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA58984517BEDADD00E38432 /* EarlyLearningAcademy */ = {
+		FA58984517BEDADD00E38432 /* Gold Rush Slots */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "EarlyLearningAcademy" */;
+			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Gold Rush Slots" */;
 			buildPhases = (
 				FA58984217BEDADD00E38432 /* Sources */,
 				FA58984317BEDADD00E38432 /* Frameworks */,
@@ -3744,7 +3744,7 @@
 			);
 			dependencies = (
 			);
-			name = EarlyLearningAcademy;
+			name = "Gold Rush Slots";
 			productName = Template;
 			productReference = FA58984617BEDADD00E38432 /* Secret Chest Slots V2.7.app */;
 			productType = "com.apple.product-type.application";
@@ -3760,6 +3760,11 @@
 				TargetAttributes = {
 					FA58984517BEDADD00E38432 = {
 						DevelopmentTeam = D64ZYKBJV9;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -3775,7 +3780,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA58984517BEDADD00E38432 /* EarlyLearningAcademy */,
+				FA58984517BEDADD00E38432 /* Gold Rush Slots */,
 			);
 		};
 /* End PBXProject section */
@@ -4632,7 +4637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "EarlyLearningAcademy" */ = {
+		FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Gold Rush Slots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA589A9217BEDAEC00E38432 /* Debug */,

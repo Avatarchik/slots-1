@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AppLovinSdkKey</key>
-	<string>ZZkbMlMI-cnJui8p19EFoaOoU7TdvSfT1O3O8Qg61SQv9TiBixQVWqH_xrcrIHJJgNhpoNwpqKi-uQ9aLa4tOM</string>
+	<string>idRGSxlH1LdMskpWmvFb4WdI-zI9ZTnHBCTd8IwAdTWUHJ_1DFcHmFZlCtumQf2btaE_t89Vgg-y-z-BCaTzq2</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -17,7 +17,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Gold Rush Slots</string>
+	<string>Gold Slots</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -29,7 +29,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>Pushwoosh_APPID</key>
-	<string>635A8-2189F</string>
+	<string>E992E-29304</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>StartlingFont.ttf</string>
