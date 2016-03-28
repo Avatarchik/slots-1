@@ -242,7 +242,7 @@
     }
     [self addChild:developedByLabel z:13];
     
-    b6luxLabel          = [CCLabelBMFont labelWithString:@"Outlandish Apps LLC" fntFile:kFONT_SETTINGS];
+    b6luxLabel          = [CCLabelBMFont labelWithString:@"Blue Cloud Media, LLC" fntFile:kFONT_SETTINGS];
     b6luxLabel.position = ccp(kWidthScreen/2, developedByLabel.position.y - background.boundingBox.size.height*0.05f);
     b6luxLabel.color    = ccWHITE; //ccc3(69, 42, 4);
     b6luxLabel.opacity  = 0;
@@ -264,7 +264,7 @@
     }
     [self addChild:codeLabel z:13];
     
-    eLabel          = [CCLabelBMFont labelWithString:@"Outlandish Apps LLC" fntFile:kFONT_SETTINGS];
+    eLabel          = [CCLabelBMFont labelWithString:@"Blue Cloud Media, LLC" fntFile:kFONT_SETTINGS];
     eLabel.position = ccp(kWidthScreen/2, codeLabel.position.y - background.boundingBox.size.height*0.05f);
     eLabel.color    = ccWHITE; //ccc3(69, 42, 4);
     eLabel.opacity  = 0;
