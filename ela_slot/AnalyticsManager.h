@@ -28,6 +28,12 @@
 -(void) trackBonusMiniGame;
 -(void) trackScatterFreeSpins:(NSInteger) freeSpins;
 
-
+- (void) trackIAP:(NSString*)               transactionID
+             name:(NSString*)               name
+              SKU:(NSString*)               SKU
+         category:(NSString*)               category
+            price:(NSNumber*)               price
+         quantity:(NSNumber*)               quantity
+     currencyCode:(NSString*)               currentCode;
 
 @end

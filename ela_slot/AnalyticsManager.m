@@ -157,5 +157,10 @@
 }
 
 
+-(void)trackIAP:(NSString *)transactionID name:(NSString *)name SKU:(NSString *)SKU category:(NSString *)category price:(NSNumber *)price quantity:(NSNumber *)quantity currencyCode:(NSString *)currentCode{
+    [FSAnalyticsManager trackIAP:transactionID name:name SKU:SKU category:category price:price quantity:quantity currencyCode:currentCode];
+}
+    
+    
 
 @end

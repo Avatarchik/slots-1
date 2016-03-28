@@ -36,9 +36,9 @@
 #define b (BottomMenu *)[myParent getChildByTag:kBottomMenuTAG]
 #define t (TopMenu *)[myParent getChildByTag:kTopMenuTAG]
 
-#define ALWAYS_WIN YES
+#define ALWAYS_WIN NO
 #define ALWAYS_SCATTER NO
-#define ALWAYS_BONUS YES
+#define ALWAYS_BONUS NO
 
 typedef NS_ENUM(NSUInteger, WinStatus)
 {

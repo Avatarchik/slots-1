@@ -11,9 +11,9 @@
 		220ABD401C7A9D4F0002708A /* FSLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220ABD3F1C7A9D4F0002708A /* FSLog.framework */; };
 		220ABD411C7A9D4F0002708A /* FSLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 220ABD3F1C7A9D4F0002708A /* FSLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
-		2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; };
-		2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2228F9241C7539550039FCCA /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22B1C65F1C83C9E1005E8693 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 22B1C65E1C83C9E1005E8693 /* ToDo */; };
+		22E1023F1CA8BE6100B557E4 /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */; };
+		22E102401CA8BE6100B557E4 /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
 		846A30E11828E35D00C32146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A30E01828E35D00C32146 /* Images.xcassets */; };
@@ -706,8 +706,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				22E102401CA8BE6100B557E4 /* FSAnalytics.framework in Embed Frameworks */,
 				220ABD411C7A9D4F0002708A /* FSLog.framework in Embed Frameworks */,
-				2228F9261C7539550039FCCA /* FSAnalytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,9 +719,9 @@
 		220ABD3D1C7943930002708A /* AnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsManager.m; sourceTree = "<group>"; };
 		220ABD3F1C7A9D4F0002708A /* FSLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSLog.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSLog.framework"; sourceTree = "<absolute>"; };
 		2227073F1C431488005383CF /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
-		2228F9241C7539550039FCCA /* FSAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FSAnalytics.framework; path = "/Users/efan/Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<absolute>"; };
 		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		22B1C65E1C83C9E1005E8693 /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSAnalytics.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -1781,10 +1781,10 @@
 				C9DBED871B7D382A00EA53BD /* MediaPlayer.framework in Frameworks */,
 				C9DBED851B7D382000EA53BD /* CoreMedia.framework in Frameworks */,
 				C9DBED831B7D381100EA53BD /* CoreTelephony.framework in Frameworks */,
-				2228F9251C7539550039FCCA /* FSAnalytics.framework in Frameworks */,
 				C9DBED811B7D380600EA53BD /* AdSupport.framework in Frameworks */,
 				FA58985217BEDADE00E38432 /* AVFoundation.framework in Frameworks */,
 				FA58985417BEDADE00E38432 /* UIKit.framework in Frameworks */,
+				22E1023F1CA8BE6100B557E4 /* FSAnalytics.framework in Frameworks */,
 				FA58985817BEDADE00E38432 /* CoreGraphics.framework in Frameworks */,
 				FA58985617BEDADE00E38432 /* Foundation.framework in Frameworks */,
 				FA589BC217BEDF7F00E38432 /* libz.1.1.3.dylib in Frameworks */,
@@ -2496,7 +2496,6 @@
 			isa = PBXGroup;
 			children = (
 				220ABD3F1C7A9D4F0002708A /* FSLog.framework */,
-				2228F9241C7539550039FCCA /* FSAnalytics.framework */,
 				2227073F1C431488005383CF /* ReadMe */,
 				22B1C65E1C83C9E1005E8693 /* ToDo */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
@@ -2547,6 +2546,7 @@
 		FA58984817BEDADD00E38432 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */,
 				C96D6D6C1BF76BC4005A5381 /* applovin-ios-sdk-3.1.6 */,
 				C91829CE1B94EF5300E14ED9 /* libstdc++.dylib */,
 				C9683F751B91B5B300906652 /* Pushwoosh.framework */,

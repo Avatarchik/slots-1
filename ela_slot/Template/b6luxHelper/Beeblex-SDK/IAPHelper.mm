@@ -397,6 +397,9 @@ static const char* jailbreak_apps[] =
         
         identifier_ = nil;
         
+        
+        
+        
     }
     
    
@@ -411,6 +414,12 @@ static const char* jailbreak_apps[] =
     
     isPurchasedNow = NO;
     isRestoringNow = NO;
+    
+    if(identifier_ != nil)
+    {
+#warning LOCALIZE
+        [[AnalyticsManager sharedManager] trackIAP:transaction.transactionIdentifier name:transaction.payment.productIdentifier SKU:transaction.payment.productIdentifier category:@"IAP" price:@(0) quantity:@(transaction.payment.quantity) currencyCode:@"USD"];
+    }
     
 }
 

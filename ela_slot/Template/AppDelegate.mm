@@ -81,6 +81,8 @@
     
     // Setup Analytics with tracking ID and device ID.
     [FSAnalyticsManager setupWithTrackingID:@"UA-65793508-5" dispatchInterval:20 sampleRate:50.0];
+    
+    
     NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     [FSAnalyticsManager trackUserID:uuid];
     
