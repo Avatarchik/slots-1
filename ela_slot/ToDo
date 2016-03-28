@@ -2,8 +2,6 @@ Blockers:
 - Are Google analytics being reported? (Change dispatch frequency before shipping)
 - 'More Games' button doesnt seem to work after I updated the Chartboost ID.
 - App screen shots for iTunes Connect.
-- Test Game Center
-
 
 Deferrable:
 - Test PushWoosh
