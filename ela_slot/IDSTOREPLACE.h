@@ -16,7 +16,7 @@
 
 
 //After this amount of spins an add will come up
-#define spinsToAd @10
+#define spinsToAd @15
 
 //The time between ads (when the user watch a video add, for this time, she/he won't be able to watch it again.
 #define minutesBetweenAds @15
