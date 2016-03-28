@@ -4563,6 +4563,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fantapsticstudio.goldrushjackpotslots;
 				PRODUCT_NAME = "Secret Chest Slots V2.7";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -4608,6 +4609,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fantapsticstudio.goldrushjackpotslots;
 				PRODUCT_NAME = "Secret Chest Slots V2.7";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
