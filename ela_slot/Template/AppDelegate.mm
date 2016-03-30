@@ -8,7 +8,8 @@
 
 //
 #import "cocos2d.h"
-#import <FSAnalytics/FSAnalytics.h>
+#import "AnalyticsManager.h"
+//#import <FSAnalytics/FSAnalytics.h>
 #import "AppDelegate.h"
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
@@ -78,13 +79,11 @@
 {
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // Setup Analytics with tracking ID and device ID.
-    [FSAnalyticsManager setupWithTrackingID:@"UA-65793508-5" dispatchInterval:20 sampleRate:50.0];
-    
-    
+
     NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    [FSAnalyticsManager trackUserID:uuid];
+
+    // Setup Analytics with tracking ID and device ID.
+    [[AnalyticsManager sharedManager] setupWithTrackingID:@"UA-65793508-6" dispatchInterval:20 sampleRate:50.0 userID: uuid];
     
     
     // Setup Chartboost

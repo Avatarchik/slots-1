@@ -40,6 +40,11 @@
 }
 
 
+-(void)setupWithTrackingID:(NSString *)trackingID dispatchInterval:(NSUInteger)dispatchInterval sampleRate:(float)sampleRate userID:(NSString *)userID{
+    [FSAnalyticsManager setupWithTrackingID:trackingID dispatchInterval:dispatchInterval sampleRate:sampleRate];
+    [FSAnalyticsManager trackUserID:userID];
+}
+
 -(NSArray*) popoverPresenters {
     return @[kNodeLobby, kNodeSlot];
 }

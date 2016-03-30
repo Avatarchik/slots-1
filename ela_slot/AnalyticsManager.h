@@ -12,6 +12,14 @@
 
 +(AnalyticsManager*) sharedManager;
 
+
+// Setup analytics.
+- (void) setupWithTrackingID:(NSString*)    trackingID
+            dispatchInterval:(NSUInteger)   dispatchInterval
+                  sampleRate:(float)        sampleRate
+                      userID:(NSString*)    userID;
+
+
 // UI
 -(void) trackScreenView:(NSString*) screenView;
 -(void) trackButtonTap:(NSString*) buttonName;
