@@ -14,6 +14,8 @@
 		22B1C65F1C83C9E1005E8693 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 22B1C65E1C83C9E1005E8693 /* ToDo */; };
 		22E1023F1CA8BE6100B557E4 /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */; };
 		22E102401CA8BE6100B557E4 /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		22E126D21CB4993C00B557E4 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22E126D11CB4993C00B557E4 /* GoogleService-Info-2.plist */; };
+		22E126D51CB49B4300B557E4 /* FSAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E126D41CB49B4300B557E4 /* FSAnalyticsManager.m */; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
 		846A30E11828E35D00C32146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A30E01828E35D00C32146 /* Images.xcassets */; };
@@ -722,6 +724,9 @@
 		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		22B1C65E1C83C9E1005E8693 /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSAnalytics.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<group>"; };
+		22E126D11CB4993C00B557E4 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		22E126D31CB49B4300B557E4 /* FSAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAnalyticsManager.h; sourceTree = "<group>"; };
+		22E126D41CB49B4300B557E4 /* FSAnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAnalyticsManager.m; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -2498,6 +2503,7 @@
 				220ABD3F1C7A9D4F0002708A /* FSLog.framework */,
 				2227073F1C431488005383CF /* ReadMe */,
 				22B1C65E1C83C9E1005E8693 /* ToDo */,
+				22E126D11CB4993C00B557E4 /* GoogleService-Info-2.plist */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
 				C9DBED101B7D2DED00EA53BD /* IDSTOREPLACE.h */,
 				C98A3BCF1B94F68E004208A9 /* Images */,
@@ -2514,6 +2520,8 @@
 				F55D645E17D6028500F3B2C6 /* Font */,
 				F532D3C417C354470035456B /* Menu.h */,
 				F532D3C517C354470035456B /* Menu.mm */,
+				22E126D31CB49B4300B557E4 /* FSAnalyticsManager.h */,
+				22E126D41CB49B4300B557E4 /* FSAnalyticsManager.m */,
 				220ABD3C1C7943930002708A /* AnalyticsManager.h */,
 				220ABD3D1C7943930002708A /* AnalyticsManager.m */,
 				F532D3CD17C3F0CB0035456B /* TopMenu.h */,
@@ -3814,6 +3822,7 @@
 				C90DC8CF1B9B688500BDCBDA /* bg0_1.plist in Resources */,
 				C9D047481B8DC67200DA2D3E /* paytables_pressed.png in Resources */,
 				C96D6DC21BF76BC5005A5381 /* ALSdkSettings.html in Resources */,
+				22E126D21CB4993C00B557E4 /* GoogleService-Info-2.plist in Resources */,
 				FA640CFB1827853F002472B7 /* s_6.wav in Resources */,
 				FA640D2F1827D785002472B7 /* 30_S.png in Resources */,
 				FA0C9DD217F953C7003F2285 /* sp_settings_menu-hd.pvr.ccz in Resources */,
@@ -4380,6 +4389,7 @@
 				FA589B7E17BEDE6D00E38432 /* B6luxRatePopup.m in Sources */,
 				FA589B8417BEDE6D00E38432 /* B6luxTwitter.m in Sources */,
 				FA589B8517BEDE6D00E38432 /* CCDirectorHelper.m in Sources */,
+				22E126D51CB49B4300B557E4 /* FSAnalyticsManager.m in Sources */,
 				FA589B8617BEDE6D00E38432 /* ScreenShot.mm in Sources */,
 				FA589B8717BEDE6D00E38432 /* cfg.mm in Sources */,
 				FA589B8817BEDE6D00E38432 /* Combinations.m in Sources */,
