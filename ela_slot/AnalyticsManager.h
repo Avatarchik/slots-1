@@ -14,8 +14,7 @@
 
 
 // Setup analytics.
-- (void) setupWithTrackingID:(NSString*)    trackingID
-            dispatchInterval:(NSUInteger)   dispatchInterval
+- (void) setupWithDispatchInterval:(NSUInteger)   dispatchInterval
                   sampleRate:(float)        sampleRate
                       userID:(NSString*)    userID;
 

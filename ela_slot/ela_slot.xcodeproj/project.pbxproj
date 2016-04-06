@@ -12,13 +12,12 @@
 		220ABD411C7A9D4F0002708A /* FSLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 220ABD3F1C7A9D4F0002708A /* FSLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		222707401C431488005383CF /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 2227073F1C431488005383CF /* ReadMe */; };
 		22B1C65F1C83C9E1005E8693 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 22B1C65E1C83C9E1005E8693 /* ToDo */; };
-		22E1023F1CA8BE6100B557E4 /* FSAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */; };
-		22E102401CA8BE6100B557E4 /* FSAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22E126D21CB4993C00B557E4 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22E126D11CB4993C00B557E4 /* GoogleService-Info-2.plist */; };
 		22E126D51CB49B4300B557E4 /* FSAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E126D41CB49B4300B557E4 /* FSAnalyticsManager.m */; };
+		22E126D71CB4AD7300B557E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22E126D61CB4AD7300B557E4 /* GoogleService-Info.plist */; };
 		846A30DD182824B900C32146 /* coin-drop-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DC182824B900C32146 /* coin-drop-4.wav */; };
 		846A30DF18282BB100C32146 /* locked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 846A30DE18282BB100C32146 /* locked.mp3 */; };
 		846A30E11828E35D00C32146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A30E01828E35D00C32146 /* Images.xcassets */; };
+		8B1DA8C4BB289C6942AB19D9 /* libPods-Gold Rush Slots.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C94C2E2269D34A3AF46F35 /* libPods-Gold Rush Slots.a */; };
 		C90DC8741B9ADD5F00BDCBDA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C90DC8681B9ADD5E00BDCBDA /* 1.png */; };
 		C90DC8751B9ADD5F00BDCBDA /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C90DC8691B9ADD5E00BDCBDA /* 2.png */; };
 		C90DC8761B9ADD5F00BDCBDA /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C90DC86A1B9ADD5E00BDCBDA /* 3.png */; };
@@ -708,7 +707,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				22E102401CA8BE6100B557E4 /* FSAnalytics.framework in Embed Frameworks */,
 				220ABD411C7A9D4F0002708A /* FSLog.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -724,9 +722,10 @@
 		2228F9271C754C200039FCCA /* NodeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeNames.h; sourceTree = "<group>"; };
 		22B1C65E1C83C9E1005E8693 /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		22E1023D1CA8BE5900B557E4 /* FSAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FSAnalytics.framework; path = "../../../../Library/Developer/Xcode/DerivedData/EarlyLearningAcademys-hfbwhjtfhynlvdajtqfdwkfhzuwi/Build/Products/Debug-iphoneos/FSAnalytics.framework"; sourceTree = "<group>"; };
-		22E126D11CB4993C00B557E4 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		22E126D31CB49B4300B557E4 /* FSAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAnalyticsManager.h; sourceTree = "<group>"; };
 		22E126D41CB49B4300B557E4 /* FSAnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAnalyticsManager.m; sourceTree = "<group>"; };
+		22E126D61CB4AD7300B557E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		515F74E46E658F95E29C31CF /* Pods-Gold Rush Slots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gold Rush Slots.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gold Rush Slots/Pods-Gold Rush Slots.debug.xcconfig"; sourceTree = "<group>"; };
 		846A30DC182824B900C32146 /* coin-drop-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "coin-drop-4.wav"; sourceTree = "<group>"; };
 		846A30DE18282BB100C32146 /* locked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = locked.mp3; sourceTree = "<group>"; };
 		846A30E01828E35D00C32146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Template/Images.xcassets; sourceTree = "<group>"; };
@@ -883,6 +882,7 @@
 		C9DBED821B7D381100EA53BD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C9DBED841B7D382000EA53BD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C9DBED861B7D382A00EA53BD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		DE26C452EF227F3A67901FDE /* Pods-Gold Rush Slots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gold Rush Slots.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gold Rush Slots/Pods-Gold Rush Slots.release.xcconfig"; sourceTree = "<group>"; };
 		F532D3C417C354470035456B /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		F532D3C517C354470035456B /* Menu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Menu.mm; sourceTree = "<group>"; };
 		F532D3CA17C390C40035456B /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
@@ -978,6 +978,7 @@
 		F5BC9A0117D9B1320050ECC4 /* music_sample2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music_sample2.mp3; sourceTree = "<group>"; };
 		F5BC9A0317D9B1880050ECC4 /* btn1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = btn1.mp3; sourceTree = "<group>"; };
 		F5BC9A0417D9B1880050ECC4 /* btn2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = btn2.mp3; sourceTree = "<group>"; };
+		F7C94C2E2269D34A3AF46F35 /* libPods-Gold Rush Slots.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gold Rush Slots.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA037E101828135E000234D3 /* m_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m_1.mp3; sourceTree = "<group>"; };
 		FA037E111828135E000234D3 /* m_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m_2.mp3; sourceTree = "<group>"; };
 		FA037E121828135E000234D3 /* m_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m_4.mp3; sourceTree = "<group>"; };
@@ -1789,7 +1790,6 @@
 				C9DBED811B7D380600EA53BD /* AdSupport.framework in Frameworks */,
 				FA58985217BEDADE00E38432 /* AVFoundation.framework in Frameworks */,
 				FA58985417BEDADE00E38432 /* UIKit.framework in Frameworks */,
-				22E1023F1CA8BE6100B557E4 /* FSAnalytics.framework in Frameworks */,
 				FA58985817BEDADE00E38432 /* CoreGraphics.framework in Frameworks */,
 				FA58985617BEDADE00E38432 /* Foundation.framework in Frameworks */,
 				FA589BC217BEDF7F00E38432 /* libz.1.1.3.dylib in Frameworks */,
@@ -1809,12 +1809,22 @@
 				FA58985A17BEDADE00E38432 /* CoreText.framework in Frameworks */,
 				FA58985C17BEDADE00E38432 /* GameKit.framework in Frameworks */,
 				C9DBED121B7D2EA500EA53BD /* Chartboost.framework in Frameworks */,
+				8B1DA8C4BB289C6942AB19D9 /* libPods-Gold Rush Slots.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A9CE2090B103496B21BB457 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				515F74E46E658F95E29C31CF /* Pods-Gold Rush Slots.debug.xcconfig */,
+				DE26C452EF227F3A67901FDE /* Pods-Gold Rush Slots.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C90DC89C1B9B62E900BDCBDA /* GameBackground(notworking) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2503,7 +2513,7 @@
 				220ABD3F1C7A9D4F0002708A /* FSLog.framework */,
 				2227073F1C431488005383CF /* ReadMe */,
 				22B1C65E1C83C9E1005E8693 /* ToDo */,
-				22E126D11CB4993C00B557E4 /* GoogleService-Info-2.plist */,
+				22E126D61CB4AD7300B557E4 /* GoogleService-Info.plist */,
 				846A30E01828E35D00C32146 /* Images.xcassets */,
 				C9DBED101B7D2DED00EA53BD /* IDSTOREPLACE.h */,
 				C98A3BCF1B94F68E004208A9 /* Images */,
@@ -2540,6 +2550,7 @@
 				FA589BF217BEE29100E38432 /* Boss */,
 				FA58984817BEDADD00E38432 /* Frameworks */,
 				FA58984717BEDADD00E38432 /* Products */,
+				6A9CE2090B103496B21BB457 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2583,6 +2594,7 @@
 				FA58985717BEDADE00E38432 /* CoreGraphics.framework */,
 				FA58985917BEDADE00E38432 /* CoreText.framework */,
 				FA58985B17BEDADE00E38432 /* GameKit.framework */,
+				F7C94C2E2269D34A3AF46F35 /* libPods-Gold Rush Slots.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3743,10 +3755,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA589A9117BEDAEC00E38432 /* Build configuration list for PBXNativeTarget "Gold Rush Slots" */;
 			buildPhases = (
+				D4F15CD7B4ACED4EC126B4D0 /* Check Pods Manifest.lock */,
 				FA58984217BEDADD00E38432 /* Sources */,
 				FA58984317BEDADD00E38432 /* Frameworks */,
 				FA58984417BEDADD00E38432 /* Resources */,
 				2228F9231C7531DF0039FCCA /* Embed Frameworks */,
+				79646487034B93546051A9DB /* Embed Pods Frameworks */,
+				E36C0F9C1DE4B60E8C9C4421 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3822,7 +3837,6 @@
 				C90DC8CF1B9B688500BDCBDA /* bg0_1.plist in Resources */,
 				C9D047481B8DC67200DA2D3E /* paytables_pressed.png in Resources */,
 				C96D6DC21BF76BC5005A5381 /* ALSdkSettings.html in Resources */,
-				22E126D21CB4993C00B557E4 /* GoogleService-Info-2.plist in Resources */,
 				FA640CFB1827853F002472B7 /* s_6.wav in Resources */,
 				FA640D2F1827D785002472B7 /* 30_S.png in Resources */,
 				FA0C9DD217F953C7003F2285 /* sp_settings_menu-hd.pvr.ccz in Resources */,
@@ -3890,6 +3904,7 @@
 				F55D647117D602BC00F3B2C6 /* 256.png in Resources */,
 				FA640D111827853F002472B7 /* wheelspin.mp3 in Resources */,
 				C96D6DCD1BF76BC5005A5381 /* hierarchy.html in Resources */,
+				22E126D71CB4AD7300B557E4 /* GoogleService-Info.plist in Resources */,
 				FA92A7F217F4683900EA9681 /* win_particles-ipad.plist in Resources */,
 				C96D6DCF1BF76BC5005A5381 /* disclosure.png in Resources */,
 				FA0C9DDB17F953C7003F2285 /* sp_top_menu-ipad.plist in Resources */,
@@ -4179,6 +4194,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79646487034B93546051A9DB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gold Rush Slots/Pods-Gold Rush Slots-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4F15CD7B4ACED4EC126B4D0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E36C0F9C1DE4B60E8C9C4421 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gold Rush Slots/Pods-Gold Rush Slots-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA58984217BEDADD00E38432 /* Sources */ = {
@@ -4543,6 +4606,7 @@
 		};
 		FA589A9217BEDAEC00E38432 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 515F74E46E658F95E29C31CF /* Pods-Gold Rush Slots.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4561,22 +4625,26 @@
 					"CC_ENABLE_BOX2D_INTEGRATION=1",
 					DEBUG,
 					"COCOS2D_DEBUG=1",
+					"$(inherited)",
 				);
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = "\"Template/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"Template/libs/kazmath/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Template/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Template/b6luxHelper/b6luxIAPurchase",
-					"$(PROJECT_DIR)/applovin-ios-sdk-3.0.2",
 					"$(PROJECT_DIR)/applovin-ios-sdk-3.1.6",
+					"$(inherited)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fantapsticstudio.goldrushjackpotslots;
 				PRODUCT_NAME = "Secret Chest Slots V2.7";
@@ -4590,6 +4658,7 @@
 		};
 		FA589A9317BEDAEC00E38432 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE26C452EF227F3A67901FDE /* Pods-Gold Rush Slots.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4607,22 +4676,26 @@
 					"CC_ENABLE_BOX2D_INTEGRATION=1",
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
 				);
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = "\"Template/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"Template/libs/kazmath/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Template/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Template/b6luxHelper/b6luxIAPurchase",
-					"$(PROJECT_DIR)/applovin-ios-sdk-3.0.2",
 					"$(PROJECT_DIR)/applovin-ios-sdk-3.1.6",
+					"$(inherited)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fantapsticstudio.goldrushjackpotslots;
 				PRODUCT_NAME = "Secret Chest Slots V2.7";

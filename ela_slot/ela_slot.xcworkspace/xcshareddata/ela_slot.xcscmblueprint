@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6FD9E020C1C3220E9E0E992DAA8060AFD664138C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6FD9E020C1C3220E9E0E992DAA8060AFD664138C" : 0,
+    "D9CAB7C2E7114038610D2F214DA4CCD6666E1C5B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "998D5DB6-0D42-4346-B537-8656E6D3DACE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6FD9E020C1C3220E9E0E992DAA8060AFD664138C" : "slot\/",
+    "D9CAB7C2E7114038610D2F214DA4CCD6666E1C5B" : "frameworks\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ela_slot",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ela_slot\/ela_slot.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/edwardjfan\/slots.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6FD9E020C1C3220E9E0E992DAA8060AFD664138C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/edwardjfan\/frameworks.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D9CAB7C2E7114038610D2F214DA4CCD6666E1C5B"
+    }
+  ]
+}

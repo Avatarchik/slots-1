@@ -10,6 +10,7 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import <Google/Analytics.h>
 
 #define TRACKER [[GAI sharedInstance] defaultTracker]
 #define ResetTrackerScreenName()  [TRACKER set:kGAIScreenName value:nil]
@@ -18,7 +19,11 @@
 
 + (void)setupWithTrackingID:(NSString*) trackingID dispatchInterval:(NSUInteger) dispatchInterval sampleRate:(float) sampleRate
 {
-
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
     // trackUncaughtExceptions – Tracking uncaught exceptions will flag up any exceptions that you are not dealing with that have caused your application to crash.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     
@@ -28,19 +33,19 @@
     // dispatchInterval – By default, this is set to 120, which states that tracking information should be dispatched (uploaded to Google Analytics) automatically every 120 seconds. In this tutorial you will set this to a shorter time period so that you can see the data in your Google Analytics dashboard without having to wait for a prolonged period of time. In a production environment every 120 seconds should be often enough.
     [GAI sharedInstance].dispatchInterval = dispatchInterval;
     
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingID];
-    
-    // Set bundle version.
-    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
-    [tracker set:kGAIAppVersion value:version];
-    
-    // Set Sample Rate.
-    NSString* sampleRateString = [NSString stringWithFormat:@"%f", sampleRate];
-    [tracker set:kGAISampleRate value:sampleRateString];
+//    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingID];
+//    
+//    // Set bundle version.
+//    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+//    [tracker set:kGAIAppVersion value:version];
+//    
+//    // Set Sample Rate.
+//    NSString* sampleRateString = [NSString stringWithFormat:@"%f", sampleRate];
+//    [tracker set:kGAISampleRate value:sampleRateString];
 }
 
 + (void) trackUserID:(NSString*) userID{
-    [TRACKER set:kGAIUserId value: userID];
+    [[[GAI sharedInstance] defaultTracker] set:kGAIUserId value: userID];
 }
 
 + (void) trackScreenView: (NSString*) screenName{
@@ -51,10 +56,10 @@
         NSLog(@"FSAnalyticsManager - screenName nil");
     }
     // Set tracker screenname.
-    [TRACKER set:kGAIScreenName value:screenName];
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:screenName];
     
     // Send tracker dictionary.
-    [TRACKER send:[[GAIDictionaryBuilder createScreenView] build]];
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createScreenView] build]];
     
     ResetTrackerScreenName();
 }
@@ -69,10 +74,10 @@
     }
     
     // Set tracker screenname.
-    [TRACKER set:kGAIScreenName value:screenName];
+    [[[GAI sharedInstance] defaultTracker] set:kGAIScreenName value:screenName];
     
     // Send tracker dictionary.
-    [TRACKER send:[[GAIDictionaryBuilder createEventWithCategory:category
+    [[[GAI sharedInstance] defaultTracker] send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                           action:action
                                                            label:label
                                                            value:value] build]];

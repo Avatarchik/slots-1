@@ -8,7 +8,8 @@
 
 #import "AnalyticsManager.h"
 #import "NodeNames.h"
-#import <FSAnalytics/FSAnalytics.h>
+//#import <FSAnalytics/FSAnalytics.h>
+#import "FSAnalyticsManager.h"
 
 
 @interface AnalyticsManager()
@@ -38,7 +39,6 @@
     }
     return self;
 }
-
 
 -(void)setupWithTrackingID:(NSString *)trackingID dispatchInterval:(NSUInteger)dispatchInterval sampleRate:(float)sampleRate userID:(NSString *)userID{
     [FSAnalyticsManager setupWithTrackingID:trackingID dispatchInterval:dispatchInterval sampleRate:sampleRate];

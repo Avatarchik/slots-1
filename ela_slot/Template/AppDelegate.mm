@@ -25,7 +25,7 @@
 
 #import "IDSTOREPLACE.h"
 
-
+#import <Google/Analytics.h>
 
 @implementation MyNavigationController 
     
@@ -85,6 +85,15 @@
     // Setup Analytics with tracking ID and device ID.
     [[AnalyticsManager sharedManager] setupWithTrackingID:@"UA-65793508-6" dispatchInterval:20 sampleRate:50.0 userID: uuid];
     
+//    // Configure tracker from GoogleService-Info.plist.
+//    NSError *configureError;
+//    [[GGLContext sharedInstance] configureWithError:&configureError];
+////    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+//    
+//    // Optional: configure GAI options.
+//    GAI *gai = [GAI sharedInstance];
+//    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+//    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
     
     // Setup Chartboost
     [Chartboost startWithAppId:chartBoostAppID
