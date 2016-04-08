@@ -1,0 +1,80 @@
+
+How to Setup and Reskin
+
+http://www.chupamobile.com/ios-casino-and-cards/secret-chest-slots-zero-lag-gameplay-10885
+
+
+[Note See Long Version mentioned above at the bottom of this section]
+
+This app template has been organized to help you to reskin it fast and still turn out a high quality app for your fans and users! Below you will see some notes on what and where you can change. If you buy this template you will receive a link to a private video where I go step by step to reskin this app from going over the written documentation.
+
+
+You have the ability to easily turn off the Applovin interstitials during gameplay within the code and leave it turned ON on your Applovin Dashboard. That allows you to still use the pop interstial that you see when the FREE GAME button is pushed.
+
+IDSTOREPLACE.h file is where you can:
+
+Replace Chartboost ID
+Turn Off Applovin Interstitals (but still keeps the Free Game button on)
+Select interstial Pop Up frequency
+Time in between being able to watch a video ad in exchange for coins
+Change out your app link so when they click on (Rate App) it goes to your app
+Turn off Pushwoosh (if you don’t want to use this feature.
+TARGETS / INFO file where you can:
+Add your Applovin Key
+Add your Pushwoosh ID
+Change your Bundle Display Name (name under icon)
+cfg.h file where you can:
+
+Change all In App Purchase ID's
+Change Leaderboard ID
+Amount of Coins the user receives after initial download
+Amount of Coin boosts the user receives after initial download
+SettingsWindows.mm file where you can:
+
+Change the credits listing on the about page
+(find by clicking settings icon, then about)
+Assets to change:
+
+To make this easy the buttons within the source files are highlighted with yellow and green dots must be replaced. This includes:
+
+App icon (1 image / 13 sizes / 2 locations)
+Slot reel images (12 images / 2 sizes)
+Main home screen lobby background (1 image / 4 sizes)
+Main home screen slots theme icon (1 image / 4 sizes)
+Splash screen (1 image / 4 sizes / 2 locations)
+Loading screen (1 image / 1 size)
+Just a reminder that you will receive a details PDF that explains the entire reskinning process, files you need to replace and a link to a PRIVATE VIDEO, that is a screen capture of me doing just that, reskinning the game.
+
+
+[LONG VERSION cont.]
+
+
+Many Casino Slot App Templates are designed with all PNG images that take up a TON of space and can bog down the game play experience. The reason for this is because as the game starts to run it has to “Drawl” these images individually which bogs down the game. There is a lot dead space waisted in these images because much of the pixel space inside that file is not being used. This of course varies depending on the image, but you get the point.
+
+
+NOT THIS TEMPLATE!!
+
+This lagging you experience in many other games is common with short pauses or freezing as you play. There is another way to do this and it’s combining many of the individual items like your slot real icons into one image or sprite sheet and the background images into their own sprites. These sprites allow you to drawl less individual images (up to 90%) to run the same game. Because you are combining many of these small random images (characters or slot real icons) into one image you can pack them close together and eliminate all the dead space around each image if they were in their own PNG file.
+
+A downside of using sprites in an app template is that some find it more complicated to replace these images and easily reskin.
+
+
+We took the best of both worlds:
+
+
+Used sprites for images you do not have to change (User interface / menu backgrounds and buttons).
+
+
+Used PNGs for the images you do have to change (Slot Reel icons, splash screens, app icons).
+
+
+This will allow you to quickly reskin the game with your own PNGs and have the performance of game build primary with sprites. You end up with a fast and beautiful zero lag slots app template (rare) under 100 mb (very rare).
+
+
+If you decide to to change some of these sprites..not a problem! We will show you what free trial program to use and how to use it with a screen share video The link to this private video will be included in the documentation PDF.
+
+
+Thanks for taking the time to check out our Secret Chest Slots Template. If you have any questions, do not hesitate to ask.
+
+
+FREE UPDATES FOR LIFE!
