@@ -26,6 +26,8 @@
 #import "IDSTOREPLACE.h"
 
 #import <Google/Analytics.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @implementation MyNavigationController 
     
@@ -80,6 +82,10 @@
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    
+    [Fabric with:@[[Crashlytics class]]];
+
+    
     NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
 
     // Setup Analytics with tracking ID and device ID.
@@ -227,7 +233,8 @@
 
 
 //    [BBXBeeblex initializeWithAPIKey:@"NWQyMmI0YTdlZmM2MDMwNTg2MjUwNmM4NzJkYjJmZWIyMWIxNzU4NDUxMGE1ZjQ4NTIyNWRiNWJiYmIzZTYxZWExNGZmZDE1MTI5MzU4ODNiNjllNjI4NzkzZjlmZTE2ZGU0ODZlNjllZDVjZjQ5NzQwMTBlOTBlNzVkNTYzNTcsLS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEyTzdjbFhwQUZuL1NOTmpydHUxdwpOdWJWWGdpT1gxck5jRkMwampCVGhuVkVmY1RpV1FFa3ArWldFOVdveHdtc2FMNW5MNnZGYnIrUlpxbG9hdm16ClBueGRvVVlLamYvYnY0cStxQ0ZZd1NMQ25aQ0Flb2ppditKOUdaL0N2YlB6aUFIQ3ArN1AyTGhEUWw4Vk1qZVQKQndVZkt6NTRHWGZQTG5VZ05mNkFtS3AvNlNHT0hnTFlDb2IrSEJBRklJQnQvY2NweXRDenlPKzVtb1d0N2FrWQo3WG1JRmR6b2NkTnh3YkdJK3Y3cnpGLzJtbUk3TDFqbmVXWGw2MUJKcmIyT1dmSFVPcTBmUDBHWmRTdXZ5YUxICjZuNjdKaE9meURoZW5RaUd4cHBLcU5wRkQvZ3BtWVNadGpYN3drZE5RM3hOd0x5Rjd1YjBMV3JORnFUWXA5ZlEKYlFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"];
-	
+//        [[Crashlytics sharedInstance] crash];
+
 	return YES;
 }
 // system push notification registration success callback, delegate to pushManager

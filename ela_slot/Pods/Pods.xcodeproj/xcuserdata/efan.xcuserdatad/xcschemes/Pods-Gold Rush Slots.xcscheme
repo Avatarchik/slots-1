@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EF027D1496CE6941424C3F4C'
+               BlueprintIdentifier = 'F4DA6369A04E3F8DB61ED1AB'
                BlueprintName = 'Pods-Gold Rush Slots'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Gold Rush Slots.a'>
