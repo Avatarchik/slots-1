@@ -98,6 +98,14 @@
     [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:screenView];
 }
 
+-(void) trackLevelUp:(NSUInteger)level{
+    NSString* category = @"Gameplay";
+    NSString* action = @"Level_Up";
+    NSString* label = @"";
+    NSNumber* valueNumber = [NSNumber numberWithUnsignedInteger:level];
+    [FSAnalyticsManager trackEventWithCategory:category action:action label:label value:valueNumber screenName:@"Level Up"];
+}
+
 // Track a button tap with name and value.
 -(void)trackButtonTap:(NSString *)buttonName value:(NSNumber*) value{
     if(buttonName == nil)
